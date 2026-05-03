@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Arpit Kumar, a Flutter and full stack developer from Jaipur.">
+  <title>Arpit Kumar - Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo">Arpit Kumar</a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Open navigation menu" aria-controls="nav-menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-layout">
+        <div class="hero-content reveal">
+          <p class="eyebrow">3rd Year B.Tech IT Student - Jaipur, Rajasthan</p>
+          <h1>Arpit Kumar</h1>
+          <p class="tagline">Flutter &amp; Full Stack Developer | Python | IoT</p>
+          <p class="intro">I build clean web and mobile experiences with JavaScript, Flutter, Python, and IoT, with a focus on practical tools that solve real student and community problems.</p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary"><i class="fas fa-code-branch"></i> View Projects</a>
+            <a href="mailto:arpitkumar0211@gmail.com" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Hire / Collaborate</a>
+          </div>
+          <div class="hero-stats" aria-label="Portfolio highlights">
+            <div><strong>10+</strong><span>Tech Skills</span></div>
+            <div><strong>8+</strong><span>GitHub Projects</span></div>
+            <div><strong>2028</strong><span>B.Tech Graduate</span></div>
+          </div>
+        </div>
+        <div class="profile-card reveal">
+          <img src="assets/images/photo2.jpeg" alt="Arpit Kumar" class="profile-photo" width="276" height="354" fetchpriority="high" decoding="async">
+          <div class="profile-meta">
+            <span class="status-dot"></span>
+            <span>Open to internships</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container two-column">
+        <div class="section-title reveal"><h2>About Me</h2></div>
+        <div class="about-card reveal">
+          <h3>Hello! I'm Arpit Kumar</h3>
+          <p>I am a 3rd-year B.Tech Information Technology student from Jaipur, focused on full stack development, Flutter apps, Python, UI/UX, and IoT. I enjoy taking an idea from rough concept to a working product with clean interfaces and reliable code.</p>
+          <p>My projects explore civic tech, agriculture support, safety systems, automation, and mobile-first workflows. I am currently strengthening my data structures, backend fundamentals, and product-thinking skills.</p>
+          <p><strong>Goal:</strong> To grow into a software engineer who can build useful, scalable products, collaborate well with teams, and contribute to meaningful technology projects.</p>
+          <div class="about-details">
+            <span><i class="fas fa-location-dot"></i> Jaipur, Rajasthan</span>
+            <span><i class="fas fa-graduation-cap"></i> 3rd Year B.Tech IT Student</span>
+            <a href="mailto:arpitkumar0211@gmail.com"><i class="fas fa-envelope"></i> arpitkumar0211@gmail.com</a>
+            <a href="tel:+919142170211"><i class="fas fa-phone"></i> 9142170211</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <div class="section-title reveal"><h2>Skills &amp; Expertise</h2></div>
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <h3><i class="fas fa-code"></i> Programming</h3>
+            <div class="tags"><span>Python</span><span>C</span><span>C++</span><span>JavaScript</span><span>HTML</span><span>CSS</span></div>
+          </article>
+          <article class="skill-card reveal">
+            <h3><i class="fas fa-laptop-code"></i> Technical Skills</h3>
+            <div class="tags"><span>Full Stack Development</span><span>Flutter Developer</span><span>UI/UX Design</span><span>Arduino &amp; IoT</span><span>Linux</span></div>
+          </article>
+          <article class="skill-card reveal">
+            <h3><i class="fas fa-book-open"></i> Learning</h3>
+            <div class="tags"><span>DSA Practice</span><span>REST APIs</span><span>Firebase</span><span>Git &amp; GitHub</span><span>Backend Basics</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-title reveal"><h2>GitHub Projects</h2></div>
+        <div class="projects-grid">
+          <article class="project-card reveal"><i class="fas fa-shield-halved project-icon"></i><h3>Sports Media Protection</h3><p>Python tool for checking reused sports visuals fast.</p><div class="tags"><span>Python</span><span>Gemini</span><span>Security</span></div><a href="https://github.com/arpitkumar28/sports-media-protection" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal"><i class="fas fa-seedling project-icon"></i><h3>Krishi Sahayak</h3><p>Flutter app for farmer guidance and crop support.</p><div class="tags"><span>Dart</span><span>Flutter</span><span>Agriculture</span></div><a href="https://github.com/arpitkumar28/Krishi-Sahayak" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal"><i class="fas fa-handshake-angle project-icon"></i><h3>SamparkSetu</h3><p>Flutter app for simple connection and communication flows.</p><div class="tags"><span>Dart</span><span>Flutter</span><span>Mobile UI</span></div><a href="https://github.com/arpitkumar28/SamparkSetu" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal"><i class="fas fa-route project-icon"></i><h3>New Safe Route</h3><p>Frontend prototype for safer route planning ideas.</p><div class="tags"><span>HTML</span><span>CSS</span><span>Safety</span></div><a href="https://github.com/arpitkumar28/New_Safe_Route" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal"><i class="fas fa-city project-icon"></i><h3>Unified Civil Issue Detection</h3><p>Civic-tech app for reporting and tracking public issues.</p><div class="tags"><span>TypeScript</span><span>Civic Tech</span></div><a href="https://github.com/arpitkumar28/unified-civil-issue-detection" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal"><i class="fas fa-car project-icon"></i><h3>IoT Accident Detection System</h3><p>IoT prototype for accident detection and quick alerts.</p><div class="tags"><span>C++</span><span>IoT</span><span>Sensors</span></div><a href="https://github.com/arpitkumar28/IoT_Based_Accident_Detection_System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal"><i class="fas fa-utensils project-icon"></i><h3>Food Ordering System</h3><p>Java OOP project for menu, order, and checkout logic.</p><div class="tags"><span>Java</span><span>OOP</span></div><a href="https://github.com/arpitkumar28/food_ordering_system" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal"><i class="fas fa-list-check project-icon"></i><h3>To-Do List App</h3><p>JavaScript task app with DOM-based UI interactions.</p><div class="tags"><span>JavaScript</span><span>HTML</span><span>CSS</span></div><a href="https://github.com/arpitkumar28/To-Do-List-App" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+        </div>
+        <div class="center reveal"><a class="btn btn-outline" href="https://github.com/arpitkumar28?tab=repositories" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View All Repositories</a></div>
+      </div>
+    </section>
+
+    <section id="education" class="section section-alt">
+      <div class="container">
+        <div class="section-title reveal"><h2>Education</h2></div>
+        <div class="timeline reveal">
+          <article><h3>B.Tech in Information Technology</h3><p>Arya College of Engineering and IT, Jaipur</p><span>2024 - 2028</span></article>
+          <article><h3>Class 12th (CBSE)</h3><p>ABR Foundation School</p><span>2023</span></article>
+          <article><h3>Class 10th (CBSE)</h3><p>Dedicated Public School</p><span>2021</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container contact-grid">
+        <div class="contact-card reveal">
+          <h2>Open to Internships</h2>
+          <p>Interested in software development, Flutter, full stack projects, IoT prototypes, and practical tools that help real users.</p>
+          <div class="contact-list">
+            <a href="tel:+919142170211"><i class="fas fa-phone"></i> 9142170211</a>
+            <a href="mailto:arpitkumar0211@gmail.com"><i class="fas fa-envelope"></i> arpitkumar0211@gmail.com</a>
+            <span><i class="fas fa-location-dot"></i> Jaipur, Rajasthan</span>
+          </div>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/arpitkumar0211" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/arpitkumar28" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/Arpit_patel28" target="_blank" rel="noopener noreferrer" aria-label="X profile"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/arpit_patel28?igsh=d2trdGdpeWM2Y2g3" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <form class="contact-form reveal">
+          <h2>Let us Connect</h2>
+          <label>Name<input type="text" id="name" autocomplete="name" required></label>
+          <label>Email<input type="email" id="email" autocomplete="email" required></label>
+          <label>Subject<input type="text" id="subject" required></label>
+          <label>Message<textarea id="message" required></textarea></label>
+          <button class="btn btn-primary" type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Arpit Kumar. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
