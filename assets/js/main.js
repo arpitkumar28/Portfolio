@@ -22,6 +22,7 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 
     event.preventDefault();
     closeMenu();
+    target.focus({ preventScroll: true });
     window.scrollTo({
       top: target.offsetTop - 72,
       behavior: prefersReducedMotion ? 'auto' : 'smooth',
