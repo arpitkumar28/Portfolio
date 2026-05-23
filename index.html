@@ -22,6 +22,12 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+  <div class="loader-screen" id="loader-screen" aria-hidden="true">
+    <div class="loader-mark">AK</div>
+    <p>Preparing portfolio</p>
+  </div>
+  <div class="site-bg" aria-hidden="true"></div>
+
   <nav class="navbar" aria-label="Primary navigation">
     <div class="container nav-inner">
       <a href="#home" class="logo">Arpit Kumar</a>
@@ -30,10 +36,14 @@
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#journey">Journey</a></li>
         <li><a href="#open-to">Open To</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">
+        <i class="fas fa-sun"></i>
+      </button>
       <button class="hamburger" id="hamburger" type="button" aria-label="Open navigation menu" aria-controls="nav-menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -47,6 +57,7 @@
           <p class="eyebrow">3rd Year B.Tech IT Student - Jaipur, Rajasthan</p>
           <h1>Arpit Kumar</h1>
           <p class="tagline">Flutter &amp; Full Stack Developer</p>
+          <p class="typing-line">I build as a <span id="typing-role">Flutter Developer</span></p>
           <p class="intro">Building scalable web, mobile, and IoT solutions with a focus on practical problem solving, clean user interfaces, and reliable code.</p>
           <div class="hero-buttons">
             <a href="#projects" class="btn btn-primary"><i class="fas fa-code-branch"></i> View Projects</a>
@@ -58,16 +69,87 @@
             <a href="https://x.com/Arpit_patel28" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i> X</a>
           </div>
           <div class="hero-stats" aria-label="Portfolio highlights">
-            <div><strong>10+</strong><span>Technical Skills</span></div>
-            <div><strong>8+</strong><span>GitHub Projects</span></div>
-            <div><strong>4+</strong><span>Domains Explored</span></div>
+            <div><strong data-count="10">0+</strong><span>Technical Skills</span></div>
+            <div><strong data-count="16">0+</strong><span>Total Projects</span></div>
+            <div><strong data-count="4">0+</strong><span>Domains Explored</span></div>
           </div>
         </div>
-        <div class="profile-card reveal">
-          <img src="assets/images/photo2.jpeg" alt="Arpit Kumar" class="profile-photo" width="276" height="354" fetchpriority="high" decoding="async">
-          <div class="profile-meta">
-            <span class="status-dot"></span>
-            <span>Open to internships</span>
+        <div class="profile-card-wrapper reveal">
+          <div class="profile-card">
+            <div class="profile-glow profile-glow-1" aria-hidden="true"></div>
+            <div class="profile-glow profile-glow-2" aria-hidden="true"></div>
+            <div class="profile-glow profile-glow-3" aria-hidden="true"></div>
+            <div class="profile-frame">
+              <img src="assets/images/photo2.jpeg" alt="Arpit Kumar" class="profile-photo" width="276" height="354" fetchpriority="high" decoding="async">
+            </div>
+            <div class="profile-meta">
+              <span class="status-dot"></span>
+              <span>Open to internships</span>
+            </div>
+          </div>
+          <div class="orbiting-icons" aria-hidden="true">
+            <div class="orbit-icon orbit-icon-1" title="Flutter">
+              <i class="fab fa-flutter" style="color: #8b5cf6;"></i>
+            </div>
+            <div class="orbit-icon orbit-icon-2" title="React">
+              <i class="fab fa-react" style="color: #12d7ff;"></i>
+            </div>
+            <div class="orbit-icon orbit-icon-3" title="Firebase">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="color: #ffb86b;"><path d="M3 13l8.5-15 8.5 15H13v8h-2v-8H3z"/></svg>
+            </div>
+            <div class="orbit-icon orbit-icon-4" title="Node.js">
+              <i class="fab fa-node-js" style="color: #39d98a;"></i>
+            </div>
+            <div class="orbit-icon orbit-icon-5" title="Arduino">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="color: #00878f;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+            </div>
+            <div class="orbit-icon orbit-icon-6" title="Python">
+              <i class="fab fa-python" style="color: #3776ab;"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tech-stack-showcase" aria-label="Technology stack">
+      <div class="container">
+        <h2>Tech Arsenal</h2>
+        <div class="tech-grid">
+          <div class="tech-card reveal" title="Flutter">
+            <i class="fab fa-flutter" style="color: #8b5cf6;"></i>
+            <span>Flutter</span>
+          </div>
+          <div class="tech-card reveal" title="React">
+            <i class="fab fa-react" style="color: #12d7ff;"></i>
+            <span>React</span>
+          </div>
+          <div class="tech-card reveal" title="Node.js">
+            <i class="fab fa-node-js" style="color: #39d98a;"></i>
+            <span>Node.js</span>
+          </div>
+          <div class="tech-card reveal" title="MongoDB">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="color: #13aa52;"><path d="M17.193 9.166c-1.18-5.625-4.861-7.539-5.193-8.205-.331.666-4.013 2.58-5.193 8.205C5.348 14.386 8.75 19 12 19c3.25 0 6.652-4.614 5.193-9.834z"/></svg>
+            <span>MongoDB</span>
+          </div>
+          <div class="tech-card reveal" title="Firebase">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="color: #ffb86b;"><path d="M3 13l8.5-15 8.5 15H13v8h-2v-8H3z"/></svg>
+            <span>Firebase</span>
+          </div>
+          <div class="tech-card reveal" title="Python">
+            <i class="fab fa-python" style="color: #3776ab;"></i>
+            <span>Python</span>
+          </div>
+          <div class="tech-card reveal" title="Arduino">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="color: #00878f;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+            <span>Arduino</span>
+          </div>
+          <div class="tech-card reveal" title="Tailwind CSS">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="color: #06b6d4;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+            <span>Tailwind</span>
+          </div>
+          <div class="tech-card reveal" title="GitHub">
+            <i class="fab fa-github" style="color: #fff;"></i>
+            <span>GitHub</span>
           </div>
         </div>
       </div>
@@ -75,7 +157,7 @@
 
     <section id="about" class="section">
       <div class="container two-column">
-        <div class="section-title reveal"><h2>About Me</h2></div>
+        <div class="section-title reveal"><h2>Who I Am</h2></div>
         <div class="about-card reveal">
           <h3>Hello! I'm Arpit Kumar</h3>
           <p>I am a 3rd-year B.Tech Information Technology student from Jaipur, focused on full stack development, Flutter apps, Python, UI/UX, and IoT. I enjoy taking an idea from rough concept to a working product with clean interfaces and reliable code.</p>
@@ -93,7 +175,7 @@
 
     <section id="skills" class="section section-alt">
       <div class="container">
-        <div class="section-title reveal"><h2>Skills &amp; Expertise</h2></div>
+        <div class="section-title reveal"><h2>Tech Arsenal</h2></div>
         <div class="skills-grid">
           <article class="skill-card reveal">
             <h3><i class="fas fa-code"></i> Frontend</h3>
@@ -123,6 +205,13 @@
       </div>
     </section>
 
+    <section class="tech-marquee section-alt" aria-label="Technology stack marquee">
+      <div class="marquee-track">
+        <span>Flutter</span><span>Dart</span><span>Firebase</span><span>React</span><span>JavaScript</span><span>Python</span><span>REST APIs</span><span>Arduino</span><span>IoT</span><span>GitHub</span>
+        <span>Flutter</span><span>Dart</span><span>Firebase</span><span>React</span><span>JavaScript</span><span>Python</span><span>REST APIs</span><span>Arduino</span><span>IoT</span><span>GitHub</span>
+      </div>
+    </section>
+
     <section id="why-me" class="section">
       <div class="container why-grid">
         <div class="section-title reveal"><h2>Why Me?</h2></div>
@@ -139,8 +228,31 @@
 
     <section id="projects" class="section">
       <div class="container">
-        <div class="section-title reveal"><h2>Featured Projects</h2></div>
+        <div class="section-title reveal"><h2>Featured Work</h2></div>
         <div class="featured-grid">
+          <article class="featured-card reveal">
+            <i class="fas fa-hospital-user project-icon"></i>
+            <div>
+              <p class="project-kicker">Flutter / Healthcare</p>
+              <h3>Hospital Digital Attendance System</h3>
+              <p>Built a professional hospital attendance and management app with Flutter, Riverpod state management, biometric login, geolocation, NFC attendance support, secure storage, and light/dark themes.</p>
+              <div class="tags"><span>Flutter</span><span>Riverpod</span><span>NFC</span><span>Geolocation</span></div>
+              <a class="project-action" href="https://github.com/arpitkumar28/Hospital_Digital_Attendence_System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Repository</a>
+            </div>
+          </article>
+          <article class="featured-card reveal featured-card-preview">
+            <i class="fas fa-medal project-icon"></i>
+            <div>
+              <p class="project-kicker">Flutter / Cadet Utility</p>
+              <h3>NCC Buddy</h3>
+              <p>Created a companion app for NCC cadets with Firebase authentication, Firestore data, push notifications, events, attendance, QR scanner/generator, Google Maps tracking, SOS, chat, training, and admin screens.</p>
+              <figure class="project-preview">
+                <!-- <img src="assets/images/ncc-buddy-preview.svg" alt="NCC Buddy app screens showing dashboard, attendance, and SOS features" loading="lazy" decoding="async"> -->
+              </figure>
+              <div class="tags"><span>Flutter</span><span>Firebase</span><span>Maps</span><span>QR</span></div>
+              <a class="project-action" href="https://github.com/arpitkumar28/ncc_buddy" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Repository</a>
+            </div>
+          </article>
           <article class="featured-card reveal">
             <i class="fas fa-seedling project-icon"></i>
             <div>
@@ -162,16 +274,45 @@
             </div>
           </article>
         </div>
-        <div class="section-title reveal project-list-title"><h2>More GitHub Projects</h2></div>
-        <div class="projects-grid">
-          <article class="project-card reveal"><i class="fas fa-shield-halved project-icon"></i><h3>Sports Media Protection</h3><p>Python utility for identifying reused sports media assets and supporting faster content verification workflows.</p><div class="tags"><span>Python</span><span>Gemini</span><span>Security</span></div><a href="https://github.com/arpitkumar28/sports-media-protection" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
-          <article class="project-card reveal"><i class="fas fa-handshake-angle project-icon"></i><h3>SamparkSetu</h3><p>Flutter communication app exploring structured connection flows, clean screen navigation, and mobile-first interaction patterns.</p><div class="tags"><span>Dart</span><span>Flutter</span><span>Mobile UI</span></div><a href="https://github.com/arpitkumar28/SamparkSetu" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
-          <article class="project-card reveal"><i class="fas fa-route project-icon"></i><h3>New Safe Route</h3><p>Frontend prototype for safer route planning with a focus on user safety, route awareness, and practical navigation ideas.</p><div class="tags"><span>HTML</span><span>CSS</span><span>Safety</span></div><a href="https://github.com/arpitkumar28/New_Safe_Route" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
-          <article class="project-card reveal"><i class="fas fa-city project-icon"></i><h3>Unified Civil Issue Detection</h3><p>Civic-tech project for reporting, tracking, and organizing public infrastructure issues through clearer digital workflows.</p><div class="tags"><span>TypeScript</span><span>Civic Tech</span></div><a href="https://github.com/arpitkumar28/unified-civil-issue-detection" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
-          <article class="project-card reveal"><i class="fas fa-utensils project-icon"></i><h3>Food Ordering System</h3><p>Java OOP project modeling menu browsing, order handling, checkout logic, and clean class-based application structure.</p><div class="tags"><span>Java</span><span>OOP</span></div><a href="https://github.com/arpitkumar28/food_ordering_system" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
-          <article class="project-card reveal"><i class="fas fa-list-check project-icon"></i><h3>To-Do List App</h3><p>JavaScript task manager with DOM-based add, update, complete, and delete interactions for frontend practice.</p><div class="tags"><span>JavaScript</span><span>HTML</span><span>CSS</span></div><a href="https://github.com/arpitkumar28/To-Do-List-App" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+        <div class="section-title reveal project-list-title"><h2>All Projects</h2></div>
+        <div class="project-filters reveal" aria-label="Project filters">
+          <button class="filter-btn active" type="button" data-filter="all">All</button>
+          <button class="filter-btn" type="button" data-filter="flutter">Flutter</button>
+          <button class="filter-btn" type="button" data-filter="fullstack">Full Stack</button>
+          <button class="filter-btn" type="button" data-filter="iot">IoT</button>
+          <button class="filter-btn" type="button" data-filter="ai">AI</button>
+          <button class="filter-btn" type="button" data-filter="frontend">Frontend</button>
+        </div>
+        <div class="projects-grid all-projects">
+          <article class="project-card reveal" data-category="flutter fullstack"><i class="fas fa-hospital-user project-icon"></i><h3>Hospital Digital Attendance System</h3><p>Flutter hospital attendance and management app with Riverpod, biometric authentication, location services, NFC support, secure storage, connectivity checks, and Hindi/English localization.</p><div class="tags"><span>Flutter</span><span>Riverpod</span><span>NFC</span></div><a href="https://github.com/arpitkumar28/Hospital_Digital_Attendence_System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal" data-category="flutter fullstack"><i class="fas fa-medal project-icon"></i><h3>NCC Buddy</h3><p>Flutter companion app for NCC cadets with Firebase, events, attendance, SOS, maps tracking, QR tools, training videos, notifications, chat, and admin workflows.</p><div class="tags"><span>Flutter</span><span>Firebase</span><span>Maps</span></div><a href="https://github.com/arpitkumar28/ncc_buddy" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal" data-category="ai python"><i class="fas fa-graduation-cap project-icon"></i><h3>Build EduAI Nexus X Platform</h3><p>Python-based EduAI platform concept focused on AI-assisted learning workflows, student support, and education productivity.</p><div class="tags"><span>Python</span></div><a href="https://github.com/arpitkumar28/Build_EduAI_Nexus_X_platform" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal" data-category="frontend"><i class="fas fa-id-card project-icon"></i><h3>Portfolio</h3><p>Personal developer portfolio built to present skills, projects, contact links, and recruiter-facing profile information.</p><div class="tags"><span>HTML</span><span>Portfolio</span></div><a href="https://github.com/arpitkumar28/Portfolio" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal" data-category="frontend ai"><i class="fas fa-file-lines project-icon"></i><h3>Resume Analyzer</h3><p>JavaScript resume analysis tool designed to review resume content and support better role-fit improvements.</p><div class="tags"><span>JavaScript</span></div><a href="https://github.com/arpitkumar28/Resume_analyzer" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal" data-category="fullstack java"><i class="fas fa-utensils project-icon"></i><h3>Food Ordering System</h3><p>Java OOP project modeling menu browsing, order handling, checkout logic, and clean class-based structure.</p><div class="tags"><span>Java</span></div><a href="https://github.com/arpitkumar28/food_ordering_system" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal" data-category="ai python"><i class="fas fa-shield-halved project-icon"></i><h3>Sports Media Protection</h3><p>Gemini-powered sports media protection console for detecting reused or unauthorized match-day visuals with audit history.</p><div class="tags"><span>Python</span></div><a href="https://github.com/arpitkumar28/sports-media-protection" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal" data-category="flutter"><i class="fas fa-seedling project-icon"></i><h3>Krishi Sahayak</h3><p>Flutter agriculture support app focused on farmer guidance, crop-related workflows, and clean mobile-first access.</p><div class="tags"><span>Dart</span><span>Mobile</span></div><a href="https://github.com/arpitkumar28/Krishi-Sahayak" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal" data-category="fullstack python"><i class="fas fa-seedling project-icon"></i><h3>Krishi Backend</h3><p>Python backend service supporting agriculture app workflows, server-side logic, and API-style data handling.</p><div class="tags"><span>Python</span><span>Mobile</span><span>Backend</span></div><a href="https://github.com/arpitkumar28/krishi-backend" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal" data-category="flutter"><i class="fas fa-code project-icon"></i><h3>SamparkSetu</h3><p>Flutter communication app exploring structured connection flows, clean navigation, and user-friendly mobile screens.</p><div class="tags"><span>Dart</span><span>Mobile</span></div><a href="https://github.com/arpitkumar28/SamparkSetu" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal" data-category="frontend civic"><i class="fas fa-triangle-exclamation project-icon"></i><h3>New Safe Route</h3><p>Frontend prototype for safer route planning with a focus on navigation awareness and user safety ideas.</p><div class="tags"><span>HTML</span><span>Civic Tech</span></div><a href="https://github.com/arpitkumar28/New_Safe_Route" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal" data-category="fullstack civic"><i class="fas fa-code project-icon"></i><h3>Unified Civil Issue Detection</h3><p>Civic-tech project for reporting, tracking, and organizing public infrastructure issues through digital workflows.</p><div class="tags"><span>TypeScript</span><span>Civic Tech</span></div><a href="https://github.com/arpitkumar28/unified-civil-issue-detection" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal" data-category="iot"><i class="fas fa-triangle-exclamation project-icon"></i><h3>IoT Based Accident Detection System</h3><p>IoT safety prototype using sensors and C++ concepts to detect accidents and support faster alert workflows.</p><div class="tags"><span>C++</span><span>IoT</span></div><a href="https://github.com/arpitkumar28/IoT_Based_Accident_Detection_System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal" data-category="cpp"><i class="fas fa-code project-icon"></i><h3>TO DO LIST PROJECT</h3><p>C++ console-based to-do list project for practicing data handling, task management, and basic program structure.</p><div class="tags"><span>C++</span></div><a href="https://github.com/arpitkumar28/TO_DO_LIST_PROJECT" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal" data-category="frontend"><i class="fas fa-window-maximize project-icon"></i><h3>Basic Blog Post Layout</h3><p>HTML blog layout practice project for structuring article content, headings, and readable page sections.</p><div class="tags"><span>HTML</span></div><a href="https://github.com/arpitkumar28/Basic-Blog-Post-Layout" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
+          <article class="project-card reveal" data-category="frontend"><i class="fas fa-graduation-cap project-icon"></i><h3>SikhaSathi</h3><p>HTML education-focused project exploring student support pages, learning content structure, and simple web UI.</p><div class="tags"><span>HTML</span></div><a href="https://github.com/arpitkumar28/SikhaSathi" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></article>
         </div>
         <div class="center reveal"><a class="btn btn-outline" href="https://github.com/arpitkumar28?tab=repositories" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View All Repositories</a></div>
+      </div>
+    </section>
+
+    <section id="journey" class="section">
+      <div class="container">
+        <div class="section-title reveal"><h2>Engineering Journey</h2></div>
+        <div class="journey-grid">
+          <article class="journey-card reveal"><span>2024</span><h3>Started Building Web Foundations</h3><p>Practiced HTML, CSS, JavaScript, Git, and core programming concepts while learning how real interfaces are structured.</p></article>
+          <article class="journey-card reveal"><span>2025</span><h3>Moved Into Mobile &amp; Product Ideas</h3><p>Built Flutter apps across agriculture, communication, attendance, and NCC workflows with stronger UI and state management focus.</p></article>
+          <article class="journey-card reveal"><span>2026</span><h3>Expanding Toward AI, Backend &amp; IoT</h3><p>Improving DSA, backend APIs, AI-assisted workflows, and practical IoT systems for real-world problem solving.</p></article>
+        </div>
       </div>
     </section>
 
@@ -225,6 +366,19 @@
       </div>
     </section>
   </main>
+
+  <div class="project-modal" id="project-modal" hidden>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="modal-close" type="button" aria-label="Close project details"><i class="fas fa-xmark"></i></button>
+      <p class="project-kicker">Project Details</p>
+      <h2 id="modal-title"></h2>
+      <p id="modal-description"></p>
+      <div class="tags" id="modal-tags"></div>
+      <div class="modal-actions">
+        <a class="btn btn-primary" id="modal-link" href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Open GitHub</a>
+      </div>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="container">
