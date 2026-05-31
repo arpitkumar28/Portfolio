@@ -654,6 +654,9 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
+  /* keep grid rows equal so cards don't jump on hover */
+  grid-auto-rows: 1fr;
+  align-items: stretch;
 }
 
 .projects-grid {
@@ -712,7 +715,9 @@ h1 {
 .project-card {
   display: flex;
   flex-direction: column;
+  height: 100%;
   transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease, opacity 220ms ease;
+  will-change: transform;
 }
 
 .project-card:hover,
@@ -722,7 +727,7 @@ h1 {
 .journey-card:hover {
   border-color: rgba(18, 215, 255, 0.36);
   box-shadow: 0 24px 70px rgba(18, 215, 255, 0.12), var(--shadow);
-  transform: translateY(-4px);
+  transform: translateY(-6px) scale(1.01);
 }
 
 .project-card.hidden {
@@ -909,8 +914,9 @@ h1 {
 }
 
 .project-card p {
-  flex: 1;
+  flex: 1 1 auto;
   font-size: 0.94rem;
+  min-height: 56px;
 }
 
 .project-card a {
@@ -918,6 +924,26 @@ h1 {
   font-weight: 800;
   text-decoration: none;
 }
+
+/* Slightly lighter tag borders and stable action transitions */
+.tags span {
+  border: 1px solid rgba(18, 215, 255, 0.12);
+  background: rgba(18, 215, 255, 0.04);
+}
+
+.project-action,
+.project-action-muted,
+.project-card a {
+  transition: color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+/* Ensure featured card inner content lays out consistently */
+.featured-card > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 
 .tags {
   display: flex;
