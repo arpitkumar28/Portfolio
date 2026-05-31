@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  @apply bg-[#061225] text-slate-100 font-sans;
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(8px);
+}
