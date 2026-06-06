@@ -61,6 +61,8 @@ export const Navbar: React.FC = () => {
             ? 'bg-background/80 backdrop-blur-xl border-b border-white/10 shadow-lg'
             : 'bg-transparent'
         }`}
+        role="navigation"
+        aria-label="Main navigation"
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
@@ -69,6 +71,7 @@ export const Navbar: React.FC = () => {
               onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }}
               className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent"
               whileHover={{ scale: 1.05 }}
+              aria-label="Arpit Kumar - Home"
             >
               Arpit Kumar
             </motion.a>
@@ -95,7 +98,9 @@ export const Navbar: React.FC = () => {
             <button
               className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -109,6 +114,8 @@ export const Navbar: React.FC = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden bg-background/95 backdrop-blur-xl border-b border-white/10"
+              id="mobile-menu"
+              role="menu"
             >
               <div className="px-4 py-6 space-y-2">
                 {navItems.map((item) => (
@@ -122,6 +129,8 @@ export const Navbar: React.FC = () => {
                         : 'text-muted hover:text-white hover:bg-white/10'
                     }`}
                     whileHover={{ x: 10 }}
+                    role="menuitem"
+                    aria-current={activeSection === item.href.substring(1) ? 'page' : undefined}
                   >
                     {item.name}
                   </motion.a>

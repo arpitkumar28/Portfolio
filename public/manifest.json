@@ -1,0 +1,18 @@
+{
+  "name": "Arpit Kumar Portfolio",
+  "short_name": "Arpit Kumar",
+  "description": "Portfolio of Arpit Kumar showcasing Flutter apps, Full Stack projects, IoT solutions, AI projects, and engineering journey.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

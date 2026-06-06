@@ -231,6 +231,7 @@ export const Hero: React.FC = () => {
           #050816
         `,
       }}
+      aria-labelledby="hero-heading"
     >
       {/* Animated mesh gradient background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -323,6 +324,7 @@ export const Hero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
               className="text-5xl md:text-7xl font-bold leading-tight"
+              id="hero-heading"
             >
               <span className="bg-gradient-to-r from-white via-primary to-secondary bg-clip-text text-transparent">
                 Arpit Kumar
@@ -413,6 +415,7 @@ export const Hero: React.FC = () => {
                   whileHover={{ y: -4, scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary/50 transition-all duration-300 group"
+                  aria-label={`Visit ${social.label} profile`}
                 >
                   <i className={`${social.iconClass} text-xl text-muted group-hover:text-primary transition-colors`} />
                 </motion.a>
