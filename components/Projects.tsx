@@ -238,17 +238,28 @@ export const Projects: React.FC = () => {
       >
         {featuredProjects.map((project, index) => (
           <motion.div key={project.id} variants={itemVariants} className="relative">
-            {/* Featured Badge */}
-            {project.featured && (
-              <div className="absolute -top-2 left-4 z-10">
-                <div className={`bg-gradient-to-r ${project.gradient} text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg`}>
-                  ⭐ Featured
-                </div>
-              </div>
-            )}
-            
             {/* Project Card */}
-            <div className={`bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-xl hover:shadow-purple-500/20 transition-all duration-500 h-full`}>
+            <motion.div
+              className={`bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-xl hover:shadow-purple-500/20 transition-all duration-500 h-full group`}
+              whileHover={{ y: -8 }}
+            >
+              {/* Project Image */}
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                {project.featured && (
+                  <div className="absolute top-4 left-4">
+                    <div className={`bg-gradient-to-r ${project.gradient} text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg`}>
+                      ⭐ Featured
+                    </div>
+                  </div>
+                )}
+              </div>
+              
               {/* Content Section */}
               <div className="p-5 flex flex-col">
                 <div className="space-y-4 flex-1">
@@ -330,7 +341,7 @@ export const Projects: React.FC = () => {
                   </Button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         ))}
       </motion.div>

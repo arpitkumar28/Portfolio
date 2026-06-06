@@ -356,6 +356,7 @@ export const Hero: React.FC = () => {
               className="text-lg text-muted max-w-xl leading-relaxed"
             >
               Building scalable web, mobile, and IoT solutions with a focus on practical problem solving, clean user interfaces, and reliable code.
+              <span className="text-white font-semibold"> Currently open to internship opportunities.</span>
             </motion.p>
 
             <motion.div
@@ -369,15 +370,15 @@ export const Hero: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Button
-                  onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => window.location.href = 'mailto:arpitkumar0211@gmail.com?subject=Resume%20Request'}
                   className="relative overflow-hidden group"
                 >
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   />
                   <span className="relative flex items-center">
-                    View Projects
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    <Download className="w-4 h-4 mr-2" />
+                    Download Resume
                   </span>
                 </Button>
               </motion.div>
@@ -387,11 +388,11 @@ export const Hero: React.FC = () => {
               >
                 <Button
                   variant="outline"
-                  onClick={() => window.location.href = 'mailto:arpitkumar0211@gmail.com?subject=Resume%20Request'}
+                  onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
                   className="group"
                 >
-                  <Download className="w-4 h-4 mr-2" />
-                  Download Resume
+                  View Projects
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </motion.div>
             </motion.div>

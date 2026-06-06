@@ -10,6 +10,7 @@ import { Journey } from '@/components/Journey';
 import { OpenTo } from '@/components/OpenTo';
 import { Education } from '@/components/Education';
 import { Contact } from '@/components/Contact';
+import { BackToTop } from '@/components/ui/BackToTop';
 
 export default function Home() {
   return (
@@ -99,6 +100,7 @@ export default function Home() {
           <p>&copy; 2026 Arpit Kumar. All rights reserved.</p>
         </footer>
       </main>
+      <BackToTop />
     </>
   );
 }

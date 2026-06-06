@@ -8,7 +8,7 @@ module.exports = {
         secondary: '#06B6D4',
         accent: '#A855F7',
         text: '#FFFFFF',
-        muted: '#94A3B8',
+        muted: '#CBD5E1',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
