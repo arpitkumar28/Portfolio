@@ -1,6 +1,7 @@
 module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
+<<<<<<< HEAD
     extend: {
       colors: {
         background: '#050816',
@@ -56,6 +57,9 @@ module.exports = {
         },
       },
     },
+=======
+    extend: {},
+>>>>>>> e5c46e9267ac84053968c1c8c6926107409e166d
   },
   plugins: [],
 }

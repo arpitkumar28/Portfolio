@@ -17,10 +17,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+<<<<<<< HEAD
     "incremental": true,
     "paths": {
       "@/*": ["./*"]
     }
+=======
+    "incremental": true
+>>>>>>> e5c46e9267ac84053968c1c8c6926107409e166d
   },
   "include": [
     "next-env.d.ts",
