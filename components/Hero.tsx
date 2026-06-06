@@ -493,7 +493,7 @@ export const Hero: React.FC = () => {
 
               {/* Profile image container with floating animation */}
               <motion.div
-                className="absolute inset-4 rounded-full overflow-hidden"
+                className="absolute inset-4 rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20"
                 animate={{
                   y: [0, -10, 0],
                 }}
@@ -512,6 +512,7 @@ export const Hero: React.FC = () => {
                     src="/assets/images/photo2.jpeg"
                     alt="Arpit Kumar"
                     className="w-full h-full object-cover"
+                    style={{ objectPosition: 'center top' }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </motion.div>
