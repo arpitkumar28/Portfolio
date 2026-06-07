@@ -9,6 +9,7 @@ import { Section, SectionTitle } from './ui/Section';
 import { Button } from './ui/Button';
 import { Tag } from './ui/Tag';
 import { GradientText } from './ui/GradientText';
+import ImageModal from './ui/ImageModal';
 
 const featuredProjects = [
   {
@@ -40,13 +41,14 @@ const featuredProjects = [
     ],
     featured: true,
     gradient: 'from-purple-500 to-pink-500',
+    metrics: ['IoT Based', 'Emergency Routing', 'Smart Signals'],
+    status: 'Production Ready',
   },
   {
     id: 2,
     title: 'Hospital Digital Attendance System',
     subtitle: 'Healthcare Management',
     category: 'Flutter / Healthcare',
-    image: '/assets/images/greenflow-2.jpeg',
     problem: 'Manual attendance tracking in hospitals is inefficient, prone to errors, and lacks real-time monitoring capabilities for staff and patient management.',
     features: [
       'Biometric authentication for secure login',
@@ -62,13 +64,14 @@ const featuredProjects = [
     ],
     featured: true,
     gradient: 'from-cyan-500 to-blue-500',
+    metrics: ['NFC Support', 'Role-based Access', 'Attendance Automation'],
+    status: 'Production Ready',
   },
   {
     id: 3,
     title: 'NCC Buddy',
     subtitle: 'Cadet Companion App',
     category: 'Flutter / Cadet Utility',
-    image: '/assets/images/ncc-buddy-preview.svg',
     problem: 'NCC cadets struggle with managing training schedules, attendance, events, and emergency communication through fragmented systems and manual processes.',
     features: [
       'Firebase authentication and secure user management',
@@ -85,13 +88,14 @@ const featuredProjects = [
     ],
     featured: true,
     gradient: 'from-orange-500 to-red-500',
+    metrics: ['15+ Screens', 'Firebase', 'Real-time Sync'],
+    status: 'In Development',
   },
   {
     id: 4,
     title: 'EduAI Nexus X',
     subtitle: 'AI-Powered Learning Platform',
     category: 'AI / Education',
-    image: '/assets/images/greenflow-3.jpeg',
     problem: 'Students lack personalized learning paths and real-time AI assistance, leading to inefficient study patterns and reduced learning outcomes.',
     features: [
       'AI-powered personalized learning recommendations',
@@ -107,6 +111,8 @@ const featuredProjects = [
     ],
     featured: true,
     gradient: 'from-green-500 to-teal-500',
+    metrics: ['AI Assisted', 'Student Workflow', 'Productivity Platform'],
+    status: 'In Development',
   },
 ];
 
@@ -206,6 +212,10 @@ const filters = [
 export const Projects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: number]: number }>({});
+  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
+
+  const openModal = (src: string, alt: string) => setModalImage({ src, alt });
+  const closeModal = () => setModalImage(null);
 
   const filteredProjects = activeFilter === 'all' 
     ? allProjects 
@@ -249,81 +259,103 @@ export const Projects: React.FC = () => {
           <motion.div key={project.id} variants={itemVariants} className="relative">
             {/* Project Card */}
             <motion.div
-              className={`bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-xl hover:shadow-purple-500/20 transition-all duration-500 h-full group`}
-              whileHover={{ y: -8 }}
+              className={`bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-xl hover:shadow-purple-500/30 hover:border-primary/30 transition-all duration-500 h-full group`}
+              whileHover={{ y: -8, scale: 1.02 }}
             >
               {/* Project Image */}
-              <div className="relative h-48 overflow-hidden">
-                {project.images && project.images.length > 1 ? (
-                  <>
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={currentImageIndex[project.id] || 0}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="relative w-full h-full"
+              {(project as any).images || (project as any).image ? (
+                <div className="relative h-48 overflow-hidden cursor-pointer" onClick={() => {
+                  const imageSrc = (project as any).images 
+                    ? (project as any).images[currentImageIndex[project.id] || 0]
+                    : (project as any).image;
+                  if (imageSrc) openModal(imageSrc, project.title);
+                }}>
+                  {(project as any).images && (project as any).images.length > 1 ? (
+                    <>
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={currentImageIndex[project.id] || 0}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="relative w-full h-full"
+                        >
+                          <Image
+                            src={(project as any).images[currentImageIndex[project.id] || 0]}
+                            alt={`${project.title} - Image ${currentImageIndex[project.id] || 0 + 1}`}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                        </motion.div>
+                      </AnimatePresence>
+                      
+                      {/* Carousel Navigation */}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setCurrentImageIndex(prev => ({
+                            ...prev,
+                            [project.id]: ((prev[project.id] || 0) - 1 + (project as any).images.length) % (project as any).images.length
+                          }));
+                        }}
+                        className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors z-10"
                       >
-                        <Image
-                          src={project.images[currentImageIndex[project.id] || 0]}
-                          alt={`${project.title} - Image ${currentImageIndex[project.id] || 0 + 1}`}
-                          fill
-                          className="object-cover"
-                        />
-                      </motion.div>
-                    </AnimatePresence>
-                    
-                    {/* Carousel Navigation */}
-                    <button
-                      onClick={() => setCurrentImageIndex(prev => ({
-                        ...prev,
-                        [project.id]: ((prev[project.id] || 0) - 1 + project.images.length) % project.images.length
-                      }))}
-                      className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors z-10"
-                    >
-                      <ChevronLeft className="w-4 h-4" />
-                    </button>
-                    <button
-                      onClick={() => setCurrentImageIndex(prev => ({
-                        ...prev,
-                        [project.id]: ((prev[project.id] || 0) + 1) % project.images.length
-                      }))}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors z-10"
-                    >
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
-                    
-                    {/* Image Indicators */}
-                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1 z-10">
-                      {project.images.map((_, idx) => (
-                        <button
-                          key={idx}
-                          onClick={() => setCurrentImageIndex(prev => ({ ...prev, [project.id]: idx }))}
-                          className={`w-2 h-2 rounded-full transition-colors ${
-                            (currentImageIndex[project.id] || 0) === idx ? 'bg-white' : 'bg-white/50'
-                          }`}
-                        />
-                      ))}
+                        <ChevronLeft className="w-4 h-4" />
+                      </button>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setCurrentImageIndex(prev => ({
+                            ...prev,
+                            [project.id]: ((prev[project.id] || 0) + 1) % (project as any).images.length
+                          }));
+                        }}
+                        className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors z-10"
+                      >
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
+                      
+                      {/* Image Indicators */}
+                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1 z-10">
+                        {(project as any).images.map((_: any, idx: number) => (
+                          <button
+                            key={idx}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setCurrentImageIndex(prev => ({ ...prev, [project.id]: idx }));
+                            }}
+                            className={`w-2 h-2 rounded-full transition-colors ${
+                              (currentImageIndex[project.id] || 0) === idx ? 'bg-white' : 'bg-white/50'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    <Image
+                      src={(project as any).image || (project as any).images?.[0] || '/assets/images/greenflow-1.jpeg'}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                  {project.featured && (
+                    <div className="absolute top-4 left-4 flex gap-2">
+                      <div className={`bg-gradient-to-r ${project.gradient} text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg`}>
+                        ⭐ Featured
+                      </div>
+                      {(project as any).status && (
+                        <div className={`bg-black/60 backdrop-blur-sm border border-white/20 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg flex items-center gap-1.5`}>
+                          <span className={`w-1.5 h-1.5 rounded-full ${(project as any).status === 'Production Ready' ? 'bg-green-400' : (project as any).status === 'In Development' ? 'bg-yellow-400' : 'bg-blue-400'}`} />
+                          {(project as any).status}
+                        </div>
+                      )}
                     </div>
-                  </>
-                ) : (
-                  <Image
-                    src={(project as any).image || project.images?.[0] || '/assets/images/greenflow-1.jpeg'}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                {project.featured && (
-                  <div className="absolute top-4 left-4">
-                    <div className={`bg-gradient-to-r ${project.gradient} text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg`}>
-                      ⭐ Featured
-                    </div>
-                  </div>
-                )}
-              </div>
+                  )}
+                </div>
+              ) : null}
               
               {/* Content Section */}
               <div className="p-5 flex flex-col">
@@ -364,6 +396,26 @@ export const Projects: React.FC = () => {
                       ))}
                     </ul>
                   </div>
+
+                  {/* Metrics */}
+                  {(project as any).metrics && (
+                    <div>
+                      <h4 className="text-white font-semibold text-xs mb-2 flex items-center gap-1">
+                        <Zap className="w-3 h-3 text-yellow-400" />
+                        Key Metrics
+                      </h4>
+                      <div className="flex flex-wrap gap-1.5">
+                        {(project as any).metrics.map((metric: string, idx: number) => (
+                          <span
+                            key={idx}
+                            className={`bg-gradient-to-r ${project.gradient} bg-opacity-20 text-white text-xs font-medium px-2 py-1 rounded-full border border-white/20 transition-colors`}
+                          >
+                            {metric}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
                   {/* Tech Stack */}
                   <div>
@@ -410,6 +462,14 @@ export const Projects: React.FC = () => {
           </motion.div>
         ))}
       </motion.div>
+
+      {modalImage && (
+        <ImageModal
+          src={modalImage.src}
+          alt={modalImage.alt}
+          onClose={closeModal}
+        />
+      )}
 
       {/* All Projects Section */}
       <div id="all-projects" className="space-y-8 pt-24">
