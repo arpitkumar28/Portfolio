@@ -517,8 +517,12 @@ export const Hero: React.FC = () => {
                     className="object-cover"
                     style={{ objectPosition: 'center top' }}
                     priority
+                    quality={100}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  {/* Enhanced lighting overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/5" />
+                  {/* Subtle inner glow */}
+                  <div className="absolute inset-0 rounded-full shadow-[inset_0_0_30px_rgba(139,92,246,0.2)]" />
                 </motion.div>
               </motion.div>
 

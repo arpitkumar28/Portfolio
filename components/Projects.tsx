@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Filter, Play, ArrowRight, CheckCircle2, Zap, Shield, Users } from 'lucide-react';
+import { ExternalLink, Filter, Play, ArrowRight, CheckCircle2, Zap, Shield, Users, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import { GlassCard } from './ui/GlassCard';
 import { Section, SectionTitle } from './ui/Section';
@@ -16,7 +16,14 @@ const featuredProjects = [
     title: 'Smart Traffic Management System',
     subtitle: 'GreenFlow AI',
     category: 'AI / Smart City',
-    image: '/assets/images/greenflow-1.jpeg',
+    images: [
+      '/assets/images/greenflow-1.jpeg',
+      '/assets/images/greenflow-2.jpeg',
+      '/assets/images/greenflow-3.jpeg',
+      '/assets/images/greenflow-4.jpeg',
+      '/assets/images/greenflow-5.jpeg',
+      '/assets/images/greenflow-6.jpeg',
+    ],
     problem: 'Urban traffic congestion causes significant delays, increased fuel consumption, and critical delays for emergency vehicles navigating through crowded streets.',
     features: [
       'AI-powered congestion prediction using real-time traffic data',
@@ -198,6 +205,7 @@ const filters = [
 
 export const Projects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: number]: number }>({});
 
   const filteredProjects = activeFilter === 'all' 
     ? allProjects 
@@ -246,12 +254,67 @@ export const Projects: React.FC = () => {
             >
               {/* Project Image */}
               <div className="relative h-48 overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+                {project.images && project.images.length > 1 ? (
+                  <>
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={currentImageIndex[project.id] || 0}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="relative w-full h-full"
+                      >
+                        <Image
+                          src={project.images[currentImageIndex[project.id] || 0]}
+                          alt={`${project.title} - Image ${currentImageIndex[project.id] || 0 + 1}`}
+                          fill
+                          className="object-cover"
+                        />
+                      </motion.div>
+                    </AnimatePresence>
+                    
+                    {/* Carousel Navigation */}
+                    <button
+                      onClick={() => setCurrentImageIndex(prev => ({
+                        ...prev,
+                        [project.id]: ((prev[project.id] || 0) - 1 + project.images.length) % project.images.length
+                      }))}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors z-10"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => setCurrentImageIndex(prev => ({
+                        ...prev,
+                        [project.id]: ((prev[project.id] || 0) + 1) % project.images.length
+                      }))}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors z-10"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                    
+                    {/* Image Indicators */}
+                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1 z-10">
+                      {project.images.map((_, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setCurrentImageIndex(prev => ({ ...prev, [project.id]: idx }))}
+                          className={`w-2 h-2 rounded-full transition-colors ${
+                            (currentImageIndex[project.id] || 0) === idx ? 'bg-white' : 'bg-white/50'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <Image
+                    src={(project as any).image || project.images?.[0] || '/assets/images/greenflow-1.jpeg'}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 {project.featured && (
                   <div className="absolute top-4 left-4">
