@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import FeatureCard from './FeatureCard'
 import MetricCard from './MetricCard'
 import TechBadge from './TechBadge'
+import ImageModal from '../ui/ImageModal'
 
 type Screenshot = {
   src: string
@@ -18,6 +19,11 @@ const screenshots: Screenshot[] = [
 ]
 
 export default function GreenFlowShowcase() {
+  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null)
+
+  const openModal = (src: string, alt: string) => setModalImage({ src, alt })
+  const closeModal = () => setModalImage(null)
+
   return (
     <section className="relative py-16 px-6 sm:px-12 lg:px-24 bg-gradient-to-b from-[#071023] via-[#071a2b] to-[#021018] text-slate-100">
       <div className="max-w-7xl mx-auto">
@@ -62,7 +68,11 @@ export default function GreenFlowShowcase() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {screenshots.map((s, i) => (
-                  <div key={i} className="relative overflow-hidden rounded-xl group transform-gpu transition duration-500 hover:scale-105">
+                  <div 
+                    key={i} 
+                    className="relative overflow-hidden rounded-xl group transform-gpu transition duration-500 hover:scale-105 cursor-pointer"
+                    onClick={() => openModal(s.src, s.alt || `screenshot-${i}`)}
+                  >
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 opacity-0 group-hover:opacity-60 transition" />
                     <img
                       src={s.src}
@@ -78,18 +88,26 @@ export default function GreenFlowShowcase() {
               <FeatureCard
                 title="AI Congestion Prediction"
                 description="Predicts traffic build-ups using historical and live feeds with 92% confidence."
+                image="/assets/images/greenflow-1.jpeg"
+                onImageClick={openModal}
               />
               <FeatureCard
                 title="Emergency Green Corridor"
                 description="Automatically creates priority green corridors for emergency vehicles in real-time."
+                image="/assets/images/greenflow-3.jpeg"
+                onImageClick={openModal}
               />
               <FeatureCard
                 title="WebSocket Live Updates"
                 description="Low-latency WebSocket streams keep the command center and mobile app in sync."
+                image="/assets/images/greenflow-2.jpeg"
+                onImageClick={openModal}
               />
               <FeatureCard
                 title="Signal Synchronization"
                 description="Optimizes traffic signals across corridors to improve flow up to 90%."
+                image="/assets/images/greenflow-4.jpeg"
+                onImageClick={openModal}
               />
             </div>
           </div>
@@ -98,10 +116,10 @@ export default function GreenFlowShowcase() {
             <div className="p-5 rounded-2xl bg-gradient-to-tr from-white/3 to-white/2 border border-white/5 backdrop-blur-md">
               <h4 className="text-lg font-semibold">Key Metrics</h4>
               <div className="mt-4 grid grid-cols-2 gap-3">
-                <MetricCard label="AI Confidence" value="92%" />
-                <MetricCard label="Traffic Efficiency" value="96%" />
-                <MetricCard label="CO₂ Reduction" value="52%" />
-                <MetricCard label="Emergency Vehicles" value="23" />
+                <MetricCard label="AI Confidence" value="92%" image="/assets/images/greenflow-5.jpeg" onImageClick={openModal} />
+                <MetricCard label="Traffic Efficiency" value="96%" image="/assets/images/greenflow-6.jpeg" onImageClick={openModal} />
+                <MetricCard label="CO₂ Reduction" value="52%" image="/assets/images/greenflow-4.jpeg" onImageClick={openModal} />
+                <MetricCard label="Emergency Vehicles" value="23" image="/assets/images/greenflow-3.jpeg" onImageClick={openModal} />
               </div>
             </div>
 
@@ -145,6 +163,14 @@ export default function GreenFlowShowcase() {
           </aside>
         </div>
       </div>
+
+      {modalImage && (
+        <ImageModal
+          src={modalImage.src}
+          alt={modalImage.alt}
+          onClose={closeModal}
+        />
+      )}
     </section>
   )
 }

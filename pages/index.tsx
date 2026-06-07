@@ -13,6 +13,7 @@ import { Contact } from '@/components/Contact';
 import { BackToTop } from '@/components/ui/BackToTop';
 import { SkillsMatrix } from '@/components/SkillsMatrix';
 import { WhyHireMe } from '@/components/WhyHireMe';
+import PhotoGallery from '@/components/PhotoGallery';
 
 export default function Home() {
   return (
@@ -95,6 +96,7 @@ export default function Home() {
         <WhyHireMe />
         <About />
         <Projects />
+        <PhotoGallery />
         <Journey />
         <OpenTo />
         <Education />
