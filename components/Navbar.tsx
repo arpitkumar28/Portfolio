@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 import { Button } from './ui/Button';
 import { ScrollProgress } from './ui/ScrollProgress';
 
@@ -80,7 +80,7 @@ export const Navbar: React.FC = () => {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative ${
                     activeSection === item.href.substring(1)
                       ? 'bg-primary/20 text-primary'
                       : 'text-muted hover:text-white hover:bg-white/10'
@@ -89,8 +89,34 @@ export const Navbar: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                 >
                   {item.name}
+                  {activeSection === item.href.substring(1) && (
+                    <motion.div
+                      layoutId="activeSection"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full"
+                      initial={false}
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
+                  )}
                 </motion.a>
               ))}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  onClick={() => window.location.href = 'mailto:arpitkumar0211@gmail.com?subject=Resume%20Request'}
+                  className="ml-4 relative overflow-hidden group"
+                  size="sm"
+                >
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                  <span className="relative flex items-center gap-2">
+                    <Download className="w-4 h-4" />
+                    Resume
+                  </span>
+                </Button>
+              </motion.div>
             </div>
 
             <button
@@ -121,7 +147,7 @@ export const Navbar: React.FC = () => {
                     key={item.name}
                     href={item.href}
                     onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
-                    className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${
+                    className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 relative ${
                       activeSection === item.href.substring(1)
                         ? 'bg-primary/20 text-primary'
                         : 'text-muted hover:text-white hover:bg-white/10'
@@ -131,8 +157,31 @@ export const Navbar: React.FC = () => {
                     aria-current={activeSection === item.href.substring(1) ? 'page' : undefined}
                   >
                     {item.name}
+                    {activeSection === item.href.substring(1) && (
+                      <motion.div
+                        layoutId="activeSectionMobile"
+                        className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-secondary rounded-full"
+                        initial={false}
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
                   </motion.a>
                 ))}
+                <div className="pt-4 border-t border-white/10">
+                  <Button
+                    onClick={() => window.location.href = 'mailto:arpitkumar0211@gmail.com?subject=Resume%20Request'}
+                    className="w-full relative overflow-hidden group"
+                    size="sm"
+                  >
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    />
+                    <span className="relative flex items-center justify-center gap-2">
+                      <Download className="w-4 h-4" />
+                      Download Resume
+                    </span>
+                  </Button>
+                </div>
               </div>
             </motion.div>
           )}
