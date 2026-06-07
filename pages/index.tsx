@@ -11,6 +11,8 @@ import { OpenTo } from '@/components/OpenTo';
 import { Education } from '@/components/Education';
 import { Contact } from '@/components/Contact';
 import { BackToTop } from '@/components/ui/BackToTop';
+import { SkillsMatrix } from '@/components/SkillsMatrix';
+import { WhyHireMe } from '@/components/WhyHireMe';
 
 export default function Home() {
   return (
@@ -89,6 +91,8 @@ export default function Home() {
         <Hero />
         <WhatIBuild />
         <TechStack />
+        <SkillsMatrix />
+        <WhyHireMe />
         <About />
         <Projects />
         <Journey />

@@ -21,10 +21,10 @@ const roles = ['Flutter Developer', 'Full Stack Developer', 'IoT Enthusiast', 'P
 const professionalTagline = 'Flutter Developer • Full Stack Developer • IoT Enthusiast';
 
 const statsData = [
-  { value: 10, label: 'Technical Skills', suffix: '+' },
-  { value: 17, label: 'Total Projects', suffix: '+' },
-  { value: 4, label: 'Domains Explored', suffix: '+' },
-  { value: 2, label: 'Years Learning', suffix: '+' },
+  { value: 17, label: 'Projects Shipped', suffix: '+' },
+  { value: 10, label: 'Technologies', suffix: '+' },
+  { value: 4, label: 'Domains', suffix: '+' },
+  { value: 100, label: 'Commitment', suffix: '%' },
 ];
 
 const StatCard: React.FC<{ stat: typeof statsData[0]; index: number }> = ({ stat, index }) => {
