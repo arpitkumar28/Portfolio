@@ -100,7 +100,7 @@ const StatCard: React.FC<{ stat: typeof statsData[0]; index: number }> = ({ stat
 
 const OrbitIcon: React.FC<{ icon: any; color: string; name: string; index: number; total: number }> = ({ icon: Icon, color, name, index, total }) => {
   const angle = (index / total) * 2 * Math.PI;
-  const radius = 180;
+  const radius = 200;
   const x = Math.cos(angle) * radius;
   const y = Math.sin(angle) * radius;
 
@@ -444,7 +444,7 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative flex justify-center items-center"
           >
-            <div className="relative w-[350px] h-[350px] md:w-[450px] md:h-[450px]">
+            <div className="relative w-[400px] h-[400px] md:w-[500px] md:h-[500px]">
               {/* Layered blur glows */}
               <motion.div
                 className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/30 via-accent/20 to-secondary/30 blur-3xl"
@@ -495,7 +495,7 @@ export const Hero: React.FC = () => {
 
               {/* Profile image container with floating animation */}
               <motion.div
-                className="absolute inset-4 rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20"
+                className="absolute inset-3 rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20"
                 animate={{
                   y: [0, -10, 0],
                 }}
