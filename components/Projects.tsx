@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Filter, Play, ArrowRight, CheckCircle2, Zap, Shield, Users } from 'lucide-react';
+import Image from 'next/image';
 import { GlassCard } from './ui/GlassCard';
 import { Section, SectionTitle } from './ui/Section';
 import { Button } from './ui/Button';
@@ -245,10 +246,11 @@ export const Projects: React.FC = () => {
             >
               {/* Project Image */}
               <div className="relative h-48 overflow-hidden">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 {project.featured && (

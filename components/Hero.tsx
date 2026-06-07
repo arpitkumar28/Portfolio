@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Smartphone, Code, Database, Cpu, Server, Download, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import { Button } from './ui/Button';
 import { GlassCard } from './ui/GlassCard';
 import { GradientText } from './ui/GradientText';
@@ -509,11 +510,13 @@ export const Hero: React.FC = () => {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <img
+                  <Image
                     src="/assets/images/photo2.jpeg"
                     alt="Arpit Kumar"
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                     style={{ objectPosition: 'center top' }}
+                    priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </motion.div>
