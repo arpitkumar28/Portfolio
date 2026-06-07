@@ -25,7 +25,7 @@ const statsData = [
   { value: 17, label: 'Projects Shipped', suffix: '+' },
   { value: 10, label: 'Technologies', suffix: '+' },
   { value: 4, label: 'Domains', suffix: '+' },
-  { value: 100, label: 'Commitment', suffix: '%' },
+  { value: 3, label: 'Year B.Tech IT', suffix: 'rd' },
 ];
 
 const StatCard: React.FC<{ stat: typeof statsData[0]; index: number }> = ({ stat, index }) => {
@@ -100,7 +100,7 @@ const StatCard: React.FC<{ stat: typeof statsData[0]; index: number }> = ({ stat
 
 const OrbitIcon: React.FC<{ icon: any; color: string; name: string; index: number; total: number }> = ({ icon: Icon, color, name, index, total }) => {
   const angle = (index / total) * 2 * Math.PI;
-  const radius = 200;
+  const radius = 270;
   const x = Math.cos(angle) * radius;
   const y = Math.sin(angle) * radius;
 
@@ -435,6 +435,37 @@ export const Hero: React.FC = () => {
                 <StatCard key={index} stat={stat} index={index} />
               ))}
             </motion.div>
+
+            {/* Currently Building Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.0 }}
+              className="pt-4"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <span className="text-sm text-muted font-medium">Currently Building</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { name: 'NCC Buddy', color: 'from-orange-500/20 to-red-500/20 border-orange-500/30' },
+                  { name: 'EduAI Nexus X', color: 'from-green-500/20 to-teal-500/20 border-green-500/30' },
+                  { name: 'Smart IoT Solutions', color: 'from-cyan-500/20 to-blue-500/20 border-cyan-500/30' },
+                ].map((project, index) => (
+                  <motion.span
+                    key={project.name}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 1.1 + index * 0.1 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    className={`px-4 py-2 rounded-full bg-gradient-to-r ${project.color} border text-sm font-medium text-white backdrop-blur-sm cursor-default`}
+                  >
+                    {project.name}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Right content - Profile */}
@@ -472,7 +503,7 @@ export const Hero: React.FC = () => {
                 }}
               />
               
-              {/* Animated gradient border */}
+              {/* Animated gradient border with glow */}
               <motion.div
                 className="absolute inset-0 rounded-full p-[2px]"
                 animate={{
@@ -482,6 +513,11 @@ export const Hero: React.FC = () => {
                     'linear-gradient(180deg, #8B5CF6, #06B6D4, #A855F7, #8B5CF6)',
                     'linear-gradient(270deg, #8B5CF6, #06B6D4, #A855F7, #8B5CF6)',
                     'linear-gradient(360deg, #8B5CF6, #06B6D4, #A855F7, #8B5CF6)',
+                  ],
+                  boxShadow: [
+                    '0 0 40px rgba(139,92,246,0.4), 0 0 80px rgba(6,182,212,0.25)',
+                    '0 0 50px rgba(139,92,246,0.5), 0 0 100px rgba(6,182,212,0.3)',
+                    '0 0 40px rgba(139,92,246,0.4), 0 0 80px rgba(6,182,212,0.25)',
                   ],
                 }}
                 transition={{
