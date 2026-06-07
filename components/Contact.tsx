@@ -88,9 +88,7 @@ export const Contact: React.FC = () => {
           Let's Build Something <span className="gradient-text">Amazing</span> Together
         </h2>
         <p className="text-muted text-lg">
-          I'm actively seeking internship opportunities and open to exciting collaborations. 
-          Whether you're a recruiter looking for talent or a fellow developer with a project idea, 
-          I'd love to hear from you.
+          Interested in internships, collaborations, or exciting software projects? Let's connect.
         </p>
       </motion.div>
 
