@@ -6,6 +6,7 @@ import { Mail, Phone, MapPin, Send, CheckCircle, Copy, Check, Briefcase, Code, U
 import { GlassCard } from './ui/GlassCard';
 import { Section, SectionTitle } from './ui/Section';
 import { Button } from './ui/Button';
+import { LinkedInIcon, GitHubIcon, XIcon } from './ui/SocialIcons';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -246,9 +247,9 @@ export const Contact: React.FC = () => {
               <p className="text-sm text-muted mb-4">Connect with me</p>
               <div className="flex gap-3 flex-wrap">
                 {[
-                  { href: 'https://www.linkedin.com/in/arpitkumar0211', icon: 'fab fa-linkedin', label: 'LinkedIn' },
-                  { href: 'https://github.com/arpitkumar28', icon: 'fab fa-github', label: 'GitHub' },
-                  { href: 'https://x.com/Arpit_patel28', icon: 'fab fa-x-twitter', label: 'Twitter' },
+                  { href: 'https://www.linkedin.com/in/arpitkumar0211', icon: <LinkedInIcon />, label: 'LinkedIn' },
+                  { href: 'https://github.com/arpitkumar28', icon: <GitHubIcon />, label: 'GitHub' },
+                  { href: 'https://x.com/Arpit_patel28', icon: <XIcon />, label: 'Twitter' },
                 ].map((social) => (
                   <motion.a
                     key={social.label}
@@ -260,7 +261,9 @@ export const Contact: React.FC = () => {
                     className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-gradient-to-br hover:from-primary/20 hover:to-accent/20 hover:border-primary/50 transition-all duration-300 group"
                     aria-label={social.label}
                   >
-                    <i className={`${social.icon} text-xl text-muted group-hover:text-white transition-colors`}></i>
+                    <div className="text-muted group-hover:text-white transition-colors">
+                      {social.icon}
+                    </div>
                   </motion.a>
                 ))}
               </div>
