@@ -7,6 +7,7 @@ import { TechStack } from '@/components/TechStack';
 import { About } from '@/components/About';
 import { Projects } from '@/components/Projects';
 import { Journey } from '@/components/Journey';
+import { Achievements } from '@/components/Achievements';
 import { OpenTo } from '@/components/OpenTo';
 import { Education } from '@/components/Education';
 import { Contact } from '@/components/Contact';
@@ -98,6 +99,7 @@ export default function Home() {
         <Projects />
         <PhotoGallery />
         <Journey />
+        <Achievements />
         <OpenTo />
         <Education />
         <Contact />

@@ -19,8 +19,8 @@ const journeyItems = [
   },
   {
     year: '2026',
-    title: 'Expanding Toward AI, Backend & IoT',
-    description: 'Improving DSA, backend APIs, AI-assisted workflows, and practical IoT systems for real-world problem solving.',
+    title: 'Full Stack & AI Integration',
+    description: 'Built NCC Buddy (15+ screens), Hospital Attendance System, EduAI Nexus X, and GreenFlow AI. Participated in Smart India Hackathon, earned Google Cloud certification, and strengthened backend with Python/FastAPI.',
   },
 ];
 
