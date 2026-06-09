@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { Button } from './ui/Button';
 import { GlassCard } from './ui/GlassCard';
 import { GradientText } from './ui/GradientText';
+import { LinkedInIcon, GitHubIcon, XIcon } from './ui/SocialIcons';
 
 const techIcons = [
   { icon: Smartphone, color: '#8B5CF6', name: 'Flutter' },
@@ -100,7 +101,7 @@ const StatCard: React.FC<{ stat: typeof statsData[0]; index: number }> = ({ stat
 
 const OrbitIcon: React.FC<{ icon: any; color: string; name: string; index: number; total: number }> = ({ icon: Icon, color, name, index, total }) => {
   const angle = (index / total) * 2 * Math.PI;
-  const radius = 270;
+  const radius = 300;
   const x = Math.cos(angle) * radius;
   const y = Math.sin(angle) * radius;
 
@@ -316,7 +317,7 @@ export const Hero: React.FC = () => {
               className="inline-block"
             >
               <span className="px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium">
-                3rd Year B.Tech IT Student - Jaipur, Rajasthan
+                3rd Year B.Tech IT Student
               </span>
             </motion.div>
 
@@ -372,13 +373,13 @@ export const Hero: React.FC = () => {
               >
                 <Button
                   onClick={() => window.location.href = 'mailto:arpitkumar0211@gmail.com?subject=Resume%20Request'}
-                  className="relative overflow-hidden group"
+                  className="relative overflow-hidden group px-8 py-4 text-base"
                 >
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   />
-                  <span className="relative flex items-center">
-                    <Download className="w-4 h-4 mr-2" />
+                  <span className="relative flex items-center font-semibold">
+                    <Download className="w-5 h-5 mr-2" />
                     Download Resume
                   </span>
                 </Button>
@@ -390,10 +391,10 @@ export const Hero: React.FC = () => {
                 <Button
                   variant="outline"
                   onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="group"
+                  className="group px-8 py-4 text-base"
                 >
                   View Projects
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </motion.div>
             </motion.div>
@@ -405,9 +406,9 @@ export const Hero: React.FC = () => {
               className="flex gap-4"
             >
               {[
-                { iconClass: 'fab fa-github', href: 'https://github.com/arpitkumar28', label: 'GitHub' },
-                { iconClass: 'fab fa-linkedin', href: 'https://www.linkedin.com/in/arpitkumar0211', label: 'LinkedIn' },
-                { iconClass: 'fab fa-x-twitter', href: 'https://x.com/Arpit_patel28', label: 'X' },
+                { icon: <GitHubIcon />, href: 'https://github.com/arpitkumar28', label: 'GitHub' },
+                { icon: <LinkedInIcon />, href: 'https://www.linkedin.com/in/arpitkumar0211', label: 'LinkedIn' },
+                { icon: <XIcon />, href: 'https://x.com/Arpit_patel28', label: 'X' },
               ].map((social) => (
                 <motion.a
                   key={social.label}
@@ -419,7 +420,9 @@ export const Hero: React.FC = () => {
                   className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary/50 transition-all duration-300 group"
                   aria-label={`Visit ${social.label} profile`}
                 >
-                  <i className={`${social.iconClass} text-xl text-muted group-hover:text-primary transition-colors`} />
+                  <div className="text-muted group-hover:text-primary transition-colors">
+                    {social.icon}
+                  </div>
                 </motion.a>
               ))}
             </motion.div>
@@ -505,7 +508,7 @@ export const Hero: React.FC = () => {
               
               {/* Animated gradient border with glow */}
               <motion.div
-                className="absolute inset-0 rounded-full p-[2px]"
+                className="absolute inset-0 rounded-full p-[3px]"
                 animate={{
                   background: [
                     'linear-gradient(0deg, #8B5CF6, #06B6D4, #A855F7, #8B5CF6)',
@@ -515,13 +518,13 @@ export const Hero: React.FC = () => {
                     'linear-gradient(360deg, #8B5CF6, #06B6D4, #A855F7, #8B5CF6)',
                   ],
                   boxShadow: [
+                    '0 0 30px rgba(139,92,246,0.3), 0 0 60px rgba(6,182,212,0.2)',
                     '0 0 40px rgba(139,92,246,0.4), 0 0 80px rgba(6,182,212,0.25)',
-                    '0 0 50px rgba(139,92,246,0.5), 0 0 100px rgba(6,182,212,0.3)',
-                    '0 0 40px rgba(139,92,246,0.4), 0 0 80px rgba(6,182,212,0.25)',
+                    '0 0 30px rgba(139,92,246,0.3), 0 0 60px rgba(6,182,212,0.2)',
                   ],
                 }}
                 transition={{
-                  duration: 4,
+                  duration: 6,
                   repeat: Infinity,
                   ease: 'linear',
                 }}
