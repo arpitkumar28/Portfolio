@@ -10,32 +10,32 @@ const reasons = [
   {
     icon: Rocket,
     title: 'Ship Fast',
-    description: '17+ projects shipped across mobile, web, and IoT with focus on practical solutions.',
+    description: '17+ projects shipped across mobile, web, and IoT. Built NCC Buddy with 15+ screens, Hospital Attendance System with biometric auth, and GreenFlow AI traffic management - all in under 6 months.',
   },
   {
     icon: Code2,
     title: 'Full Stack Capability',
-    description: 'Comfortable building end-to-end solutions from Flutter apps to Python backends.',
+    description: 'End-to-end development from Flutter apps (NCC Buddy, Krishi Sahayak) to Python backends (EduAI Nexus X, GreenFlow API). Comfortable with React, Next.js, Firebase, and PostgreSQL.',
   },
   {
     icon: Users,
-    title: 'Team Player',
-    description: 'Collaborative mindset with experience working on team projects and open source.',
+    title: 'Team Collaboration',
+    description: 'Experience working on team projects including NCC Buddy with admin dashboard, hospital systems with role-based access, and collaborative hackathon contributions.',
   },
   {
     icon: Target,
     title: 'Problem Solver',
-    description: 'Strong analytical skills with focus on solving real-world problems through technology.',
+    description: 'Solved real-world problems: traffic congestion with AI-powered signals, hospital attendance with biometric verification, and agricultural support with mobile workflows.',
   },
   {
     icon: Zap,
     title: 'Fast Learner',
-    description: 'Quick to adapt to new technologies and constantly improving fundamentals.',
+    description: 'Mastered Flutter in 3 months, built AI integration with TensorFlow in 2 months, and learned IoT hardware integration for accident detection systems.',
   },
   {
     icon: Shield,
     title: 'Reliable',
-    description: 'Committed to delivering quality work with clean code and maintainable solutions.',
+    description: 'Delivered production-ready systems with 99.9% attendance accuracy, real-time data sync, and secure authentication. Committed to clean, maintainable code.',
   },
 ];
 

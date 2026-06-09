@@ -105,7 +105,7 @@ export const Navbar: React.FC = () => {
               >
                 <Button
                   onClick={() => window.location.href = 'mailto:arpitkumar0211@gmail.com?subject=Resume%20Request'}
-                  className="ml-4 relative overflow-hidden group"
+                  className="ml-4 relative overflow-hidden group px-6 py-2.5 font-semibold"
                   size="sm"
                 >
                   <motion.div
