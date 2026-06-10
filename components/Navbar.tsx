@@ -104,7 +104,7 @@ export const Navbar: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Button
-                  onClick={() => window.location.href = 'mailto:arpitkumar0211@gmail.com?subject=Resume%20Request'}
+                  onClick={() => window.open('/resume.pdf', '_blank')}
                   className="ml-4 relative overflow-hidden group px-6 py-2.5 font-semibold"
                   size="sm"
                 >
@@ -169,7 +169,7 @@ export const Navbar: React.FC = () => {
                 ))}
                 <div className="pt-4 border-t border-white/10">
                   <Button
-                    onClick={() => window.location.href = 'mailto:arpitkumar0211@gmail.com?subject=Resume%20Request'}
+                    onClick={() => window.open('/resume.pdf', '_blank')}
                     className="w-full relative overflow-hidden group"
                     size="sm"
                   >

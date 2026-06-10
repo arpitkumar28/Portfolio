@@ -86,7 +86,7 @@ export const Contact: React.FC = () => {
         className="text-center mb-12 max-w-3xl mx-auto"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-          Let's Build Something <span className="gradient-text">Amazing</span> Together
+          Let's Build Something <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Amazing</span> Together
         </h2>
         <p className="text-muted text-lg">
           Interested in internships, collaborations, or exciting software projects? Let's connect.
