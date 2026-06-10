@@ -29,11 +29,11 @@ const featuredProjects = [
     problem: 'Urban traffic congestion causes significant delays, increased fuel consumption, and critical delays for emergency vehicles navigating through crowded streets.',
     solution: 'Built an AI-powered traffic management system with real-time congestion prediction, dynamic signal optimization, and emergency green corridor creation. The system uses IoT sensors and machine learning to optimize traffic flow and prioritize emergency vehicles.',
     impact: [
-      'IoT Based - Real-time sensor data integration',
-      'Emergency Routing - Automated green corridor for ambulances',
-      'Smart Signals - AI-driven traffic optimization',
-      'Reduced congestion by 40% in simulation tests',
-      'Emergency response time improved by 35%'
+      '✓ IoT Based - Real-time sensor data integration',
+      '✓ Emergency Routing - Automated green corridor for ambulances',
+      '✓ Smart Signals - AI-driven traffic optimization',
+      '✓ Reduced congestion by 40% in simulation tests',
+      '✓ Emergency response time improved by 35%'
     ],
     features: [
       'AI-powered congestion prediction using real-time traffic data',
@@ -57,14 +57,15 @@ const featuredProjects = [
     title: 'Hospital Digital Attendance System',
     subtitle: 'Healthcare Management',
     category: 'Flutter / Healthcare',
+    image: '/assets/images/greenflow-1.jpeg',
     problem: 'Manual attendance tracking in hospitals is inefficient, prone to errors, and lacks real-time monitoring capabilities for staff and patient management.',
     solution: 'Developed a comprehensive digital attendance system with biometric authentication, geolocation verification, and NFC support. The system provides real-time staff tracking, automated reporting, and secure data storage.',
     impact: [
-      'Role-based Access - Multi-level admin and staff permissions',
-      'Automated Reports - Daily/weekly attendance analytics',
-      'Attendance Tracking - 99.9% accuracy with biometric verification',
-      'Reduced manual paperwork by 80%',
-      'Real-time staff visibility for hospital management'
+      '✓ Role-based Access - Multi-level admin and staff permissions',
+      '✓ Automated Reports - Daily/weekly attendance analytics',
+      '✓ Attendance Tracking - 99.9% accuracy with biometric verification',
+      '✓ Reduced manual paperwork by 80%',
+      '✓ Real-time staff visibility for hospital management'
     ],
     features: [
       'Biometric authentication for secure login',
@@ -87,14 +88,15 @@ const featuredProjects = [
     title: 'NCC Buddy',
     subtitle: 'Cadet Companion App',
     category: 'Flutter / Cadet Utility',
+    image: '/assets/images/greenflow-2.jpeg',
     problem: 'NCC cadets struggle with managing training schedules, attendance, events, and emergency communication through fragmented systems and manual processes.',
     solution: 'Created an all-in-one companion app for NCC cadets with event scheduling, QR-based attendance tracking, location sharing, and emergency SOS features. Includes admin dashboard for efficient management.',
     impact: [
-      '15+ Screens - Comprehensive cadet workflow coverage',
-      'Firebase Integration - Real-time data sync across devices',
-      'Real-time Sync - Instant updates for attendance and events',
-      'Streamlined training management by 60%',
-      'Emergency response time reduced by 50%'
+      '✓ 15+ Screens - Comprehensive cadet workflow coverage',
+      '✓ Firebase Integration - Real-time data sync across devices',
+      '✓ Real-time Sync - Instant updates for attendance and events',
+      '✓ Streamlined training management by 60%',
+      '✓ Emergency response time reduced by 50%'
     ],
     features: [
       'Firebase authentication and secure user management',
@@ -118,14 +120,15 @@ const featuredProjects = [
     title: 'EduAI Nexus X',
     subtitle: 'AI-Powered Learning Platform',
     category: 'AI / Education',
+    image: '/assets/images/greenflow-3.jpeg',
     problem: 'Students lack personalized learning paths and real-time AI assistance, leading to inefficient study patterns and reduced learning outcomes.',
     solution: 'Built an AI-powered learning platform with personalized recommendations, real-time doubt resolution, and adaptive difficulty adjustment. The platform uses machine learning to create custom learning paths based on student performance.',
     impact: [
-      'AI Powered - Personalized learning recommendations',
-      'Student Productivity - 45% improvement in study efficiency',
-      'Modern Dashboard - Real-time progress analytics',
-      'Adaptive learning paths based on performance',
-      '24/7 AI assistance for doubt resolution'
+      '✓ AI Powered - Personalized learning recommendations',
+      '✓ Student Productivity - 45% improvement in study efficiency',
+      '✓ Modern Dashboard - Real-time progress analytics',
+      '✓ Adaptive learning paths based on performance',
+      '✓ 24/7 AI assistance for doubt resolution'
     ],
     features: [
       'AI-powered personalized learning recommendations',
@@ -478,16 +481,16 @@ export const Projects: React.FC = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex flex-wrap gap-2 pt-3 mt-3 border-t border-white/10">
+                <div className="flex flex-wrap gap-2 pt-4 mt-4 border-t border-white/10">
                   {project.links.map((link, linkIndex) => (
                     <Button
                       key={linkIndex}
                       variant={link.label === 'Live Demo' ? 'primary' : 'outline'}
                       size="sm"
                       onClick={() => window.open(link.url, '_blank')}
-                      className="flex items-center gap-1.5 text-xs px-3 py-1.5"
+                      className="flex items-center gap-1.5 text-xs px-4 py-2 font-semibold"
                     >
-                      {link.icon && <link.icon className="w-3 h-3" />}
+                      {link.icon && <link.icon className="w-3.5 h-3.5" />}
                       {link.label}
                     </Button>
                   ))}
@@ -495,9 +498,9 @@ export const Projects: React.FC = () => {
                     variant="outline"
                     size="sm"
                     onClick={() => document.getElementById('all-projects')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="flex items-center gap-1.5 text-xs px-3 py-1.5"
+                    className="flex items-center gap-1.5 text-xs px-4 py-2 font-semibold"
                   >
-                    <ArrowRight className="w-3 h-3" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                     View All Projects
                   </Button>
                 </div>
