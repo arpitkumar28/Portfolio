@@ -2,20 +2,21 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Smartphone, Code, Database, Cpu, Server, Download, ArrowRight } from 'lucide-react';
+import { Download, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from './ui/Button';
 import { GlassCard } from './ui/GlassCard';
 import { GradientText } from './ui/GradientText';
 import { LinkedInIcon, GitHubIcon, XIcon } from './ui/SocialIcons';
+import { FlutterIcon, ReactIcon, FirebaseIcon, PythonIcon, GitHubIcon as GitHubLogo, MongoDBIcon } from './ui/TechIcons';
 
 const techIcons = [
-  { icon: Smartphone, color: '#8B5CF6', name: 'Flutter' },
-  { icon: Code, color: '#12D7FF', name: 'React' },
-  { icon: Database, color: '#FFB86B', name: 'Firebase' },
-  { icon: Cpu, color: '#3776AB', name: 'Python' },
-  { icon: Server, color: '#00878F', name: 'IoT' },
-  { icon: Database, color: '#13AA52', name: 'Database' },
+  { icon: FlutterIcon, color: '#02569B', name: 'Flutter' },
+  { icon: ReactIcon, color: '#61DAFB', name: 'React' },
+  { icon: FirebaseIcon, color: '#FFCA28', name: 'Firebase' },
+  { icon: PythonIcon, color: '#3776AB', name: 'Python' },
+  { icon: GitHubLogo, color: '#FFFFFF', name: 'GitHub' },
+  { icon: MongoDBIcon, color: '#4DB33D', name: 'MongoDB' },
 ];
 
 const roles = ['Flutter Developer', 'Full Stack Developer', 'IoT Enthusiast', 'Problem Solver'];
@@ -101,7 +102,7 @@ const StatCard: React.FC<{ stat: typeof statsData[0]; index: number }> = ({ stat
 
 const OrbitIcon: React.FC<{ icon: any; color: string; name: string; index: number; total: number }> = ({ icon: Icon, color, name, index, total }) => {
   const angle = (index / total) * 2 * Math.PI;
-  const radius = 300;
+  const radius = 200;
   const x = Math.cos(angle) * radius;
   const y = Math.sin(angle) * radius;
 
@@ -118,28 +119,29 @@ const OrbitIcon: React.FC<{ icon: any; color: string; name: string; index: numbe
     >
       <motion.div
         animate={{
-          x: [x, x * 1.1, x],
-          y: [y, y * 1.1, y],
-          rotate: [0, 5, -5, 0],
+          x: [x, x * 1.08, x],
+          y: [y, y * 1.08, y],
+          rotate: [0, 3, -3, 0],
         }}
         transition={{
-          duration: 4 + index * 0.5,
+          duration: 5 + index * 0.3,
           repeat: Infinity,
           ease: 'easeInOut',
         }}
         className="relative"
       >
         <motion.div
-          whileHover={{ scale: 1.2, rotate: 360 }}
-          transition={{ duration: 0.5 }}
-          className="p-4 rounded-full bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary/50 transition-all duration-300 shadow-lg hover:shadow-primary/20"
+          whileHover={{ scale: 1.15, rotate: 360 }}
+          transition={{ duration: 0.4 }}
+          className="p-3.5 rounded-full bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary/50 transition-all duration-300 shadow-lg hover:shadow-primary/30"
         >
-          <Icon className="w-6 h-6" style={{ color }} />
+          <Icon className="w-5.5 h-5.5" style={{ color }} />
         </motion.div>
         <motion.div
-          initial={{ opacity: 0 }}
-          whileHover={{ opacity: 1 }}
-          className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-black/80 backdrop-blur-sm rounded text-xs text-white whitespace-nowrap"
+          initial={{ opacity: 0, y: 5 }}
+          whileHover={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2 }}
+          className="absolute -bottom-9 left-1/2 transform -translate-x-1/2 px-2.5 py-1 bg-black/90 backdrop-blur-md rounded-lg text-xs text-white whitespace-nowrap font-medium border border-white/10"
         >
           {name}
         </motion.div>
@@ -337,18 +339,18 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-2xl md:text-3xl font-semibold"
+              className="text-2xl md:text-3xl font-semibold text-white"
             >
-              <GradientText>Flutter & Full Stack Developer</GradientText>
+              Flutter & Full Stack Developer
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-xl text-muted"
+              className="text-lg text-muted"
             >
-              <span className="text-primary font-semibold">{professionalTagline}</span>
+              <span className="text-primary font-medium">{professionalTagline}</span>
             </motion.div>
 
             <motion.p
@@ -372,7 +374,7 @@ export const Hero: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Button
-                  onClick={() => window.location.href = 'mailto:arpitkumar0211@gmail.com?subject=Resume%20Request'}
+                  onClick={() => window.open('/resume.pdf', '_blank')}
                   className="relative overflow-hidden group px-8 py-4 text-base"
                 >
                   <motion.div
@@ -519,12 +521,12 @@ export const Hero: React.FC = () => {
                   ],
                   boxShadow: [
                     '0 0 30px rgba(139,92,246,0.3), 0 0 60px rgba(6,182,212,0.2)',
-                    '0 0 40px rgba(139,92,246,0.4), 0 0 80px rgba(6,182,212,0.25)',
+                    '0 0 40px rgba(139,92,246,0.4), 0 0 80px rgba(6,182,212,0.3)',
                     '0 0 30px rgba(139,92,246,0.3), 0 0 60px rgba(6,182,212,0.2)',
                   ],
                 }}
                 transition={{
-                  duration: 6,
+                  duration: 8,
                   repeat: Infinity,
                   ease: 'linear',
                 }}
@@ -536,17 +538,17 @@ export const Hero: React.FC = () => {
               <motion.div
                 className="absolute inset-3 rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20"
                 animate={{
-                  y: [0, -10, 0],
+                  y: [0, -8, 0],
                 }}
                 transition={{
-                  duration: 6,
+                  duration: 5,
                   repeat: Infinity,
                   ease: 'easeInOut',
                 }}
               >
                 <motion.div
                   className="relative w-full h-full rounded-full overflow-hidden"
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.03 }}
                   transition={{ duration: 0.3 }}
                 >
                   <Image
@@ -556,12 +558,12 @@ export const Hero: React.FC = () => {
                     className="object-cover"
                     style={{ objectPosition: 'center top' }}
                     priority
-                    quality={100}
+                    quality={95}
                   />
                   {/* Enhanced lighting overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/5" />
                   {/* Subtle inner glow */}
-                  <div className="absolute inset-0 rounded-full shadow-[inset_0_0_30px_rgba(139,92,246,0.2)]" />
+                  <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(139,92,246,0.15)]" />
                 </motion.div>
               </motion.div>
 
