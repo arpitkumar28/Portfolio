@@ -97,7 +97,6 @@ export default function Home() {
         <WhyHireMe />
         <About />
         <Projects />
-        <PhotoGallery />
         <Journey />
         <Achievements />
         <OpenTo />
