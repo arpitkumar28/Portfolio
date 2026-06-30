@@ -1,66 +1,87 @@
-# Portfolio
+# Arpit Kumar Portfolio
 
-## GreenFlow AI Showcase (Next.js + Tailwind)
+A personal portfolio website built with Next.js, TypeScript, and Tailwind CSS.
 
-This repo contains a ready-to-use React/Next.js + TypeScript component for showcasing the "GreenFlow AI" project with a dark, glassmorphism style powered by Tailwind CSS.
+The repository includes a responsive portfolio landing page with sections for skills, projects, achievements, work journey, education, and contact. It also contains a dedicated GreenFlow demo page under `/greenflow`.
 
-### Files added
-- `components/greenflow/GreenFlowShowcase.tsx`
-- `components/greenflow/FeatureCard.tsx`
-- `components/greenflow/MetricCard.tsx`
-- `components/greenflow/TechBadge.tsx`
+## Tech stack
 
-### Integration (quick)
+- Next.js 13.5.6
+- React 18.2
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- `lucide-react`
+- `next/image`
 
-1. Install dependencies in your Next.js app (Tailwind + Next):
+## Features
 
-```bash
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
-```
+- Responsive, mobile-first portfolio layout
+- Hero section with recruiter-focused messaging
+- Sticky navigation and smooth anchor scrolling
+- Project showcase and image gallery
+- Accessible contact form
+- Back-to-top button
+- SEO meta tags and JSON-LD support
+- Reusable UI components under `components/ui`
 
-2. Add Tailwind directives to your global CSS (`globals.css`):
+## Project structure
 
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
+- `pages/index.tsx` — homepage
+- `pages/greenflow.tsx` — GreenFlow showcase page
+- `components/` — site sections and shared UI components
+- `components/greenflow/` — GreenFlow-specific showcase components
+- `public/assets/images/` — image assets
+- `styles/globals.css` — global Tailwind styles
+- `tailwind.config.js` — Tailwind configuration
+- `netlify.toml` — Netlify deployment settings
 
-3. Copy the `components/greenflow` folder into your Next.js project and import the component into a page:
+## Getting started
 
-```tsx
-import GreenFlowShowcase from '../components/greenflow/GreenFlowShowcase'
-
-export default function Home() {
-	return <GreenFlowShowcase />
-}
-```
-
-4. Add some screenshots into `public/assets/images/` using names `greenflow-1.png`, `greenflow-2.png`, `greenflow-3.png` or update the paths in the component.
-
-5. Optional: install `next/image` optimizations or adjust to `img` if not using Next.js image loader.
-
-I added a demo Next.js page and Tailwind/PostCSS configs to this repo so you can run a local demo.
-
-### Run the demo locally
-
-1. Install dependencies:
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-2. Run development server:
+Run the development server:
 
 ```bash
 npm run dev
 ```
 
-3. Open the demo at `http://localhost:3000/greenflow`.
+Open the app at:
 
-Notes:
-- Place screenshots in `public/assets/images/` or update the paths in `components/greenflow/GreenFlowShowcase.tsx`.
-- The demo uses plain `img` tags so it works outside Next's image optimization too.
+```bash
+http://localhost:3000
+```
 
-If you want I can also convert this repo into a full Next app structure (move files, tune ESLint/Prettier, CI), or remove `package.json` if you only need the component.
+The GreenFlow demo page is available at:
+
+```bash
+http://localhost:3000/greenflow
+```
+
+## Build and production
+
+Build the app:
+
+```bash
+npm run build
+```
+
+Start the production server locally:
+
+```bash
+npm start
+```
+
+## Notes
+
+- Image assets are served from `public/assets/images/`
+- The project uses path aliases configured via `tsconfig.json` for imports like `@/components/Navbar`
+- `netlify.toml` is included for Netlify deployment compatibility
+
+## License
+
+This repository contains the portfolio source code for Arpit Kumar.
