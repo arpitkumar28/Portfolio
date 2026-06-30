@@ -19,8 +19,8 @@ const journeyItems = [
   },
   {
     year: '2026',
-    title: 'Full Stack & AI Integration',
-    description: 'Built NCC Buddy (15+ screens), Hospital Attendance System, EduAI Nexus X, and GreenFlow AI. Participated in Smart India Hackathon, earned Google Cloud certification, and strengthened backend with Python/FastAPI.',
+    title: 'Full Stack, AI & Problem Solving',
+    description: 'Built NCC Buddy (15+ screens), Hospital Attendance System, EduAI Nexus X, and GreenFlow AI. Participated in Smart India Hackathon, earned Google Cloud certification, strengthened backend with Python/FastAPI, and sustained LeetCode Daily Challenge practice.',
   },
 ];
 

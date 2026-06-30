@@ -40,13 +40,7 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const closeMenu = () => setIsMobileMenuOpen(false);
 
   return (
     <>
@@ -66,7 +60,7 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center justify-between h-16 md:h-20">
             <motion.a
               href="#home"
-              onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }}
+              onClick={closeMenu}
               className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent"
               whileHover={{ scale: 1.05 }}
               aria-label="Arpit Kumar - Home"
@@ -79,7 +73,7 @@ export const Navbar: React.FC = () => {
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+                  onClick={closeMenu}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative ${
                     activeSection === item.href.substring(1)
                       ? 'bg-primary/20 text-primary'
@@ -104,7 +98,9 @@ export const Navbar: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Button
-                  onClick={() => window.open('/resume.pdf', '_blank')}
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="ml-4 relative overflow-hidden group px-6 py-2.5 font-semibold"
                   size="sm"
                 >
@@ -146,7 +142,7 @@ export const Navbar: React.FC = () => {
                   <motion.a
                     key={item.name}
                     href={item.href}
-                    onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+                    onClick={closeMenu}
                     className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 relative ${
                       activeSection === item.href.substring(1)
                         ? 'bg-primary/20 text-primary'
@@ -169,7 +165,9 @@ export const Navbar: React.FC = () => {
                 ))}
                 <div className="pt-4 border-t border-white/10">
                   <Button
-                    onClick={() => window.open('/resume.pdf', '_blank')}
+                    href="/resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-full relative overflow-hidden group"
                     size="sm"
                   >

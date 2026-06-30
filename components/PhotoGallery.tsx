@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Image from 'next/image'
 import ImageModal from './ui/ImageModal'
 
 type Photo = {
@@ -15,13 +16,17 @@ const photos: Photo[] = [
   { src: '/assets/images/greenflow-4.jpeg', alt: 'Route optimization', title: 'AI Route Planning', category: 'Artificial Intelligence' },
   { src: '/assets/images/greenflow-5.jpeg', alt: 'Signal analytics', title: 'Traffic Analytics', category: 'Data Science' },
   { src: '/assets/images/greenflow-6.jpeg', alt: 'Vehicle tracking', title: 'Real-time Tracking', category: 'IoT' },
+  { src: '/assets/images/photo2.jpeg', alt: 'Project highlight 1', title: 'Project Highlight', category: 'Misc' },
+  { src: '/assets/images/greenflow-1.svg', alt: 'Illustration variant', title: 'Design Variant', category: 'Design' },
+  { src: '/assets/images/greenflow-2.svg', alt: 'Illustration variant 2', title: 'Design Variant', category: 'Design' },
+  { src: '/assets/images/greenflow-3.svg', alt: 'Illustration variant 3', title: 'Design Variant', category: 'Design' },
 ]
 
 export default function PhotoGallery() {
   const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null)
   const [selectedCategory, setSelectedCategory] = useState('All')
 
-  const categories = ['All', 'Traffic Management', 'Mobile Development', 'Public Safety', 'Artificial Intelligence', 'Data Science', 'IoT']
+  const categories = ['All', 'Traffic Management', 'Mobile Development', 'Public Safety', 'Artificial Intelligence', 'Data Science', 'IoT', 'LeetCode Practice']
 
   const filteredPhotos = selectedCategory === 'All' 
     ? photos 
@@ -31,11 +36,11 @@ export default function PhotoGallery() {
   const closeModal = () => setModalImage(null)
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-b from-background to-background/50">
+    <section className="py-12 px-6 bg-gradient-to-b from-background to-background/50">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4">Photo Gallery</h2>
-          <p className="text-muted max-w-2xl mx-auto mb-8">
+        <div className="text-center mb-8">
+          <h2 className="text-4xl font-bold text-white mb-3">Photo Gallery</h2>
+          <p className="text-muted max-w-2xl mx-auto mb-6">
             A collection of project screenshots and development highlights
           </p>
           
@@ -57,18 +62,21 @@ export default function PhotoGallery() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
           {filteredPhotos.map((photo, index) => (
-            <div
+            <button
               key={index}
-              className="relative group overflow-hidden rounded-xl cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl bg-white/5 border border-white/10"
+              type="button"
               onClick={() => openModal(photo.src, photo.alt)}
+              aria-label={`Open full view for ${photo.title}`}
+              className="relative group overflow-hidden rounded-xl cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl bg-white/5 border border-white/10"
             >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
                   src={photo.src}
                   alt={photo.alt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -84,7 +92,7 @@ export default function PhotoGallery() {
                   </svg>
                 </div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
 

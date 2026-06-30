@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Image from 'next/image'
 import FeatureCard from './FeatureCard'
 import MetricCard from './MetricCard'
 import TechBadge from './TechBadge'
@@ -68,18 +69,23 @@ export default function GreenFlowShowcase() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {screenshots.map((s, i) => (
-                  <div 
-                    key={i} 
-                    className="relative overflow-hidden rounded-xl group transform-gpu transition duration-500 hover:scale-105 cursor-pointer"
+                  <button
+                    key={i}
+                    type="button"
+                    aria-label={`Open screenshot ${s.alt || i + 1}`}
                     onClick={() => openModal(s.src, s.alt || `screenshot-${i}`)}
+                    className="relative overflow-hidden rounded-xl group transform-gpu transition duration-500 hover:scale-105"
                   >
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 opacity-0 group-hover:opacity-60 transition" />
-                    <img
-                      src={s.src}
-                      alt={s.alt || `screenshot-${i}`}
-                      className="object-cover w-full h-48 sm:h-56 rounded-xl"
-                    />
-                  </div>
+                    <div className="relative w-full h-48 sm:h-56 rounded-xl overflow-hidden">
+                      <Image
+                        src={s.src}
+                        alt={s.alt || `screenshot-${i}`}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                  </button>
                 ))}
               </div>
             </div>

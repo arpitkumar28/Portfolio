@@ -57,7 +57,6 @@ const featuredProjects = [
     title: 'Hospital Digital Attendance System',
     subtitle: 'Healthcare Management',
     category: 'Flutter / Healthcare',
-    image: '/assets/images/greenflow-1.jpeg',
     problem: 'Manual attendance tracking in hospitals is inefficient, prone to errors, and lacks real-time monitoring capabilities for staff and patient management.',
     solution: 'Developed a comprehensive digital attendance system with biometric authentication, geolocation verification, and NFC support. The system provides real-time staff tracking, automated reporting, and secure data storage.',
     impact: [
@@ -88,7 +87,6 @@ const featuredProjects = [
     title: 'NCC Buddy',
     subtitle: 'Cadet Companion App',
     category: 'Flutter / Cadet Utility',
-    image: '/assets/images/greenflow-2.jpeg',
     problem: 'NCC cadets struggle with managing training schedules, attendance, events, and emergency communication through fragmented systems and manual processes.',
     solution: 'Created an all-in-one companion app for NCC cadets with event scheduling, QR-based attendance tracking, location sharing, and emergency SOS features. Includes admin dashboard for efficient management.',
     impact: [
@@ -120,7 +118,6 @@ const featuredProjects = [
     title: 'EduAI Nexus X',
     subtitle: 'AI-Powered Learning Platform',
     category: 'AI / Education',
-    image: '/assets/images/greenflow-3.jpeg',
     problem: 'Students lack personalized learning paths and real-time AI assistance, leading to inefficient study patterns and reduced learning outcomes.',
     solution: 'Built an AI-powered learning platform with personalized recommendations, real-time doubt resolution, and adaptive difficulty adjustment. The platform uses machine learning to create custom learning paths based on student performance.',
     impact: [
@@ -365,12 +362,27 @@ export const Projects: React.FC = () => {
                       </div>
                     </>
                   ) : (
-                    <Image
-                      src={(project as any).image || (project as any).images?.[0] || '/assets/images/greenflow-1.jpeg'}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
+                    <div className="relative h-80 overflow-hidden rounded-t-3xl bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-900">
+                      <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.35),_transparent_25%),radial-gradient(circle_at_bottom_right,_rgba(139,92,246,0.25),_transparent_30%)]" />
+                      <div className="relative z-10 h-full p-6 flex flex-col justify-between">
+                        <div className="space-y-3">
+                          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/90 border border-white/10">
+                            Project Preview
+                          </span>
+                          <div>
+                            <p className="text-xs uppercase tracking-[0.24em] text-cyan-200/80">{project.category}</p>
+                            <h3 className="mt-3 text-3xl font-bold text-white leading-tight">{project.title}</h3>
+                          </div>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {project.techStack.slice(0, 3).map((tech, idx) => (
+                            <span key={idx} className="bg-white/10 border border-white/10 text-white text-xs font-medium px-2.5 py-1 rounded-full">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                   {project.featured && (
@@ -487,7 +499,9 @@ export const Projects: React.FC = () => {
                       key={linkIndex}
                       variant={link.label === 'Live Demo' ? 'primary' : 'outline'}
                       size="sm"
-                      onClick={() => window.open(link.url, '_blank')}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center gap-1.5 text-xs px-4 py-2 font-semibold"
                     >
                       {link.icon && <link.icon className="w-3.5 h-3.5" />}
@@ -497,7 +511,7 @@ export const Projects: React.FC = () => {
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => document.getElementById('all-projects')?.scrollIntoView({ behavior: 'smooth' })}
+                    href="#all-projects"
                     className="flex items-center gap-1.5 text-xs px-4 py-2 font-semibold"
                   >
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -569,7 +583,9 @@ export const Projects: React.FC = () => {
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => window.open(project.links[0].url, '_blank')}
+                      href={project.links[0].url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full"
                     >
                       <GitHubIcon className="w-4 h-4 mr-2" />
@@ -585,7 +601,9 @@ export const Projects: React.FC = () => {
         <div className="text-center pt-8">
           <Button
             variant="outline"
-            onClick={() => window.open('https://github.com/arpitkumar28?tab=repositories', '_blank')}
+            href="https://github.com/arpitkumar28?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <GitHubIcon className="w-4 h-4 mr-2" />
             View All Repositories

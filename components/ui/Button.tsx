@@ -7,6 +7,9 @@ interface ButtonProps {
   size?: 'sm' | 'md' | 'lg';
   children: React.ReactNode;
   className?: string;
+  href?: string;
+  target?: string;
+  rel?: string;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
@@ -17,6 +20,9 @@ export const Button: React.FC<ButtonProps> = ({
   size = 'md',
   className,
   children,
+  href,
+  target,
+  rel,
   onClick,
   type = 'button',
   disabled = false,
@@ -37,11 +43,29 @@ export const Button: React.FC<ButtonProps> = ({
     lg: 'px-8 py-4 text-lg',
   };
 
+  const buttonClasses = cn(baseStyles, variants[variant], sizes[size], className);
+
+  if (href) {
+    return (
+      <motion.a
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className={buttonClasses}
+        href={href}
+        target={target}
+        rel={rel}
+        onClick={onClick}
+      >
+        {children}
+      </motion.a>
+    );
+  }
+
   return (
     <motion.button
       whileHover={{ scale: disabled ? 1 : 1.05 }}
       whileTap={{ scale: disabled ? 1 : 0.95 }}
-      className={cn(baseStyles, variants[variant], sizes[size], className)}
+      className={buttonClasses}
       onClick={onClick}
       type={type}
       disabled={disabled}

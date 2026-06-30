@@ -407,8 +407,8 @@ export const Contact: React.FC = () => {
               </Button>
             </form>
 
-            <p className="text-xs text-muted mt-4 text-center">
-              I'll get back to you within 24 hours
+            <p className="text-xs text-muted mt-4 text-center" role="status" aria-live="polite">
+              {isSubmitted ? "Message sent! I'll get back to you within 24 hours." : "I'll get back to you within 24 hours."}
             </p>
           </GlassCard>
         </motion.div>

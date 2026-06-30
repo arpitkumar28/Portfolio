@@ -12,7 +12,7 @@ export const Section: React.FC<SectionProps> = ({ children, className, id }) => 
   return (
     <section
       id={id}
-      className={cn('py-20 px-4 md:px-8', className)}
+      className={cn('scroll-mt-28 py-20 px-4 md:px-8', className)}
     >
       <div className="max-w-7xl mx-auto">
         {children}

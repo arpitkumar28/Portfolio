@@ -185,7 +185,6 @@ export const Hero: React.FC = () => {
   const [currentRole, setCurrentRole] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLDivElement>(null);
 
   const { scrollY } = useScroll();
@@ -212,22 +211,12 @@ export const Hero: React.FC = () => {
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, currentRole]);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (heroRef.current) {
-      const rect = heroRef.current.getBoundingClientRect();
-      setMousePosition({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      });
-    }
-  };
-
   return (
     <section
       id="home"
       ref={heroRef}
-      onMouseMove={handleMouseMove}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+      className="min-h-[85vh] flex items-center justify-center relative overflow-hidden pt-16"
+      role="banner"
       style={{
         background: `
           radial-gradient(circle at 20% 50%, rgba(139,92,246,0.20), transparent 40%),
@@ -367,6 +356,24 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
+              className="grid grid-cols-1 sm:grid-cols-3 gap-3"
+            >
+              {[
+                { value: '17+', label: 'Projects Shipped' },
+                { value: '10+', label: 'Technologies' },
+                { value: '4', label: 'Domains' },
+              ].map((stat) => (
+                <div key={stat.label} className="rounded-3xl border border-white/10 bg-white/5 p-4">
+                  <p className="text-2xl font-semibold text-white">{stat.value}</p>
+                  <p className="text-sm text-muted mt-1">{stat.label}</p>
+                </div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.85 }}
               className="flex flex-wrap gap-4"
             >
               <motion.div
@@ -374,7 +381,9 @@ export const Hero: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Button
-                  onClick={() => window.open('/resume.pdf', '_blank')}
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="relative overflow-hidden group px-8 py-4 text-base"
                 >
                   <motion.div
@@ -392,10 +401,10 @@ export const Hero: React.FC = () => {
               >
                 <Button
                   variant="outline"
-                  onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
+                  href="#contact"
                   className="group px-8 py-4 text-base"
                 >
-                  View Projects
+                  Contact Me
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </motion.div>

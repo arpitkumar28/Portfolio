@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Image from 'next/image'
 import ImageModal from './ui/ImageModal'
 
 type ProjectImage = {
@@ -10,11 +11,11 @@ type ProjectImage = {
 
 const featuredProjectImages: ProjectImage[] = [
   { src: '/assets/images/greenflow-1.jpeg', alt: 'Dashboard overview', projectTitle: 'Smart Traffic Management', projectSubtitle: 'GreenFlow AI' },
-  { src: '/assets/images/greenflow-2.jpeg', alt: 'Mobile command center', projectTitle: 'Smart Traffic Management', projectSubtitle: 'GreenFlow AI' },
-  { src: '/assets/images/greenflow-3.jpeg', alt: 'Emergency corridor', projectTitle: 'Smart Traffic Management', projectSubtitle: 'GreenFlow AI' },
-  { src: '/assets/images/greenflow-4.jpeg', alt: 'Route optimization', projectTitle: 'Smart Traffic Management', projectSubtitle: 'GreenFlow AI' },
-  { src: '/assets/images/greenflow-5.jpeg', alt: 'Signal analytics', projectTitle: 'Smart Traffic Management', projectSubtitle: 'GreenFlow AI' },
-  { src: '/assets/images/greenflow-6.jpeg', alt: 'Vehicle tracking', projectTitle: 'Smart Traffic Management', projectSubtitle: 'GreenFlow AI' },
+  { src: '/assets/images/greenflow-2.jpeg', alt: 'Mobile command center', projectTitle: 'Hospital Digital Attendance', projectSubtitle: 'Healthcare Management' },
+  { src: '/assets/images/greenflow-3.jpeg', alt: 'Emergency corridor', projectTitle: 'NCC Buddy', projectSubtitle: 'Cadet Companion App' },
+  { src: '/assets/images/greenflow-4.jpeg', alt: 'Route optimization', projectTitle: 'EduAI Nexus X', projectSubtitle: 'AI-Powered Learning' },
+  { src: '/assets/images/greenflow-5.jpeg', alt: 'Signal analytics', projectTitle: 'Krishi Sahayak', projectSubtitle: 'Agriculture App' },
+  { src: '/assets/images/photo2.jpeg', alt: 'Misc project highlight', projectTitle: 'Misc Projects', projectSubtitle: 'Assorted' },
 ]
 
 export default function ImageGallery() {
@@ -35,16 +36,19 @@ export default function ImageGallery() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {featuredProjectImages.map((image, index) => (
-            <div
+            <button
               key={index}
-              className="relative group overflow-hidden rounded-2xl cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl bg-white/5 border border-white/10"
+              type="button"
               onClick={() => openModal(image.src, image.alt)}
+              aria-label={`Open full view for ${image.projectTitle}`}
+              className="relative group overflow-hidden rounded-2xl cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl bg-white/5 border border-white/10"
             >
-              <div className="aspect-square overflow-hidden">
-                <img
+              <div className="relative aspect-square overflow-hidden">
+                <Image
                   src={image.src}
                   alt={image.alt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -60,7 +64,7 @@ export default function ImageGallery() {
                   </svg>
                 </div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
 

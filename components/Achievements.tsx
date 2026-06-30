@@ -8,6 +8,14 @@ import { Section, SectionTitle } from './ui/Section';
 
 const achievements = [
   {
+    year: '2026',
+    icon: BookOpen,
+    title: 'LeetCode Daily Challenge Streak',
+    category: 'Learning',
+    description: 'Sustained a strong LeetCode Daily Challenge streak through March–June 2026, sharpening algorithms, data structures, and problem-solving skills.',
+    location: 'LeetCode',
+  },
+  {
     year: '2025',
     icon: Trophy,
     title: 'Smart India Hackathon 2025',
