@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-background: 248 250 252;
+    --color-surface: 255 255 255;
+    --color-elevated: 241 245 249;
+    --color-card: 255 255 255;
+    --color-border: 226 232 240;
+    --color-primary: 37 99 235;
+    --color-text-primary: 15 23 42;
+    --color-text-secondary: 51 65 85;
+    --color-text-tertiary: 71 85 105;
+    --color-text-muted: 100 116 139;
+    --color-text-subtle: 148 163 184;
+    --color-text-disabled: 203 213 225;
+  }
+
+  .dark {
+    --color-background: 2 14 28;
+    --color-surface: 5 20 38;
+    --color-elevated: 8 30 56;
+    --color-card: 9 33 61;
+    --color-border: 31 65 103;
+    --color-primary: 59 130 246;
+    --color-text-primary: 248 250 252;
+    --color-text-secondary: 226 232 240;
+    --color-text-tertiary: 203 213 225;
+    --color-text-muted: 148 163 184;
+    --color-text-subtle: 100 116 139;
+    --color-text-disabled: 71 85 105;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  body {
+    @apply bg-background text-text-primary font-sans;
+    background:
+      radial-gradient(circle at top left, rgb(var(--color-primary) / 0.12), transparent 32rem),
+      rgb(var(--color-background));
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+  
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    outline: 2px solid theme('colors.primary.500');
+    outline-offset: 2px;
+  }
+  
+  /* Selection styling */
+  ::selection {
+    background-color: theme('colors.primary.500');
+    color: white;
+  }
+  
+  ::-moz-selection {
+    background-color: theme('colors.primary.500');
+    color: white;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme('colors.primary.500');
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.primary.400');
+}
