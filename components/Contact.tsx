@@ -14,7 +14,7 @@ const values = [
 
 export const Contact: React.FC = () => {
   return (
-    <Section id="contact" className="bg-background">
+    <Section id="contact" className="bg-background py-20">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -25,7 +25,7 @@ export const Contact: React.FC = () => {
           <p className="font-mono text-sm font-black uppercase tracking-[0.28em] text-text-muted">
             Collaboration With Me
           </p>
-          <h2 className="mt-8 max-w-4xl text-4xl font-black tracking-tight text-text-primary md:text-5xl">
+          <h2 className="font-display mt-8 max-w-4xl text-4xl font-black tracking-tight text-text-primary md:text-5xl">
             Build the next <span className="text-primary">production-grade</span> system.
           </h2>
           <p className="mt-8 max-w-4xl text-xl font-medium leading-relaxed text-text-secondary">

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 interface ButtonProps {
-  variant?: 'primary' | 'outline' | 'glass' | 'ghost' | 'link';
+  variant?: 'primary' | 'outline' | 'glass' | 'ghost' | 'link' | 'gradient';
   size?: 'sm' | 'md' | 'lg';
   children: React.ReactNode;
   className?: string;
@@ -35,6 +35,7 @@ export const Button: React.FC<ButtonProps> = ({
     glass: 'bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 hover:shadow-lg hover:shadow-white/10 hover:-translate-y-0.5',
     ghost: 'text-muted hover:text-white hover:bg-white/5 hover:-translate-y-0.5',
     link: 'text-primary hover:text-accent underline-offset-4 hover:underline decoration-2 underline-primary/50 hover:decoration-accent',
+    gradient: 'relative overflow-hidden bg-gradient-to-r from-primary to-secondary text-white hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-0.5',
   };
   
   const sizes = {

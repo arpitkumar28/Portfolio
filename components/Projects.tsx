@@ -44,58 +44,59 @@ const featuredProjects = [
     role: 'Full Stack Developer',
     timeline: '3 months',
   },
-  {
-    id: 2,
-    title: 'Hospital Digital Attendance',
-    subtitle: 'Healthcare Workforce Management',
-    category: 'Healthcare Technology',
-    problem: 'Hospitals rely on manual attendance systems that are error-prone, lack real-time visibility, and create administrative burden. Staff verification and location tracking remain significant operational challenges.',
-    solution: 'Developed a comprehensive digital attendance platform with biometric authentication, geolocation verification, and NFC check-in/check-out. Implemented secure data storage, real-time staff tracking, and automated reporting. Architecture: Flutter with Riverpod state management, Firebase backend, and secure local storage for sensitive data.',
-    result: 'Achieved 99.9% attendance accuracy through biometric verification and reduced manual paperwork by 80% with automated reporting and real-time staff monitoring.',
-    features: [
-      'Biometric authentication',
-      'Geolocation verification',
-      'NFC check-in/check-out',
-      'Real-time staff tracking',
-      'Automated reporting'
-    ],
-    techStack: ['Flutter', 'Riverpod', 'NFC', 'Geolocation', 'Firebase', 'Secure Storage'],
-    links: [
-      { label: 'View Case Study', url: '/hospital-attendance', icon: ArrowRight },
-      { label: 'GitHub', url: 'https://github.com/arpitkumar28/Hospital_Digital_Attendence_System', icon: ExternalLink },
-    ],
-    featured: true,
-    gradient: 'from-blue-500 to-indigo-500',
-    status: 'Production Ready',
-    role: 'Flutter Developer',
-    timeline: '2 months',
-  },
-  {
-    id: 3,
-    title: 'NCC Buddy',
-    subtitle: 'Cadet Management Platform',
-    category: 'Defense Technology',
-    problem: 'NCC cadets manage training schedules, attendance, and emergency communication through fragmented manual processes. Commanders lack real-time visibility into cadet status and location during training exercises.',
-    solution: 'Built an integrated companion app with event scheduling, QR-based attendance tracking, location sharing, and emergency SOS functionality. Implemented admin dashboard for commanders to manage training activities. Architecture: Flutter with Firebase, Google Maps integration, QR scanner, and push notification system.',
-    result: 'Streamlined training management by 60% and reduced emergency response time by 50% through unified event scheduling, QR-based attendance, and SOS features.',
-    features: [
-      'Event scheduling and reminders',
-      'QR-based attendance tracking',
-      'SOS emergency button',
-      'Location sharing',
-      'Admin dashboard'
-    ],
-    techStack: ['Flutter', 'Firebase', 'Google Maps', 'QR Scanner', 'Push Notifications', 'Firestore'],
-    links: [
-      { label: 'View Case Study', url: '/ncc-buddy', icon: ArrowRight },
-      { label: 'GitHub', url: 'https://github.com/arpitkumar28/ncc_buddy', icon: ExternalLink },
-    ],
-    featured: true,
-    gradient: 'from-orange-500 to-amber-500',
-    status: 'In Development',
-    role: 'Flutter Developer',
-    timeline: '4 months',
-  },
+  // Temporarily removed due to 404 GitHub repository errors
+  // {
+  //   id: 2,
+  //   title: 'Hospital Digital Attendance',
+  //   subtitle: 'Healthcare Workforce Management',
+  //   category: 'Healthcare Technology',
+  //   problem: 'Hospitals rely on manual attendance systems that are error-prone, lack real-time visibility, and create administrative burden. Staff verification and location tracking remain significant operational challenges.',
+  //   solution: 'Developed a comprehensive digital attendance platform with biometric authentication, geolocation verification, and NFC check-in/check-out. Implemented secure data storage, real-time staff tracking, and automated reporting. Architecture: Flutter with Riverpod state management, Firebase backend, and secure local storage for sensitive data.',
+  //   result: 'Achieved 99.9% attendance accuracy through biometric verification and reduced manual paperwork by 80% with automated reporting and real-time staff monitoring.',
+  //   features: [
+  //     'Biometric authentication',
+  //     'Geolocation verification',
+  //     'NFC check-in/check-out',
+  //     'Real-time staff tracking',
+  //     'Automated reporting'
+  //   ],
+  //   techStack: ['Flutter', 'Riverpod', 'NFC', 'Geolocation', 'Firebase', 'Secure Storage'],
+  //   links: [
+  //     { label: 'View Case Study', url: '/hospital-attendance', icon: ArrowRight },
+  //     { label: 'GitHub', url: 'https://github.com/arpitkumar28/Hospital_Digital_Attendence_System', icon: ExternalLink },
+  //   ],
+  //   featured: true,
+  //   gradient: 'from-blue-500 to-indigo-500',
+  //   status: 'Production Ready',
+  //   role: 'Flutter Developer',
+  //   timeline: '2 months',
+  // },
+  // {
+  //   id: 3,
+  //   title: 'NCC Buddy',
+  //   subtitle: 'Cadet Management Platform',
+  //   category: 'Defense Technology',
+  //   problem: 'NCC cadets manage training schedules, attendance, and emergency communication through fragmented manual processes. Commanders lack real-time visibility into cadet status and location during training exercises.',
+  //   solution: 'Built an integrated companion app with event scheduling, QR-based attendance tracking, location sharing, and emergency SOS functionality. Implemented admin dashboard for commanders to manage training activities. Architecture: Flutter with Firebase, Google Maps integration, QR scanner, and push notification system.',
+  //   result: 'Streamlined training management by 60% and reduced emergency response time by 50% through unified event scheduling, QR-based attendance, and SOS features.',
+  //   features: [
+  //     'Event scheduling and reminders',
+  //     'QR-based attendance tracking',
+  //     'SOS emergency button',
+  //     'Location sharing',
+  //     'Admin dashboard'
+  //   ],
+  //   techStack: ['Flutter', 'Firebase', 'Google Maps', 'QR Scanner', 'Push Notifications', 'Firestore'],
+  //   links: [
+  //     { label: 'View Case Study', url: '/ncc-buddy', icon: ArrowRight },
+  //     { label: 'GitHub', url: 'https://github.com/arpitkumar28/ncc_buddy', icon: ExternalLink },
+  //   ],
+  //   featured: true,
+  //   gradient: 'from-orange-500 to-amber-500',
+  //   status: 'In Development',
+  //   role: 'Flutter Developer',
+  //   timeline: '4 months',
+  // },
   {
     id: 4,
     title: 'EduAI Nexus X',
@@ -247,8 +248,8 @@ export const Projects: React.FC = () => {
   };
 
   return (
-    <Section id="projects" className="bg-background">
-      <div className="mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+    <Section id="projects" className="bg-background py-20">
+      <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="font-mono text-xs font-bold uppercase tracking-wider text-primary">Selected systems</p>
           <SectionTitle className="mb-0 text-left">Projects</SectionTitle>
@@ -356,10 +357,10 @@ export const Projects: React.FC = () => {
               </div>
 
               {/* Project Content */}
-              <div className="space-y-5 p-5">
+              <div className="space-y-6 p-6">
                 <div>
                   <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">{project.category}</p>
-                  <h3 className="text-2xl font-black text-text-primary mb-2 tracking-tight">{project.title}</h3>
+                  <h3 className="font-display text-2xl font-black text-text-primary mb-2 tracking-tight">{project.title}</h3>
                   <p className="text-sm text-text-muted font-semibold">{project.subtitle}</p>
                 </div>
 

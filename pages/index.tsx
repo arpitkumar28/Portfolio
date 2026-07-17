@@ -84,7 +84,7 @@ export default function Home() {
           }}
         />
       </Head>
-      <main className="min-h-screen bg-background text-text-primary">
+      <main id="main-content" className="min-h-screen bg-background text-text-primary">
         <Navbar />
         <Hero />
         

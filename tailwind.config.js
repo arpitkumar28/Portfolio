@@ -61,6 +61,9 @@ module.exports = {
           subtle: 'rgb(var(--color-text-subtle) / <alpha-value>)',
           disabled: 'rgb(var(--color-text-disabled) / <alpha-value>)',
         },
+        surface: {
+          DEFAULT: 'rgb(var(--color-surface) / <alpha-value>)',
+        },
         // Semantic status colors
         success: {
           DEFAULT: '#10B981',
@@ -85,7 +88,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        display: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        display: ['Space Grotesk', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         mono: ['JetBrains Mono', 'SF Mono', 'Monaco', 'Consolas', 'monospace'],
       },
       fontSize: {
@@ -183,6 +186,8 @@ module.exports = {
         'slide-in-right': 'slideInRight 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
         'scale-up': 'scaleUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
         'fade-in-up': 'fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+        'bounce-subtle': 'bounceSubtle 2s ease-in-out infinite',
+        'glow': 'glow 2s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -212,6 +217,14 @@ module.exports = {
         fadeInUp: {
           '0%': { transform: 'translateY(20px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        bounceSubtle: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' },
+        },
+        glow: {
+          '0%, 100%': { boxShadow: '0 0 20px rgba(139, 92, 246, 0.3)' },
+          '50%': { boxShadow: '0 0 40px rgba(139, 92, 246, 0.6)' },
         },
       },
     },

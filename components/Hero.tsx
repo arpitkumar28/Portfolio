@@ -27,20 +27,20 @@ export const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center relative overflow-hidden pt-24 pb-16"
+      className="min-h-screen flex items-center relative overflow-hidden pt-20 pb-16"
       role="banner"
       aria-labelledby="hero-heading"
     >
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
       <div className="max-w-7xl mx-auto px-4 md:px-8 w-full">
         <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
-          <div className="space-y-8">
+          <div className="space-y-10">
             <div className="space-y-5">
               <p className="font-mono text-sm font-black uppercase tracking-[0.18em] text-primary md:text-base">
                 &gt; Software Engineer
               </p>
               <h1
-                className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-text-primary"
+                className="font-display text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-text-primary"
                 id="hero-heading"
               >
                 Arpit Kumar

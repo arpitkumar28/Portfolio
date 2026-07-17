@@ -60,7 +60,7 @@ const technologies = [
 
 export const About: React.FC = () => {
   return (
-    <Section id="about" className="bg-background">
+    <Section id="about" className="bg-background py-20">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[360px_1fr] xl:grid-cols-[420px_1fr]">
           <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
@@ -137,7 +137,7 @@ export const About: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
             >
-              <h2 className="text-5xl font-black tracking-tight text-text-primary md:text-7xl">
+              <h2 className="font-display text-5xl font-black tracking-tight text-text-primary md:text-7xl">
                 Arpit Kumar
               </h2>
               <p className="mt-5 font-mono text-2xl font-black text-primary">

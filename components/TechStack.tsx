@@ -30,13 +30,13 @@ const capabilities = [
 
 export const TechStack: React.FC = () => {
   return (
-    <Section id="skills" className="bg-background-elevated/40">
+    <Section id="skills" className="bg-background-elevated/40 py-20">
       <div className="mx-auto max-w-6xl">
         <div className="mb-12">
           <p className="font-mono text-sm font-black uppercase tracking-[0.28em] text-primary">
             &gt;_ Technical Capabilities Matrix
           </p>
-          <h2 className="mt-8 max-w-3xl text-5xl font-black tracking-tight text-text-primary md:text-7xl">
+          <h2 className="font-display mt-8 max-w-3xl text-5xl font-black tracking-tight text-text-primary md:text-7xl">
             Value-Generating Capabilities
           </h2>
           <span className="mt-8 block h-1.5 w-36 rounded-full bg-primary" />
@@ -60,7 +60,7 @@ export const TechStack: React.FC = () => {
                     <p className="font-mono text-xs font-black uppercase tracking-[0.22em] text-primary">
                       {capability.label}
                     </p>
-                    <h3 className="mt-2 text-2xl font-black text-text-primary md:text-3xl">
+                    <h3 className="font-display mt-2 text-2xl font-black text-text-primary md:text-3xl">
                       {capability.title}
                     </h3>
                   </div>
