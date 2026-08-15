@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="g3" x1="0" x2="1">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="#041421" />
+  <rect x="50" y="50" width="1100" height="600" rx="20" fill="url(#g3)" opacity="0.06" />
+  <text x="90" y="130" fill="#dffcf6" font-family="Arial" font-size="38" font-weight="700">Emergency Green Corridor</text>
+  <g fill="#c8fff0">
+    <rect x="100" y="200" width="240" height="120" rx="12" fill="#06202b" />
+    <rect x="360" y="200" width="240" height="120" rx="12" fill="#06202b" />
+    <rect x="620" y="200" width="240" height="120" rx="12" fill="#06202b" />
+  </g>
+</svg>

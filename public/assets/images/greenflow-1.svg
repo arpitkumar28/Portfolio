@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="#071023" />
+  <rect x="40" y="40" width="1120" height="620" rx="18" fill="url(#g1)" opacity="0.08" />
+  <g fill="#cfeff2" font-family="Arial,Helvetica,sans-serif">
+    <text x="80" y="130" font-size="42" font-weight="700">GreenFlow AI — Command Center</text>
+    <text x="80" y="190" font-size="18" fill="#9bd6cf">Real-time traffic map · congestion predictions · analytics</text>
+    <rect x="80" y="230" width="480" height="320" rx="12" fill="#0b1a2b" stroke="#0ea5a5" stroke-opacity="0.06" />
+    <rect x="580" y="230" width="480" height="150" rx="12" fill="#071a2b" stroke="#06b6d4" stroke-opacity="0.04" />
+    <rect x="580" y="400" width="480" height="150" rx="12" fill="#071a2b" stroke="#10b981" stroke-opacity="0.04" />
+  </g>
+</svg>
