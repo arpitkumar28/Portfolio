@@ -36,6 +36,13 @@ const featuredProjects = [
     result: 'A knowledge discovery platform with an asynchronous content acquisition pipeline and searchable public sections for projects and research.',
     features: ['GitHub project discovery', 'Research paper indexing', 'Dataset and tool discovery', 'Duplicate detection', 'Quality and license checks', 'Admin review before publication'],
     techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'BullMQ', 'Redis', 'Vercel'],
+    images: [
+      '/assets/images/axiora/home-dashboard.png',
+      '/assets/images/axiora/domains.png',
+      '/assets/images/axiora/research.png',
+      '/assets/images/axiora/resources.png',
+      '/assets/images/axiora/ecosystem.png',
+    ],
     links: [{ label: 'View Case Study', url: '/axiora', icon: ArrowRight }],
     featured: true,
     gradient: 'from-slate-600 to-slate-900',
