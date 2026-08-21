@@ -27,21 +27,21 @@ export const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center relative overflow-hidden pt-20 pb-16"
+      className="relative flex min-h-0 items-center overflow-hidden pb-16 pt-28 lg:min-h-[calc(100vh-5rem)] lg:pb-20"
       role="banner"
       aria-labelledby="hero-heading"
     >
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
       <div className="max-w-7xl mx-auto px-4 md:px-8 w-full">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
-          <div className="space-y-10">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
+          <div className="space-y-8">
             <div className="space-y-5">
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 font-mono text-xs font-black uppercase tracking-[0.16em] text-primary">
                 <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
                 Available for select opportunities
               </div>
               <h1
-                className="max-w-3xl font-display text-5xl font-black tracking-[-0.06em] text-text-primary sm:text-6xl md:text-7xl lg:text-8xl"
+                className="max-w-3xl font-display text-5xl font-black tracking-[-0.06em] text-text-primary sm:text-6xl md:text-7xl lg:text-[5.25rem] lg:leading-[0.98]"
                 id="hero-heading"
               >
                 I build software that <span className="text-primary">moves people forward.</span>

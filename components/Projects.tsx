@@ -355,7 +355,7 @@ export const Projects: React.FC = () => {
               {/* Project Image */}
               <div>
                 {(project as any).images && (project as any).images.length > 0 ? (
-                  <div className="relative aspect-[16/9] overflow-hidden bg-background-elevated cursor-pointer" onClick={() => {
+                    <div className="relative aspect-[16/8.5] overflow-hidden bg-background-elevated cursor-pointer" onClick={() => {
                     const imageSrc = (project as any).images[currentImageIndex[project.id] || 0];
                     if (imageSrc) openModal(imageSrc, project.title);
                   }}>
@@ -410,7 +410,7 @@ export const Projects: React.FC = () => {
                     )}
                   </div>
                 ) : (
-                    <div className={`relative aspect-[16/9] overflow-hidden bg-gradient-to-br ${project.gradient}`}>
+                  <div className={`relative aspect-[16/8.5] overflow-hidden bg-gradient-to-br ${project.gradient}`}>
                     <div className="absolute inset-0 bg-black/20" />
                     {project.title === 'Elevra' && (
                       <div className="absolute right-8 top-7 hidden w-[46%] rounded-xl border border-white/30 bg-slate-950/35 p-3 shadow-2xl backdrop-blur-md sm:block">

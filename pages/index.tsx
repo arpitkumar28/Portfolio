@@ -91,8 +91,8 @@ export default function Home() {
         <Hero />
         
         {/* Main Content Layout */}
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 lg:py-16">
-          <div className="space-y-16 lg:space-y-20">
+        <div className="mx-auto max-w-7xl px-4 py-10 md:px-8 lg:py-14">
+          <div className="space-y-12 lg:space-y-16">
             <Projects />
             <Journey />
             <Education />
@@ -103,7 +103,7 @@ export default function Home() {
           </div>
         </div>
         
-        <footer className="relative overflow-hidden border-t border-border bg-background-card py-16 md:py-20">
+        <footer className="relative overflow-hidden border-t border-border bg-background-card py-12 md:py-16">
           <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
           <div className="absolute -bottom-40 left-1/3 h-80 w-80 rounded-full bg-amber-400/10 blur-3xl" />
           <div className="relative mx-auto max-w-7xl px-4 md:px-8">
