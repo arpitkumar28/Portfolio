@@ -349,8 +349,8 @@ export const Projects: React.FC = () => {
         viewport={{ once: true, margin: "-100px" }}
         className="grid gap-5 lg:grid-cols-2"
       >
-        {featuredProjects.map((project, index) => (
-          <motion.div key={project.id} variants={itemVariants} className={index < 2 ? 'lg:col-span-2' : ''}>
+        {featuredProjects.map((project) => (
+          <motion.div key={project.id} variants={itemVariants}>
             <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-background-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:shadow-xl hover:shadow-primary/10">
               {/* Project Image */}
               <div>
@@ -410,7 +410,7 @@ export const Projects: React.FC = () => {
                     )}
                   </div>
                 ) : (
-                  <div className={`relative aspect-[16/9] overflow-hidden bg-gradient-to-br ${project.gradient}`}>
+                    <div className={`relative aspect-[16/9] overflow-hidden bg-gradient-to-br ${project.gradient}`}>
                     <div className="absolute inset-0 bg-black/20" />
                     {project.title === 'Elevra' && (
                       <div className="absolute right-8 top-7 hidden w-[46%] rounded-xl border border-white/30 bg-slate-950/35 p-3 shadow-2xl backdrop-blur-md sm:block">
@@ -448,14 +448,14 @@ export const Projects: React.FC = () => {
               </div>
 
               {/* Project Content */}
-              <div className="flex flex-1 flex-col space-y-6 p-6 md:p-8">
+              <div className="flex flex-1 flex-col space-y-4 p-5 md:p-6">
                 <div>
                   <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">{project.category}</p>
                   <h3 className="font-display text-2xl font-black text-text-primary mb-2 tracking-tight">{project.title}</h3>
                   <p className="text-sm text-text-muted font-semibold">{project.subtitle}</p>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-3">
                   <div>
                     <h4 className="text-xs font-semibold text-text-primary uppercase tracking-wider mb-2">Impact</h4>
                     <p className="text-text-muted text-sm leading-relaxed">{(project as any).result || project.problem}</p>
@@ -485,7 +485,7 @@ export const Projects: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-text-muted pt-3 border-t border-border">
+                  <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-text-muted pt-3 border-t border-border">
                     <div className="flex items-center gap-2">
                       <Users className="w-4 h-4" />
                       <span>{(project as any).role || 'Developer'}</span>
