@@ -405,6 +405,18 @@ export const Projects: React.FC = () => {
                 ) : (
                   <div className={`relative aspect-[16/9] overflow-hidden bg-gradient-to-br ${project.gradient}`}>
                     <div className="absolute inset-0 bg-black/20" />
+                    {project.title === 'Elevra' && (
+                      <div className="absolute right-8 top-7 hidden w-[46%] rounded-xl border border-white/30 bg-slate-950/35 p-3 shadow-2xl backdrop-blur-md sm:block">
+                        <div className="flex gap-2"><span className="h-2 w-2 rounded-full bg-white/70" /><span className="h-2 w-2 rounded-full bg-white/40" /><span className="h-2 w-2 rounded-full bg-white/40" /></div>
+                        <div className="mt-4 grid grid-cols-[0.35fr_1fr] gap-3"><div className="space-y-2"><span className="block h-2 rounded bg-orange-200/70" /><span className="block h-2 rounded bg-white/20" /><span className="block h-2 rounded bg-white/20" /><span className="block h-2 rounded bg-white/20" /></div><div className="space-y-3"><span className="block h-12 rounded-lg bg-orange-200/25" /><div className="grid grid-cols-2 gap-2"><span className="block h-9 rounded bg-white/15" /><span className="block h-9 rounded bg-white/15" /></div></div></div>
+                      </div>
+                    )}
+                    {project.title === 'Axiora' && (
+                      <div className="absolute right-8 top-7 hidden w-[46%] rounded-xl border border-white/25 bg-slate-950/40 p-3 shadow-2xl backdrop-blur-md sm:block">
+                        <div className="flex items-center justify-between"><span className="h-2 w-16 rounded bg-cyan-200/70" /><span className="h-4 w-4 rounded-full border border-cyan-200/60" /></div>
+                        <div className="mt-4 space-y-2"><div className="flex gap-2"><span className="h-10 flex-1 rounded bg-cyan-200/25" /><span className="h-10 flex-1 rounded bg-white/15" /></div><span className="block h-2 w-4/5 rounded bg-white/25" /><span className="block h-2 w-3/5 rounded bg-white/15" /><span className="block h-8 rounded bg-cyan-200/20" /></div>
+                      </div>
+                    )}
                     <div className="absolute inset-0 flex flex-col justify-between p-5 text-white">
                       <div className="flex items-center justify-between">
                         <span className="rounded-md bg-white/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wide backdrop-blur">
