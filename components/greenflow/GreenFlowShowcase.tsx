@@ -4,12 +4,12 @@ import { ExternalLink, ArrowRight, Brain, Zap, Database, Server, Smartphone, Map
 import ImageModal from '../ui/ImageModal'
 
 const screenshots = [
-  { src: '/assets/images/greenflow-1.jpeg', alt: 'Dashboard overview' },
-  { src: '/assets/images/greenflow-2.jpeg', alt: 'Mobile command center' },
-  { src: '/assets/images/greenflow-3.jpeg', alt: 'Emergency corridor' },
-  { src: '/assets/images/greenflow-4.jpeg', alt: 'Route optimization dashboard' },
-  { src: '/assets/images/greenflow-5.jpeg', alt: 'Traffic signal analytics' },
-  { src: '/assets/images/greenflow-6.jpeg', alt: 'Live vehicle tracking' },
+  { src: '/assets/images/greenflow-1.png', alt: 'GREENFLOW Smart Traffic Orchestration Platform' },
+  { src: '/assets/images/greenflow-2.png', alt: 'GREENFLOW Emergency Control Dashboard' },
+  { src: '/assets/images/greenflow-3.png', alt: 'GREENFLOW Overview Dashboard with Traffic Metrics' },
+  { src: '/assets/images/greenflow-4.png', alt: 'GREENFLOW Live Operations Dashboard' },
+  { src: '/assets/images/greenflow-5.png', alt: 'GREENFLOW Signal Synchronization Dashboard' },
+  { src: '/assets/images/greenflow-6.png', alt: 'GREENFLOW Traffic Operations Overview' },
 ]
 
 export default function GreenFlowShowcase() {
