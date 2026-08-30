@@ -10,6 +10,37 @@ import ImageModal from './ui/ImageModal';
 
 const featuredProjects = [
   {
+    id: 18,
+    title: 'CrisisMesh',
+    subtitle: 'AI-Powered Real-Time Disaster Management & Emergency Response Platform',
+    category: 'Disaster Management / AI / IoT / Full Stack',
+    problem: 'Emergency information becomes fragmented between citizens, responders, authorities, and physical infrastructure. Emergency response coordination lacks real-time visibility, creating critical delays in disaster response and resource allocation.',
+    solution: 'CrisisMesh creates a unified real-time event pipeline connecting citizens, emergency responders, authorities, AI risk analysis, and IoT infrastructure through a single integrated platform. Architecture: Next.js web dashboard, Flutter mobile app, NestJS API backend, PostgreSQL/Supabase database, WebSocket real-time communication, MQTT IoT integration, and Python-based risk analysis engine.',
+    result: 'A production-ready disaster management platform tracking 766+ districts with 24/7 live monitoring, AI-driven risk prediction, 12k+ IoT sensors, supporting 2.4M+ active users and 850+ rescue units.',
+    features: [
+      'Real-time incident management and tracking',
+      'Emergency SOS and alert system',
+      'Live command map with WebSocket updates',
+      'IoT telemetry and sensor integration',
+      'AI/risk prediction engine',
+      'Role-based access control (RBAC)',
+      'Responder coordination platform',
+      'Authority command center',
+      'Web and mobile ecosystem',
+      'Offline-capable mobile app'
+    ],
+    techStack: ['Next.js', 'TypeScript', 'React', 'Flutter', 'Dart', 'NestJS', 'PostgreSQL', 'Supabase', 'WebSockets', 'MQTT', 'Python', 'REST API', 'JWT', 'Leaflet', 'OpenStreetMap'],
+    links: [
+      { label: 'View Case Study', url: '/crisis-mesh', icon: ArrowRight },
+      { label: 'Live Demo', url: 'https://crisis-mesh-eosin.vercel.app', icon: Play },
+    ],
+    featured: true,
+    gradient: 'from-red-600 to-orange-500',
+    status: 'Production Ready',
+    role: 'Full Stack Developer / System Architect',
+    timeline: 'Project-based',
+  },
+  {
     id: 16,
     title: 'Elevra',
     subtitle: 'Student Operating System for Academic Planning & Career Opportunities',
