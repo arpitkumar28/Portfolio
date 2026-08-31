@@ -4,37 +4,172 @@ import { ExternalLink, ArrowRight, MapPin, AlertCircle, Zap, Database, Server, S
 
 export default function CrisisMeshShowcase() {
   return (
-    <section className="min-h-screen bg-background text-white">
-      {/* Hero */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-red-900/20 to-background py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-2 text-sm text-red-400 mb-4">
-            <span className="bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20">Disaster Management / AI / IoT</span>
-            <span className="text-text-muted">•</span>
-            <span className="text-text-muted">Production Ready</span>
+    <section className="min-h-screen bg-[#edf3f8] text-[#0b1a34]">
+      <header className="border-b border-slate-200/80 bg-[#edf3f8]/95 backdrop-blur-sm">
+        <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-6 px-4 py-4 md:px-8 lg:px-10">
+          <div className="flex items-center gap-3">
+            <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-[0_8px_24px_rgba(22,57,112,0.12)] ring-1 ring-slate-200">
+              <div className="absolute inset-1 rounded-full border border-[#2aa4ff]/70" />
+              <div className="absolute inset-[8px] rounded-full border border-[#ffce47]/75" />
+              <div className="h-5 w-5 rounded-full bg-gradient-to-br from-[#1aa7ff] via-[#2fe0d0] to-[#0f7af5] shadow-inner" />
+              <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.8),transparent_35%)]" />
+            </div>
+            <div className="flex items-end gap-0 leading-none">
+              <span className="text-[1.9rem] font-black tracking-[-0.06em] text-[#091f3d]">CRISIS</span>
+              <span className="text-[1.9rem] font-black tracking-[-0.06em] text-[#0b1a34]">MESH</span>
+              <span className="mb-[0.15rem] ml-1 text-[0.72rem] font-black uppercase tracking-[0.16em] text-slate-500">HOME</span>
+            </div>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-4">CrisisMesh</h1>
-          <p className="text-xl text-text-muted max-w-3xl mb-2">One Network. Every Emergency.</p>
-          <p className="text-lg text-text-muted max-w-3xl mb-8">
-            India's Integrated Disaster Intel Platform — an AI-powered real-time disaster management system connecting citizens, emergency responders, authorities, and intelligent IoT infrastructure for faster detection, coordination, and emergency response.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="https://crisis-mesh-eosin.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-medium transition"
-            >
-              <ExternalLink className="w-5 h-5" />
-              Launch CrisisMesh
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 bg-background-elevated border border-border px-6 py-3 rounded-lg hover:border-primary transition-colors text-text-muted"
-            >
-              <ExternalLink className="w-5 h-5" />
-              Repository Coming Soon
-            </a>
+
+          <nav className="hidden flex-1 items-center justify-center gap-8 text-[0.84rem] font-semibold uppercase tracking-[0.06em] text-slate-500 md:flex">
+            <a href="#" className="transition-colors hover:text-[#0b1a34]">Live</a>
+            <a href="#" className="transition-colors hover:text-[#0b1a34]">Map</a>
+            <a href="#" className="transition-colors hover:text-[#0b1a34]">States</a>
+            <a href="#" className="transition-colors hover:text-[#0b1a34]">Districts</a>
+            <a href="#" className="transition-colors hover:text-[#0b1a34]">Alerts</a>
+            <a href="#" className="transition-colors hover:text-[#0b1a34]">News</a>
+            <a href="#" className="transition-colors hover:text-[#0b1a34]">Safety</a>
+            <a href="#" className="transition-colors hover:text-[#0b1a34]">Resources</a>
+            <button type="button" className="flex items-center gap-2 rounded-full border border-slate-300 bg-white/70 px-2 py-1 text-slate-500 transition-colors hover:text-[#0b1a34]">
+              <span className="text-[0.8rem]">☼</span>
+              <span>Light</span>
+            </button>
+            <button type="button" className="flex items-center gap-2 rounded-full border border-slate-300 bg-white/70 px-2 py-1 text-slate-500 transition-colors hover:text-[#0b1a34]">
+              <span className="text-[0.8rem]">◌</span>
+              <span>English</span>
+              <span className="text-[0.6rem]">▾</span>
+            </button>
+          </nav>
+
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-2xl bg-[#081d3b] px-7 py-4 text-[0.85rem] font-black uppercase leading-tight tracking-[0.06em] text-white shadow-[0_14px_28px_rgba(8,29,59,0.22)] transition-transform hover:scale-[1.01]"
+          >
+            Authority
+            <span className="mt-0.5 block">Login</span>
+          </button>
+        </div>
+      </header>
+
+      <div className="mx-auto max-w-[1600px] px-4 pb-20 pt-14 md:px-8 lg:px-10">
+        <div className="grid items-center gap-8 lg:grid-cols-[1.03fr_0.97fr] lg:gap-16">
+          <div className="pt-6">
+            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#d76072]/30 bg-[#fff0f4] px-4 py-2 text-[0.7rem] font-black uppercase tracking-[0.22em] text-[#d15161] shadow-sm">
+              <span className="inline-block h-2.5 w-2.5 rounded-full border border-[#d15161] bg-white" />
+              Live Safety Monitoring Active
+            </div>
+
+            <h1 className="max-w-[680px] text-[clamp(3.3rem,5vw,7rem)] font-black leading-[0.88] tracking-[-0.08em] text-[#0d1831]">
+              <span className="block">India's Integrated</span>
+              <span className="mt-1 block bg-gradient-to-r from-[#1d62dd] via-[#1b9cff] to-[#60d9ff] bg-clip-text text-transparent">Disaster Intel</span>
+              <span className="mt-1 block">Platform.</span>
+            </h1>
+
+            <p className="mt-8 max-w-[560px] text-xl leading-relaxed text-slate-600 md:text-[1.7rem]">
+              Real-time alerts, AI-driven risk prediction, and coordinated emergency response to keep communities safe and resilient.
+            </p>
+
+            <div className="mt-10 flex max-w-[650px] items-center gap-4">
+              <div className="flex w-full max-w-[420px] items-center gap-3 rounded-[1.2rem] border border-slate-300 bg-white/80 px-4 py-4 shadow-[0_12px_24px_rgba(18,46,94,0.06)] backdrop-blur-sm">
+                <span className="text-xl text-slate-400">⌕</span>
+                <input
+                  aria-label="Search district or hazard"
+                  value="Search district or hazard..."
+                  readOnly
+                  className="w-full bg-transparent text-base text-slate-500 outline-none placeholder:text-slate-400"
+                />
+              </div>
+              <button
+                type="button"
+                className="inline-flex items-center justify-center rounded-[1.2rem] bg-gradient-to-r from-[#1d62dd] to-[#3c83ff] px-7 py-4 text-sm font-black uppercase tracking-[0.09em] text-white shadow-[0_18px_34px_rgba(29,98,221,0.28)] transition-transform hover:scale-[1.01]"
+              >
+                View Live Map
+                <span className="ml-2 text-lg">›</span>
+              </button>
+            </div>
+
+            <div className="mt-12 grid max-w-[620px] grid-cols-3 gap-8 border-t border-slate-200 pt-8 text-[#091f3d]">
+              <div>
+                <div className="text-[2.25rem] font-black tracking-[-0.07em]">766</div>
+                <div className="mt-2 text-[0.7rem] font-bold uppercase tracking-[0.16em] text-slate-500">Districts tracked</div>
+              </div>
+              <div>
+                <div className="text-[2.25rem] font-black tracking-[-0.07em]">24/7</div>
+                <div className="mt-2 text-[0.7rem] font-bold uppercase tracking-[0.16em] text-slate-500">Live monitoring</div>
+              </div>
+              <div>
+                <div className="text-[2.25rem] font-black tracking-[-0.07em]">AI</div>
+                <div className="mt-2 text-[0.7rem] font-bold uppercase tracking-[0.16em] text-slate-500">Risk prediction</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative mx-auto w-full max-w-[760px]">
+            <div className="rounded-[2rem] border border-slate-200 bg-white p-3 shadow-[0_32px_70px_rgba(19,42,78,0.12)]">
+              <div className="relative h-[480px] overflow-hidden rounded-[1.5rem] border border-slate-200 bg-[radial-gradient(circle_at_10%_10%,rgba(255,255,255,0.9),rgba(190,220,245,0.75)_25%,rgba(204,228,244,0.6)_45%,rgba(180,215,211,0.35)_70%,rgba(205,231,223,0.12)_100%)]">
+                <div className="absolute inset-0 opacity-80 [background-image:linear-gradient(rgba(27,52,86,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(27,52,86,0.08)_1px,transparent_1px)] [background-size:32px_32px]" />
+                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#b7d3d8] to-transparent" />
+
+                <div className="absolute left-12 top-6 text-[0.7rem] font-semibold tracking-[0.08em] text-slate-600">Jaipur</div>
+                <div className="absolute left-[30%] top-16 text-[0.62rem] font-semibold tracking-[0.06em] text-slate-600">Udaipur</div>
+                <div className="absolute left-[50%] top-24 text-[0.62rem] font-semibold tracking-[0.06em] text-slate-600">Bhopal</div>
+                <div className="absolute left-[60%] top-36 text-[0.62rem] font-semibold tracking-[0.06em] text-slate-600">Patna</div>
+                <div className="absolute left-[28%] bottom-[26%] text-[0.62rem] font-semibold tracking-[0.06em] text-slate-600">Mumbai</div>
+                <div className="absolute left-[46%] bottom-[20%] text-[0.62rem] font-semibold tracking-[0.06em] text-slate-600">Bengaluru</div>
+                <div className="absolute right-[16%] bottom-[18%] text-[0.62rem] font-semibold tracking-[0.06em] text-slate-600">Vizag</div>
+
+                <div className="absolute left-[18%] top-[20%] h-16 w-20 rounded-full border border-slate-300/80 bg-slate-200/30" />
+                <div className="absolute right-[17%] top-[18%] h-20 w-24 rounded-full border border-slate-300/80 bg-slate-200/30" />
+                <div className="absolute left-[28%] bottom-[18%] h-16 w-20 rounded-full border border-slate-300/80 bg-slate-200/30" />
+                <div className="absolute right-[24%] bottom-[24%] h-14 w-16 rounded-full border border-slate-300/80 bg-slate-200/30" />
+
+                <div className="absolute left-[15%] top-[26%] h-3.5 w-3.5 rounded-full bg-[#f58d4a] shadow-[0_0_18px_rgba(245,141,74,0.9)]" />
+                <div className="absolute left-[40%] top-[38%] h-3.5 w-3.5 rounded-full bg-[#e25e5e] shadow-[0_0_18px_rgba(226,94,94,0.9)]" />
+                <div className="absolute right-[32%] top-[35%] h-3.5 w-3.5 rounded-full bg-[#f3b74d] shadow-[0_0_18px_rgba(243,183,77,0.9)]" />
+                <div className="absolute right-[22%] bottom-[28%] h-3.5 w-3.5 rounded-full bg-[#e25e5e] shadow-[0_0_18px_rgba(226,94,94,0.9)]" />
+                <div className="absolute left-[58%] bottom-[24%] h-3.5 w-3.5 rounded-full bg-[#50b584] shadow-[0_0_18px_rgba(80,181,132,0.9)]" />
+
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-[#061a35] px-4 pb-2 pt-3 text-white">
+                  <div className="flex items-center justify-between text-[0.7rem] font-semibold tracking-[0.08em] text-slate-200">
+                    <div className="flex items-center gap-2">
+                      <span className="inline-flex h-3 w-3 items-center justify-center rounded-full border border-white/60 text-[0.5rem]">◉</span>
+                      <span>Health</span>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-[0.7rem] text-slate-300">98.2%</div>
+                    </div>
+                  </div>
+                  <div className="mt-2 flex items-center justify-between">
+                    <div className="flex items-center gap-2 text-[0.8rem] font-semibold">
+                      <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-[0.8rem]">◌</span>
+                      <span>Health</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-[0.8rem] font-black">
+                      <span>98.2%</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute right-5 top-5 flex flex-col gap-2">
+                  <button type="button" className="h-10 w-10 rounded-md border border-slate-200 bg-white text-xl text-slate-700 shadow-sm">+</button>
+                  <button type="button" className="h-10 w-10 rounded-md border border-slate-200 bg-white text-xl text-slate-700 shadow-sm">−</button>
+                </div>
+              </div>
+            </div>
+            <div className="absolute -bottom-7 right-10 flex items-center gap-3 rounded-xl border border-slate-200 bg-white/85 px-4 py-3 text-[0.72rem] font-semibold text-slate-600 shadow-lg backdrop-blur-sm">
+              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#dbe7ff] text-[0.7rem] text-[#1d62dd]">◉</span>
+              <span>Leaflet</span>
+              <span className="text-slate-400">•</span>
+              <span>© OpenStreetMap contributors</span>
+            </div>
+            <div className="absolute -bottom-20 right-12 flex w-[220px] items-center justify-between rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-[0_18px_28px_rgba(16,41,78,0.12)] backdrop-blur-sm">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#edf4ff] text-[#1d62dd]">
+                <span className="text-xl">▣</span>
+              </div>
+              <div>
+                <div className="text-[0.64rem] font-bold uppercase tracking-[0.18em] text-slate-400">Mesh health</div>
+                <div className="mt-1 text-[2rem] font-black leading-none tracking-[-0.08em] text-[#0b1a34]">98.2%</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
