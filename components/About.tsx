@@ -149,13 +149,13 @@ export const About: React.FC = () => {
                   I build real-world web, mobile, backend, and AI-powered applications.
                 </p>
                 <p>
-                  I&apos;m Arpit Kumar, a B.Tech Information Technology student and software developer passionate about building real-world web, mobile, and AI-powered applications.
+                  I&apos;m Arpit Kumar, a software developer focused on building practical systems across full-stack development, Flutter, AI, real-time applications, and cybersecurity.
                 </p>
                 <p>
-                  I work across the stack, from modern interfaces with React, Next.js, and Flutter to backend services with FastAPI and Node.js, database-driven systems, AI integrations, and cloud deployment.
+                  I work across the stack, from modern interfaces with React, Next.js, and Flutter to backend services, database-driven systems, AI integrations, and real-time workflows.
                 </p>
                 <p>
-                  I enjoy solving practical problems through software and continuously exploring Generative AI, backend engineering, cybersecurity, cloud computing, and system design.
+                  I enjoy turning real-world problems into working software and learning through hands-on engineering, experimentation, security challenges, and system design.
                 </p>
               </div>
             </motion.div>

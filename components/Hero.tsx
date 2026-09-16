@@ -13,7 +13,7 @@ const metrics = [
   { value: 'IOT', label: 'Connected Systems', detail: 'Sensors & real-time data', icon: Rocket },
 ];
 
-const techStack = ['Flutter', 'React', 'Next.js', 'Python', 'IoT'];
+const techStack = ['Full-stack', 'Flutter / mobile', 'AI applications', 'Real-time systems', 'Cybersecurity'];
 
 const socialLinks = [
   { label: 'GitHub', href: 'https://github.com/arpitkumar28', icon: GitHubIcon },
@@ -44,15 +44,15 @@ export const Hero: React.FC = () => {
                 className="max-w-3xl font-display text-5xl font-black tracking-[-0.06em] text-text-primary sm:text-6xl md:text-7xl lg:text-[5.25rem] lg:leading-[0.98]"
                 id="hero-heading"
               >
-                I build software that <span className="text-primary">moves people forward.</span>
+                Software Engineer building AI, full-stack, mobile and real-time systems.
               </h1>
 
               <p className="max-w-2xl text-xl font-bold leading-snug text-text-primary md:text-2xl">
-                I’m Arpit Kumar, a software developer building products across <span className="text-primary">full-stack web, Flutter, AI/GenAI, and backend systems</span>.
+                I’m Arpit Kumar. I build practical software across <span className="text-primary">full-stack development, Flutter/mobile, AI-powered applications, real-time systems, and cybersecurity</span>.
               </p>
 
               <p className="max-w-xl text-base font-medium leading-relaxed text-text-muted md:text-lg">
-                I build practical apps, backend APIs, mobile workflows, and smart systems that solve real user problems.
+                I turn real-world problems into working products through hands-on engineering, experimentation, and security-minded design.
               </p>
 
               <div className="flex flex-wrap gap-x-3 gap-y-2 font-mono text-sm font-semibold text-text-muted">
@@ -69,7 +69,7 @@ export const Hero: React.FC = () => {
               <div className="mb-4 flex items-center gap-3">
                 <span className="h-px w-10 bg-primary" />
                 <p className="font-mono text-sm font-black uppercase tracking-[0.2em] text-text-secondary">
-                  Impact Metrics
+                  Build Focus
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
@@ -87,28 +87,27 @@ export const Hero: React.FC = () => {
 
             <div className="flex flex-wrap gap-4">
               <Button
-                href="/resume.pdf"
+                href="#projects"
+                className="px-7 py-3.5 text-sm font-bold"
+              >
+                <ArrowRight className="w-4 h-4 mr-2" />
+                View Projects
+              </Button>
+              <Button
+                variant="outline"
+                href="https://github.com/arpitkumar28"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-7 py-3.5 text-sm font-bold"
               >
-                <Download className="w-4 h-4 mr-2" />
-                Download Resume
-              </Button>
-              <Button
-                variant="outline"
-                href="#projects"
-                className="px-7 py-3.5 text-sm font-bold"
-              >
-                View Projects
-                <ArrowRight className="w-4 h-4 ml-2" />
+                GitHub
               </Button>
             </div>
 
             <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm font-semibold text-text-muted">
-              <a href="#contact" className="hover:text-primary">Contact Me</a>
+              <a href="https://www.linkedin.com/in/arpitkumar0211" target="_blank" rel="noopener noreferrer" className="hover:text-primary">LinkedIn</a>
               <span>•</span>
-              <a href="#journey" className="hover:text-primary">My Story</a>
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-primary">Resume</a>
               <span>•</span>
               <a href="#projects" className="hover:text-primary">All Projects</a>
             </div>

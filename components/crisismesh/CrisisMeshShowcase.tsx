@@ -90,16 +90,16 @@ export default function CrisisMeshShowcase() {
 
             <div className="mt-12 grid max-w-[620px] grid-cols-3 gap-8 border-t border-slate-200 pt-8 text-[#091f3d]">
               <div>
-                <div className="text-[2.25rem] font-black tracking-[-0.07em]">766</div>
-                <div className="mt-2 text-[0.7rem] font-bold uppercase tracking-[0.16em] text-slate-500">Districts tracked</div>
+                <div className="text-[2.25rem] font-black tracking-[-0.07em]">Live</div>
+                <div className="mt-2 text-[0.7rem] font-bold uppercase tracking-[0.16em] text-slate-500">Demo available</div>
               </div>
               <div>
-                <div className="text-[2.25rem] font-black tracking-[-0.07em]">24/7</div>
-                <div className="mt-2 text-[0.7rem] font-bold uppercase tracking-[0.16em] text-slate-500">Live monitoring</div>
+                <div className="text-[2.25rem] font-black tracking-[-0.07em]">Mixed</div>
+                <div className="mt-2 text-[0.7rem] font-bold uppercase tracking-[0.16em] text-slate-500">Implementation status</div>
               </div>
               <div>
-                <div className="text-[2.25rem] font-black tracking-[-0.07em]">AI</div>
-                <div className="mt-2 text-[0.7rem] font-bold uppercase tracking-[0.16em] text-slate-500">Risk prediction</div>
+                <div className="text-[2.25rem] font-black tracking-[-0.07em]">TBD</div>
+                <div className="mt-2 text-[0.7rem] font-bold uppercase tracking-[0.16em] text-slate-500">Operational impact</div>
               </div>
             </div>
           </div>
@@ -167,7 +167,7 @@ export default function CrisisMeshShowcase() {
               </div>
               <div>
                 <div className="text-[0.64rem] font-bold uppercase tracking-[0.18em] text-slate-400">Mesh health</div>
-                <div className="mt-1 text-[2rem] font-black leading-none tracking-[-0.08em] text-[#0b1a34]">98.2%</div>
+                <div className="mt-1 text-[2rem] font-black leading-none tracking-[-0.08em] text-[#0b1a34]">Demo</div>
               </div>
             </div>
           </div>
@@ -177,23 +177,23 @@ export default function CrisisMeshShowcase() {
       <div className="max-w-7xl mx-auto px-6 py-16 space-y-24">
         {/* Key Metrics */}
         <section>
-          <h2 className="text-3xl font-bold mb-8">Scale & Impact</h2>
+          <h2 className="text-3xl font-bold mb-8">Implementation Snapshot</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-background-elevated border border-border rounded-xl p-6">
-              <div className="text-4xl font-bold text-red-400 mb-2">766+</div>
-              <div className="text-text-muted">Districts Tracked</div>
+              <div className="text-4xl font-bold text-red-400 mb-2">Live</div>
+              <div className="text-text-muted">Demo UI</div>
             </div>
             <div className="bg-background-elevated border border-border rounded-xl p-6">
-              <div className="text-4xl font-bold text-orange-400 mb-2">2.4M+</div>
-              <div className="text-text-muted">Active Users</div>
+              <div className="text-4xl font-bold text-orange-400 mb-2">Partial</div>
+              <div className="text-text-muted">Integration status</div>
             </div>
             <div className="bg-background-elevated border border-border rounded-xl p-6">
-              <div className="text-4xl font-bold text-yellow-400 mb-2">12K+</div>
-              <div className="text-text-muted">IoT Sensors</div>
+              <div className="text-4xl font-bold text-yellow-400 mb-2">Review</div>
+              <div className="text-text-muted">Backend and IoT claims</div>
             </div>
             <div className="bg-background-elevated border border-border rounded-xl p-6">
-              <div className="text-4xl font-bold text-amber-400 mb-2">850+</div>
-              <div className="text-text-muted">Rescue Units</div>
+              <div className="text-4xl font-bold text-amber-400 mb-2">TBD</div>
+              <div className="text-text-muted">Operational impact</div>
             </div>
           </div>
         </section>
@@ -202,7 +202,7 @@ export default function CrisisMeshShowcase() {
         <section>
           <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
           <p className="text-text-muted text-lg leading-relaxed max-w-4xl">
-            CrisisMesh is a unified disaster management platform that transforms emergency response through real-time coordination. By connecting citizens, emergency responders, authorities, and intelligent IoT infrastructure through a single integrated system, it enables faster incident detection, smarter resource allocation, and more effective emergency coordination across India's 766+ districts. The platform operates 24/7 with AI-driven risk prediction and real-time data flows from 12,000+ IoT sensors.
+            CrisisMesh is a disaster-management platform concept that explores coordination between citizens, responders, authorities, AI-assisted analysis, and connected infrastructure. This case study distinguishes the live demo UI from backend, mobile, IoT, AI, and real-time capabilities that are partial, mocked, missing, or unverified.
           </p>
         </section>
 
@@ -270,7 +270,7 @@ export default function CrisisMeshShowcase() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">IoT Telemetry Integration</h3>
-                  <p className="text-text-muted text-sm">MQTT-based real-time data ingestion from 12,000+ environmental and infrastructure sensors for continuous monitoring</p>
+                  <p className="text-text-muted text-sm">MQTT-based telemetry is described as a target integration; sensor deployment is unverified in this portfolio</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -429,7 +429,7 @@ export default function CrisisMeshShowcase() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-amber-400">MQTT-Based Data Ingestion</h4>
-                  <p className="text-text-muted text-sm">12,000+ environmental sensors (rainfall, water level, temperature, air quality) stream real-time telemetry via MQTT protocol to NestJS backend</p>
+                  <p className="text-text-muted text-sm">The proposed MQTT path covers environmental telemetry into backend services; deployed hardware and sensor coverage are unverified</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -711,7 +711,7 @@ export default function CrisisMeshShowcase() {
               </div>
               <div>
                 <h3 className="font-semibold text-orange-400 mb-3">Backend Services</h3>
-                <p className="text-text-muted text-sm mb-2">NestJS API deployed on managed Node.js platforms with auto-scaling to handle surge loads during actual disasters. 99.9% uptime SLA.</p>
+                <p className="text-text-muted text-sm mb-2">The demo exposes the intended backend boundary; production deployment, autoscaling, and uptime guarantees are unverified.</p>
                 <p className="text-text-muted text-xs">Status: <span className="text-green-400">Live ✓</span></p>
               </div>
               <div>

@@ -10,32 +10,32 @@ const reasons = [
   {
     icon: Rocket,
     title: 'Ship Fast',
-    description: '17+ projects shipped across mobile, web, and IoT. Built NCC Buddy with 15+ screens, Hospital Attendance System with biometric auth, and GreenFlow AI traffic management - all in under 6 months.',
+    description: 'Builds across mobile, web, and connected-system concepts, with practical project work spanning Flutter, Next.js, APIs, and data workflows.',
   },
   {
     icon: Code2,
     title: 'Full Stack Capability',
-    description: 'End-to-end development from Flutter apps (NCC Buddy, Krishi Sahayak) to Python backends (EduAI Nexus X, GreenFlow API). Comfortable with React, Next.js, Firebase, and PostgreSQL.',
+    description: 'Works end to end from Flutter and React interfaces to Python or Node.js services, database-backed workflows, and API integrations.',
   },
   {
     icon: Users,
     title: 'Team Collaboration',
-    description: 'Experience working on team projects including NCC Buddy with admin dashboard, hospital systems with role-based access, and collaborative hackathon contributions.',
+    description: 'Comfortable collaborating on product ideas, shared application workflows, admin experiences, and hackathon-style builds.',
   },
   {
     icon: Target,
     title: 'Problem Solver',
-    description: 'Solved real-world problems: traffic congestion with AI-powered signals, hospital attendance with biometric verification, and agricultural support with mobile workflows.',
+    description: 'Uses software to explore practical problems in traffic intelligence, healthcare workflows, safety, education, and civic technology.',
   },
   {
     icon: Zap,
     title: 'Fast Learner',
-    description: 'Mastered Flutter in 3 months, built AI integration with TensorFlow in 2 months, and learned IoT hardware integration for accident detection systems.',
+    description: 'Learns by building and testing across Flutter, backend engineering, AI integrations, cloud workflows, and cybersecurity.',
   },
   {
     icon: Shield,
     title: 'Reliable',
-    description: 'Delivered production-ready systems with 99.9% attendance accuracy, real-time data sync, and secure authentication. Committed to clean, maintainable code.',
+    description: 'Values secure authentication, clear implementation boundaries, maintainable code, and honest communication about what is working.',
   },
 ];
 

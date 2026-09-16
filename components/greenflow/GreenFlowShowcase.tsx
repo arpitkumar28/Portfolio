@@ -26,7 +26,7 @@ export default function GreenFlowShowcase() {
           <div className="flex items-center gap-2 text-sm text-emerald-400 mb-4">
             <span className="bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Smart City Infrastructure</span>
             <span className="text-text-muted">•</span>
-            <span className="text-text-muted">Production Ready</span>
+            <span className="text-text-muted">Project case study</span>
           </div>
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-4">GreenFlow AI</h1>
           <p className="text-xl text-text-muted max-w-3xl mb-8">
@@ -60,10 +60,9 @@ export default function GreenFlowShowcase() {
         <section>
           <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
           <p className="text-text-muted text-lg leading-relaxed max-w-4xl">
-            An intelligent traffic management platform that predicts congestion patterns before they form, optimizes signal timing 
-            in real-time, and automatically creates emergency green corridors. The system uses machine learning to analyze traffic 
-            flow, IoT sensor networks for real-time data collection, and WebSocket-based communication for instant updates between 
-            the command center and mobile applications.
+            GreenFlow AI is a traffic-intelligence project focused on monitoring congestion, exploring traffic analysis, and coordinating
+            emergency green-corridor workflows through web and mobile experiences. The implementation status of predictive, IoT, and
+            real-time integrations should be read alongside the technical notes below rather than as measured operational impact.
           </p>
         </section>
 
@@ -78,7 +77,7 @@ export default function GreenFlowShowcase() {
             <ul className="space-y-3 text-text-muted">
               <li className="flex items-start gap-3">
                 <span className="text-red-400 mt-1">•</span>
-                <span>Emergency response delays of 5-15 minutes due to traffic congestion</span>
+                <span>Emergency response can be affected by congestion and fragmented traffic information</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-red-400 mt-1">•</span>
@@ -112,7 +111,7 @@ export default function GreenFlowShowcase() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">AI Congestion Prediction</h3>
-                  <p className="text-text-muted text-sm">TensorFlow models predict traffic build-ups with 92% confidence using historical and live data</p>
+                  <p className="text-text-muted text-sm">Traffic analysis is explored through the project&apos;s dashboard and data workflows; measured model accuracy is not claimed here</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -310,8 +309,8 @@ export default function GreenFlowShowcase() {
                 Real-time Congestion Prediction
               </h3>
               <p className="text-text-muted text-sm">
-                ML models analyze historical traffic patterns and live sensor data to predict congestion up to 30 minutes in advance 
-                with 92% confidence, enabling proactive signal optimization.
+                Traffic analysis is explored through historical and live-data workflows; measured prediction accuracy and forecast
+                horizons are not claimed here.
               </p>
             </div>
             <div className="bg-background-elevated border border-border rounded-xl p-6">
@@ -320,8 +319,8 @@ export default function GreenFlowShowcase() {
                 Emergency Green Corridor
               </h3>
               <p className="text-text-muted text-sm">
-                Automatically creates priority green corridors for emergency vehicles by synchronizing signals along the route. 
-                Reduces emergency response time by 35% on average.
+                Explores priority green-corridor workflows for emergency vehicles by coordinating signals along a planned route.
+                Operational response-time impact is not measured here.
               </p>
             </div>
             <div className="bg-background-elevated border border-border rounded-xl p-6">
@@ -330,8 +329,8 @@ export default function GreenFlowShowcase() {
                 Dynamic Signal Optimization
               </h3>
               <p className="text-text-muted text-sm">
-                Real-time signal timing adjustments based on traffic flow predictions and current conditions. Optimizes traffic 
-                flow up to 90% compared to static timing.
+                Explores real-time signal timing adjustments based on traffic flow predictions and current conditions. Comparative
+                traffic-flow improvement is not measured here.
               </p>
             </div>
             <div className="bg-background-elevated border border-border rounded-xl p-6">
@@ -428,31 +427,31 @@ export default function GreenFlowShowcase() {
           <div className="bg-background-elevated border border-border rounded-xl p-8">
             <div className="grid md:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="text-5xl font-bold text-emerald-400 mb-2">40%</div>
-                <p className="text-text-muted">Congestion Reduction</p>
+                <div className="text-5xl font-bold text-emerald-400 mb-2">UI</div>
+                <p className="text-text-muted">Traffic dashboard</p>
                 <p className="text-text-muted text-sm mt-2">
-                  Simulation testing demonstrated 40% reduction in traffic congestion through AI-driven signal optimization
+                  Dashboard and workflow demonstration; no measured reduction is claimed
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-bold text-cyan-400 mb-2">35%</div>
-                <p className="text-text-muted">Faster Emergency Response</p>
+                <div className="text-5xl font-bold text-cyan-400 mb-2">Flow</div>
+                <p className="text-text-muted">Green-corridor workflow</p>
                 <p className="text-text-muted text-sm mt-2">
-                  Emergency response times improved by 35% through predictive green corridor creation
+                  Coordination workflow shown in the project; operational impact is unverified
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-bold text-blue-400 mb-2">92%</div>
-                <p className="text-text-muted">AI Prediction Confidence</p>
+                <div className="text-5xl font-bold text-blue-400 mb-2">TBD</div>
+                <p className="text-text-muted">Model evaluation</p>
                 <p className="text-text-muted text-sm mt-2">
-                  ML models predict congestion with 92% confidence using historical and live data
+                  Model evaluation details are not published in this portfolio
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-bold text-purple-400 mb-2">90%</div>
-                <p className="text-text-muted">Traffic Flow Improvement</p>
+                <div className="text-5xl font-bold text-purple-400 mb-2">TBD</div>
+                <p className="text-text-muted">Traffic-flow impact</p>
                 <p className="text-text-muted text-sm mt-2">
-                  Signal synchronization improves traffic flow up to 90% compared to static timing
+                  Comparative traffic-flow results are not published in this portfolio
                 </p>
               </div>
             </div>
@@ -466,11 +465,11 @@ export default function GreenFlowShowcase() {
             <div className="bg-background-elevated border border-border rounded-xl p-6">
               <h3 className="font-semibold mb-3 text-red-400">Challenge: Real-time ML Inference Latency</h3>
               <p className="text-text-muted mb-3">
-                Complex ML models for traffic prediction had high inference latency (&gt;500ms), making them unsuitable for real-time signal optimization.
+                Complex ML models for traffic prediction can introduce latency and require evaluation before real-time signal optimization.
               </p>
               <p className="text-text-muted">
-                <strong>Solution:</strong> Implemented model quantization and TensorFlow Serving with GPU acceleration. Used model 
-                caching for repeated predictions. Reduced average inference time to &lt;100ms while maintaining 92% accuracy.
+                <strong>Implementation note:</strong> Model serving, quantization, caching, and measured latency remain areas for
+                verification rather than published performance results.
               </p>
             </div>
             <div className="bg-background-elevated border border-border rounded-xl p-6">
@@ -554,7 +553,7 @@ export default function GreenFlowShowcase() {
             <ul className="space-y-4 text-text-muted">
               <li className="flex items-start gap-3">
                 <span className="text-emerald-400 mt-1">→</span>
-                <span><strong>Model Quantization is Critical:</strong> Initial ML models were too slow for real-time use. Quantization reduced inference time by 80% with minimal accuracy loss.</span>
+                <span><strong>Model evaluation matters:</strong> Latency, accuracy, and quantization tradeoffs should be measured against a documented test set before operational claims are made.</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-emerald-400 mt-1">→</span>

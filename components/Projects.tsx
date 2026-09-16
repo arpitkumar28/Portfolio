@@ -16,7 +16,7 @@ const featuredProjects = [
     category: 'Disaster Management / AI / IoT / Full Stack',
     problem: 'Emergency information becomes fragmented between citizens, responders, authorities, and physical infrastructure. Emergency response coordination lacks real-time visibility, creating critical delays in disaster response and resource allocation.',
     solution: 'CrisisMesh creates a unified real-time event pipeline connecting citizens, emergency responders, authorities, AI risk analysis, and IoT infrastructure through a single integrated platform. Architecture: Next.js web dashboard, Flutter mobile app, NestJS API backend, PostgreSQL/Supabase database, WebSocket real-time communication, MQTT IoT integration, and Python-based risk analysis engine.',
-    result: 'A production-ready disaster management platform tracking 766+ districts with 24/7 live monitoring, AI-driven risk prediction, 12k+ IoT sensors, supporting 2.4M+ active users and 850+ rescue units.',
+    result: 'A live demo of a disaster-management platform concept. The case study separates implemented workflows from mocked, partial, and unverified integrations; the repository is not currently published.',
     features: [
       'Real-time incident management and tracking',
       'Emergency SOS and alert system',
@@ -36,7 +36,7 @@ const featuredProjects = [
     ],
     featured: true,
     gradient: 'from-red-600 to-orange-500',
-    status: 'Production Ready',
+    status: 'Live demo',
     role: 'Full Stack Developer / System Architect',
     timeline: 'Project-based',
   },
@@ -84,8 +84,8 @@ const featuredProjects = [
   {
     id: 1,
     title: 'GreenFlow AI',
-    subtitle: 'AI Traffic Intelligence Platform',
-    category: 'Smart City Infrastructure',
+    subtitle: 'Smart Traffic Intelligence & Emergency Green Corridor',
+    category: 'Traffic Intelligence / AI / Full Stack',
     images: [
       '/assets/images/greenflow-1.png',
       '/assets/images/greenflow-2.png',
@@ -95,7 +95,7 @@ const featuredProjects = [
       '/assets/images/greenflow-6.png',
     ],
     problem: 'Emergency vehicles lose critical minutes navigating congested urban streets. Cities lack real-time traffic intelligence to dynamically optimize signal timing and create green corridors when seconds matter.',
-    solution: 'Built an intelligent traffic management platform that predicts congestion patterns before they form, optimizes signal timing in real-time, and automatically creates emergency green corridors. Architecture: Next.js frontend, Flutter mobile app, TensorFlow ML models, IoT sensor networks, and WebSocket-based real-time communication.',
+    solution: 'Built a traffic-management platform concept for monitoring congestion, exploring traffic analysis, and coordinating emergency green-corridor workflows across web and mobile experiences.',
     result: 'A unified web and mobile ecosystem for traffic monitoring, AI-assisted prediction, interactive maps, and emergency Green Corridor activation.',
     features: [
       'Real-time congestion prediction using ML',
@@ -112,7 +112,7 @@ const featuredProjects = [
     ],
     featured: true,
     gradient: 'from-emerald-500 to-cyan-500',
-    status: 'Production Ready',
+    status: 'Project demo',
     role: 'Full Stack Developer',
     timeline: '3 months',
   },
