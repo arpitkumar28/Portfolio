@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { Projects } from '@/components/Projects';
+import { ProblemSolvingSecurity } from '@/components/ProblemSolvingSecurity';
 import { Journey } from '@/components/Journey';
 import { Education } from '@/components/Education';
 import { About } from '@/components/About';
@@ -19,13 +20,12 @@ export default function Home() {
     <>
       <Head>
         <title>Arpit Kumar — Software Developer | Full-Stack, Flutter & AI</title>
-        <meta name="description" content="Arpit Kumar is a software developer and B.Tech Information Technology student building full-stack web applications, Flutter mobile apps and AI-powered systems." />
-        <link rel="icon" href="/assets/images/favicon.svg" />
+        <meta name="description" content="Arpit Kumar is a software engineer building AI-powered, full-stack, Flutter/mobile, real-time, and cybersecurity-focused systems." />
         <link rel="canonical" href="https://arpitkumar.dev" />
         
         {/* Open Graph */}
         <meta property="og:title" content="Arpit Kumar — Software Developer | Full-Stack, Flutter & AI" />
-        <meta property="og:description" content="Software developer and B.Tech IT student building full-stack web applications, Flutter mobile apps and AI-powered systems." />
+        <meta property="og:description" content="Software engineer building AI-powered, full-stack, Flutter/mobile, real-time, and cybersecurity-focused systems." />
         <meta property="og:image" content="/assets/images/photo2.jpeg" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://arpitkumar.dev" />
@@ -37,7 +37,7 @@ export default function Home() {
         <meta name="twitter:site" content="@Arpit_patel28" />
         <meta name="twitter:creator" content="@Arpit_patel28" />
         <meta name="twitter:title" content="Arpit Kumar — Software Developer | Full-Stack, Flutter & AI" />
-        <meta name="twitter:description" content="Software developer and B.Tech IT student building full-stack web applications, Flutter mobile apps and AI-powered systems." />
+        <meta name="twitter:description" content="Software engineer building AI-powered, full-stack, Flutter/mobile, real-time, and cybersecurity-focused systems." />
         <meta name="twitter:image" content="/assets/images/photo2.jpeg" />
         
         {/* Mobile optimization */}
@@ -47,7 +47,7 @@ export default function Home() {
         <meta name="theme-color" content="#0a0a0a" />
         
         {/* Additional SEO */}
-        <meta name="keywords" content="Arpit Kumar, Software Engineer, Flutter, React, Next.js, TypeScript, Python, AI, Full Stack, IoT" />
+        <meta name="keywords" content="Arpit Kumar, Software Engineer, Flutter, mobile development, React, Next.js, TypeScript, Python, AI, full-stack, real-time systems, cybersecurity" />
         <meta name="author" content="Arpit Kumar" />
         <meta name="robots" content="index, follow" />
         
@@ -64,7 +64,11 @@ export default function Home() {
               "sameAs": [
                 "https://github.com/arpitkumar28",
                 "https://www.linkedin.com/in/arpitkumar0211",
-                "https://x.com/Arpit_patel28"
+                "https://x.com/Arpit_patel28",
+                "https://leetcode.com/u/arpit_patel28/",
+                "https://www.geeksforgeeks.org/profile/arpitkumar0211?tab=activity",
+                "https://tryhackme.com/p/ArpitKumar28",
+                "https://profile.hackthebox.com/"
               ],
               "email": "arpitkumar0211@gmail.com",
               "address": {
@@ -94,6 +98,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 py-10 md:px-8 lg:py-14">
           <div className="space-y-12 lg:space-y-16">
             <Projects />
+            <ProblemSolvingSecurity />
             <Journey />
             <Education />
             <About />

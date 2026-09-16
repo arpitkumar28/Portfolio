@@ -588,7 +588,7 @@ export default function EduAIShowcase() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-violet-400 mt-1">→</span>
-                <span><strong>Explainability Builds Trust:</strong> Students need to understand why content is recommended. Added "Why this?" explanations increased engagement by 40%.</span>
+                <span><strong>Explainability Builds Trust:</strong> Students need to understand why content is recommended. A "Why this?" explanation can make recommendations easier to evaluate.</span>
               </li>
             </ul>
           </div>

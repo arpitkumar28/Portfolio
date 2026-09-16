@@ -240,12 +240,12 @@ export default function HospitalAttendanceShowcase() {
             <div className="bg-background-elevated border border-border rounded-xl p-6">
               <h3 className="font-semibold mb-3">Why Flutter?</h3>
               <p className="text-text-muted mb-3">
-                Chosen for cross-platform compatibility (iOS/Android) from a single codebase, reducing development time by 40% 
-                compared to native development. Flutter's hot reload enabled rapid iteration during UI development.
+                Chosen for cross-platform compatibility (iOS/Android) from a single codebase. Flutter's hot reload enabled rapid
+                iteration during UI development.
               </p>
               <p className="text-text-muted text-sm">
-                <strong>Tradeoff:</strong> Slightly larger app size (~15MB) compared to native, but acceptable for healthcare 
-                enterprise deployment where app size is not a critical constraint.
+                <strong>Tradeoff:</strong> Cross-platform packaging introduces deployment considerations for healthcare
+                environments.
               </p>
             </div>
             <div className="bg-background-elevated border border-border rounded-xl p-6">
@@ -437,22 +437,22 @@ export default function HospitalAttendanceShowcase() {
           <div className="bg-background-elevated border border-border rounded-xl p-8">
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="text-5xl font-bold text-blue-400 mb-2">99.9%</div>
-                <p className="text-text-muted">Attendance Accuracy</p>
+                <div className="text-5xl font-bold text-blue-400 mb-2">Biometric</div>
+                <p className="text-text-muted">Attendance workflow</p>
                 <p className="text-text-muted text-sm mt-2">
                   Achieved through biometric verification and multi-factor authentication
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-bold text-green-400 mb-2">80%</div>
-                <p className="text-text-muted">Paperwork Reduction</p>
+                <div className="text-5xl font-bold text-green-400 mb-2">Digital</div>
+                <p className="text-text-muted">Attendance records</p>
                 <p className="text-text-muted text-sm mt-2">
                   Automated reporting eliminated manual attendance record processing
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-bold text-purple-400 mb-2">50%</div>
-                <p className="text-text-muted">HR Time Saved</p>
+                <div className="text-5xl font-bold text-purple-400 mb-2">Live</div>
+                <p className="text-text-muted">Management dashboard</p>
                 <p className="text-text-muted text-sm mt-2">
                   Real-time dashboard reduced attendance verification overhead
                 </p>

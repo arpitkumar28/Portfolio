@@ -256,12 +256,12 @@ export default function NCCBuddyShowcase() {
             <div className="bg-background-elevated border border-border rounded-xl p-6">
               <h3 className="font-semibold mb-3">Why Flutter?</h3>
               <p className="text-text-muted mb-3">
-                Flutter enabled rapid development of a cross-platform mobile app for both cadets (Android/iOS) and commanders 
-                (web). The single codebase reduced development time by 50% compared to native development.
+                Flutter enabled development of a cross-platform mobile app for both cadets (Android/iOS) and commanders
+                (web), with a shared codebase across the experiences.
               </p>
               <p className="text-text-muted text-sm">
-                <strong>Tradeoff:</strong> Initial app size larger (~12MB), but acceptable for military/defense deployment 
-                where devices are managed centrally.
+                <strong>Tradeoff:</strong> A shared cross-platform codebase has packaging and deployment considerations for
+                managed devices.
               </p>
             </div>
             <div className="bg-background-elevated border border-border rounded-xl p-6">
@@ -447,15 +447,15 @@ export default function NCCBuddyShowcase() {
           <div className="bg-background-elevated border border-border rounded-xl p-8">
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="text-5xl font-bold text-orange-400 mb-2">60%</div>
-                <p className="text-text-muted">Training Management Efficiency</p>
+                <div className="text-5xl font-bold text-orange-400 mb-2">Workflow</div>
+                <p className="text-text-muted">Training management</p>
                 <p className="text-text-muted text-sm mt-2">
                   Streamlined through unified event scheduling and automated attendance tracking
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-bold text-blue-400 mb-2">50%</div>
-                <p className="text-text-muted">Emergency Response Time</p>
+                <div className="text-5xl font-bold text-blue-400 mb-2">SOS</div>
+                <p className="text-text-muted">Emergency workflow</p>
                 <p className="text-text-muted text-sm mt-2">
                   Reduced through instant SOS alerts with precise location sharing
                 </p>

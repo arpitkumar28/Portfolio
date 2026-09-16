@@ -11,7 +11,8 @@ const highlights = [
 ];
 
 const groups = [
-  ['Leadership & Activities', 'Arya E-Sports Club', 'Coordinated esports activities and tournaments while collaborating with students and organizers.'],
+  ['Leadership & Activities', 'Esports Leader — Arya E-Sports Club', 'Arya College of Engineering & I.T. · Event planning, tournament management, team coordination, participant management, technical/logistics coordination, and event execution.'],
+  ['Clash Cup 2026', 'Gaming Tournament · Operations', 'Event planning, operations, and team coordination.'],
   ['Learning / Training', 'Cloud & Generative AI', 'Exploring Google Cloud, Vertex AI, Gemini, Generative AI, and practical AI-powered application development.'],
   ['Security Learning', 'Cybersecurity', 'Building foundations across networking, Linux, web security, TryHackMe, and cybersecurity fundamentals.'],
 ];

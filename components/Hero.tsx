@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Download, ArrowRight, Rocket, Trophy, Server, Activity, AtSign, FileText } from 'lucide-react';
+import { ArrowRight, Rocket, Trophy, Server, Activity, AtSign, FileText } from 'lucide-react';
 import { Button } from './ui/Button';
 import { GitHubIcon, LinkedInIcon, XIcon } from './ui/SocialIcons';
 
@@ -13,7 +13,7 @@ const metrics = [
   { value: 'IOT', label: 'Connected Systems', detail: 'Sensors & real-time data', icon: Rocket },
 ];
 
-const techStack = ['Full-stack', 'Flutter / mobile', 'AI applications', 'Real-time systems', 'Cybersecurity'];
+const techStack = ['AI', 'Full-Stack', 'Flutter', 'Real-Time', 'Cybersecurity'];
 
 const socialLinks = [
   { label: 'GitHub', href: 'https://github.com/arpitkumar28', icon: GitHubIcon },
@@ -36,23 +36,22 @@ export const Hero: React.FC = () => {
         <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
           <div className="space-y-8">
             <div className="space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 font-mono text-xs font-black uppercase tracking-[0.16em] text-primary">
-                <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
-                Available for select opportunities
+              <div className="inline-flex items-center rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 font-mono text-xs font-black uppercase tracking-[0.16em] text-primary">
+                Software Engineer · Builder · Security
               </div>
               <h1
                 className="max-w-3xl font-display text-5xl font-black tracking-[-0.06em] text-text-primary sm:text-6xl md:text-7xl lg:text-[5.25rem] lg:leading-[0.98]"
                 id="hero-heading"
               >
-                Software Engineer building AI, full-stack, mobile and real-time systems.
+                I build software that solves real-world problems.
               </h1>
 
               <p className="max-w-2xl text-xl font-bold leading-snug text-text-primary md:text-2xl">
-                I’m Arpit Kumar. I build practical software across <span className="text-primary">full-stack development, Flutter/mobile, AI-powered applications, real-time systems, and cybersecurity</span>.
+                Full-stack developer focused on <span className="text-primary">AI, Flutter, real-time systems, and cybersecurity</span>.
               </p>
 
               <p className="max-w-xl text-base font-medium leading-relaxed text-text-muted md:text-lg">
-                I turn real-world problems into working products through hands-on engineering, experimentation, and security-minded design.
+                I turn ideas into practical products — from intelligent applications to real-time systems and security-focused projects.
               </p>
 
               <div className="flex flex-wrap gap-x-3 gap-y-2 font-mono text-sm font-semibold text-text-muted">
@@ -159,13 +158,6 @@ export const Hero: React.FC = () => {
               </div>
               <div className="absolute bottom-0 left-0 right-0 z-20 translate-y-6 rounded-b-[2rem] bg-gradient-to-t from-background via-background/85 to-transparent px-6 pb-7 pt-24 text-center opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                 <h3 className="text-3xl font-black text-text-primary">Arpit Kumar</h3>
-                <p className="mt-3 text-lg font-black text-primary">
-                  Software Developer &bull; Full Stack &bull; Flutter &bull; AI
-                </p>
-                <p className="mt-4 inline-flex items-center gap-2 text-base font-black text-emerald-300">
-                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-                  Available for Opportunities
-                </p>
               </div>
             </div>
           </div>

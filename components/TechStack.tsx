@@ -6,25 +6,46 @@ import { Section } from './ui/Section';
 
 const capabilities = [
   {
-    label: '01 / Core',
-    title: 'Languages & Frontend',
+    label: '01 / Languages',
+    title: 'Languages',
     ref: '001',
-    body: 'Programming foundations and interfaces for responsive, accessible web products.',
-    skills: ['Python', 'Java', 'C', 'JavaScript', 'TypeScript', 'Dart', 'React.js', 'Next.js', 'Tailwind CSS'],
+    body: 'Programming foundations used across web, mobile, backend, and project-based application work.',
+    skills: ['Python', 'Java', 'C', 'JavaScript', 'TypeScript', 'Dart'],
   },
   {
-    label: '02 / Build',
-    title: 'Backend, Mobile & Data',
+    label: '02 / Interfaces',
+    title: 'Frontend / Mobile',
     ref: '002',
-    body: 'APIs, cross-platform workflows, state management, and database-backed application systems.',
-    skills: ['FastAPI', 'Node.js', 'Express.js', 'REST APIs', 'WebSockets', 'Flutter', 'Riverpod', 'PostgreSQL', 'MongoDB', 'Supabase'],
+    body: 'Responsive interfaces and cross-platform mobile workflows for practical product experiences.',
+    skills: ['React', 'Next.js', 'Tailwind CSS', 'Flutter', 'Riverpod'],
   },
   {
-    label: '03 / Explore',
-    title: 'AI, Cloud & Systems',
+    label: '03 / Services',
+    title: 'Backend',
     ref: '003',
-    body: 'Exploring modern AI/GenAI workflows, cloud deployment, DevOps, security, and connected hardware.',
-    skills: ['Generative AI', 'RAG', 'Gemini', 'Vertex AI', 'AI Agents', 'Git', 'Docker', 'Google Cloud', 'Vercel', 'Arduino', 'GPS', 'Sensors'],
+    body: 'APIs, real-time communication, authentication, and service integrations for database-backed applications.',
+    skills: ['FastAPI', 'Node.js', 'REST APIs', 'WebSockets', 'JWT'],
+  },
+  {
+    label: '04 / Data',
+    title: 'Databases',
+    ref: '004',
+    body: 'Structured data storage and managed data services used by the portfolio projects.',
+    skills: ['PostgreSQL', 'Supabase', 'Firebase', 'MongoDB'],
+  },
+  {
+    label: '05 / Practice',
+    title: 'Cybersecurity',
+    ref: '005',
+    body: 'Hands-on security learning through labs, CTFs, networking, Linux, and investigation challenges.',
+    skills: ['Linux', 'Networking', 'Nmap', 'Wireshark', 'Burp Suite', 'Metasploit'],
+  },
+  {
+    label: '06 / Delivery',
+    title: 'DevOps / Tools',
+    ref: '006',
+    body: 'Tools and deployment workflows used to build, test, collaborate on, and ship projects.',
+    skills: ['Git', 'Docker', 'Google Cloud', 'Vercel', 'Arduino', 'GPS', 'Sensors'],
   },
 ];
 

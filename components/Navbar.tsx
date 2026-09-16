@@ -63,9 +63,6 @@ export const Navbar: React.FC = () => {
               <span className="block text-xl md:text-2xl font-black tracking-wide text-primary transition-opacity group-hover:opacity-80">
                 Arpit Kumar
               </span>
-              <span className="mt-1 block text-[9px] font-black tracking-[0.14em] text-text-secondary sm:text-[11px] sm:tracking-[0.18em]">
-                Software Developer · Full Stack · Flutter · AI
-              </span>
             </a>
 
             <div className="hidden md:flex items-center space-x-8">

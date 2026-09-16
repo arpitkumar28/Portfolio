@@ -593,7 +593,7 @@ export default function CrisisMeshShowcase() {
                 <Radio className="w-5 h-5" />
                 IoT Sensor Dashboard
               </h3>
-              <p className="text-text-muted text-sm">Monitoring interface for 12,000+ environmental sensors showing real-time telemetry, historical trends, and anomaly detection alerts</p>
+              <p className="text-text-muted text-sm">Monitoring interface concept for environmental telemetry, historical trends, and anomaly detection alerts</p>
             </div>
             <div className="bg-background-elevated border border-border rounded-xl p-6">
               <h3 className="font-semibold mb-4 text-cyan-400 flex items-center gap-2">

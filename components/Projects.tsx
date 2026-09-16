@@ -124,7 +124,7 @@ const featuredProjects = [
   //   category: 'Healthcare Technology',
   //   problem: 'Hospitals rely on manual attendance systems that are error-prone, lack real-time visibility, and create administrative burden. Staff verification and location tracking remain significant operational challenges.',
   //   solution: 'Developed a comprehensive digital attendance platform with biometric authentication, geolocation verification, and NFC check-in/check-out. Implemented secure data storage, real-time staff tracking, and automated reporting. Architecture: Flutter with Riverpod state management, Firebase backend, and secure local storage for sensitive data.',
-  //   result: 'Achieved 99.9% attendance accuracy through biometric verification and reduced manual paperwork by 80% with automated reporting and real-time staff monitoring.',
+  //   result: 'Improved attendance workflows through biometric verification, automated reporting, and real-time staff monitoring.',
   //   features: [
   //     'Biometric authentication',
   //     'Geolocation verification',
@@ -150,7 +150,7 @@ const featuredProjects = [
   //   category: 'Defense Technology',
   //   problem: 'NCC cadets manage training schedules, attendance, and emergency communication through fragmented manual processes. Commanders lack real-time visibility into cadet status and location during training exercises.',
   //   solution: 'Built an integrated companion app with event scheduling, QR-based attendance tracking, location sharing, and emergency SOS functionality. Implemented admin dashboard for commanders to manage training activities. Architecture: Flutter with Firebase, Google Maps integration, QR scanner, and push notification system.',
-  //   result: 'Streamlined training management by 60% and reduced emergency response time by 50% through unified event scheduling, QR-based attendance, and SOS features.',
+  //   result: 'Streamlined training management through unified event scheduling, QR-based attendance, and SOS features.',
   //   features: [
   //     'Event scheduling and reminders',
   //     'QR-based attendance tracking',
@@ -249,7 +249,10 @@ const allProjects = [
     category: 'Mobile / NCC',
     description: 'Flutter companion application designed to provide useful digital tools, resources, and services for NCC students and cadets.',
     tags: ['Flutter', 'Dart', 'Firebase', 'Authentication'],
-    links: [{ label: 'Case Study', url: '/ncc-buddy' }],
+    links: [
+      { label: 'Case Study', url: '/ncc-buddy' },
+      { label: 'GitHub', url: 'https://github.com/arpitkumar28/ncc_buddy' },
+    ],
     filter: 'flutter',
   },
   {
@@ -328,6 +331,8 @@ const filters = [
   { label: 'IoT', value: 'iot' },
 ];
 
+const featuredProjectOrder = ['CrisisMesh', 'GreenFlow AI', 'EduAI Nexus X', 'CarePulse'];
+
 export const Projects: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: number]: number }>({});
   const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
@@ -380,7 +385,14 @@ export const Projects: React.FC = () => {
         viewport={{ once: true, margin: "-100px" }}
         className="grid gap-5 lg:grid-cols-2"
       >
-        {featuredProjects.map((project) => (
+        {featuredProjects
+          .slice()
+          .sort((first, second) => {
+            const firstIndex = featuredProjectOrder.indexOf(first.title);
+            const secondIndex = featuredProjectOrder.indexOf(second.title);
+            return (firstIndex === -1 ? featuredProjects.length : firstIndex) - (secondIndex === -1 ? featuredProjects.length : secondIndex);
+          })
+          .map((project) => (
           <motion.div key={project.id} variants={itemVariants}>
             <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-background-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:shadow-xl hover:shadow-primary/10">
               {/* Project Image */}
