@@ -1,56 +1,67 @@
 import React from 'react';
+import Image from 'next/image';
 import { ArrowUpRight, Code2, ExternalLink, FileText, ShieldCheck } from 'lucide-react';
 import { GitHubIcon, LinkedInIcon } from './ui/SocialIcons';
 import { Section } from './ui/Section';
 
 type Profile = {
   name: string;
+  logo: string;
   label: string;
   description: string;
   tags: string[];
   href: string;
   cta: string;
-  icon: React.ComponentType<{ className?: string }>;
+  accent: string;
+  glow: string;
   security?: boolean;
 };
 
 const profiles: Profile[] = [
   {
     name: 'LeetCode',
+    logo: '/assets/images/LeetCode_logo_black.png',
     label: 'Problem Solving',
     description: 'Data structures, algorithms, and systematic problem solving.',
     tags: ['DSA', 'Algorithms', 'Problem Solving'],
     href: 'https://leetcode.com/u/arpit_patel28/',
     cta: 'View Profile',
-    icon: Code2,
+    accent: '#f59e0b',
+    glow: 'rgba(245, 158, 11, 0.14)',
   },
   {
     name: 'GeeksforGeeks',
+    logo: '/assets/images/GFG.png',
     label: 'Programming Practice',
     description: 'Programming practice across data structures, algorithms, and computer science fundamentals.',
     tags: ['DSA', 'Programming', 'CS Fundamentals'],
     href: 'https://www.geeksforgeeks.org/profile/arpitkumar0211?tab=activity',
     cta: 'View Profile',
-    icon: Code2,
+    accent: '#22c55e',
+    glow: 'rgba(34, 197, 94, 0.13)',
   },
   {
     name: 'TryHackMe',
+    logo: '/assets/images/THM.png',
     label: 'Cybersecurity',
     description: 'Hands-on cybersecurity labs covering networking, Linux, reconnaissance, enumeration, and security challenges.',
     tags: ['CTFs', 'Linux', 'Networking', 'Recon'],
     href: 'https://tryhackme.com/p/ArpitKumar28',
     cta: 'Explore Security Work',
-    icon: ShieldCheck,
+    accent: '#ef4444',
+    glow: 'rgba(239, 68, 68, 0.15)',
     security: true,
   },
   {
     name: 'Hack The Box',
+    logo: '/assets/images/HTB.png',
     label: 'Security Labs',
     description: 'Practical security labs, Sherlock investigations, enumeration, and defensive analysis.',
     tags: ['Security Labs', 'Sherlocks', 'Investigation'],
     href: 'https://profile.hackthebox.com/',
     cta: 'View Profile',
-    icon: ShieldCheck,
+    accent: '#a3e635',
+    glow: 'rgba(163, 230, 53, 0.13)',
     security: true,
   },
 ];
@@ -72,8 +83,8 @@ const repositories = [
 
 const practiceAreas = ['Linux', 'Networking', 'Reconnaissance', 'Enumeration', 'Web Security', 'Digital Forensics', 'CTFs'];
 
-const ProfileCard: React.FC<{ profile: Profile }> = ({ profile }) => {
-  const Icon = profile.icon;
+const ProfileCard: React.FC<{ profile: Profile; index: number }> = ({ profile, index }) => {
+  const Icon = profile.security ? ShieldCheck : Code2;
 
   return (
     <a
@@ -81,21 +92,42 @@ const ProfileCard: React.FC<{ profile: Profile }> = ({ profile }) => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`${profile.cta}: ${profile.name}`}
-      className={`group flex h-full flex-col rounded-2xl border bg-background-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:-translate-y-1 ${profile.security ? 'border-primary/45 shadow-lg shadow-primary/5 hover:border-primary hover:shadow-primary/15' : 'border-border hover:border-primary/60 hover:shadow-primary/10'}`}
+      className="profile-ecosystem-card group relative flex min-h-[360px] flex-col overflow-hidden rounded-2xl border bg-background-card p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl focus-visible:-translate-y-1.5"
+      style={{
+        borderColor: `${profile.accent}55`,
+        backgroundImage: `radial-gradient(circle at 12% 0%, ${profile.glow}, transparent 42%)`,
+        boxShadow: `0 18px 45px ${profile.glow}`,
+        ['--profile-accent' as string]: profile.accent,
+      }}
     >
-      <div className="flex items-start justify-between gap-4">
-        <div className={`flex h-11 w-11 items-center justify-center rounded-xl ${profile.security ? 'bg-primary/15 text-primary' : 'bg-background-elevated text-text-muted group-hover:text-primary'}`}>
-          <Icon className="h-5 w-5" aria-hidden="true" />
+      <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" style={{ backgroundColor: profile.accent }} />
+      <div className="relative flex items-start justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className="flex h-12 min-w-12 items-center justify-center rounded-xl border bg-background-elevated px-2 font-mono text-xs font-black tracking-wider" style={{ color: profile.accent, borderColor: `${profile.accent}66`, backgroundColor: `${profile.accent}12`, boxShadow: `0 0 24px ${profile.glow}` }}>
+            <Image src={profile.logo} alt={`${profile.name} logo`} width={32} height={32} unoptimized className="h-8 w-8 object-contain" />
+          </div>
+          {profile.security && <span className="rounded-full border px-2.5 py-1 font-mono text-[10px] font-black uppercase tracking-[0.16em]" style={{ color: profile.accent, borderColor: `${profile.accent}55`, backgroundColor: `${profile.accent}12` }}>Security</span>}
         </div>
-        <ArrowUpRight className="h-5 w-5 text-text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" aria-hidden="true" />
+        <span className="font-mono text-xs font-black text-text-subtle">0{index + 1} / 04</span>
       </div>
-      <p className="mt-7 font-mono text-xs font-black uppercase tracking-[0.2em] text-primary">{profile.label}</p>
-      <h3 className="mt-3 text-2xl font-black text-text-primary">{profile.name}</h3>
-      <p className="mt-4 flex-1 text-sm font-medium leading-relaxed text-text-muted">{profile.description}</p>
-      <div className="mt-6 flex flex-wrap gap-2">
-        {profile.tags.map((tag) => <span key={tag} className="rounded-md border border-border bg-background-elevated px-2.5 py-1.5 font-mono text-[11px] font-black text-text-muted">{tag}</span>)}
+
+      <div className="relative mt-10">
+        <p className="font-mono text-[11px] font-black uppercase tracking-[0.22em]" style={{ color: profile.accent }}>{profile.label}</p>
+        <h3 className="mt-3 text-2xl font-black tracking-tight text-text-primary">{profile.name}</h3>
+        <p className="mt-4 min-h-[72px] text-sm font-medium leading-relaxed text-text-muted">{profile.description}</p>
       </div>
-      <span className="mt-7 inline-flex items-center gap-2 text-sm font-black text-primary">{profile.cta}<span aria-hidden="true" className="transition-transform group-hover:translate-x-1">-&gt;</span></span>
+
+      <div className="relative mt-6 flex flex-wrap gap-2">
+        {profile.tags.map((tag) => <span key={tag} className="rounded-md border border-border bg-background-elevated/80 px-2.5 py-1.5 font-mono text-[10px] font-black text-text-muted">{tag}</span>)}
+      </div>
+
+      <div className="relative mt-auto border-t border-border/80 pt-5">
+        <div className="flex items-center justify-between gap-4">
+          <span className="text-sm font-black text-text-primary transition-colors group-hover:text-[var(--profile-accent)]">{profile.cta}</span>
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-text-muted transition-all group-hover:border-[var(--profile-accent)] group-hover:text-[var(--profile-accent)]"><ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" /></span>
+        </div>
+        <div className="mt-4 flex items-center gap-2 font-mono text-[10px] font-black uppercase tracking-[0.18em] text-text-subtle"><Icon className="h-3.5 w-3.5" aria-hidden="true" /> External profile <span className="ml-auto">Open ↗</span></div>
+      </div>
     </a>
   );
 };
@@ -120,11 +152,11 @@ export const ProblemSolvingSecurity: React.FC = () => {
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
             <div className="mb-6"><p className="font-mono text-xs font-black uppercase tracking-[0.22em] text-text-muted">Problem solving</p><h3 className="mt-3 text-3xl font-black text-text-primary">Strengthen the fundamentals.</h3><p className="mt-3 text-base font-medium leading-relaxed text-text-muted">Strengthening the fundamentals behind the systems I build through data structures, algorithms, and programming practice.</p></div>
-            <div className="grid gap-4 sm:grid-cols-2">{profiles.filter((profile) => !profile.security).map((profile) => <ProfileCard key={profile.name} profile={profile} />)}</div>
+            <div className="grid gap-4 sm:grid-cols-2">{profiles.filter((profile) => !profile.security).map((profile, index) => <ProfileCard key={profile.name} profile={profile} index={index} />)}</div>
           </div>
           <div>
             <div className="mb-6"><p className="font-mono text-xs font-black uppercase tracking-[0.22em] text-primary">Security, hands-on.</p><h3 className="mt-3 text-3xl font-black text-text-primary">Work through the system.</h3><p className="mt-3 text-base font-medium leading-relaxed text-text-muted">I learn cybersecurity by working through systems, networks, applications, and controlled security challenges.</p></div>
-            <div className="grid gap-4 sm:grid-cols-2">{profiles.filter((profile) => profile.security).map((profile) => <ProfileCard key={profile.name} profile={profile} />)}</div>
+            <div className="grid gap-4 sm:grid-cols-2">{profiles.filter((profile) => profile.security).map((profile, index) => <ProfileCard key={profile.name} profile={profile} index={index + 2} />)}</div>
             <div className="mt-5 rounded-2xl border border-primary/25 bg-primary/5 p-5"><div className="flex flex-wrap gap-2" aria-label="Security practice areas">{practiceAreas.map((area) => <span key={area} className="rounded-md border border-primary/25 bg-background-card px-2.5 py-1.5 font-mono text-[11px] font-black text-text-muted">{area}</span>)}</div></div>
           </div>
         </div>
