@@ -20,13 +20,13 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Arpit Kumar — Cybersecurity-Focused Software Engineer</title>
-        <meta name="description" content="Arpit Kumar is a cybersecurity-focused software engineer building web and mobile applications, AI-powered systems, backend services, and real-time platforms." />
+        <title>Arpit Kumar | Cybersecurity-Focused Software Engineer</title>
+        <meta name="description" content="Arpit Kumar is a cybersecurity-focused software engineer building secure, scalable web and mobile products, AI-powered systems, and real-time platforms." />
         <link rel="canonical" href="https://arpitkumar.dev" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Arpit Kumar — Cybersecurity-Focused Software Engineer" />
-        <meta property="og:description" content="Cybersecurity-focused software engineer building web, mobile, AI, backend, and real-time systems." />
+        <meta property="og:title" content="Arpit Kumar | Cybersecurity-Focused Software Engineer" />
+        <meta property="og:description" content="Security-minded software engineer building secure web, mobile, AI, backend, and real-time systems." />
         <meta property="og:image" content="/assets/images/photo2.jpeg" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://arpitkumar.dev" />

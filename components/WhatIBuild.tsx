@@ -9,28 +9,28 @@ import { Section, SectionTitle } from './ui/Section';
 const buildItems = [
   {
     icon: Globe2,
-    title: 'Web Development',
-    description: 'Modern web applications with Next.js, React, TypeScript, and Tailwind CSS.',
+    title: 'Web Products',
+    description: 'Product-focused web experiences built with Next.js, React, TypeScript, and thoughtful engineering decisions.',
   },
   {
     icon: Smartphone,
-    title: 'App Development',
-    description: 'Cross-platform mobile applications using Flutter and Dart for practical workflows.',
+    title: 'Mobile Systems',
+    description: 'Flutter-based apps shaped around real user journeys, clean UX, and dependable product delivery.',
   },
   {
     icon: Radio,
     title: 'Backend & Real-Time',
-    description: 'APIs and distributed functionality with FastAPI, Node.js, REST APIs, and WebSockets.',
+    description: 'Reliable APIs and event-driven systems designed for performance, maintainability, and production workflows.',
   },
   {
     icon: Brain,
     title: 'AI Engineering',
-    description: 'AI-powered applications involving AI APIs, RAG, recommendations, and intelligent workflows.',
+    description: 'Practical AI features for automation, recommendations, and better decision-making across digital products.',
   },
   {
     icon: ShieldCheck,
     title: 'Cybersecurity',
-    description: 'Practical security work across Linux, networking, reconnaissance, enumeration, web security, CTFs, and digital forensics.',
+    description: 'Security-aware engineering grounded in Linux, networking, web security, CTFs, and defensive thinking.',
   },
 ];
 
@@ -58,7 +58,7 @@ export const WhatIBuild: React.FC = () => {
 
   return (
     <Section id="what-i-build" className="bg-gradient-to-b from-background to-background/50">
-      <SectionTitle>What I Build</SectionTitle>
+      <SectionTitle>How I Build</SectionTitle>
       <motion.div
         variants={containerVariants}
         initial="hidden"

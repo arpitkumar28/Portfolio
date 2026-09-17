@@ -24,13 +24,13 @@ export const Contact: React.FC = () => {
           className="rounded-2xl border border-border bg-gradient-to-br from-background-card to-background-elevated p-6 md:p-12"
         >
           <p className="font-mono text-sm font-black uppercase tracking-[0.28em] text-text-muted">
-            Collaboration With Me
+            Let&apos;s build something meaningful
           </p>
           <h2 className="font-display mt-8 max-w-4xl text-4xl font-black tracking-tight text-text-primary md:text-5xl">
-            Build the next <span className="text-primary">production-grade</span> system.
+            Build a <span className="text-primary">secure, scalable</span> product with hands-on engineering depth.
           </h2>
           <p className="mt-8 max-w-4xl text-xl font-medium leading-relaxed text-text-secondary">
-            Curious about architecture choices, delivery scope, or product execution? I would like to partner on software, AI integration, and systems that ship measurable outcomes.
+            I&apos;m open to product collaboration, engineering partnerships, and internship opportunities where software quality, security thinking, and practical impact matter.
           </p>
 
           <div className="mt-10 grid gap-4 md:grid-cols-4">
@@ -53,7 +53,7 @@ export const Contact: React.FC = () => {
                 </span>
                 <span>
                   <span className="block font-mono text-xs font-black uppercase tracking-[0.18em] text-blue-100">Direct Channel</span>
-                  <span className="mt-2 block text-2xl font-black">Initiate Discussion</span>
+                  <span className="mt-2 block text-2xl font-black">Start a Conversation</span>
                 </span>
               </span>
               <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1" />
@@ -71,7 +71,7 @@ export const Contact: React.FC = () => {
                 </span>
                 <span>
                   <span className="block font-mono text-xs font-black uppercase tracking-[0.18em] text-text-muted">Resources</span>
-                  <span className="mt-2 block text-2xl font-black">Get CV Pack</span>
+                  <span className="mt-2 block text-2xl font-black">View Resume</span>
                 </span>
               </span>
               <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1" />

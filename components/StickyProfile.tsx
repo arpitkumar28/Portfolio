@@ -90,7 +90,7 @@ export const StickyProfile: React.FC = () => {
           <div className="p-6 space-y-4">
             <div className="text-center">
               <h2 className="text-2xl font-bold text-text-primary mb-1">Arpit Kumar</h2>
-              <p className="text-primary font-medium">Flutter & Full Stack Developer</p>
+              <p className="text-primary font-medium">Cybersecurity-Focused Software Engineer</p>
             </div>
 
             {/* Availability Badge */}
@@ -99,18 +99,18 @@ export const StickyProfile: React.FC = () => {
                 <div className="w-2 h-2 bg-success rounded-full animate-pulse" />
                 <div className="absolute inset-0 w-2 h-2 bg-success rounded-full animate-ping" />
               </div>
-              <span className="text-success text-sm font-medium">Available for internships</span>
+              <span className="text-success text-sm font-medium">Open to internship & software roles</span>
             </div>
 
             {/* Quick Info */}
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-3 text-text-muted">
                 <GraduationCap className="w-4 h-4 text-primary flex-shrink-0" />
-                <span>3rd Year B.Tech IT Student</span>
+                <span>3rd Year B.Tech IT student</span>
               </div>
               <div className="flex items-center gap-3 text-text-muted">
                 <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-                <span>Jaipur, Rajasthan</span>
+                <span>Jaipur, Rajasthan, India</span>
               </div>
               <div className="flex items-center gap-3 text-text-muted">
                 <Mail className="w-4 h-4 text-primary flex-shrink-0" />
@@ -125,19 +125,19 @@ export const StickyProfile: React.FC = () => {
               <div className="grid grid-cols-2 gap-2">
                 <div className="p-3 rounded-lg bg-background-elevated border border-border text-center">
                   <div className="text-xl font-bold text-primary">17+</div>
-                  <div className="text-xs text-text-muted mt-1">Projects</div>
+                  <div className="text-xs text-text-muted mt-1">Projects built</div>
                 </div>
                 <div className="p-3 rounded-lg bg-background-elevated border border-border text-center">
                   <div className="text-xl font-bold text-accent">10+</div>
-                  <div className="text-xs text-text-muted mt-1">Technologies</div>
+                  <div className="text-xs text-text-muted mt-1">Core stacks</div>
                 </div>
                 <div className="p-3 rounded-lg bg-background-elevated border border-border text-center">
                   <div className="text-xl font-bold text-secondary">4+</div>
-                  <div className="text-xs text-text-muted mt-1">Domains</div>
+                  <div className="text-xs text-text-muted mt-1">Product domains</div>
                 </div>
                 <div className="p-3 rounded-lg bg-background-elevated border border-border text-center">
                   <div className="text-xl font-bold text-primary">3rd</div>
-                  <div className="text-xs text-text-muted mt-1">Year B.Tech</div>
+                  <div className="text-xs text-text-muted mt-1">Year student</div>
                 </div>
               </div>
             </div>
@@ -174,7 +174,7 @@ export const StickyProfile: React.FC = () => {
               className="w-full relative overflow-hidden group"
             >
               <Download className="w-4 h-4 mr-2" />
-              Download Resume
+              View Resume
             </Button>
           </div>
         </GlassCard>

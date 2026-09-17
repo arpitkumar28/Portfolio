@@ -369,11 +369,11 @@ export const Projects: React.FC = () => {
           <p className="font-mono text-xs font-bold uppercase tracking-wider text-primary">Selected systems</p>
           <SectionTitle className="mb-0 text-left">Projects</SectionTitle>
           <p className="text-text-muted text-base md:text-lg max-w-2xl mt-4 leading-relaxed">
-            Flagship builds up top, then every smaller project packed into a fast-scanning grid.
+            I build end-to-end product experiences across web, mobile, AI, security, and backend systems — with a focus on functionality, clarity, and real-world impact.
           </p>
         </div>
         <div className="rounded-lg border border-border bg-background-card px-4 py-3 text-sm font-bold text-text-muted">
-          {featuredProjects.length + allProjects.length} total builds
+          {featuredProjects.length + allProjects.length} product builds
         </div>
       </div>
 
@@ -506,16 +506,16 @@ export const Projects: React.FC = () => {
                   </div>
 
                   {(project as any).solution && (
-                    <div className="sr-only">
-                      <h4 className="text-xs font-semibold text-text-primary uppercase tracking-wider mb-2">Solution</h4>
-                      <p className="text-text-muted text-base leading-relaxed">{(project as any).solution}</p>
+                    <div>
+                      <h4 className="text-xs font-semibold text-text-primary uppercase tracking-wider mb-2">Approach</h4>
+                      <p className="text-text-muted text-sm leading-relaxed">{(project as any).solution}</p>
                     </div>
                   )}
 
                   {(project as any).result && (
-                    <div className="sr-only">
-                      <h4 className="text-xs font-semibold text-text-primary uppercase tracking-wider mb-2">Result</h4>
-                      <p className="text-text-muted text-base leading-relaxed font-medium">{(project as any).result}</p>
+                    <div>
+                      <h4 className="text-xs font-semibold text-text-primary uppercase tracking-wider mb-2">Outcome</h4>
+                      <p className="text-text-muted text-sm leading-relaxed font-medium">{(project as any).result}</p>
                     </div>
                   )}
 
@@ -567,7 +567,7 @@ export const Projects: React.FC = () => {
         <div className="mb-5 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <h3 className="text-xl font-black text-text-primary">More Projects</h3>
-            <p className="mt-1 text-sm text-text-muted">Small cards so recruiters can scan the full range quickly.</p>
+            <p className="mt-1 text-sm text-text-muted">A quick scan of the broader engineering range, from product ideas to real-world workflow tools.</p>
           </div>
           <div className="flex flex-wrap gap-2">
             {filters.map((filter) => (

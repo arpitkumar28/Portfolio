@@ -137,15 +137,15 @@ export const About: React.FC = () => {
                 Arpit Kumar
               </h2>
               <p className="mt-5 font-mono text-2xl font-black text-primary">
-                &gt; Cybersecurity-Focused Software Engineer
+                &gt; Security-minded builder with product instincts
               </p>
 
               <div className="mt-12 space-y-7 text-lg font-medium leading-relaxed text-text-secondary md:text-xl">
                 <p>
-                  I&apos;m a cybersecurity-focused software engineer who enjoys understanding how systems are built, how they can fail, and how they can be made more resilient.
+                  I&apos;m a cybersecurity-focused software engineer who enjoys solving real problems at the intersection of product, systems, and security. I like understanding how things work, where they break, and how to make them stronger.
                 </p>
                 <p>
-                  I build web and mobile applications, AI-powered systems, and real-time platforms while developing practical security skills through hands-on labs, CTFs, networking, Linux, and security investigations.
+                  My work spans full-stack development, Flutter mobile apps, AI-powered experiences, and backend systems built for real-world use. I approach engineering with a security-first mindset, turning ideas into resilient, user-focused products that are practical and scalable.
                 </p>
               </div>
             </motion.div>
@@ -219,10 +219,10 @@ export const About: React.FC = () => {
                 Let&apos;s work together
               </p>
               <h3 className="mt-5 max-w-2xl text-3xl font-black leading-tight text-text-primary md:text-4xl">
-                Available for software engineering internships and product collaboration
+                Open to software engineering roles, internships, and impactful product collaborations
               </h3>
               <p className="mt-5 max-w-3xl text-lg font-medium leading-relaxed text-text-muted">
-                Seeking roles where I can contribute to Flutter apps, full-stack products, backend systems, AI-integrated features, or IoT-backed workflows.
+                I&apos;m looking to contribute to teams building secure digital products, modern web experiences, production-grade mobile apps, AI-driven workflows, and resilient backend systems.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a

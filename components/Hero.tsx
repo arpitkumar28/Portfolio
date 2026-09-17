@@ -37,17 +37,17 @@ export const Hero: React.FC = () => {
           <div className="space-y-8">
             <div className="space-y-5">
               <div className="inline-flex items-center rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 font-mono text-xs font-black uppercase tracking-[0.16em] text-primary">
-                Cybersecurity · Software Engineering
+                Cybersecurity · Full Stack · Product Engineering
               </div>
               <h1
                 className="max-w-3xl font-display text-5xl font-black tracking-[-0.06em] text-text-primary sm:text-6xl md:text-7xl lg:text-[5.25rem] lg:leading-[0.98]"
                 id="hero-heading"
               >
-                I build.<br />I break.<br /><span className="text-primary">I secure.</span>
+                I design.<br />I build.<br /><span className="text-primary">I secure.</span>
               </h1>
 
               <p className="max-w-2xl text-xl font-bold leading-snug text-text-primary md:text-2xl">
-                Cybersecurity-focused software engineer building web and mobile applications, AI-powered systems, and real-time solutions while developing practical security skills through hands-on labs, CTFs, and real-world projects.
+                I build secure, scalable digital products across web, mobile, AI, and backend systems — blending software engineering with practical cybersecurity thinking.
               </p>
 
               <div className="flex flex-wrap gap-x-3 gap-y-2 font-mono text-sm font-semibold text-text-muted">
