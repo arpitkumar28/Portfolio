@@ -80,10 +80,6 @@ export const About: React.FC = () => {
                   <p className="mt-2 text-sm font-bold text-blue-200">
                     Cybersecurity · Software Engineering
                   </p>
-                  <p className="mt-4 inline-flex items-center gap-2 text-sm font-black text-emerald-300">
-                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-                    Open to internships & product builds
-                  </p>
                 </div>
               </div>
             </div>
