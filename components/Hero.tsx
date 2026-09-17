@@ -2,18 +2,18 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { ArrowRight, Rocket, Trophy, Server, Activity, AtSign, FileText } from 'lucide-react';
+import { ArrowRight, Rocket, ShieldCheck, Server, Activity, AtSign, FileText } from 'lucide-react';
 import { Button } from './ui/Button';
 import { GitHubIcon, LinkedInIcon, XIcon } from './ui/SocialIcons';
 
 const metrics = [
-  { value: 'WEB', label: 'Full Stack', detail: 'React, Next.js & APIs', icon: Server },
-  { value: 'APP', label: 'Flutter', detail: 'Cross-platform mobile', icon: Activity },
-  { value: 'AI', label: 'GenAI', detail: 'RAG & AI workflows', icon: Trophy },
-  { value: 'IOT', label: 'Connected Systems', detail: 'Sensors & real-time data', icon: Rocket },
+  { value: 'SEC', label: 'Cybersecurity', detail: 'Labs, CTFs & investigations', icon: ShieldCheck },
+  { value: 'WEB', label: 'Web Systems', detail: 'React, Next.js & APIs', icon: Server },
+  { value: 'APP', label: 'Mobile Apps', detail: 'Flutter & cross-platform', icon: Activity },
+  { value: 'RT', label: 'Real-Time', detail: 'WebSockets, IoT & backends', icon: Rocket },
 ];
 
-const techStack = ['AI', 'Full-Stack', 'Flutter', 'Real-Time', 'Cybersecurity'];
+const techStack = ['Cybersecurity', 'Web', 'Mobile', 'AI', 'Backend', 'Real-Time'];
 
 const socialLinks = [
   { label: 'GitHub', href: 'https://github.com/arpitkumar28', icon: GitHubIcon },
@@ -37,21 +37,17 @@ export const Hero: React.FC = () => {
           <div className="space-y-8">
             <div className="space-y-5">
               <div className="inline-flex items-center rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 font-mono text-xs font-black uppercase tracking-[0.16em] text-primary">
-                Software Engineer · Builder · Security
+                Cybersecurity · Software Engineering
               </div>
               <h1
                 className="max-w-3xl font-display text-5xl font-black tracking-[-0.06em] text-text-primary sm:text-6xl md:text-7xl lg:text-[5.25rem] lg:leading-[0.98]"
                 id="hero-heading"
               >
-                I build software that solves real-world problems.
+                I build.<br />I break.<br /><span className="text-primary">I secure.</span>
               </h1>
 
               <p className="max-w-2xl text-xl font-bold leading-snug text-text-primary md:text-2xl">
-                Full-stack developer focused on <span className="text-primary">AI, Flutter, real-time systems, and cybersecurity</span>.
-              </p>
-
-              <p className="max-w-xl text-base font-medium leading-relaxed text-text-muted md:text-lg">
-                I turn ideas into practical products — from intelligent applications to real-time systems and security-focused projects.
+                Cybersecurity-focused software engineer building web and mobile applications, AI-powered systems, and real-time solutions while developing practical security skills through hands-on labs, CTFs, and real-world projects.
               </p>
 
               <div className="flex flex-wrap gap-x-3 gap-y-2 font-mono text-sm font-semibold text-text-muted">
@@ -68,7 +64,7 @@ export const Hero: React.FC = () => {
               <div className="mb-4 flex items-center gap-3">
                 <span className="h-px w-10 bg-primary" />
                 <p className="font-mono text-sm font-black uppercase tracking-[0.2em] text-text-secondary">
-                  Build Focus
+                  Engineering Surface
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
@@ -90,16 +86,14 @@ export const Hero: React.FC = () => {
                 className="px-7 py-3.5 text-sm font-bold"
               >
                 <ArrowRight className="w-4 h-4 mr-2" />
-                View Projects
+                Explore My Work
               </Button>
               <Button
                 variant="outline"
-                href="https://github.com/arpitkumar28"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#problem-solving-security"
                 className="px-7 py-3.5 text-sm font-bold"
               >
-                GitHub
+                Security Journey
               </Button>
             </div>
 

@@ -83,3 +83,22 @@ Desktop browser verification also confirmed the section rendered with no horizon
 - Some external platforms block or rate-limit automated HEAD requests: LinkedIn (999), LeetCode (403), and TryHackMe (429). Their supplied URLs remain intact.
 - No verified personal Hack The Box profile URL or CarePulse repository/demo URL was available, so generic or missing destinations were handled conservatively.
 - The local dev watcher encountered a transient missing `.next` vendor chunk after a production build rewrote build output while the watcher was running. The watcher was stopped; the clean production build passed.
+- GreenFlow screenshot rendering now bypasses the failing Next.js optimizer for the existing local image set; direct asset responses return HTTP 200 and the production build remains clean.
+
+## Profile Ecosystem Update
+
+- Reworked the homepage `Problem Solving & Security` section into a `Proof of Work` ecosystem.
+- Added data-driven profile cards for LeetCode, GeeksforGeeks, TryHackMe, and Hack The Box with labels, descriptions, tags, accessible CTAs, safe external-link behavior, and subtle hover/focus motion.
+- Gave the cybersecurity profiles stronger accent treatment and connected them to the existing verified practice areas: Linux, Networking, Reconnaissance, Enumeration, Web Security, Digital Forensics, and CTFs.
+- Added a separate `Built in public` engineering-proof area using only the verified GreenFlow AI and EduAI Nexus X repositories, plus the existing GitHub profile.
+- Added compact LinkedIn and Resume proof CTAs using the verified LinkedIn URL and the genuine `public/resume.pdf` file.
+- Kept the generic Hack The Box URL because no verified personal HTB URL exists in the repository. No statistics, ranks, badges, solved counts, or invented repositories were added.
+- Existing project links were not duplicated into the ecosystem when they were unverified or previously reported as broken; project evidence remains in the main Projects section.
+
+## Profile Ecosystem Validation
+
+- Link audit: LeetCode, GeeksforGeeks, TryHackMe, Hack The Box, GitHub, LinkedIn, and `/resume.pdf` use the supplied or previously verified destinations.
+- Accessibility: semantic anchors, meaningful `aria-label` values, visible text CTAs, keyboard focus states, and `noopener noreferrer` for external links.
+- Responsive layout: problem-solving and security cards use responsive grids that collapse to a single column on small screens; engineering and professional proof cards follow the same mobile-safe layout.
+- TypeScript: `npx tsc --noEmit` passes.
+- Production build: `npm run build` passes. Next.js reports the existing optional native macOS SWC warning and successfully falls back to the WASM implementation.

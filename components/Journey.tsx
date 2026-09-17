@@ -43,7 +43,7 @@ export const Journey: React.FC = () => {
 
             <div>
               <h3 className="text-3xl font-black leading-tight text-text-primary md:text-4xl">
-                Software Developer | Full-Stack · Flutter · AI/GenAI
+                Cybersecurity-Focused Software Engineer
               </h3>
               <p className="mt-3 font-mono text-sm font-bold text-text-muted">
                 Jaipur, Rajasthan, India
@@ -73,7 +73,7 @@ export const Journey: React.FC = () => {
 
               <div className="mt-8 grid gap-3 md:grid-cols-3">
                 {[
-                  ['Full-Stack Developer / Project Developer', 'Designed full-stack web applications, REST APIs, backend services, database-backed systems, and deployment workflows.'],
+                  ['Software Engineer / Product Builder', 'Designed full-stack web applications, REST APIs, backend services, database-backed systems, and deployment workflows.'],
                   ['Flutter Developer / Mobile Application Developer', 'Developed cross-platform mobile interfaces, API integrations, state management, Firebase workflows, and location-based features.'],
                   ['Leadership & Activities', 'Arya E-Sports Club — Esports Leader. Coordinated activities and tournaments, assisted with planning, and collaborated with students and organizers.'],
                 ].map(([title, description]) => (

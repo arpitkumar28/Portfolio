@@ -360,6 +360,7 @@ export default function GreenFlowShowcase() {
                   src={screenshot.src}
                   alt={screenshot.alt}
                   fill
+                  unoptimized
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">

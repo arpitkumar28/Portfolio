@@ -54,7 +54,7 @@ const featuredProjects = [
     featured: true,
     gradient: 'from-orange-500 to-rose-500',
     status: 'Flagship Project',
-    role: 'Software Developer / Product Builder',
+    role: 'Software Engineer / Product Builder',
     timeline: 'Project-based',
   },
   {
@@ -78,7 +78,7 @@ const featuredProjects = [
     featured: true,
     gradient: 'from-slate-600 to-slate-900',
     status: 'Flagship Project',
-    role: 'Software Developer / Product Builder',
+    role: 'Software Engineer / Product Builder',
     timeline: 'Project-based',
   },
   {
@@ -415,6 +415,7 @@ export const Projects: React.FC = () => {
                           src={(project as any).images[currentImageIndex[project.id] || 0]}
                           alt={`${project.title} - Image ${currentImageIndex[project.id] || 0 + 1}`}
                           fill
+                          unoptimized
                           className="object-cover transition duration-500 hover:scale-105"
                           quality={90}
                         />

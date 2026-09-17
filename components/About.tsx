@@ -8,10 +8,10 @@ import { GitHubIcon, LinkedInIcon } from './ui/SocialIcons';
 import { Section } from './ui/Section';
 
 const stats = [
+  ['Security', 'Hands-on practice'],
   ['Web', 'Full-stack products'],
   ['Mobile', 'Flutter applications'],
-  ['AI', 'GenAI workflows'],
-  ['Cloud', 'Deployable systems'],
+  ['AI', 'Intelligent workflows'],
 ];
 
 const milestones = [
@@ -78,7 +78,7 @@ export const About: React.FC = () => {
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="text-2xl font-black text-white">Arpit Kumar</h3>
                   <p className="mt-2 text-sm font-bold text-blue-200">
-                    Software Developer · Full Stack · Flutter · AI
+                    Cybersecurity · Software Engineering
                   </p>
                   <p className="mt-4 inline-flex items-center gap-2 text-sm font-black text-emerald-300">
                     <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
@@ -141,21 +141,15 @@ export const About: React.FC = () => {
                 Arpit Kumar
               </h2>
               <p className="mt-5 font-mono text-2xl font-black text-primary">
-                &gt; Software Developer | Full-Stack · Flutter · AI/GenAI
+                &gt; Cybersecurity-Focused Software Engineer
               </p>
 
               <div className="mt-12 space-y-7 text-lg font-medium leading-relaxed text-text-secondary md:text-xl">
-                <p className="text-2xl font-black leading-snug text-text-primary">
-                  I build real-world web, mobile, backend, and AI-powered applications.
+                <p>
+                  I&apos;m a cybersecurity-focused software engineer who enjoys understanding how systems are built, how they can fail, and how they can be made more resilient.
                 </p>
                 <p>
-                  I&apos;m Arpit Kumar, a software developer focused on building practical systems across full-stack development, Flutter, AI, real-time applications, and cybersecurity.
-                </p>
-                <p>
-                  I work across the stack, from modern interfaces with React, Next.js, and Flutter to backend services, database-driven systems, AI integrations, and real-time workflows.
-                </p>
-                <p>
-                  I enjoy turning real-world problems into working software and learning through hands-on engineering, experimentation, security challenges, and system design.
+                  I build web and mobile applications, AI-powered systems, and real-time platforms while developing practical security skills through hands-on labs, CTFs, networking, Linux, and security investigations.
                 </p>
               </div>
             </motion.div>

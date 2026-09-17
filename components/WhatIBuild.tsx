@@ -2,30 +2,35 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Smartphone, Layers, Brain, Cpu } from 'lucide-react';
+import { Smartphone, Globe2, Brain, Radio, ShieldCheck } from 'lucide-react';
 import { GlassCard } from './ui/GlassCard';
 import { Section, SectionTitle } from './ui/Section';
 
 const buildItems = [
   {
-    icon: Smartphone,
-    title: 'Mobile Apps',
-    description: 'Building beautiful, performant Flutter applications with clean UI and smooth animations.',
+    icon: Globe2,
+    title: 'Web Development',
+    description: 'Modern web applications with Next.js, React, TypeScript, and Tailwind CSS.',
   },
   {
-    icon: Layers,
-    title: 'Full Stack Systems',
-    description: 'Creating end-to-end web solutions with modern frameworks and scalable architecture.',
+    icon: Smartphone,
+    title: 'App Development',
+    description: 'Cross-platform mobile applications using Flutter and Dart for practical workflows.',
+  },
+  {
+    icon: Radio,
+    title: 'Backend & Real-Time',
+    description: 'APIs and distributed functionality with FastAPI, Node.js, REST APIs, and WebSockets.',
   },
   {
     icon: Brain,
-    title: 'AI Solutions',
-    description: 'Integrating AI and machine learning to build intelligent, automated systems.',
+    title: 'AI Engineering',
+    description: 'AI-powered applications involving AI APIs, RAG, recommendations, and intelligent workflows.',
   },
   {
-    icon: Cpu,
-    title: 'IoT Projects',
-    description: 'Developing connected hardware solutions with sensors, automation, and real-time data.',
+    icon: ShieldCheck,
+    title: 'Cybersecurity',
+    description: 'Practical security work across Linux, networking, reconnaissance, enumeration, web security, CTFs, and digital forensics.',
   },
 ];
 
@@ -59,7 +64,7 @@ export const WhatIBuild: React.FC = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4"
+        className="grid gap-3 md:grid-cols-2 lg:grid-cols-5 md:gap-4"
       >
         {buildItems.map((item, index) => (
           <motion.div key={index} variants={itemVariants}>

@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { Projects } from '@/components/Projects';
+import { WhatIBuild } from '@/components/WhatIBuild';
 import { ProblemSolvingSecurity } from '@/components/ProblemSolvingSecurity';
 import { Journey } from '@/components/Journey';
 import { Education } from '@/components/Education';
@@ -19,13 +20,13 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Arpit Kumar — Software Developer | Full-Stack, Flutter & AI</title>
-        <meta name="description" content="Arpit Kumar is a software engineer building AI-powered, full-stack, Flutter/mobile, real-time, and cybersecurity-focused systems." />
+        <title>Arpit Kumar — Cybersecurity-Focused Software Engineer</title>
+        <meta name="description" content="Arpit Kumar is a cybersecurity-focused software engineer building web and mobile applications, AI-powered systems, backend services, and real-time platforms." />
         <link rel="canonical" href="https://arpitkumar.dev" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Arpit Kumar — Software Developer | Full-Stack, Flutter & AI" />
-        <meta property="og:description" content="Software engineer building AI-powered, full-stack, Flutter/mobile, real-time, and cybersecurity-focused systems." />
+        <meta property="og:title" content="Arpit Kumar — Cybersecurity-Focused Software Engineer" />
+        <meta property="og:description" content="Cybersecurity-focused software engineer building web, mobile, AI, backend, and real-time systems." />
         <meta property="og:image" content="/assets/images/photo2.jpeg" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://arpitkumar.dev" />
@@ -36,8 +37,8 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@Arpit_patel28" />
         <meta name="twitter:creator" content="@Arpit_patel28" />
-        <meta name="twitter:title" content="Arpit Kumar — Software Developer | Full-Stack, Flutter & AI" />
-        <meta name="twitter:description" content="Software engineer building AI-powered, full-stack, Flutter/mobile, real-time, and cybersecurity-focused systems." />
+        <meta name="twitter:title" content="Arpit Kumar — Cybersecurity-Focused Software Engineer" />
+        <meta name="twitter:description" content="Cybersecurity-focused software engineer building web, mobile, AI, backend, and real-time systems." />
         <meta name="twitter:image" content="/assets/images/photo2.jpeg" />
         
         {/* Mobile optimization */}
@@ -59,7 +60,7 @@ export default function Home() {
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Arpit Kumar",
-              "jobTitle": "Software Developer",
+              "jobTitle": "Cybersecurity-Focused Software Engineer",
               "url": "https://arpitkumar.dev",
               "sameAs": [
                 "https://github.com/arpitkumar28",
@@ -78,6 +79,7 @@ export default function Home() {
                 "addressCountry": "India"
               },
               "knowsAbout": [
+                "Cybersecurity",
                 "Flutter",
                 "React",
                 "Next.js",
@@ -85,6 +87,8 @@ export default function Home() {
                 "IoT",
                 "Full Stack Development",
                 "Mobile Development"
+                ,"Backend Engineering"
+                ,"Real-Time Systems"
               ]
             })
           }}
@@ -98,6 +102,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 py-10 md:px-8 lg:py-14">
           <div className="space-y-12 lg:space-y-16">
             <Projects />
+            <WhatIBuild />
             <ProblemSolvingSecurity />
             <Journey />
             <Education />
@@ -118,9 +123,9 @@ export default function Home() {
                   <div><p className="font-mono text-xs font-black uppercase tracking-[0.22em] text-primary">Let&apos;s connect</p><h2 className="mt-3 font-display text-4xl font-black tracking-tight text-text-primary">Arpit Kumar<span className="text-primary">.</span></h2></div>
                   <VisitorCounter />
                 </div>
-                <p className="mt-7 max-w-xl text-lg font-medium leading-relaxed text-text-muted"><span className="font-black text-text-primary">Software Developer</span> building full-stack web applications, Flutter mobile apps, AI-powered systems, and scalable backend solutions.</p>
+                <p className="mt-7 max-w-xl text-lg font-medium leading-relaxed text-text-muted"><span className="font-black text-text-primary">Cybersecurity-focused software engineer</span> building web and mobile applications, AI-powered systems, backend services, and real-time platforms.</p>
                 <div className="mt-8 flex flex-wrap gap-2">
-                  {['Full Stack', 'Flutter', 'AI / GenAI', 'Backend'].map((item) => <span key={item} className="rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-xs font-black text-primary">{item}</span>)}
+                  {['Cybersecurity', 'Web', 'Mobile', 'AI', 'Backend'].map((item) => <span key={item} className="rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-xs font-black text-primary">{item}</span>)}
                 </div>
               </div>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
