@@ -8,12 +8,32 @@ export const VisitorCounter: React.FC = () => {
 
   useEffect(() => {
     let active = true;
-    fetch('/api/visitor-count')
-      .then((response) => response.json())
-      .then((data: { count?: number }) => {
-        if (active && typeof data.count === 'number') setVisits(data.count.toLocaleString());
-      })
-      .catch(() => undefined);
+
+    const SESSION_KEY = 'portfolio-visit-tracked';
+
+    const loadCount = async () => {
+      try {
+        const hasTrackedThisSession = sessionStorage.getItem(SESSION_KEY) === 'true';
+
+        const response = await fetch('/api/visitor-count', {
+          method: hasTrackedThisSession ? 'GET' : 'POST',
+        });
+
+        const data: { count?: number } = await response.json();
+
+        if (active && typeof data.count === 'number') {
+          setVisits(data.count.toLocaleString());
+        }
+
+        if (!hasTrackedThisSession) {
+          sessionStorage.setItem(SESSION_KEY, 'true');
+        }
+      } catch {
+        if (active) setVisits('—');
+      }
+    };
+
+    loadCount();
     return () => { active = false; };
   }, []);
 

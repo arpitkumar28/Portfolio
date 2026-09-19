@@ -24,30 +24,63 @@ async function writeLocalCount(count: number) {
 let redisClient: any = undefined;
 async function getRedisClient(redisUrl: string) {
   if (redisClient) return redisClient;
-  // Lazy import so local dev without redis doesn't require the package at runtime
   const Redis = (await import('ioredis')).default;
   redisClient = new Redis(redisUrl);
   return redisClient;
+}
+
+async function getCurrentCountFromRedis(client: any): Promise<number> {
+  const value = await client.get('visitor:count');
+  return value ? Number(value) : 0;
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const REDIS_URL = process.env.REDIS_URL;
   const VISITOR_COUNTER_URL = process.env.VISITOR_COUNTER_URL;
 
-  // If Redis is configured, use it (scalable, recommended for production)
-  if (REDIS_URL) {
+  if (req.method === 'GET') {
+    if (REDIS_URL) {
+      try {
+        const client = await getRedisClient(REDIS_URL);
+        return res.status(200).json({ count: await getCurrentCountFromRedis(client) });
+      } catch (err) {
+        console.error('Redis read error:', err);
+      }
+    }
+
+    if (VISITOR_COUNTER_URL) {
+      try {
+        const response = await fetch(VISITOR_COUNTER_URL, { method: 'GET' });
+        const data = await response.json().catch(() => null);
+        if (response.ok && data && typeof data.count === 'number') {
+          return res.status(200).json({ count: data.count });
+        }
+      } catch {
+        // ignore and continue to local fallback
+      }
+    }
+
     try {
-      const client = await getRedisClient(REDIS_URL);
-      // Use a single key for the site visitor count
-      const next = await client.incr('visitor:count');
-      return res.status(200).json({ count: Number(next) });
-    } catch (err) {
-      // Fall through to other strategies
-      console.error('Redis error:', err);
+      return res.status(200).json({ count: await readLocalCount() });
+    } catch {
+      return res.status(500).json({ error: 'Local counter read error' });
     }
   }
 
-  // If an upstream visitor counter URL is provided (e.g., CounterAPI v2), try it next
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  if (REDIS_URL) {
+    try {
+      const client = await getRedisClient(REDIS_URL);
+      const next = await client.incr('visitor:count');
+      return res.status(200).json({ count: Number(next) });
+    } catch (err) {
+      console.error('Redis write error:', err);
+    }
+  }
+
   if (VISITOR_COUNTER_URL) {
     try {
       const response = await fetch(VISITOR_COUNTER_URL, { method: 'POST' });
@@ -55,18 +88,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       if (response.ok && data && typeof data.count === 'number') {
         return res.status(200).json({ count: data.count });
       }
-    } catch (e) {
+    } catch {
       // ignore and continue to local fallback
     }
   }
 
-  // Last resort: local file-backed counter (useful for development or when no external store)
   try {
     const current = await readLocalCount();
     const next = current + 1;
     await writeLocalCount(next);
     return res.status(200).json({ count: next });
-  } catch (err) {
+  } catch {
     return res.status(500).json({ error: 'Local counter error' });
   }
 }
