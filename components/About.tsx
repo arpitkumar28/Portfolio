@@ -137,18 +137,33 @@ export const About: React.FC = () => {
                 Arpit Kumar
               </h2>
               <p className="mt-5 font-mono text-2xl font-black text-primary">
-                &gt; Security-minded builder with product instincts
+                &gt; I engineer resilient systems with security, clarity, and product thinking
               </p>
 
               <div className="mt-12 space-y-7 text-lg font-medium leading-relaxed text-text-secondary md:text-xl">
                 <p>
-                  I&apos;m a cybersecurity-focused software engineer who enjoys solving real problems at the intersection of product, systems, and security. I like understanding how things work, where they break, and how to make them stronger.
+                  I&apos;m a cybersecurity-focused software engineer who builds products that are practical, secure, and ready for real users. I enjoy solving complex engineering problems at the intersection of product design, systems architecture, and security.
                 </p>
                 <p>
-                  My work spans full-stack development, Flutter mobile apps, AI-powered experiences, and backend systems built for real-world use. I approach engineering with a security-first mindset, turning ideas into resilient, user-focused products that are practical and scalable.
+                  My work spans full-stack web engineering, Flutter mobile applications, AI-powered experiences, and backend systems designed for scale. I build with a security-first mindset and a strong focus on usability, maintainability, and measurable impact.
                 </p>
               </div>
             </motion.div>
+
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+              {[
+                ['Secure thinking', 'I design with attack surfaces, reliability, and resilience in mind.'],
+                ['Product-minded', 'I translate technical work into experiences that solve real problems.'],
+                ['Full-stack execution', 'I move from idea to prototype to working product across the stack.'],
+                ['AI + systems', 'I build intelligent workflows and dependable digital systems.'],
+              ].map(([title, body]) => (
+                <div key={title} className="rounded-2xl border border-border bg-background-card p-5">
+                  <p className="font-mono text-[10px] font-black uppercase tracking-[0.18em] text-primary">Why hire me</p>
+                  <h3 className="mt-3 text-lg font-black text-text-primary">{title}</h3>
+                  <p className="mt-2 text-sm font-medium leading-relaxed text-text-muted">{body}</p>
+                </div>
+              ))}
+            </div>
 
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
               {stats.map(([value, label]) => (
