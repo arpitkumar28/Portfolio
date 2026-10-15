@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { ArrowRight, ArrowUpRight, Mail, Code2, ShieldCheck } from 'lucide-react';
 import { Button } from './ui/Button';
 import { GitHubIcon, LinkedInIcon } from './ui/SocialIcons';
+import { AmbientTechBackdrop } from './ui/AmbientTechBackdrop';
 
 export const Hero: React.FC = () => {
   const sceneRef = useRef<HTMLDivElement>(null);
@@ -30,15 +31,16 @@ export const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative flex min-h-[720px] items-center overflow-hidden pb-16 pt-28 lg:min-h-[calc(100vh-5rem)] lg:pb-20"
+      className="ambient-section relative flex min-h-[720px] items-center overflow-hidden pb-16 pt-28 lg:min-h-[calc(100vh-5rem)] lg:pb-20"
       role="banner"
       aria-labelledby="hero-heading"
     >
+      <AmbientTechBackdrop variant="hero" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 site-grid" />
       <div aria-hidden="true" className="hero-glow pointer-events-none absolute right-[8%] top-[8%] h-[30rem] w-[30rem] rounded-full bg-primary/10 blur-[115px]" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background/60" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
-      <div className="max-w-7xl mx-auto px-4 md:px-8 w-full">
+      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 w-full">
         <div className="relative grid items-center gap-12 lg:grid-cols-[1.04fr_0.96fr] lg:gap-16">
           <div className="relative z-10 space-y-8">
             <div className="space-y-6">
