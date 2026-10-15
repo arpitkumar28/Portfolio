@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, ArrowRight, Play } from 'lucide-react';
+import { ExternalLink, ArrowRight, Play, ShieldCheck, Activity, BrainCircuit, Smartphone, Sprout, MapPin, Code2, GraduationCap, HeartPulse, Siren, BookOpen, Building2, Utensils, CarFront, Network, type LucideIcon } from 'lucide-react';
 import Image from 'next/image';
 import { Section, SectionTitle } from './ui/Section';
 
@@ -247,7 +247,7 @@ const allProjects = [
     tags: ['Python', 'Automation'],
     links: [],
     filter: 'ai python',
-  }, 
+  },
 ];
 
 const filters = [
@@ -260,6 +260,39 @@ const filters = [
   { label: 'Java', value: 'java' },
   { label: 'IoT', value: 'iot' },
 ];
+
+const projectArtworks: Record<string, string> = {
+  'CrisisMesh': '/assets/images/project-crisismesh.svg',
+  'GreenFlow AI': '/assets/images/greenflow-1.jpeg',
+  'EduAI Nexus X': '/assets/images/project-eduai-nexus-x.svg',
+  'CarePulse': '/assets/images/project-carepulse.svg',
+  'SafeGuard': '/assets/images/project-safeguard.svg',
+  'Elevra': '/assets/images/project-elevra.svg',
+  'Axiora': '/assets/images/axiora/home-dashboard.png',
+  'SamparkSetu': '/assets/images/project-samparksetu.svg',
+  'NCC Buddy': '/assets/images/project-ncc-buddy.svg',
+  'Hospital Management System': '/assets/images/project-hospital-management-system.svg',
+  'Food Ordering System': '/assets/images/project-food-ordering-system.svg',
+  'Sports Media Protection': '/assets/images/project-sports-media-protection.svg',
+  'Krishi Backend': '/assets/images/project-krishi-backend.svg',
+  'IoT Vehicle Tracking System': '/assets/images/project-iot-vehicle-tracking-system.svg',
+  'New Safe Route': '/assets/images/project-new-safe-route.svg',
+  'Python Automation Projects': '/assets/images/project-python-automation-projects.svg',
+};
+
+const projectIcons: Record<string, LucideIcon> = {
+  'CrisisMesh': Siren, 'GreenFlow AI': Activity, 'EduAI Nexus X': BrainCircuit,
+  'CarePulse': HeartPulse, 'SafeGuard': ShieldCheck, 'Elevra': GraduationCap,
+  'Axiora': Network, 'SamparkSetu': Building2, 'NCC Buddy': Smartphone,
+  'Hospital Management System': HeartPulse, 'Food Ordering System': Utensils,
+  'Sports Media Protection': ShieldCheck, 'Krishi Backend': Sprout,
+  'IoT Vehicle Tracking System': CarFront, 'New Safe Route': MapPin,
+  'Python Automation Projects': Code2,
+};
+
+function projectImageFor(title: string) {
+  return projectArtworks[title] || '/assets/images/project-python-automation-projects.svg';
+}
 
 const compactDescriptions: Record<string, string> = {
   CrisisMesh: 'A disaster-response interface concept for incident reporting, coordination workflows, and situational maps.',
@@ -285,8 +318,9 @@ export const Projects: React.FC = () => {
 
   const primaryTitles = ['CrisisMesh', 'GreenFlow AI', 'EduAI Nexus X', 'CarePulse', 'NCC Buddy', 'Food Ordering System'];
   const secondaryProjects = allProjects.filter((project) => !primaryTitles.includes(project.title));
-  const visibleProjects = (showAllProjects ? allProjects : secondaryProjects)
+  const filteredSecondaryProjects = secondaryProjects
     .filter((project) => selectedFilter === 'all' || project.filter.includes(selectedFilter));
+  const visibleProjects = showAllProjects ? filteredSecondaryProjects : filteredSecondaryProjects.slice(0, 3);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -319,8 +353,8 @@ export const Projects: React.FC = () => {
 
       <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {regularFeaturedProjects.map((project) => {
-          const screenshot = project.title === 'Axiora' ? '/assets/images/axiora/home-dashboard.png' : project.title === 'GreenFlow AI' ? '/assets/images/greenflow-1.jpeg' : null;
-          return <article key={project.id} className="project-card flex min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background-card transition-[transform,border-color] duration-200 hover:-translate-y-1 hover:border-primary/50 motion-reduce:transform-none motion-reduce:transition-none">
+          const screenshot = projectImageFor(project.title);
+          return <article key={project.id} className="project-card relative flex min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background-card transition-[transform,border-color] duration-200 hover:-translate-y-1 hover:border-primary/50 motion-reduce:transform-none motion-reduce:transition-none">
             <ProjectThumbnail src={screenshot} alt={`${project.title} project thumbnail`} title={project.title} category={project.category} />
             <div className="flex flex-1 flex-col p-4">
               <ProjectHeading title={project.title} category={project.category} />
@@ -334,8 +368,8 @@ export const Projects: React.FC = () => {
 
       <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {prioritySecondaryProjects.map((project) => (
-          <article key={project.id} className="project-card flex min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background-card transition-[transform,border-color] duration-200 hover:-translate-y-1 hover:border-primary/50 motion-reduce:transform-none motion-reduce:transition-none">
-            <ProjectThumbnail src={null} alt={`${project.title} branded project thumbnail`} title={project.title} category={project.category} />
+          <article key={project.id} className="project-card relative flex min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background-card transition-[transform,border-color] duration-200 hover:-translate-y-1 hover:border-primary/50 motion-reduce:transform-none motion-reduce:transition-none">
+            <ProjectThumbnail src={projectImageFor(project.title)} alt={`${project.title} project illustration`} title={project.title} category={project.category} />
             <div className="flex flex-1 flex-col p-4">
               <ProjectHeading title={project.title} category={project.category} />
               <p className="mt-2 line-clamp-3 text-sm leading-5 text-text-muted">{project.description}</p>
@@ -351,7 +385,7 @@ export const Projects: React.FC = () => {
           <div>
             <h3 className="text-xl font-black text-text-primary">More Projects</h3>
             <p className="mt-1 text-sm text-text-muted">A compact index of additional builds and experiments.</p>
-            <button type="button" onClick={() => setShowAllProjects((show) => !show)} className="mt-2 inline-flex items-center gap-1 text-sm font-bold text-primary hover:text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">{showAllProjects ? 'Show fewer projects' : 'View all projects'} <ArrowRight className="h-4 w-4" /></button>
+            <button type="button" onClick={() => setShowAllProjects((show) => !show)} className="mt-2 inline-flex items-center gap-1 text-sm font-bold text-primary hover:text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">{showAllProjects ? 'Show fewer projects' : `View all ${filteredSecondaryProjects.length} additional projects`} <ArrowRight className="h-4 w-4" /></button>
           </div>
           <div className="flex flex-wrap gap-2">
             {filters.map((filter) => (
@@ -361,7 +395,7 @@ export const Projects: React.FC = () => {
                 onClick={() => setSelectedFilter(filter.value)}
                 className={`rounded-md border px-3 py-2 text-xs font-bold transition-colors ${
                   selectedFilter === filter.value
-                    ? 'border-primary bg-primary text-white'
+                    ? 'border-primary bg-primary text-background'
                     : 'border-border bg-background-elevated text-text-muted hover:border-primary hover:text-primary'
                 }`}
               >
@@ -382,7 +416,8 @@ export const Projects: React.FC = () => {
                 exit={{ opacity: 0, y: -12 }}
                 className="group flex min-w-0 flex-col justify-between rounded-lg border border-border bg-background p-4 transition-colors hover:border-primary/70 hover:bg-background-elevated motion-reduce:transition-none"
               >
-                <div>
+                <ProjectThumbnail src={projectImageFor(project.title)} alt={`${project.title} project illustration`} title={project.title} category={project.category} />
+                <div className="flex flex-1 flex-col p-4">
                   <div className="mb-3 flex items-start justify-between gap-3">
                     <div>
                       <p className="text-[11px] font-bold uppercase tracking-wide text-primary">{project.category}</p>
@@ -401,13 +436,13 @@ export const Projects: React.FC = () => {
                     )}
                   </div>
                   <p className="line-clamp-3 text-sm leading-relaxed text-text-muted">{project.description}</p>
-                </div>
-                <div className="mt-4 flex flex-wrap gap-1.5">
+                  <div className="mt-4 flex flex-wrap gap-1.5">
                   {project.tags.slice(0, 4).map((tag) => (
                     <span key={tag} className="rounded bg-background-elevated px-2 py-1 text-[11px] font-bold text-text-tertiary">
                       {tag}
                     </span>
                   ))}
+                  </div>
                 </div>
               </motion.article>
             ))}
@@ -420,8 +455,8 @@ export const Projects: React.FC = () => {
 };
 
 function CompactFeaturedCard({ project, index }: { project: (typeof featuredProjects)[number]; index: number }) {
-  const screenshot = project.title === 'GreenFlow AI' ? project.images?.[0] || null : null;
-  return <motion.article custom={index} variants={itemVariants} whileHover={{ y: -3 }} className="project-card flex min-w-0 flex-col overflow-hidden rounded-xl border border-primary/25 bg-background-card transition-colors duration-200 hover:border-primary/55 motion-reduce:transition-none">
+  const screenshot = projectImageFor(project.title);
+  return <motion.article custom={index} variants={itemVariants} whileHover={{ y: -3 }} className="project-card relative flex min-w-0 flex-col overflow-hidden rounded-xl border border-primary/25 bg-background-card transition-colors duration-200 hover:border-primary/55 motion-reduce:transition-none">
     <ProjectThumbnail src={screenshot} alt={`${project.title} project thumbnail`} title={project.title} category={project.category} featured />
     <div className="flex flex-1 flex-col p-4 md:p-5">
       <ProjectHeading title={project.title} category={project.category} />
@@ -433,9 +468,11 @@ function CompactFeaturedCard({ project, index }: { project: (typeof featuredProj
 }
 
 function ProjectThumbnail({ src, alt, title, category, featured = false }: { src: string | null; alt: string; title: string; category: string; featured?: boolean }) {
-  return <div className={`project-thumbnail relative aspect-video overflow-hidden bg-background-elevated ${featured ? 'border-b border-primary/20' : 'border-b border-border'}`}>
-    {src ? <Image src={src} alt={alt} fill unoptimized sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" /> : <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(232,184,91,0.11),_transparent_55%),linear-gradient(135deg,_#191C24,_#10131A)]" role="img" aria-label={`${title} branded project thumbnail`} />}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" aria-hidden="true" />
+  const ProjectIcon = projectIcons[title] || Code2;
+  return <div className={`project-thumbnail group/thumb relative aspect-video overflow-hidden bg-background-elevated ${featured ? 'border-b border-primary/20' : 'border-b border-border'}`}>
+    {src ? <Image src={src} alt={alt} fill unoptimized sizes="(max-width: 768px) 100vw, 50vw" className="project-artwork object-cover" /> : <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(232,184,91,0.11),_transparent_55%),linear-gradient(135deg,_#191C24,_#10131A)]" role="img" aria-label={`${title} branded project thumbnail`} />}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" aria-hidden="true" />
+    <span className="project-icon-chip absolute right-3 top-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-primary/40 bg-background/80 text-primary backdrop-blur-sm" aria-hidden="true"><ProjectIcon className="h-5 w-5" strokeWidth={1.8} /></span>
     <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-3">
       <div className="min-w-0"><span className="block truncate text-[10px] font-bold uppercase tracking-[0.14em] text-primary/90">{category}</span><span className="mt-1 block truncate text-lg font-black tracking-tight text-text-primary">{title}</span></div>
       {featured && <span className="shrink-0 rounded-full border border-primary/25 bg-background/70 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-primary">Featured</span>}

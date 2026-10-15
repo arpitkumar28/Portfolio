@@ -29,12 +29,12 @@
   }
 
   :root { color-scheme: dark; }
-  
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
     }
-    
+
     *,
     *::before,
     *::after {
@@ -43,7 +43,7 @@
       transition-duration: 0.01ms !important;
     }
   }
-  
+
   body {
     @apply bg-background text-text-primary font-sans;
     background:
@@ -61,19 +61,19 @@
   ::-webkit-scrollbar-thumb {
     background: linear-gradient(180deg, rgb(var(--color-primary)), rgb(245 158 11));
   }
-  
+
   /* Focus styles for accessibility */
   *:focus-visible {
     outline: 2px solid #F4CC78;
     outline-offset: 2px;
   }
-  
+
   /* Selection styling */
   ::selection {
     background-color: #E8B85B;
     color: #0B0D12;
   }
-  
+
   ::-moz-selection {
     background-color: #E8B85B;
     color: #0B0D12;
@@ -87,7 +87,7 @@
 }
 
 .shadow-figure {
-  background-image: linear-gradient(90deg, rgb(11 13 18 / 0.35), rgb(11 13 18 / 0.08)), url('/assets/images/photo2.jpeg');
+  background-image: linear-gradient(90deg, rgb(11 13 18 / 0.35), rgb(11 13 18 / 0.08)), url('/assets/images/arpit-profile.webp');
   background-size: cover;
   background-position: center 28%;
   filter: grayscale(1) sepia(0.12) brightness(0.52) contrast(1.14);
@@ -135,7 +135,7 @@
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(242, 240, 235, 0.12);
-    box-shadow: 
+    box-shadow:
       0 4px 6px -1px rgba(0, 0, 0, 0.1),
       0 2px 4px -1px rgba(0, 0, 0, 0.06),
       inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -148,7 +148,7 @@
   .glass-hover:hover {
     background: rgba(25, 28, 36, 0.98);
     border-color: rgba(232, 184, 91, 0.35);
-    box-shadow: 
+    box-shadow:
       0 20px 25px -5px rgba(0, 0, 0, 0.1),
       0 10px 10px -5px rgba(0, 0, 0, 0.04),
       0 0 28px rgba(232, 184, 91, 0.055);
@@ -179,4 +179,278 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(244 204 120);
+}
+
+/* Cohesive premium finish: editorial spacing, restrained gold motion, and cleaner cards. */
+:root {
+  --motion-fast: 180ms;
+  --motion-standard: 280ms;
+  --motion-slow: 620ms;
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image: radial-gradient(rgba(242, 240, 235, 0.11) 0.55px, transparent 0.55px);
+  background-size: 5px 5px;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
+}
+
+html { scroll-padding-top: 6rem; }
+
+section[id] { scroll-margin-top: 5.75rem; }
+
+.portfolio-content > div > section + section { border-top: 1px solid rgba(242, 240, 235, 0.055); }
+
+.project-card {
+  border-radius: 0.95rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  transition:
+    transform var(--motion-standard) var(--ease-premium),
+    border-color var(--motion-standard) ease,
+    background-color var(--motion-standard) ease,
+    box-shadow var(--motion-standard) ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24), 0 0 0 1px rgba(232, 184, 91, 0.035);
+}
+
+.project-thumbnail img {
+  will-change: transform;
+  transition: transform 560ms var(--ease-premium), filter 560ms ease;
+  filter: saturate(0.88) contrast(1.035);
+}
+
+.project-card:hover .project-thumbnail img {
+  transform: scale(1.035);
+  filter: saturate(1) contrast(1.04);
+}
+
+.project-thumbnail::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-bottom: 1px solid rgba(232, 184, 91, 0.12);
+  opacity: 0;
+  transition: opacity var(--motion-standard) ease;
+}
+
+.project-card:hover .project-thumbnail::after { opacity: 1; }
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+button:not(:disabled), a[href] { cursor: pointer; }
+
+@media (min-width: 1024px) {
+  .portfolio-content { padding-top: 0.5rem; }
+}
+
+@media (max-width: 767px) {
+  .hero-line { letter-spacing: -0.06em; }
+  .site-grid { background-size: 38px 38px; }
+  .project-card:hover { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before { display: none; }
+  .project-card,
+  .project-thumbnail img,
+  .project-thumbnail::after { transition: none !important; }
+  .project-card:hover .project-thumbnail img { transform: none !important; }
+}
+
+
+/* Project thumbnail micro-interactions: restrained Obsidian Gold motion. */
+.project-artwork {
+  transition: transform 650ms cubic-bezier(.22, 1, .36, 1), filter 500ms ease;
+  filter: saturate(.82) contrast(1.04);
+}
+.project-thumbnail:hover .project-artwork {
+  transform: scale(1.045);
+  filter: saturate(1) contrast(1.06);
+}
+.project-icon-chip {
+  box-shadow: 0 5px 18px rgba(0, 0, 0, .22);
+  transition: transform 280ms cubic-bezier(.22, 1, .36, 1), background-color 280ms ease, border-color 280ms ease, box-shadow 280ms ease;
+}
+.project-thumbnail:hover .project-icon-chip,
+.project-card:hover .project-icon-chip {
+  transform: translateY(-2px) rotate(-5deg) scale(1.06);
+  background-color: rgba(232, 184, 91, .16);
+  border-color: rgba(232, 184, 91, .72);
+  box-shadow: 0 0 20px rgba(232, 184, 91, .13);
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-artwork, .project-icon-chip { transition: none !important; }
+  .project-thumbnail:hover .project-artwork { transform: none !important; }
+  .project-thumbnail:hover .project-icon-chip,
+  .project-card:hover .project-icon-chip { transform: none !important; }
+}
+
+/* Signature interaction layer: editorial 3D depth, not a noisy cyberpunk dashboard. */
+.hero-3d-scene {
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  isolation: isolate;
+  perspective: 1100px;
+  transform-style: preserve-3d;
+}
+.hero-portrait-image {
+  transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateZ(12px);
+  transform-style: preserve-3d;
+  transition: transform 420ms cubic-bezier(.2,.8,.2,1), border-color 350ms ease;
+  box-shadow: 22px 28px 90px rgba(0,0,0,.32), inset 0 0 0 1px rgba(232,184,91,.08);
+}
+.hero-3d-scene:hover .hero-portrait-image { border-color: rgba(232,184,91,.46); }
+.hero-pointer-glow {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(320px circle at var(--pointer-x) var(--pointer-y), rgba(232,184,91,.13), transparent 70%);
+  opacity: .9;
+  mix-blend-mode: screen;
+  transition: opacity 250ms ease;
+}
+.hero-orbit {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  border: 1px solid rgba(232,184,91,.25);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+}
+.hero-orbit-one {
+  width: 108%; height: 72%; top: 14%; left: -4%;
+  transform: rotate(-19deg) rotateX(62deg);
+  box-shadow: 0 0 28px rgba(232,184,91,.045);
+  animation: orbit-drift 18s ease-in-out infinite alternate;
+}
+.hero-orbit-two {
+  width: 82%; height: 96%; top: 1%; left: 9%;
+  border-color: rgba(242,240,235,.10);
+  transform: rotate(22deg) rotateY(58deg);
+  animation: orbit-drift-two 23s ease-in-out infinite alternate;
+}
+.hero-orbit::after {
+  content: ''; position: absolute; top: 13%; left: 16%; width: 7px; height: 7px;
+  border-radius: 50%; background: #E8B85B; box-shadow: 0 0 15px rgba(232,184,91,.8);
+}
+.hero-float-label {
+  position: absolute; z-index: 5; display: flex; align-items: center; gap: 9px;
+  padding: 10px 13px; color: #F2F0EB; background: rgba(11,13,18,.76);
+  border: 1px solid rgba(232,184,91,.27); border-radius: 6px;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  font: 600 9px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .17em;
+  box-shadow: 0 12px 32px rgba(0,0,0,.24); animation: float-label 6s ease-in-out infinite;
+}
+.hero-float-label span { color: #E8B85B; }
+.hero-label-dot { width: 6px; height: 6px; border-radius: 50%; background: #E8B85B; box-shadow: 0 0 10px #E8B85B; }
+.hero-float-label-top { top: 15%; left: -2%; }
+.hero-float-label-bottom { right: -1%; bottom: 18%; animation-delay: -3s; }
+.hero-scanline {
+  position: absolute; z-index: 3; left: 8%; right: 0; top: 5%; height: 1px;
+  pointer-events: none; background: linear-gradient(90deg, transparent, rgba(232,184,91,.72), transparent);
+  box-shadow: 0 0 14px rgba(232,184,91,.24); animation: portrait-scan 8s ease-in-out infinite;
+}
+.hero-corner-mark { position: absolute; z-index: 5; right: 2%; top: 4%; color: #E8B85B; font: 700 10px ui-monospace, monospace; letter-spacing: .16em; }
+.hero-corner-mark span { color: rgba(242,240,235,.58); font-weight: 400; }
+@keyframes orbit-drift { from { transform: rotate(-24deg) rotateX(62deg) translateY(-4px); } to { transform: rotate(-13deg) rotateX(62deg) translateY(9px); } }
+@keyframes orbit-drift-two { from { transform: rotate(17deg) rotateY(58deg); } to { transform: rotate(28deg) rotateY(58deg); } }
+@keyframes float-label { 0%,100% { translate: 0 0; } 50% { translate: 0 -7px; } }
+@keyframes portrait-scan { 0%,100% { top: 5%; opacity: 0; } 12%,82% { opacity: .75; } 55% { top: 82%; } }
+
+/* Project cards become tactile 3D surfaces with a restrained gold edge-light. */
+.project-card { transform-style: preserve-3d; perspective: 900px; overflow: hidden; }
+.project-card::before {
+  content: ''; position: absolute; z-index: 4; inset: 0; pointer-events: none; opacity: 0;
+  background: radial-gradient(360px circle at var(--card-x, 50%) var(--card-y, 50%), rgba(232,184,91,.12), transparent 64%);
+  transition: opacity 260ms ease;
+}
+.project-card:hover::before { opacity: 1; }
+.project-card:hover { transform: translateY(-5px) rotateX(1deg); border-color: rgba(232,184,91,.48); box-shadow: 0 22px 48px rgba(0,0,0,.3), 0 0 0 1px rgba(232,184,91,.08); }
+.project-card .project-thumbnail { overflow: hidden; transform: translateZ(12px); }
+.project-card .project-thumbnail img { backface-visibility: hidden; }
+.project-card a:focus-visible { outline-offset: 4px; }
+
+@media (max-width: 767px), (pointer: coarse) {
+  .hero-orbit { opacity: .48; }
+  .hero-float-label { font-size: 8px; padding: 8px 9px; }
+  .hero-float-label-top { left: 0; top: 8%; }
+  .hero-float-label-bottom { right: 0; bottom: 12%; }
+  .hero-portrait-image { transform: none !important; }
+  .hero-pointer-glow { display: none; }
+  .project-card:hover { transform: translateY(-2px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-orbit, .hero-float-label, .hero-scanline { animation: none !important; }
+  .hero-portrait-image { transform: none !important; transition: none !important; }
+  .hero-pointer-glow { display: none; }
+  .project-card:hover { transform: none; }
+}
+
+/* Functional Obsidian Gold light theme. The toggle swaps the html.dark/html.light classes. */
+html.light {
+  color-scheme: light;
+  --color-background: 246 244 239;
+  --color-surface: 239 235 226;
+  --color-elevated: 255 253 248;
+  --color-card: 255 253 248;
+  --color-border: 210 202 187;
+  --color-primary: 139 93 20;
+  --color-text-primary: 25 27 31;
+  --color-text-secondary: 67 69 73;
+  --color-text-tertiary: 92 95 101;
+  --color-text-muted: 92 95 101;
+  --color-text-subtle: 118 119 122;
+  --color-text-disabled: 155 154 150;
+  --color-deep: #F6F4EF;
+  --color-gold-border: rgba(139, 93, 20, 0.25);
+}
+
+html.light body {
+  background:
+    radial-gradient(ellipse at 82% 4%, rgb(232 184 91 / 0.13), transparent 36rem),
+    rgb(var(--color-background));
+}
+
+html.light .hero-portrait-image img { filter: grayscale(1) contrast(1.03); }
+html.light .hero-3d-scene:hover .hero-portrait-image img { filter: grayscale(0) contrast(1.03); }
+html.light .hero-profile-links { background: rgba(255, 253, 248, .91); }
+html.light .hero-float-label { color: #25272B; background: rgba(255, 253, 248, .82); border-color: rgba(139, 93, 20, .25); }
+html.light .hero-scanline { opacity: .4; }
+html.light .project-card:hover { box-shadow: 0 22px 48px rgba(35, 29, 18, .10), 0 0 0 1px rgba(139, 93, 20, .10); }
+
+.hero-profile-link {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  color: rgb(var(--color-text-secondary));
+  transition: color 180ms ease, background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+.hero-profile-link:hover {
+  color: #0B0D12;
+  background: #E8B85B;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 0 18px rgba(232, 184, 91, .25);
+}
+.hero-profile-link:focus-visible { outline: 2px solid #E8B85B; outline-offset: 3px; }
+.theme-toggle { min-width: 92px; }
+
+@media (max-width: 480px) {
+  .hero-profile-links { gap: 0; padding: 5px; }
+  .hero-profile-link { width: 29px; height: 29px; }
+  .hero-caption { bottom: 4.4rem; }
 }

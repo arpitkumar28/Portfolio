@@ -74,7 +74,7 @@ export const StickyProfile: React.FC = () => {
                 transition={{ duration: 0.3 }}
               >
                 <Image
-                  src="/assets/images/photo2.jpeg"
+                  src="/assets/images/arpit-profile.webp"
                   alt="Arpit Kumar"
                   fill
                   className="object-cover"

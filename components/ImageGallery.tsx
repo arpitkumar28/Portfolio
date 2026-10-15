@@ -15,7 +15,7 @@ const featuredProjectImages: ProjectImage[] = [
   { src: '/assets/images/greenflow-3.jpeg', alt: 'Emergency corridor', projectTitle: 'NCC Buddy', projectSubtitle: 'Cadet Companion App' },
   { src: '/assets/images/greenflow-4.jpeg', alt: 'Route optimization', projectTitle: 'EduAI Nexus X', projectSubtitle: 'AI-Powered Learning' },
   { src: '/assets/images/greenflow-5.jpeg', alt: 'Signal analytics', projectTitle: 'Krishi Sahayak', projectSubtitle: 'Agriculture App' },
-  { src: '/assets/images/photo2.jpeg', alt: 'Misc project highlight', projectTitle: 'Misc Projects', projectSubtitle: 'Assorted' },
+  { src: '/assets/images/project-python-automation-projects.svg', alt: 'Python automation project illustration', projectTitle: 'Python Automation', projectSubtitle: 'Automation' },
 ]
 
 export default function ImageGallery() {

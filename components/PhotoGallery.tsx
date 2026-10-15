@@ -16,7 +16,7 @@ const photos: Photo[] = [
   { src: '/assets/images/greenflow-4.jpeg', alt: 'Route optimization', title: 'AI Route Planning', category: 'Artificial Intelligence' },
   { src: '/assets/images/greenflow-5.jpeg', alt: 'Signal analytics', title: 'Traffic Analytics', category: 'Data Science' },
   { src: '/assets/images/greenflow-6.jpeg', alt: 'Vehicle tracking', title: 'Real-time Tracking', category: 'IoT' },
-  { src: '/assets/images/photo2.jpeg', alt: 'Project highlight 1', title: 'Project Highlight', category: 'Misc' },
+  { src: '/assets/images/project-eduai-nexus-x.svg', alt: 'AI learning project illustration', title: 'AI Learning', category: 'EdTech' },
   { src: '/assets/images/greenflow-1.svg', alt: 'Illustration variant', title: 'Design Variant', category: 'Design' },
   { src: '/assets/images/greenflow-2.svg', alt: 'Illustration variant 2', title: 'Design Variant', category: 'Design' },
   { src: '/assets/images/greenflow-3.svg', alt: 'Illustration variant 3', title: 'Design Variant', category: 'Design' },

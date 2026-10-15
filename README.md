@@ -76,6 +76,28 @@ Start the production server locally:
 npm start
 ```
 
+## Visitor counter
+
+The footer counter shows **page views**, not unique people. It counts at most once per
+browser-tab session (stored in that tab's `sessionStorage`, including across refreshes)
+and expires the server-side deduplication claim after 24 hours. Opening another tab or
+clearing that tab's storage can count again; this is a practical deduplication policy,
+not perfect unique-visitor tracking. Redis performs the dedupe claim and counter increment
+in one Lua operation, so concurrent requests cannot lose increments. A shared Redis
+rate limit allows 20 increments per hashed client address per hour; raw addresses are
+not stored. Bot detection is not guaranteed.
+
+Configure `REDIS_URL` in local `.env.local` and in Vercel **Settings → Environment
+Variables** for each environment that should show a count. Use the Redis provider's
+TLS connection URL (`rediss://...`) and mark it sensitive in Vercel. The Redis key
+`visitor:count` is shared wherever the same Redis database and URL are used. To keep
+Preview separate from production, give Preview a separate Redis database/URL; to share
+counts, configure the same Redis URL in both. Development uses whichever URL is in
+`.env.local`. No counter is initialized or reset automatically: if `visitor:count` does
+not already exist, the endpoint returns 503 and the UI shows an em dash. Configure a
+persistent Redis service before enabling the counter; no credentials are included in
+this repository.
+
 ## Notes
 
 - Image assets are served from `public/assets/images/`
