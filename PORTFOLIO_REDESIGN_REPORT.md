@@ -6,6 +6,8 @@ Continued the existing Pages Router redesign without changing frameworks, route 
 
 ## Files Changed
 
+- `components/Projects.tsx` — replaced oversized carousel-style project cards with compact 16:9 featured and regular cards, concise descriptions, capped inline tags, valid action links, and an expandable filtered index of additional projects.
+- `PORTFOLIO_REDESIGN_REPORT.md` — this report, including the project-card implementation and this turn's validation results.
 - `components/Hero.tsx` — exact “I build. I break. I secure.” headline, revised cybersecurity-focused description and CTAs, and subdued local portrait background.
 - `components/Navbar.tsx` — requested navigation destinations, ARPIT wordmark, and visible focus styling.
 - `styles/globals.css` — centralized dark palette, grid and glow layers, and reduced-motion treatment.
@@ -28,6 +30,10 @@ The Next.js production build lists `/`, `/axiora`, `/crisis-mesh`, `/eduai-nexus
 
 ## Responsive and Accessibility Review
 
+The project section now uses two featured columns at desktop/tablet widths and collapses to one column on mobile; its regular cards use one column by default, two at `sm`, and three at `lg`. All thumbnails use a 16:9 ratio, card copy is line-clamped to three lines, and technology tags are capped at four per card. CrisisMesh and GreenFlow AI lead in the featured row; EduAI Nexus X, CarePulse, Elevra, Axiora, and SafeGuard follow in the compact grid. NCC Buddy and Food Ordering System remain available in the expandable additional-project index, along with the other existing projects. The index filters remain available, and its initial state excludes projects already featured above.
+
+Action links are individual anchors with visible focus treatment and safe new-tab attributes for external destinations. Thumbnail images have descriptive alt text; cards without a corresponding screenshot use a restrained branded treatment instead of an unrelated photo. Hover transitions are restrained, and the card transitions respect reduced-motion preferences. TypeScript validation and diff whitespace checks passed. A new desktop/tablet/mobile browser review was not completed in this turn; the earlier report's browser limitations below still apply.
+
 The production page rendered in the in-app browser at a desktop-sized viewport. The exact hero headline, portrait treatment, navigation, project content, and CTA links were visible. The portrait remains on the opposing side of the copy and is darkened; the headline stays readable. An earlier narrow browser capture showed the original wide theme toggle overlaying the capability cards; that control is now a compact 44px icon button. A final mobile-sized screenshot after this change could not be obtained, and desktop/tablet widths were not systematically checked.
 
 Navigation remains anchor-based. Decorative hero layers use `aria-hidden`, and the hero retains a level-one heading. Keyboard focus styles are present in the navigation and theme toggle. Reduced-motion preferences disable the added ambient glow and global motion is reduced. Keyboard-only, screen-reader, contrast measurement, and system reduced-motion browser checks were not completed.
@@ -38,7 +44,9 @@ No dependencies or Next configuration were added. Existing metadata and routes w
 
 ## Validation Results
 
-- `npx tsc --noEmit` — passed (exit code 0).
+- `npx tsc --noEmit` after the project-card update — passed (exit code 0).
+- `git diff --check` after the project-card update — passed (exit code 0).
+- `npm run build` after the project-card update — compilation succeeded, but page-data collection failed with `listen EPERM` while Next.js 13.5.11 initialized its incremental-cache IPC listener on `0.0.0.0`. This is the same sandbox listener restriction described above; font download and optional SWC package warnings also appeared.
 - `npm run build` inside the sandbox — failed during page-data collection at Next.js 13.5.11 incremental-cache IPC setup: `listen EPERM`, `address: 0.0.0.0`. The stack runs through `createIpcServer` / `initialize` in Next's incremental-cache server. A direct Node loopback bind probe also failed with `listen EPERM` on `127.0.0.1`, demonstrating the sandbox restriction.
 - `npm run build` outside the sandbox — passed (exit code 0); all 10 static pages generated, routes listed above, and the visitor-count API was built. Google Fonts optimization was skipped because network access was unavailable in the earlier sandbox build; this did not block compilation.
 - Lint — not configured in `package.json` (no lint script).
@@ -46,6 +54,7 @@ No dependencies or Next configuration were added. Existing metadata and routes w
 
 ## Remaining Issues and Next Steps
 
+- Repeat the production build outside the sandbox if a full static generation result is required; this turn's sandbox build stopped at the known IPC listener restriction after successful compilation.
 - Perform a final mobile-sized browser check (including 320px and 390px) and keyboard/reduced-motion checks when viewport emulation is available.
 - Review existing project case-study statements and canonical domain metadata separately; this continuation did not conduct a full site-wide evidence audit.
 - Keep the four original PNG deletions intact unless the repository owner asks to restore them. The live references now use existing GreenFlow assets.

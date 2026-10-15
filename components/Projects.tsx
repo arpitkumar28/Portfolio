@@ -2,11 +2,9 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Play, ArrowRight, Calendar, Users, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, ArrowRight, Play } from 'lucide-react';
 import Image from 'next/image';
 import { Section, SectionTitle } from './ui/Section';
-import { Button } from './ui/Button';
-import ImageModal from './ui/ImageModal';
 
 const featuredProjects = [
   {
@@ -331,18 +329,31 @@ const filters = [
   { label: 'IoT', value: 'iot' },
 ];
 
-const featuredProjectOrder = ['CrisisMesh', 'GreenFlow AI', 'EduAI Nexus X', 'CarePulse'];
+const compactDescriptions: Record<string, string> = {
+  CrisisMesh: 'A disaster response concept connecting incident reporting, command workflows, live maps, and responder coordination.',
+  'GreenFlow AI': 'Traffic intelligence concept for congestion monitoring and emergency green-corridor workflows across web and mobile.',
+  'EduAI Nexus X': 'An AI-assisted learning platform concept with adaptive study paths, doubt support, and progress insights.',
+  CarePulse: 'A mobile-first hospital attendance and staff management application architecture.',
+  Elevra: 'A student operating system bringing academic planning and career opportunities into one organized experience.',
+  Axiora: 'A discovery platform for technical projects, research, datasets, tools, and learning resources.',
+  'SafeGuard': 'A safety navigation concept exploring location-aware routes and emergency workflows.',
+};
+
+const compactFeaturedProjects = featuredProjects.filter((project) => ['CrisisMesh', 'GreenFlow AI'].includes(project.title));
+const regularFeaturedProjects = featuredProjects.filter((project) => !['CrisisMesh', 'GreenFlow AI'].includes(project.title));
+const itemVariants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0 },
+};
 
 export const Projects: React.FC = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: number]: number }>({});
-  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
+  const [showAllProjects, setShowAllProjects] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState('all');
 
-  const openModal = (src: string, alt: string) => setModalImage({ src, alt });
-  const closeModal = () => setModalImage(null);
-  const visibleProjects = selectedFilter === 'all'
-    ? allProjects
-    : allProjects.filter((project) => project.filter.includes(selectedFilter));
+  const primaryTitles = ['CrisisMesh', 'GreenFlow AI', 'EduAI Nexus X', 'CarePulse', 'NCC Buddy', 'Food Ordering System'];
+  const secondaryProjects = allProjects.filter((project) => !primaryTitles.includes(project.title));
+  const visibleProjects = (showAllProjects ? allProjects : secondaryProjects)
+    .filter((project) => selectedFilter === 'all' || project.filter.includes(selectedFilter));
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -354,17 +365,9 @@ export const Projects: React.FC = () => {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-    },
-  };
-
   return (
-    <Section id="projects" className="bg-background py-20">
-      <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+    <Section id="projects" className="bg-background py-16 md:py-20">
+      <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="font-mono text-xs font-bold uppercase tracking-wider text-primary">Selected systems</p>
           <SectionTitle className="mb-0 text-left">Projects</SectionTitle>
@@ -373,201 +376,35 @@ export const Projects: React.FC = () => {
           </p>
         </div>
         <div className="rounded-lg border border-border bg-background-card px-4 py-3 text-sm font-bold text-text-muted">
-          {featuredProjects.length + allProjects.length} product builds
+          {new Set([...featuredProjects, ...allProjects].map((project) => project.title)).size} product builds
         </div>
       </div>
 
-      {/* Featured Projects */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="grid gap-5 lg:grid-cols-2"
-      >
-        {featuredProjects
-          .slice()
-          .sort((first, second) => {
-            const firstIndex = featuredProjectOrder.indexOf(first.title);
-            const secondIndex = featuredProjectOrder.indexOf(second.title);
-            return (firstIndex === -1 ? featuredProjects.length : firstIndex) - (secondIndex === -1 ? featuredProjects.length : secondIndex);
-          })
-          .map((project) => (
-          <motion.div key={project.id} variants={itemVariants}>
-            <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-background-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:shadow-xl hover:shadow-primary/10">
-              {/* Project Image */}
-              <div>
-                {(project as any).images && (project as any).images.length > 0 ? (
-                    <div className="relative aspect-[16/8.5] overflow-hidden bg-background-elevated cursor-pointer" onClick={() => {
-                    const imageSrc = (project as any).images[currentImageIndex[project.id] || 0];
-                    if (imageSrc) openModal(imageSrc, project.title);
-                  }}>
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={currentImageIndex[project.id] || 0}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="relative w-full h-full"
-                      >
-                        <Image
-                          src={(project as any).images[currentImageIndex[project.id] || 0]}
-                          alt={`${project.title} - Image ${currentImageIndex[project.id] || 0 + 1}`}
-                          fill
-                          unoptimized
-                          className="object-cover transition duration-500 hover:scale-105"
-                          quality={90}
-                        />
-                      </motion.div>
-                    </AnimatePresence>
-                    
-                    {(project as any).images.length > 1 && (
-                      <>
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setCurrentImageIndex(prev => ({
-                              ...prev,
-                              [project.id]: ((prev[project.id] || 0) - 1 + (project as any).images.length) % (project as any).images.length
-                            }));
-                          }}
-                          className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors"
-                          aria-label={`Previous ${project.title} image`}
-                        >
-                          <ChevronLeft className="w-5 h-5" />
-                        </button>
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setCurrentImageIndex(prev => ({
-                              ...prev,
-                              [project.id]: ((prev[project.id] || 0) + 1) % (project as any).images.length
-                            }));
-                          }}
-                          className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors"
-                          aria-label={`Next ${project.title} image`}
-                        >
-                          <ChevronRight className="w-5 h-5" />
-                        </button>
-                      </>
-                    )}
-                  </div>
-                ) : (
-                  <div className={`relative aspect-[16/8.5] overflow-hidden bg-gradient-to-br ${project.gradient}`}>
-                    <div className="absolute inset-0 bg-black/20" />
-                    {project.title === 'Elevra' && (
-                      <div className="absolute right-8 top-7 hidden w-[46%] rounded-xl border border-white/30 bg-slate-950/35 p-3 shadow-2xl backdrop-blur-md sm:block">
-                        <div className="flex gap-2"><span className="h-2 w-2 rounded-full bg-white/70" /><span className="h-2 w-2 rounded-full bg-white/40" /><span className="h-2 w-2 rounded-full bg-white/40" /></div>
-                        <div className="mt-4 grid grid-cols-[0.35fr_1fr] gap-3"><div className="space-y-2"><span className="block h-2 rounded bg-orange-200/70" /><span className="block h-2 rounded bg-white/20" /><span className="block h-2 rounded bg-white/20" /><span className="block h-2 rounded bg-white/20" /></div><div className="space-y-3"><span className="block h-12 rounded-lg bg-orange-200/25" /><div className="grid grid-cols-2 gap-2"><span className="block h-9 rounded bg-white/15" /><span className="block h-9 rounded bg-white/15" /></div></div></div>
-                      </div>
-                    )}
-                    {project.title === 'Axiora' && (
-                      <div className="absolute right-8 top-7 hidden w-[46%] rounded-xl border border-white/25 bg-slate-950/40 p-3 shadow-2xl backdrop-blur-md sm:block">
-                        <div className="flex items-center justify-between"><span className="h-2 w-16 rounded bg-cyan-200/70" /><span className="h-4 w-4 rounded-full border border-cyan-200/60" /></div>
-                        <div className="mt-4 space-y-2"><div className="flex gap-2"><span className="h-10 flex-1 rounded bg-cyan-200/25" /><span className="h-10 flex-1 rounded bg-white/15" /></div><span className="block h-2 w-4/5 rounded bg-white/25" /><span className="block h-2 w-3/5 rounded bg-white/15" /><span className="block h-8 rounded bg-cyan-200/20" /></div>
-                      </div>
-                    )}
-                    <div className="absolute inset-0 flex flex-col justify-between p-5 text-white">
-                      <div className="flex items-center justify-between">
-                        <span className="rounded-md bg-white/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wide backdrop-blur">
-                          {project.category}
-                        </span>
-                        <ExternalLink className="h-5 w-5 opacity-70" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-bold text-white/70">{project.status}</p>
-                        <h4 className="mt-1 text-3xl font-black tracking-tight">{project.title}</h4>
-                        <div className="mt-3 flex flex-wrap gap-1.5">
-                          {project.techStack.slice(0, 4).map((tech) => (
-                            <span key={tech} className="rounded bg-black/25 px-2 py-1 text-[11px] font-bold">
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Project Content */}
-              <div className="flex flex-1 flex-col space-y-4 p-5 md:p-6">
-                <div>
-                  <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">{project.category}</p>
-                  <h3 className="font-display text-2xl font-black text-text-primary mb-2 tracking-tight">{project.title}</h3>
-                  <p className="text-sm text-text-muted font-semibold">{project.subtitle}</p>
-                </div>
-
-                <div className="space-y-3">
-                  <div>
-                    <h4 className="text-xs font-semibold text-text-primary uppercase tracking-wider mb-2">Impact</h4>
-                    <p className="text-text-muted text-sm leading-relaxed">{(project as any).result || project.problem}</p>
-                  </div>
-
-                  {(project as any).solution && (
-                    <div>
-                      <h4 className="text-xs font-semibold text-text-primary uppercase tracking-wider mb-2">Approach</h4>
-                      <p className="text-text-muted text-sm leading-relaxed">{(project as any).solution}</p>
-                    </div>
-                  )}
-
-                  {(project as any).result && (
-                    <div>
-                      <h4 className="text-xs font-semibold text-text-primary uppercase tracking-wider mb-2">Outcome</h4>
-                      <p className="text-text-muted text-sm leading-relaxed font-medium">{(project as any).result}</p>
-                    </div>
-                  )}
-
-                  <div>
-                    <div className="flex max-h-[4.5rem] flex-wrap gap-1.5 overflow-hidden">
-                      {project.techStack.map((tech, idx) => (
-                        <span key={idx} className="text-xs font-semibold text-text-muted bg-background-elevated px-2.5 py-1 rounded-md border border-border/30">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-text-muted pt-3 border-t border-border">
-                    <div className="flex items-center gap-2">
-                      <Users className="w-4 h-4" />
-                      <span>{(project as any).role || 'Developer'}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4" />
-                      <span>{(project as any).timeline || 'Ongoing'}</span>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    {project.links.map((link, linkIndex) => (
-                      <Button
-                        key={linkIndex}
-                        variant={link.label === 'Live Demo' ? 'primary' : 'outline'}
-                        size="sm"
-                        href={link.url}
-                        target={link.url.startsWith('http') ? '_blank' : undefined}
-                        rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        className="text-xs"
-                      >
-                        {link.icon && <link.icon className="w-4 h-4 mr-2" />}
-                        {link.label}
-                      </Button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        ))}
+      <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-60px' }} className="grid gap-4 md:grid-cols-2">
+        {compactFeaturedProjects.map((project) => <CompactFeaturedCard key={project.id} project={project} />)}
       </motion.div>
 
-      <div className="mt-16 rounded-xl border border-border bg-background-card p-4 md:p-5">
-        <div className="mb-5 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {regularFeaturedProjects.map((project) => {
+          const screenshot = project.title === 'Axiora' ? '/assets/images/axiora/home-dashboard.png' : project.title === 'GreenFlow AI' ? '/assets/images/greenflow-1.jpeg' : project.title === 'CrisisMesh' ? '/assets/images/greenflow-1.svg' : null;
+          return <article key={project.id} className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background-card transition-colors duration-200 hover:border-primary/60 motion-reduce:transition-none">
+            <ProjectThumbnail src={screenshot} alt={`${project.title} project thumbnail`} title={project.title} category={project.category} />
+            <div className="flex flex-1 flex-col p-4">
+              <ProjectHeading title={project.title} category={project.category} />
+              <p className="mt-2 line-clamp-3 text-sm leading-5 text-text-muted">{compactDescriptions[project.title] || project.subtitle}</p>
+              <ProjectTags tags={project.techStack} />
+              <ProjectLinks links={project.links.filter((link) => link.url.startsWith('/') || /^https:\/\//.test(link.url))} />
+            </div>
+          </article>;
+        })}
+      </div>
+
+      <div className="mt-10 rounded-xl border border-border bg-background-card p-4 md:p-5">
+        <div className="mb-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <h3 className="text-xl font-black text-text-primary">More Projects</h3>
-            <p className="mt-1 text-sm text-text-muted">A quick scan of the broader engineering range, from product ideas to real-world workflow tools.</p>
+            <p className="mt-1 text-sm text-text-muted">A compact index of additional builds and experiments.</p>
+            <button type="button" onClick={() => setShowAllProjects((show) => !show)} className="mt-2 inline-flex items-center gap-1 text-sm font-bold text-primary hover:text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">{showAllProjects ? 'Show fewer projects' : 'View all projects'} <ArrowRight className="h-4 w-4" /></button>
           </div>
           <div className="flex flex-wrap gap-2">
             {filters.map((filter) => (
@@ -587,10 +424,7 @@ export const Projects: React.FC = () => {
           </div>
         </div>
 
-        <motion.div
-          layout
-          className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"
-        >
+        <motion.div layout className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence mode="popLayout">
             {visibleProjects.map((project) => (
               <motion.article
@@ -599,7 +433,7 @@ export const Projects: React.FC = () => {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
-                className="group flex min-h-[190px] flex-col justify-between rounded-lg border border-border bg-background p-4 transition-colors hover:border-primary/70 hover:bg-background-elevated"
+                className="group flex min-w-0 flex-col justify-between rounded-lg border border-border bg-background p-4 transition-colors hover:border-primary/70 hover:bg-background-elevated motion-reduce:transition-none"
               >
                 <div>
                   <div className="mb-3 flex items-start justify-between gap-3">
@@ -622,7 +456,7 @@ export const Projects: React.FC = () => {
                   <p className="line-clamp-3 text-sm leading-relaxed text-text-muted">{project.description}</p>
                 </div>
                 <div className="mt-4 flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
+                  {project.tags.slice(0, 4).map((tag) => (
                     <span key={tag} className="rounded bg-background-elevated px-2 py-1 text-[11px] font-bold text-text-tertiary">
                       {tag}
                     </span>
@@ -634,13 +468,42 @@ export const Projects: React.FC = () => {
         </motion.div>
       </div>
 
-      {modalImage && (
-        <ImageModal
-          src={modalImage.src}
-          alt={modalImage.alt}
-          onClose={closeModal}
-        />
-      )}
     </Section>
   );
 };
+
+function CompactFeaturedCard({ project }: { project: (typeof featuredProjects)[number] }) {
+  const screenshot = project.title === 'GreenFlow AI' ? project.images?.[0] || null : '/assets/images/greenflow-1.svg';
+  return <motion.article variants={itemVariants} className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-primary/25 bg-background-card transition-colors duration-200 hover:border-primary/60 motion-reduce:transition-none">
+    <ProjectThumbnail src={screenshot} alt={`${project.title} project thumbnail`} title={project.title} category={project.category} featured />
+    <div className="flex flex-1 flex-col p-4 md:p-5">
+      <ProjectHeading title={project.title} category={project.category} />
+      <p className="mt-2 line-clamp-3 text-sm leading-5 text-text-muted">{compactDescriptions[project.title]}</p>
+      <ProjectTags tags={project.techStack} />
+      <ProjectLinks links={project.links.filter((link) => link.url.startsWith('/') || /^https:\/\//.test(link.url))} />
+    </div>
+  </motion.article>;
+}
+
+function ProjectThumbnail({ src, alt, title, category, featured = false }: { src: string | null; alt: string; title: string; category: string; featured?: boolean }) {
+  return <div className={`relative aspect-video overflow-hidden bg-background-elevated ${featured ? 'border-b border-primary/20' : 'border-b border-border'}`}>
+    {src ? <Image src={src} alt={alt} fill unoptimized sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" /> : <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(16,185,129,0.18),_transparent_55%),linear-gradient(135deg,_#171d1a,_#0d1110)]" role="img" aria-label={`${title} branded project thumbnail`} />}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" aria-hidden="true" />
+    <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-3">
+      <div className="min-w-0"><span className="block truncate text-[10px] font-bold uppercase tracking-[0.14em] text-emerald-300">{category}</span><span className="mt-1 block truncate text-lg font-black tracking-tight text-white">{title}</span></div>
+      {featured && <span className="shrink-0 rounded-full border border-emerald-300/30 bg-black/40 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-emerald-200">Featured</span>}
+    </div>
+  </div>;
+}
+
+function ProjectHeading({ title, category }: { title: string; category: string }) {
+  return <div className="flex min-w-0 items-baseline justify-between gap-3"><h3 className="truncate font-display text-lg font-black tracking-tight text-text-primary">{title}</h3><span className="shrink-0 truncate text-[10px] font-bold uppercase tracking-wide text-primary">{category}</span></div>;
+}
+
+function ProjectTags({ tags }: { tags: string[] }) {
+  return <div className="mt-3 flex flex-wrap gap-1.5">{tags.slice(0, 4).map((tag) => <span key={tag} className="rounded border border-border bg-background-elevated px-2 py-1 text-[10px] font-semibold text-text-muted">{tag}</span>)}</div>;
+}
+
+function ProjectLinks({ links }: { links: { label: string; url: string }[] }) {
+  return <div className="mt-auto flex flex-wrap gap-3 border-t border-border pt-3 mt-4">{links.filter((link) => ['Live Demo', 'Case Study', 'View Case Study', 'GitHub', 'Source Code'].includes(link.label)).map((link) => <a key={`${link.label}-${link.url}`} href={link.url} target={link.url.startsWith('http') ? '_blank' : undefined} rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined} className="inline-flex items-center gap-1 text-xs font-bold text-text-secondary transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">{link.label === 'GitHub' ? 'Source Code' : link.label === 'View Case Study' ? 'Case Study' : link.label}<ExternalLink className="h-3.5 w-3.5" aria-hidden="true" /></a>)}</div>;
+}
