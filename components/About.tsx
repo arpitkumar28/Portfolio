@@ -77,7 +77,7 @@ export const About: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="text-2xl font-black text-white">Arpit Kumar</h3>
-                  <p className="mt-2 text-sm font-bold text-blue-200">
+                  <p className="mt-2 text-sm font-bold text-primary/90">
                     Cybersecurity · Software Engineering
                   </p>
                 </div>

@@ -17,14 +17,14 @@ export const GlassCard: React.FC<GlassCardProps> = ({
 }) => {
   return (
     <motion.div
-      whileHover={hover ? { y: -4, scale: 1.01 } : {}}
+      whileHover={hover ? { y: -3 } : {}}
       transition={{ duration: 0.2, ease: 'easeOut' }}
       className={cn(
         'backdrop-blur-lg rounded-2xl p-6 shadow-lg',
         gradient
-          ? 'bg-gradient-to-br from-white/10 to-white/5 border border-white/10'
-          : 'bg-white/5 border border-white/10',
-        'hover:bg-white/10 hover:border-white/20 hover:shadow-xl hover:shadow-primary/10 transition-all duration-200',
+          ? 'bg-gradient-to-br from-background-card to-background-elevated border border-border'
+          : 'bg-background-card border border-border',
+        'hover:border-primary/35 hover:shadow-xl hover:shadow-primary/5 transition-[transform,border-color,box-shadow] duration-200 motion-reduce:transition-none',
         className
       )}
     >

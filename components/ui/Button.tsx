@@ -27,15 +27,15 @@ export const Button: React.FC<ButtonProps> = ({
   type = 'button',
   disabled = false,
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none';
+  const baseStyles = 'inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none motion-reduce:transition-none';
   
   const variants = {
-    primary: 'bg-gradient-to-r from-primary to-accent text-white hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-0.5',
-    outline: 'border-2 border-primary text-primary hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5',
-    glass: 'bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 hover:shadow-lg hover:shadow-white/10 hover:-translate-y-0.5',
-    ghost: 'text-muted hover:text-white hover:bg-white/5 hover:-translate-y-0.5',
-    link: 'text-primary hover:text-accent underline-offset-4 hover:underline decoration-2 underline-primary/50 hover:decoration-accent',
-    gradient: 'relative overflow-hidden bg-gradient-to-r from-primary to-secondary text-white hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-0.5',
+    primary: 'bg-primary text-background hover:bg-[#F4CC78] hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-0.5',
+    outline: 'border border-primary/50 text-primary hover:border-primary hover:bg-primary/10 hover:-translate-y-0.5',
+    glass: 'border border-border bg-background-card/80 text-text-primary hover:border-primary/40 hover:bg-background-card',
+    ghost: 'text-text-muted hover:text-primary hover:bg-white/5',
+    link: 'text-primary hover:text-[#F4CC78] underline-offset-4 hover:underline',
+    gradient: 'relative overflow-hidden bg-primary text-background hover:bg-[#F4CC78] hover:-translate-y-0.5',
   };
   
   const sizes = {
@@ -49,7 +49,7 @@ export const Button: React.FC<ButtonProps> = ({
   if (href) {
     return (
       <motion.a
-        whileHover={{ scale: disabled ? 1 : 1.02 }}
+        whileHover={{ scale: disabled ? 1 : 1.01 }}
         whileTap={{ scale: disabled ? 1 : 0.98 }}
         transition={{ duration: 0.2 }}
         className={buttonClasses}

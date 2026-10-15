@@ -2,17 +2,9 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { ArrowRight, ShieldCheck, Server, Activity, Rocket } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Button } from './ui/Button';
-
-const metrics = [
-  { value: 'SEC', label: 'Security', detail: 'Hands-on labs and resilient systems', icon: ShieldCheck },
-  { value: 'WEB', label: 'Systems', detail: 'Full-stack builds and backend APIs', icon: Server },
-  { value: 'APP', label: 'Mobile', detail: 'Flutter products and user flows', icon: Activity },
-  { value: 'AI', label: 'AI', detail: 'Intelligent workflows and decision systems', icon: Rocket },
-];
-
-const techStack = ['Cybersecurity', 'Web', 'Mobile', 'AI', 'Backend', 'Real-Time'];
+import { GitHubIcon, LinkedInIcon } from './ui/SocialIcons';
 
 export const Hero: React.FC = () => {
   return (
@@ -23,96 +15,72 @@ export const Hero: React.FC = () => {
       aria-labelledby="hero-heading"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 site-grid" />
-      <div aria-hidden="true" className="hero-glow pointer-events-none absolute -right-24 top-10 h-[36rem] w-[36rem] rounded-full bg-primary/10 blur-[120px]" />
-      <div aria-hidden="true" className="shadow-figure pointer-events-none absolute inset-y-0 right-0 hidden w-[58%] opacity-70 lg:block" />
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/30 lg:to-transparent" />
+      <div aria-hidden="true" className="hero-glow pointer-events-none absolute right-[8%] top-[8%] h-[30rem] w-[30rem] rounded-full bg-primary/10 blur-[115px]" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background/60" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
       <div className="max-w-7xl mx-auto px-4 md:px-8 w-full">
-        <div className="relative grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
-          <div className="space-y-8">
-            <div className="space-y-5">
-              <div className="inline-flex items-center rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 font-mono text-xs font-black uppercase tracking-[0.16em] text-primary">
-                Cybersecurity × Software Engineering
+        <div className="relative grid items-center gap-12 lg:grid-cols-[1.04fr_0.96fr] lg:gap-16">
+          <div className="relative z-10 space-y-8">
+            <div className="space-y-6">
+              <div className="flex items-center gap-3 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
+                <span className="h-px w-8 bg-primary" /> Cybersecurity <span className="text-primary">/</span> Software Engineering
               </div>
               <h1
-                className="max-w-3xl font-display text-5xl font-black tracking-[-0.06em] text-text-primary sm:text-6xl md:text-7xl lg:text-[5.25rem] lg:leading-[0.98]"
+                className="hero-copy max-w-3xl font-display text-5xl font-semibold tracking-[-0.055em] text-text-primary sm:text-6xl md:text-7xl lg:text-[5.6rem] lg:leading-[0.98]"
                 id="hero-heading"
               >
-                I build.<br />I break.<br /><span className="text-primary">I secure.</span>
+                <span className="hero-line hero-line-one">I build.</span><span className="hero-line hero-line-two">I break.</span><span className="hero-line hero-line-three">I secure.</span>
               </h1>
 
-              <p className="max-w-2xl text-xl font-bold leading-snug text-text-primary md:text-2xl">
-                Cybersecurity-focused software engineer building web and mobile applications, AI-powered systems, and real-time solutions while developing practical security skills through hands-on labs and CTFs.
+              <p className="hero-intro max-w-xl text-lg leading-relaxed text-text-secondary md:text-xl">
+                I build thoughtful software and bring a security-first lens to how it works, scales, and holds up under pressure.
               </p>
-
-              <div className="flex flex-wrap gap-x-3 gap-y-2 font-mono text-sm font-semibold text-text-muted">
-                {techStack.map((tech, index) => (
-                  <React.Fragment key={tech}>
-                    <span>{tech}</span>
-                    {index < techStack.length - 1 && <span>•</span>}
-                  </React.Fragment>
-                ))}
-              </div>
             </div>
 
-            <div>
-              <div className="mb-4 flex items-center gap-3">
-                <span className="h-px w-10 bg-primary" />
-              <p className="font-mono text-sm font-black uppercase tracking-[0.2em] text-text-secondary">
-                  What I work across
-                </p>
-              </div>
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
-              {metrics.map(({ value, label, detail, icon: Icon }) => (
-                <div key={label} className="rounded-xl border border-primary/20 bg-background-card/85 p-5 shadow-sm shadow-primary/5">
-                  <Icon className="mb-4 h-4 w-4 text-primary" />
-                  <div className="text-3xl font-black text-text-primary">{value}</div>
-                  <div className="mt-3 text-sm font-black text-primary">{label}</div>
-                  <div className="mt-1 text-xs font-bold leading-snug text-text-muted">{detail}</div>
-                  <span className="mt-4 block h-1 w-8 rounded-full bg-primary" />
-                </div>
-              ))}
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-4">
+            <div className="hero-actions flex flex-wrap gap-3">
               <Button
                 href="#projects"
-                className="px-7 py-3.5 text-sm font-bold"
+                className="px-6 py-3 text-sm font-semibold"
               >
                 <ArrowRight className="w-4 h-4 mr-2" />
-                Explore My Work
+                Explore Projects
               </Button>
               <Button
                 variant="outline"
-                href="#problem-solving-security"
-                className="px-7 py-3.5 text-sm font-bold"
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 text-sm font-semibold"
               >
-                Security Journey
+                View Resume <ArrowUpRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
 
-            <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm font-semibold text-text-muted">
-              <a href="https://www.linkedin.com/in/arpitkumar0211" target="_blank" rel="noopener noreferrer" className="hover:text-primary">LinkedIn</a>
-              <span>•</span>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-primary">Resume</a>
-              <span>•</span>
-              <a href="#projects" className="hover:text-primary">All Projects</a>
+            <div className="hero-social flex items-center gap-5 pt-1 text-sm text-text-muted">
+              <a href="https://github.com/arpitkumar28" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-primary"><GitHubIcon className="h-4 w-4" /> GitHub <ArrowUpRight className="h-3 w-3" /></a>
+              <a href="https://www.linkedin.com/in/arpitkumar0211" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-primary"><LinkedInIcon className="h-4 w-4" /> LinkedIn <ArrowUpRight className="h-3 w-3" /></a>
             </div>
 
-            <div className="flex max-w-xl items-center gap-4 rounded-2xl border border-border bg-background-card/70 p-4 shadow-sm">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Rocket className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="text-sm font-black text-text-primary">Currently building GreenFlow AI</p>
-                <p className="mt-1 text-xs font-medium text-text-muted">Turning real-time data into safer, smarter cities.</p>
-              </div>
-              <span className="ml-auto hidden rounded-full bg-emerald-500/10 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-emerald-500 sm:block">Now</span>
+            <div className="hero-status inline-flex items-center gap-3 border-t border-border pt-5 text-sm">
+              <span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full rounded-full bg-primary/45" /><span className="relative inline-flex h-2 w-2 rounded-full bg-primary" /></span>
+              <span className="text-text-muted">Currently building <strong className="font-medium text-text-primary">GreenFlow AI</strong> <span className="text-text-subtle">· interface prototype</span></span>
             </div>
           </div>
 
-          <div aria-hidden="true" className="hidden min-h-[540px] lg:block" />
+          <div className="hero-portrait relative mx-auto h-[360px] w-full max-w-[520px] sm:h-[460px] lg:h-[600px]" aria-label="Portrait of Arpit Kumar">
+            <div aria-hidden="true" className="hero-portrait-light absolute inset-x-8 top-12 bottom-3 rounded-[48%] bg-primary/10 blur-[70px]" />
+            <div aria-hidden="true" className="hero-portrait-grid absolute inset-y-8 right-0 w-[82%] rounded-t-[48%] border border-primary/15" />
+            <div className="hero-portrait-image absolute inset-y-0 right-0 w-[92%] overflow-hidden rounded-t-[48%] border-x border-t border-primary/20">
+              <Image src="/assets/images/photo2.jpeg" alt="Portrait of Arpit Kumar" fill priority sizes="(max-width: 1024px) 90vw, 48vw" className="object-cover object-[center_28%] grayscale contrast-110" />
+              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-background via-background/15 to-transparent" />
+              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-primary/5" />
+            </div>
+            <div className="hero-caption absolute bottom-8 left-0 z-10 max-w-[220px] border-l border-primary/50 pl-4">
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">Security-minded</span>
+              <span className="mt-1 block text-sm text-text-primary">Software engineering</span>
+            </div>
+            <div aria-hidden="true" className="absolute right-2 top-20 h-1.5 w-1.5 rounded-full bg-primary/80 shadow-[0_0_16px_rgba(232,184,91,0.5)]" />
+          </div>
         </div>
       </div>
     </section>

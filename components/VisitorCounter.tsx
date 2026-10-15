@@ -21,12 +21,9 @@ export const VisitorCounter: React.FC = () => {
 
         const data: { count?: number } = await response.json();
 
-        if (active && typeof data.count === 'number') {
+        if (active && response.ok && typeof data.count === 'number') {
           setVisits(data.count.toLocaleString());
-        }
-
-        if (!hasTrackedThisSession) {
-          sessionStorage.setItem(SESSION_KEY, 'true');
+          if (!hasTrackedThisSession) sessionStorage.setItem(SESSION_KEY, 'true');
         }
       } catch {
         if (active) setVisits('—');

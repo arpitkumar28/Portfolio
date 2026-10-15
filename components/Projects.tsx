@@ -10,22 +10,15 @@ const featuredProjects = [
   {
     id: 18,
     title: 'CrisisMesh',
-    subtitle: 'AI-Powered Real-Time Disaster Management & Emergency Response Platform',
+    subtitle: 'Disaster response interface concept',
     category: 'Disaster Management / AI / IoT / Full Stack',
     problem: 'Emergency information becomes fragmented between citizens, responders, authorities, and physical infrastructure. Emergency response coordination lacks real-time visibility, creating critical delays in disaster response and resource allocation.',
-    solution: 'CrisisMesh creates a unified real-time event pipeline connecting citizens, emergency responders, authorities, AI risk analysis, and IoT infrastructure through a single integrated platform. Architecture: Next.js web dashboard, Flutter mobile app, NestJS API backend, PostgreSQL/Supabase database, WebSocket real-time communication, MQTT IoT integration, and Python-based risk analysis engine.',
-    result: 'A live demo of a disaster-management platform concept. The case study separates implemented workflows from mocked, partial, and unverified integrations; the repository is not currently published.',
+    solution: 'A visual concept for organizing incident reports, response roles, and situational information. Connected services, field workflows, and operational use are not verified in this repository.',
+    result: 'The portfolio shows an interface prototype. No live emergency monitoring, sensor deployment, production AI, or operational outcome is claimed.',
     features: [
-      'Real-time incident management and tracking',
-      'Emergency SOS and alert system',
-      'Live command map with WebSocket updates',
-      'IoT telemetry and sensor integration',
-      'AI/risk prediction engine',
-      'Role-based access control (RBAC)',
-      'Responder coordination platform',
-      'Authority command center',
-      'Web and mobile ecosystem',
-      'Offline-capable mobile app'
+      'Incident coordination interface concept',
+      'Situational map interface concept',
+      'Proposed API and device integration points'
     ],
     techStack: ['Next.js', 'TypeScript', 'React', 'Flutter', 'Dart', 'NestJS', 'PostgreSQL', 'Supabase', 'WebSockets', 'MQTT', 'Python', 'REST API', 'JWT', 'Leaflet', 'OpenStreetMap'],
     links: [
@@ -33,7 +26,6 @@ const featuredProjects = [
       { label: 'Live Demo', url: 'https://crisis-mesh-eosin.vercel.app', icon: Play },
     ],
     featured: true,
-    gradient: 'from-red-600 to-orange-500',
     status: 'Live demo',
     role: 'Full Stack Developer / System Architect',
     timeline: 'Project-based',
@@ -50,7 +42,6 @@ const featuredProjects = [
     techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Flutter', 'Dart', 'FastAPI', 'Python', 'PostgreSQL', 'Redis', 'Docker'],
     links: [{ label: 'View Case Study', url: '/elevra', icon: ArrowRight }],
     featured: true,
-    gradient: 'from-orange-500 to-rose-500',
     status: 'Flagship Project',
     role: 'Software Engineer / Product Builder',
     timeline: 'Project-based',
@@ -74,7 +65,6 @@ const featuredProjects = [
     ],
     links: [{ label: 'View Case Study', url: '/axiora', icon: ArrowRight }],
     featured: true,
-    gradient: 'from-slate-600 to-slate-900',
     status: 'Flagship Project',
     role: 'Software Engineer / Product Builder',
     timeline: 'Project-based',
@@ -82,7 +72,7 @@ const featuredProjects = [
   {
     id: 1,
     title: 'GreenFlow AI',
-    subtitle: 'Smart Traffic Intelligence & Emergency Green Corridor',
+    subtitle: 'Traffic dashboard and emergency corridor workflow concept',
     category: 'Traffic Intelligence / AI / Full Stack',
     images: [
       '/assets/images/greenflow-1.jpeg',
@@ -92,14 +82,13 @@ const featuredProjects = [
       '/assets/images/greenflow-5.png',
       '/assets/images/greenflow-6.png',
     ],
-    problem: 'Emergency vehicles lose critical minutes navigating congested urban streets. Cities lack real-time traffic intelligence to dynamically optimize signal timing and create green corridors when seconds matter.',
-    solution: 'Built a traffic-management platform concept for monitoring congestion, exploring traffic analysis, and coordinating emergency green-corridor workflows across web and mobile experiences.',
-    result: 'A unified web and mobile ecosystem for traffic monitoring, AI-assisted prediction, interactive maps, and emergency Green Corridor activation.',
+    problem: 'Traffic congestion and fragmented information can complicate route and signal coordination.',
+    solution: 'The supplied screenshots show traffic dashboard interfaces and explore emergency green-corridor workflows. Live traffic feeds, deployed signal control, mobile integrations, and predictive services are unverified here.',
+    result: 'An interface prototype documented by local screenshots. No model evaluation or operational performance result is claimed.',
     features: [
-      'Real-time congestion prediction using ML',
-      'Dynamic signal optimization',
-      'Emergency green corridor automation',
-      'Commuter mobile application'
+      'Traffic dashboard interface',
+      'Emergency corridor workflow concept',
+      'Proposed traffic analysis direction'
     ],
     techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'FastAPI', 'Python', 'Flutter', 'WebSockets', 'OpenStreetMap', 'Leaflet', 'Supabase'],
     links: [
@@ -109,64 +98,10 @@ const featuredProjects = [
       { label: 'Demo Video', url: 'https://youtu.be/Qdv3hZ_4W2Y', icon: Play },
     ],
     featured: true,
-    gradient: 'from-emerald-500 to-cyan-500',
     status: 'Project demo',
     role: 'Full Stack Developer',
     timeline: '3 months',
   },
-  // Temporarily removed due to 404 GitHub repository errors
-  // {
-  //   id: 2,
-  //   title: 'Hospital Digital Attendance',
-  //   subtitle: 'Healthcare Workforce Management',
-  //   category: 'Healthcare Technology',
-  //   problem: 'Hospitals rely on manual attendance systems that are error-prone, lack real-time visibility, and create administrative burden. Staff verification and location tracking remain significant operational challenges.',
-  //   solution: 'Developed a comprehensive digital attendance platform with biometric authentication, geolocation verification, and NFC check-in/check-out. Implemented secure data storage, real-time staff tracking, and automated reporting. Architecture: Flutter with Riverpod state management, Firebase backend, and secure local storage for sensitive data.',
-  //   result: 'Improved attendance workflows through biometric verification, automated reporting, and real-time staff monitoring.',
-  //   features: [
-  //     'Biometric authentication',
-  //     'Geolocation verification',
-  //     'NFC check-in/check-out',
-  //     'Real-time staff tracking',
-  //     'Automated reporting'
-  //   ],
-  //   techStack: ['Flutter', 'Riverpod', 'NFC', 'Geolocation', 'Firebase', 'Secure Storage'],
-  //   links: [
-  //     { label: 'View Case Study', url: '/hospital-attendance', icon: ArrowRight },
-  //     { label: 'GitHub', url: 'https://github.com/arpitkumar28/Hospital_Digital_Attendence_System', icon: ExternalLink },
-  //   ],
-  //   featured: true,
-  //   gradient: 'from-blue-500 to-indigo-500',
-  //   status: 'Production Ready',
-  //   role: 'Flutter Developer',
-  //   timeline: '2 months',
-  // },
-  // {
-  //   id: 3,
-  //   title: 'NCC Buddy',
-  //   subtitle: 'Cadet Management Platform',
-  //   category: 'Defense Technology',
-  //   problem: 'NCC cadets manage training schedules, attendance, and emergency communication through fragmented manual processes. Commanders lack real-time visibility into cadet status and location during training exercises.',
-  //   solution: 'Built an integrated companion app with event scheduling, QR-based attendance tracking, location sharing, and emergency SOS functionality. Implemented admin dashboard for commanders to manage training activities. Architecture: Flutter with Firebase, Google Maps integration, QR scanner, and push notification system.',
-  //   result: 'Streamlined training management through unified event scheduling, QR-based attendance, and SOS features.',
-  //   features: [
-  //     'Event scheduling and reminders',
-  //     'QR-based attendance tracking',
-  //     'SOS emergency button',
-  //     'Location sharing',
-  //     'Admin dashboard'
-  //   ],
-  //   techStack: ['Flutter', 'Firebase', 'Google Maps', 'QR Scanner', 'Push Notifications', 'Firestore'],
-  //   links: [
-  //     { label: 'View Case Study', url: '/ncc-buddy', icon: ArrowRight },
-  //     { label: 'GitHub', url: 'https://github.com/arpitkumar28/ncc_buddy', icon: ExternalLink },
-  //   ],
-  //   featured: true,
-  //   gradient: 'from-orange-500 to-amber-500',
-  //   status: 'In Development',
-  //   role: 'Flutter Developer',
-  //   timeline: '4 months',
-  // },
   {
     id: 4,
     title: 'EduAI Nexus X',
@@ -188,7 +123,6 @@ const featuredProjects = [
       { label: 'GitHub', url: 'https://github.com/arpitkumar28/Build_EduAI_Nexus_X_platform', icon: ExternalLink },
     ],
     featured: true,
-    gradient: 'from-violet-500 to-purple-500',
     status: 'In Development',
     role: 'Full Stack Developer',
     timeline: '3 months',
@@ -196,18 +130,17 @@ const featuredProjects = [
   {
     id: 14,
     title: 'CarePulse',
-    subtitle: 'Hospital Digital Attendance & Management System',
+    subtitle: 'Hospital attendance and staff workflow concept',
     category: 'Healthcare Technology',
-    problem: 'Hospital staff attendance and operational workflows benefit from a mobile-first, database-backed system.',
-    solution: 'Designed and developed a Flutter application architecture with state management, authentication, backend integration, and staff workflow support.',
-    result: 'A hospital-focused digital attendance and management platform built around practical mobile workflows.',
-    features: ['Digital employee attendance', 'Authentication', 'Staff and user management', 'Backend API integration', 'Database-backed records'],
+    problem: 'Hospital staff workflows may benefit from a clear mobile attendance experience.',
+    solution: 'A mobile-first project concept. This repository does not contain app source or evidence of connected identity, location, attendance, or backend services.',
+    result: 'No deployment or measured operational outcome is claimed.',
+    features: ['Attendance workflow concept', 'Mobile-first interaction design', 'Possible backend integration'],
     techStack: ['Flutter', 'Dart', 'Riverpod', 'Firebase', 'FastAPI', 'PostgreSQL', 'Prisma', 'REST APIs'],
     links: [
       { label: 'View Case Study', url: '/hospital-attendance', icon: ArrowRight },
     ],
     featured: true,
-    gradient: 'from-blue-500 to-indigo-500',
     status: 'Project',
     role: 'Flutter Developer',
     timeline: 'Project-based',
@@ -224,7 +157,6 @@ const featuredProjects = [
     techStack: ['Flutter', 'Dart', 'AI', 'Location Services', 'Navigation', 'Geolocation'],
     links: [],
     featured: true,
-    gradient: 'from-orange-500 to-amber-500',
     status: 'Concept',
     role: 'Flutter Developer',
     timeline: 'Project-based',
@@ -330,10 +262,10 @@ const filters = [
 ];
 
 const compactDescriptions: Record<string, string> = {
-  CrisisMesh: 'A disaster response concept connecting incident reporting, command workflows, live maps, and responder coordination.',
-  'GreenFlow AI': 'Traffic intelligence concept for congestion monitoring and emergency green-corridor workflows across web and mobile.',
+  CrisisMesh: 'A disaster-response interface concept for incident reporting, coordination workflows, and situational maps.',
+  'GreenFlow AI': 'A traffic dashboard prototype exploring congestion views and emergency corridor workflows.',
   'EduAI Nexus X': 'An AI-assisted learning platform concept with adaptive study paths, doubt support, and progress insights.',
-  CarePulse: 'A mobile-first hospital attendance and staff management application architecture.',
+  CarePulse: 'A mobile-first concept for hospital attendance and staff workflow management.',
   Elevra: 'A student operating system bringing academic planning and career opportunities into one organized experience.',
   Axiora: 'A discovery platform for technical projects, research, datasets, tools, and learning resources.',
   'SafeGuard': 'A safety navigation concept exploring location-aware routes and emergency workflows.',
@@ -341,9 +273,10 @@ const compactDescriptions: Record<string, string> = {
 
 const compactFeaturedProjects = featuredProjects.filter((project) => ['CrisisMesh', 'GreenFlow AI'].includes(project.title));
 const regularFeaturedProjects = featuredProjects.filter((project) => !['CrisisMesh', 'GreenFlow AI'].includes(project.title));
+const prioritySecondaryProjects = allProjects.filter((project) => ['NCC Buddy', 'Food Ordering System'].includes(project.title));
 const itemVariants = {
   hidden: { opacity: 0, y: 18 },
-  visible: { opacity: 1, y: 0 },
+  visible: (index: number) => ({ opacity: 1, y: 0, transition: { duration: 0.42, delay: Math.min(index * 0.07, 0.28) } }),
 };
 
 export const Projects: React.FC = () => {
@@ -381,13 +314,13 @@ export const Projects: React.FC = () => {
       </div>
 
       <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-60px' }} className="grid gap-4 md:grid-cols-2">
-        {compactFeaturedProjects.map((project) => <CompactFeaturedCard key={project.id} project={project} />)}
+        {compactFeaturedProjects.map((project, index) => <CompactFeaturedCard key={project.id} project={project} index={index} />)}
       </motion.div>
 
       <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {regularFeaturedProjects.map((project) => {
-          const screenshot = project.title === 'Axiora' ? '/assets/images/axiora/home-dashboard.png' : project.title === 'GreenFlow AI' ? '/assets/images/greenflow-1.jpeg' : project.title === 'CrisisMesh' ? '/assets/images/greenflow-1.svg' : null;
-          return <article key={project.id} className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background-card transition-colors duration-200 hover:border-primary/60 motion-reduce:transition-none">
+          const screenshot = project.title === 'Axiora' ? '/assets/images/axiora/home-dashboard.png' : project.title === 'GreenFlow AI' ? '/assets/images/greenflow-1.jpeg' : null;
+          return <article key={project.id} className="project-card flex min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background-card transition-[transform,border-color] duration-200 hover:-translate-y-1 hover:border-primary/50 motion-reduce:transform-none motion-reduce:transition-none">
             <ProjectThumbnail src={screenshot} alt={`${project.title} project thumbnail`} title={project.title} category={project.category} />
             <div className="flex flex-1 flex-col p-4">
               <ProjectHeading title={project.title} category={project.category} />
@@ -397,6 +330,20 @@ export const Projects: React.FC = () => {
             </div>
           </article>;
         })}
+      </div>
+
+      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {prioritySecondaryProjects.map((project) => (
+          <article key={project.id} className="project-card flex min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background-card transition-[transform,border-color] duration-200 hover:-translate-y-1 hover:border-primary/50 motion-reduce:transform-none motion-reduce:transition-none">
+            <ProjectThumbnail src={null} alt={`${project.title} branded project thumbnail`} title={project.title} category={project.category} />
+            <div className="flex flex-1 flex-col p-4">
+              <ProjectHeading title={project.title} category={project.category} />
+              <p className="mt-2 line-clamp-3 text-sm leading-5 text-text-muted">{project.description}</p>
+              <ProjectTags tags={project.tags} />
+              <ProjectLinks links={project.links.filter((link) => link.url.startsWith('/') || /^https:\/\//.test(link.url))} />
+            </div>
+          </article>
+        ))}
       </div>
 
       <div className="mt-10 rounded-xl border border-border bg-background-card p-4 md:p-5">
@@ -472,9 +419,9 @@ export const Projects: React.FC = () => {
   );
 };
 
-function CompactFeaturedCard({ project }: { project: (typeof featuredProjects)[number] }) {
-  const screenshot = project.title === 'GreenFlow AI' ? project.images?.[0] || null : '/assets/images/greenflow-1.svg';
-  return <motion.article variants={itemVariants} className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-primary/25 bg-background-card transition-colors duration-200 hover:border-primary/60 motion-reduce:transition-none">
+function CompactFeaturedCard({ project, index }: { project: (typeof featuredProjects)[number]; index: number }) {
+  const screenshot = project.title === 'GreenFlow AI' ? project.images?.[0] || null : null;
+  return <motion.article custom={index} variants={itemVariants} whileHover={{ y: -3 }} className="project-card flex min-w-0 flex-col overflow-hidden rounded-xl border border-primary/25 bg-background-card transition-colors duration-200 hover:border-primary/55 motion-reduce:transition-none">
     <ProjectThumbnail src={screenshot} alt={`${project.title} project thumbnail`} title={project.title} category={project.category} featured />
     <div className="flex flex-1 flex-col p-4 md:p-5">
       <ProjectHeading title={project.title} category={project.category} />
@@ -486,12 +433,12 @@ function CompactFeaturedCard({ project }: { project: (typeof featuredProjects)[n
 }
 
 function ProjectThumbnail({ src, alt, title, category, featured = false }: { src: string | null; alt: string; title: string; category: string; featured?: boolean }) {
-  return <div className={`relative aspect-video overflow-hidden bg-background-elevated ${featured ? 'border-b border-primary/20' : 'border-b border-border'}`}>
-    {src ? <Image src={src} alt={alt} fill unoptimized sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" /> : <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(16,185,129,0.18),_transparent_55%),linear-gradient(135deg,_#171d1a,_#0d1110)]" role="img" aria-label={`${title} branded project thumbnail`} />}
+  return <div className={`project-thumbnail relative aspect-video overflow-hidden bg-background-elevated ${featured ? 'border-b border-primary/20' : 'border-b border-border'}`}>
+    {src ? <Image src={src} alt={alt} fill unoptimized sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" /> : <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(232,184,91,0.11),_transparent_55%),linear-gradient(135deg,_#191C24,_#10131A)]" role="img" aria-label={`${title} branded project thumbnail`} />}
     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" aria-hidden="true" />
     <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-3">
-      <div className="min-w-0"><span className="block truncate text-[10px] font-bold uppercase tracking-[0.14em] text-emerald-300">{category}</span><span className="mt-1 block truncate text-lg font-black tracking-tight text-white">{title}</span></div>
-      {featured && <span className="shrink-0 rounded-full border border-emerald-300/30 bg-black/40 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-emerald-200">Featured</span>}
+      <div className="min-w-0"><span className="block truncate text-[10px] font-bold uppercase tracking-[0.14em] text-primary/90">{category}</span><span className="mt-1 block truncate text-lg font-black tracking-tight text-text-primary">{title}</span></div>
+      {featured && <span className="shrink-0 rounded-full border border-primary/25 bg-background/70 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-primary">Featured</span>}
     </div>
   </div>;
 }

@@ -2,11 +2,20 @@
 
 ## Design Summary
 
-Continued the existing Pages Router redesign without changing frameworks, route structure, or project case studies. The visual direction remains cinematic charcoal with green and teal accents.
+Continued the existing Pages Router redesign without changing frameworks, routes, or the existing project index. Applied the Obsidian Gold direction: near-black canvas (`#0B0D12`), charcoal surfaces (`#191C24`), ivory typography (`#F2F0EB`), restrained gold accents (`#E8B85B`), muted metadata, and low-contrast borders. Rebuilt the hero as an editorial two-column composition using the existing portrait asset, compacted its copy, and kept the exact requested headline.
 
 ## Files Changed
 
 - `components/Projects.tsx` — replaced oversized carousel-style project cards with compact 16:9 featured and regular cards, concise descriptions, capped inline tags, valid action links, and an expandable filtered index of additional projects.
+- `tailwind.config.js`, `styles/globals.css` — centralized the Obsidian Gold palette, surfaces, borders, global background, focus, selection, scroll, and shared card styles.
+- `components/Hero.tsx` — replaced the capability-dashboard layout with an editorial portrait-and-copy hero, staged entrance, Explore Projects and View Resume actions, verified GitHub/LinkedIn links, and a prototype-qualified GreenFlow status.
+- `components/Navbar.tsx`, `components/ui/Button.tsx`, `components/ui/GlassCard.tsx`, `components/ui/Section.tsx` — added gold active navigation, keyboard focus, subtler button/card transitions, and shared once-only scroll reveals that keep SSR content visible until motion initializes.
+- `components/Projects.tsx`, `components/ProblemSolvingSecurity.tsx`, `components/About.tsx`, `components/Contact.tsx`, `components/ui/ImageModal.tsx` — updated remaining main-page accents and GreenFlow summary to the new palette and prototype language.
+- `components/crisismesh/CrisisMeshShowcase.tsx` — replaced inert dashboard controls and unsupported live-operation claims with a labeled static concept illustration, scope note, and working navigation/demo links.
+- `components/greenflow/GreenFlowShowcase.tsx` — retained the supplied GreenFlow screenshots and gallery while removing unsupported production, security, latency, and impact assertions; describes screens and integrations as prototype/unverified.
+- `components/hospital-attendance/HospitalAttendanceShowcase.tsx` — replaced unsupported security, biometric, performance, and deployment claims and references to missing screenshots with a transparent concept page; removed the unverified repository CTA.
+- `components/VisitorCounter.tsx` and `pages/api/visitor-count.ts` — removed file-based persistence, added method/body validation, no-cache responses, rate limits, and safe unavailable responses. Redis provides persistent shared counting and rate limiting; `VISITOR_COUNTER_URL` remains supported with a process-local best-effort rate limit.
+- `pages/crisis-mesh.tsx`, `pages/greenflow.tsx`, and `pages/hospital-attendance.tsx` — revised titles/descriptions to reflect prototype/concept status and kept page landmark structure valid.
 - `PORTFOLIO_REDESIGN_REPORT.md` — this report, including the project-card implementation and this turn's validation results.
 - `components/Hero.tsx` — exact “I build. I break. I secure.” headline, revised cybersecurity-focused description and CTAs, and subdued local portrait background.
 - `components/Navbar.tsx` — requested navigation destinations, ARPIT wordmark, and visible focus styling.
@@ -16,7 +25,7 @@ Continued the existing Pages Router redesign without changing frameworks, route 
 - `components/ThemeToggle.tsx` — reduced the floating control to a compact icon button after it overlapped hero capability cards in the narrow browser capture.
 - `PORTFOLIO_REDESIGN_REPORT.md` — this report.
 
-The four PNG deletions were already in the working tree when this continuation began. They exist in `HEAD` and Git history, but were not restored, preserving those user changes.
+The four PNG deletions were present in the working tree at the start of this audit. They exist in `HEAD` and Git history, but were not restored, preserving those user changes.
 
 ## Asset Repair
 
@@ -30,31 +39,33 @@ The Next.js production build lists `/`, `/axiora`, `/crisis-mesh`, `/eduai-nexus
 
 ## Responsive and Accessibility Review
 
-The project section now uses two featured columns at desktop/tablet widths and collapses to one column on mobile; its regular cards use one column by default, two at `sm`, and three at `lg`. All thumbnails use a 16:9 ratio, card copy is line-clamped to three lines, and technology tags are capped at four per card. CrisisMesh and GreenFlow AI lead in the featured row; EduAI Nexus X, CarePulse, Elevra, Axiora, and SafeGuard follow in the compact grid. NCC Buddy and Food Ordering System remain available in the expandable additional-project index, along with the other existing projects. The index filters remain available, and its initial state excludes projects already featured above.
+The project section uses a two-column CrisisMesh/GreenFlow featured row, a three-column regular grid on large screens, and compact additional-project cards. NCC Buddy and Food Ordering System now appear in the initial grid and are excluded from the additional-project list to avoid duplicates. Case-study cards continue to link to their existing routes. Cards without authentic project imagery use the branded fallback treatment.
 
-Action links are individual anchors with visible focus treatment and safe new-tab attributes for external destinations. Thumbnail images have descriptive alt text; cards without a corresponding screenshot use a restrained branded treatment instead of an unrelated photo. Hover transitions are restrained, and the card transitions respect reduced-motion preferences. TypeScript validation and diff whitespace checks passed. A new desktop/tablet/mobile browser review was not completed in this turn; the earlier report's browser limitations below still apply.
+Action links are individual anchors with visible focus treatment and safe new-tab attributes for external destinations. Thumbnail images have descriptive alt text; cards without a corresponding screenshot use a restrained branded treatment instead of an unrelated photo. Hover transitions are restrained, and card/image transitions respect reduced-motion preferences. Hero copy enters in a short stagger; portrait lighting drifts slowly on non-touch devices; major sections reveal once; project cards stagger and lift slightly. Coarse pointers disable portrait movement, and reduced-motion CSS disables these animations.
 
-The production page rendered in the in-app browser at a desktop-sized viewport. The exact hero headline, portrait treatment, navigation, project content, and CTA links were visible. The portrait remains on the opposing side of the copy and is darkened; the headline stays readable. An earlier narrow browser capture showed the original wide theme toggle overlaying the capability cards; that control is now a compact 44px icon button. A final mobile-sized screenshot after this change could not be obtained, and desktop/tablet widths were not systematically checked.
+The local production preview was inspected in the browser at the default desktop viewport and at 768×1024 (tablet) and a 390×844 device override (390px wide viewport). The accessibility tree showed NCC Buddy and Food Ordering System in the initial project grid, the prototype-qualified hero, and working mobile menu links; selecting Projects updated the hash and closed the menu. The browser reported `innerWidth=390` and `document.documentElement.scrollWidth=382` (no horizontal overflow). Desktop hero and project actions were visible in the accessibility tree. Keyboard-only traversal, screen-reader output, numeric contrast measurement, and emulated reduced-motion preference were not completed.
 
 Navigation remains anchor-based. Decorative hero layers use `aria-hidden`, and the hero retains a level-one heading. Keyboard focus styles are present in the navigation and theme toggle. Reduced-motion preferences disable the added ambient glow and global motion is reduced. Keyboard-only, screen-reader, contrast measurement, and system reduced-motion browser checks were not completed.
 
 ## Performance and SEO
 
-No dependencies or Next configuration were added. Existing metadata and routes were preserved. Existing canonical/social URLs were not independently verified. The build emitted a warning that the optional `@next/swc-darwin-arm64` package was unavailable; compilation and generation still succeeded.
+No dependency or deployment configuration was added. The repository has `netlify.toml` with the Netlify Next.js plugin but no confirmed custom domain or verified Netlify site assignment. The current canonical/OG/JSON-LD/robots/sitemap values still contain `arpitkumar.dev`; the live web fetch showed that domain presenting a different portfolio, so it is not safe to infer that it belongs to this deployment. Domain-dependent SEO changes remain pending the owner's verified production domain. The sitemap currently omits public case-study routes. Twitter card metadata has no URL field; its image remains a relative path pending the same domain decision.
+
+The visitor-count API no longer reads or writes `data/visitor-count.json`. Configure either `REDIS_URL` (recommended; persistent shared counter plus shared 20-requests/hour-per-address rate limit) or `VISITOR_COUNTER_URL` (an existing external service that accepts GET/POST and returns a non-negative integer `count`; rate limiting is process-local best effort in this mode). If neither service is configured or the configured service fails, the API returns 503 and the UI keeps its placeholder dash. No new service or credentials were introduced.
 
 ## Validation Results
 
-- `npx tsc --noEmit` after the project-card update — passed (exit code 0).
-- `git diff --check` after the project-card update — passed (exit code 0).
-- `npm run build` after the project-card update — compilation succeeded, but page-data collection failed with `listen EPERM` while Next.js 13.5.11 initialized its incremental-cache IPC listener on `0.0.0.0`. This is the same sandbox listener restriction described above; font download and optional SWC package warnings also appeared.
-- `npm run build` inside the sandbox — failed during page-data collection at Next.js 13.5.11 incremental-cache IPC setup: `listen EPERM`, `address: 0.0.0.0`. The stack runs through `createIpcServer` / `initialize` in Next's incremental-cache server. A direct Node loopback bind probe also failed with `listen EPERM` on `127.0.0.1`, demonstrating the sandbox restriction.
-- `npm run build` outside the sandbox — passed (exit code 0); all 10 static pages generated, routes listed above, and the visitor-count API was built. Google Fonts optimization was skipped because network access was unavailable in the earlier sandbox build; this did not block compilation.
+- `npx tsc --noEmit` after this update — passed (exit code 0).
+- `git diff --check` after this update — passed (exit code 0).
+- `npm run build` in the sandbox — compilation succeeded, then page-data collection failed at the sandbox `listen EPERM` IPC restriction.
+- `npm run build` with local IPC access — passed (exit code 0); generated `/`, `/axiora`, `/crisis-mesh`, `/eduai-nexus`, `/elevra`, `/greenflow`, `/hospital-attendance`, `/ncc-buddy`, and `/api/visitor-count`. Next warned that optional `@next/swc-darwin-arm64` was not installed and skipped Google Fonts optimization because the build environment could not fetch Google Fonts.
+- Automated tests — none are configured in `package.json`, and no test/spec files were found.
+- Browser checks — local production preview inspected at desktop, tablet (768×1024), and mobile (390px device override); homepage content, project visibility, mobile navigation, and no horizontal overflow verified. Reduced-motion emulation, keyboard-only, screen-reader, and contrast measurements remain incomplete.
 - Lint — not configured in `package.json` (no lint script).
-- Browser — production page opened and inspected in the Codex in-app browser at desktop size; a narrow viewport was viewed before the theme-toggle adjustment. Explicit viewport emulation was unavailable, so final mobile-specific verification remains incomplete.
 
 ## Remaining Issues and Next Steps
 
-- Repeat the production build outside the sandbox if a full static generation result is required; this turn's sandbox build stopped at the known IPC listener restriction after successful compilation.
-- Perform a final mobile-sized browser check (including 320px and 390px) and keyboard/reduced-motion checks when viewport emulation is available.
-- Review existing project case-study statements and canonical domain metadata separately; this continuation did not conduct a full site-wide evidence audit.
+- Confirm the verified production domain. Canonical/OG/JSON-LD URL, sitemap route list, and robots sitemap URL are intentionally pending that confirmation; current `arpitkumar.dev` values should not be treated as verified.
+- Set `REDIS_URL` or configure a compatible `VISITOR_COUNTER_URL` in the deployment environment if the visitor count should display. Without either, the route returns 503 and the UI shows a dash.
+- Complete keyboard-only, screen-reader, numeric contrast, and reduced-motion browser checks.
 - Keep the four original PNG deletions intact unless the repository owner asks to restore them. The live references now use existing GreenFlow assets.

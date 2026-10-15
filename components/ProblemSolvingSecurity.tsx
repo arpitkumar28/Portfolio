@@ -69,7 +69,7 @@ const profiles: Profile[] = [
 const repositories = [
   {
     name: 'GreenFlow AI',
-    description: 'Traffic intelligence, real-time workflows, and emergency green-corridor systems.',
+    description: 'A traffic dashboard prototype exploring congestion views and emergency corridor workflows.',
     href: 'https://github.com/arpitkumar28/Smart-Traffic-Management-System-with-Green-Corridor',
     tags: ['Next.js', 'FastAPI', 'Flutter'],
   },

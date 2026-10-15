@@ -6,12 +6,12 @@ export default function HospitalAttendancePage() {
   return (
     <>
       <Head>
-        <title>CarePulse | Hospital Attendance & Management System</title>
-        <meta name="description" content="CarePulse is a Flutter-focused hospital attendance and management project covering authentication, staff workflows, and backend integration." />
+        <title>CarePulse | Hospital Workflow Concept</title>
+        <meta name="description" content="CarePulse is a mobile-first concept for hospital attendance and staff workflow management." />
       </Head>
-      <main className="min-h-screen bg-background text-white">
+      <div className="min-h-screen bg-background text-white">
         <HospitalAttendanceShowcase />
-      </main>
+      </div>
     </>
   )
 }
