@@ -205,6 +205,20 @@ html { scroll-padding-top: 6rem; }
 
 section[id] { scroll-margin-top: 5.75rem; }
 
+/* Keep the supplied cybersecurity artwork as a restrained, readable site backdrop. */
+:root { --portfolio-backdrop-image: url('/assets/images/cybersecurity-background.webp'); }
+
+#home,
+.portfolio-content > div > section[id] {
+  background-image:
+    linear-gradient(rgb(var(--color-background) / 0.66), rgb(var(--color-background) / 0.78)),
+    var(--portfolio-backdrop-image);
+  background-repeat: no-repeat;
+  background-position: center, center;
+  background-size: cover, min(100vw, 100vh) auto;
+  background-attachment: scroll, fixed;
+}
+
 .portfolio-content > div > section + section { border-top: 1px solid rgba(242, 240, 235, 0.055); }
 
 .project-card {
