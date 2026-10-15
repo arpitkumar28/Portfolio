@@ -6,9 +6,11 @@ import { Menu, X, Download } from 'lucide-react';
 import { Button } from './ui/Button';
 
 const navItems = [
-  { name: 'Projects', href: '#projects' },
-  { name: 'Experience', href: '#journey' },
+  { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Cybersecurity', href: '#problem-solving-security' },
+  { name: 'Experience', href: '#journey' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -60,8 +62,8 @@ export const Navbar: React.FC = () => {
               className="group leading-none"
               aria-label="Arpit Kumar - Home"
             >
-              <span className="block text-xl md:text-2xl font-black tracking-wide text-primary transition-opacity group-hover:opacity-80">
-                Arpit Kumar
+                <span className="block text-xl md:text-2xl font-black tracking-wide text-text-primary transition-opacity group-hover:opacity-80">
+                ARPIT<span className="text-primary">.</span>
               </span>
             </a>
 
@@ -71,7 +73,7 @@ export const Navbar: React.FC = () => {
                   key={item.name}
                   href={item.href}
                   onClick={closeMenu}
-                  className={`text-sm font-medium transition-colors ${
+                  className={`rounded-sm text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                     activeSection === item.href.substring(1)
                       ? 'text-primary'
                       : 'text-text-muted hover:text-text-primary'
