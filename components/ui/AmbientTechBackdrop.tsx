@@ -22,7 +22,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 
-type BackdropVariant = 'hero' | 'projects';
+type BackdropVariant = 'hero' | 'projects' | 'page';
 
 const heroSymbols: Array<{ Icon: LucideIcon | null; className: string }> = [
   { Icon: Terminal, className: 'ambient-symbol-terminal' },
@@ -54,8 +54,17 @@ const projectSymbols: Array<{ Icon: LucideIcon; className: string }> = [
   { Icon: GitBranch, className: 'ambient-project-git' },
 ];
 
+const pageSymbols: Array<{ Icon: LucideIcon; className: string }> = [
+  { Icon: Terminal, className: 'ambient-project-code' },
+  { Icon: Shield, className: 'ambient-project-shield' },
+  { Icon: Network, className: 'ambient-project-git' },
+  { Icon: Database, className: 'ambient-project-database' },
+  { Icon: Fingerprint, className: 'ambient-project-fingerprint' },
+  { Icon: LockKeyhole, className: 'ambient-project-lock' },
+];
+
 export const AmbientTechBackdrop: React.FC<{ variant: BackdropVariant }> = ({ variant }) => {
-  const symbols = variant === 'hero' ? heroSymbols : projectSymbols;
+  const symbols = variant === 'hero' ? heroSymbols : variant === 'projects' ? projectSymbols : pageSymbols;
 
   return (
     <div className={`ambient-tech-backdrop ambient-tech-backdrop-${variant}`} aria-hidden="true">

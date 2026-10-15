@@ -13,6 +13,7 @@ import { Achievements } from '@/components/Achievements';
 import { Contact } from '@/components/Contact';
 import { BackToTop } from '@/components/ui/BackToTop';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { AmbientTechBackdrop } from '@/components/ui/AmbientTechBackdrop';
 import { ExternalLink } from 'lucide-react';
 import { VisitorCounter } from '@/components/VisitorCounter';
 
@@ -94,7 +95,8 @@ export default function Home() {
           }}
         />
       </Head>
-      <main id="main-content" className="min-h-screen bg-background text-text-primary">
+      <main id="main-content" className="portfolio-main min-h-screen bg-background text-text-primary">
+        <AmbientTechBackdrop variant="page" />
         <Navbar />
         <Hero />
 
