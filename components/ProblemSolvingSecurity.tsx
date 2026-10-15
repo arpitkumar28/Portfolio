@@ -56,7 +56,7 @@ const profiles: Profile[] = [
     name: 'Hack The Box',
     logo: '/assets/images/HTB.png',
     label: 'Security Labs',
-    description: 'Practical security labs, Sherlock investigations, enumeration, and defensive analysis.',
+    description: 'Security labs and Sherlock investigations for hands-on enumeration and defensive analysis.',
     tags: ['Security Labs', 'Sherlocks', 'Investigation'],
     href: 'https://profile.hackthebox.com/',
     cta: 'View Profile',

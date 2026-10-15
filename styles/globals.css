@@ -4,40 +4,29 @@
 
 @layer base {
   :root {
-    --color-background: 248 250 252;
-    --color-surface: 255 255 255;
-    --color-elevated: 241 245 249;
-    --color-card: 255 255 255;
-    --color-border: 226 232 240;
-    --color-primary: 13 148 136;
-    --color-text-primary: 15 23 42;
-    --color-text-secondary: 51 65 85;
-    --color-text-tertiary: 71 85 105;
-    --color-text-muted: 100 116 139;
-    --color-text-subtle: 148 163 184;
-    --color-text-disabled: 203 213 225;
+    --color-background: 7 11 13;
+    --color-surface: 11 18 21;
+    --color-elevated: 20 35 41;
+    --color-card: 16 27 32;
+    --color-border: 52 72 77;
+    --color-primary: 57 220 151;
+    --color-text-primary: 241 247 248;
+    --color-text-secondary: 195 211 214;
+    --color-text-tertiary: 164 184 190;
+    --color-text-muted: 142 163 169;
+    --color-text-subtle: 113 133 139;
+    --color-text-disabled: 76 94 100;
   }
 
-  .dark {
-    --color-background: 9 27 35;
-    --color-surface: 13 38 48;
-    --color-elevated: 19 55 64;
-    --color-card: 16 47 57;
-    --color-border: 39 85 91;
-    --color-primary: 45 212 191;
-    --color-text-primary: 240 253 250;
-    --color-text-secondary: 204 251 241;
-    --color-text-tertiary: 153 246 228;
-    --color-text-muted: 148 190 188;
-    --color-text-subtle: 94 141 143;
-    --color-text-disabled: 67 105 110;
-  }
+  .dark { color-scheme: dark; }
 
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  :root { color-scheme: dark; }
   
   @media (prefers-reduced-motion: reduce) {
     html {
@@ -56,12 +45,10 @@
   body {
     @apply bg-background text-text-primary font-sans;
     background:
-      linear-gradient(rgb(var(--color-border) / 0.18) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(var(--color-border) / 0.18) 1px, transparent 1px),
-      radial-gradient(circle at 12% 8%, rgb(var(--color-primary) / 0.18), transparent 28rem),
-      radial-gradient(circle at 88% 34%, rgb(245 158 11 / 0.12), transparent 24rem),
+      radial-gradient(ellipse at 8% 3%, rgb(32 217 194 / 0.08), transparent 34rem),
+      radial-gradient(ellipse at 92% 24%, rgb(57 255 136 / 0.055), transparent 32rem),
       rgb(var(--color-background));
-    background-size: 48px 48px, 48px 48px, auto, auto;
+    background-size: auto;
     background-position: center top;
     transition: background-color 200ms ease, color 200ms ease;
   }
@@ -90,6 +77,27 @@
     background-color: theme('colors.primary.500');
     color: white;
   }
+}
+
+.site-grid {
+  background-image: linear-gradient(rgb(175 210 214 / 0.035) 1px, transparent 1px), linear-gradient(90deg, rgb(175 210 214 / 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+.shadow-figure {
+  background-image: linear-gradient(90deg, rgb(7 11 13 / 0.2), rgb(7 11 13 / 0.12)), url('/assets/images/photo2.jpeg');
+  background-size: cover;
+  background-position: center 28%;
+  filter: grayscale(1) brightness(0.34) contrast(1.2);
+  mask-image: radial-gradient(ellipse at 55% 42%, black 18%, transparent 72%);
+}
+
+.hero-glow { animation: ambient-drift 18s ease-in-out infinite alternate; }
+@keyframes ambient-drift { from { transform: translate3d(-1%, 0, 0) scale(1); opacity: .55; } to { transform: translate3d(1%, 2%, 0) scale(1.08); opacity: .8; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow { animation: none !important; }
 }
 
 @layer utilities {
