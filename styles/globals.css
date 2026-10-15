@@ -402,6 +402,26 @@ button:not(:disabled), a[href] { cursor: pointer; }
   background-size: 72px 72px;
   mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 86%, transparent);
 }
+.ambient-tech-backdrop-page {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  opacity: .34;
+}
+.ambient-tech-backdrop-page .ambient-network-lines { opacity: .44; }
+.ambient-tech-backdrop-page .ambient-particles span { width: 2px; height: 2px; opacity: .45; }
+.ambient-tech-backdrop-page .ambient-symbol { opacity: .19; animation-duration: 16s; }
+.ambient-project-fingerprint { left: 69%; top: 44%; width: 22px; height: 22px; }
+.ambient-project-lock { left: 31%; bottom: 19%; width: 20px; height: 20px; }
+.ambient-tech-backdrop-page .ambient-project-code { left: 12%; top: 19%; }
+.ambient-tech-backdrop-page .ambient-project-shield { right: 10%; top: 32%; }
+.ambient-tech-backdrop-page .ambient-project-git { left: 82%; bottom: 22%; }
+.ambient-tech-backdrop-page .ambient-project-database { left: 18%; bottom: 25%; right: auto; }
+.ambient-tech-backdrop-page .ambient-project-fingerprint { left: 74%; top: 67%; }
+.ambient-tech-backdrop-page .ambient-project-lock { left: 43%; bottom: 12%; }
+.portfolio-main { position: relative; isolation: isolate; }
+.portfolio-main > .ambient-tech-backdrop-page { z-index: -1; }
+.portfolio-main .ambient-section > .ambient-tech-backdrop { z-index: 0; }
 .ambient-orbit {
   position: absolute;
   left: 72%;
@@ -527,6 +547,8 @@ button:not(:disabled), a[href] { cursor: pointer; }
   .ambient-symbol-laptop, .ambient-symbol-scan, .ambient-symbol-workflow,
   .ambient-symbol-cloud { display: grid; width: 17px; height: 17px; opacity: .24; }
   .ambient-particles span:nth-child(n+7) { display: none; }
+  .ambient-tech-backdrop-page { opacity: .24; }
+  .ambient-tech-backdrop-page .ambient-symbol { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .ambient-orbit, .ambient-network-lines path, .ambient-particles span, .ambient-symbol { animation: none !important; }
