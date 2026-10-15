@@ -263,22 +263,22 @@ const filters = [
 ];
 
 const projectArtworks: Record<string, string> = {
-  'CrisisMesh': '/assets/images/project-crisismesh.svg',
-  'GreenFlow AI': '/assets/images/greenflow-1.jpeg',
-  'EduAI Nexus X': '/assets/images/project-eduai-nexus-x.svg',
-  'CarePulse': '/assets/images/project-carepulse.svg',
-  'SafeGuard': '/assets/images/project-safeguard.svg',
-  'Elevra': '/assets/images/project-elevra.svg',
-  'Axiora': '/assets/images/axiora/home-dashboard.png',
-  'SamparkSetu': '/assets/images/project-samparksetu.svg',
-  'NCC Buddy': '/assets/images/project-ncc-buddy.svg',
-  'Hospital Management System': '/assets/images/project-hospital-management-system.svg',
-  'Food Ordering System': '/assets/images/project-food-ordering-system.svg',
-  'Sports Media Protection': '/assets/images/project-sports-media-protection.svg',
-  'Krishi Backend': '/assets/images/project-krishi-backend.svg',
-  'IoT Vehicle Tracking System': '/assets/images/project-iot-vehicle-tracking-system.svg',
-  'New Safe Route': '/assets/images/project-new-safe-route.svg',
-  'Python Automation Projects': '/assets/images/project-python-automation-projects.svg',
+  'CrisisMesh': '/assets/images/project-cards/crisismesh.jpg',
+  'GreenFlow AI': '/assets/images/project-cards/greenflow-ai.jpg',
+  'EduAI Nexus X': '/assets/images/project-cards/eduai-nexus.jpg',
+  'CarePulse': '/assets/images/project-cards/carepulse.jpg',
+  'SafeGuard': '/assets/images/project-cards/safeguard.jpg',
+  'Elevra': '/assets/images/project-cards/elevra.jpg',
+  'Axiora': '/assets/images/project-cards/axiora.jpg',
+  'SamparkSetu': '/assets/images/project-cards/samparksetu.jpg',
+  'NCC Buddy': '/assets/images/project-cards/ncc-buddy.jpg',
+  'Hospital Management System': '/assets/images/project-cards/hospital-management.jpg',
+  'Food Ordering System': '/assets/images/project-cards/food-ordering.jpg',
+  'Sports Media Protection': '/assets/images/project-cards/sports-media.jpg',
+  'Krishi Backend': '/assets/images/project-cards/krishi-backend.jpg',
+  'IoT Vehicle Tracking System': '/assets/images/project-cards/iot-tracking.jpg',
+  'New Safe Route': '/assets/images/project-cards/safe-route.jpg',
+  'Python Automation Projects': '/assets/images/project-cards/python-automation.jpg',
 };
 
 const projectIcons: Record<string, LucideIcon> = {
@@ -472,7 +472,7 @@ function CompactFeaturedCard({ project, index }: { project: (typeof featuredProj
 function ProjectThumbnail({ src, alt, title, category, featured = false }: { src: string | null; alt: string; title: string; category: string; featured?: boolean }) {
   const ProjectIcon = projectIcons[title] || Code2;
   return <div className={`project-thumbnail group/thumb relative aspect-video overflow-hidden bg-background-elevated ${featured ? 'border-b border-primary/20' : 'border-b border-border'}`}>
-    {src ? <Image src={src} alt={alt} fill unoptimized sizes="(max-width: 768px) 100vw, 50vw" className="project-artwork object-cover" /> : <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(232,184,91,0.11),_transparent_55%),linear-gradient(135deg,_#191C24,_#10131A)]" role="img" aria-label={`${title} branded project thumbnail`} />}
+    {src ? <Image src={src} alt={alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="project-artwork object-cover" /> : <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(232,184,91,0.11),_transparent_55%),linear-gradient(135deg,_#191C24,_#10131A)]" role="img" aria-label={`${title} branded project thumbnail`} />}
     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" aria-hidden="true" />
     <span className="project-icon-chip absolute right-3 top-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-primary/40 bg-background/80 text-primary backdrop-blur-sm" aria-hidden="true"><ProjectIcon className="h-5 w-5" strokeWidth={1.8} /></span>
     <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-3">
