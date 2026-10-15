@@ -3,32 +3,47 @@
 import React, { useEffect, useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
 
+type Theme = 'dark' | 'light';
+
+function applyTheme(theme: Theme) {
+  const root = document.documentElement;
+  root.classList.toggle('dark', theme === 'dark');
+  root.classList.toggle('light', theme === 'light');
+  root.style.colorScheme = theme;
+}
+
 export const ThemeToggle: React.FC = () => {
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [theme, setTheme] = useState<Theme>('dark');
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const storedTheme = window.localStorage.getItem('portfolio-theme') as 'dark' | 'light' | null;
-    const preferredTheme = storedTheme || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-    setTheme(preferredTheme);
-    document.documentElement.classList.toggle('dark', preferredTheme === 'dark');
+    const saved = window.localStorage.getItem('portfolio-theme');
+    const initial: Theme = saved === 'light' || saved === 'dark'
+      ? saved
+      : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    setTheme(initial);
+    applyTheme(initial);
+    setReady(true);
   }, []);
 
   const toggleTheme = () => {
-    const nextTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(nextTheme);
-    window.localStorage.setItem('portfolio-theme', nextTheme);
-    document.documentElement.classList.toggle('dark', nextTheme === 'dark');
+    const next: Theme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+    applyTheme(next);
+    window.localStorage.setItem('portfolio-theme', next);
   };
 
   return (
     <button
       type="button"
       onClick={toggleTheme}
-      className="fixed bottom-4 right-4 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background-card/95 text-text-secondary shadow-lg backdrop-blur transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:bottom-6 sm:right-6"
-      aria-label={`Switch to ${theme === 'dark' ? 'day' : 'night'} mode`}
-      title={`Switch to ${theme === 'dark' ? 'day' : 'night'} mode`}
+      className="theme-toggle fixed bottom-4 right-4 z-50 inline-flex h-12 items-center justify-center gap-2 rounded-full border border-border bg-background-card/95 px-4 text-text-primary shadow-lg backdrop-blur-xl transition-all duration-300 hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:bottom-6 sm:right-6"
+      aria-label={ready ? `Switch to ${theme === 'dark' ? 'light' : 'dark'} theme` : 'Toggle colour theme'}
+      title={ready ? `Switch to ${theme === 'dark' ? 'light' : 'dark'} theme` : 'Toggle colour theme'}
+      aria-pressed={theme === 'light'}
     >
-      {theme === 'dark' ? <Moon className="h-5 w-5" aria-hidden="true" /> : <Sun className="h-5 w-5" aria-hidden="true" />}
+      {theme === 'dark' ? <Sun className="h-4 w-4" aria-hidden="true" /> : <Moon className="h-4 w-4" aria-hidden="true" />}
+      <span className="text-xs font-semibold">{theme === 'dark' ? 'Light' : 'Dark'}</span>
     </button>
   );
 };

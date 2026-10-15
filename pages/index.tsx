@@ -23,35 +23,35 @@ export default function Home() {
         <title>Arpit Kumar | Cybersecurity-Focused Software Engineer</title>
         <meta name="description" content="Arpit Kumar is a cybersecurity-focused software engineer building secure, scalable web and mobile products, AI-powered systems, and real-time platforms." />
         <link rel="canonical" href="https://arpitkumar.dev" />
-        
+
         {/* Open Graph */}
         <meta property="og:title" content="Arpit Kumar | Cybersecurity-Focused Software Engineer" />
         <meta property="og:description" content="Security-minded software engineer building secure web, mobile, AI, backend, and real-time systems." />
-        <meta property="og:image" content="/assets/images/photo2.jpeg" />
+        <meta property="og:image" content="/assets/images/arpit-profile.webp" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://arpitkumar.dev" />
         <meta property="og:site_name" content="Arpit Kumar Portfolio" />
         <meta property="og:locale" content="en_US" />
-        
+
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@Arpit_patel28" />
         <meta name="twitter:creator" content="@Arpit_patel28" />
         <meta name="twitter:title" content="Arpit Kumar — Cybersecurity-Focused Software Engineer" />
         <meta name="twitter:description" content="Cybersecurity-focused software engineer building web, mobile, AI, backend, and real-time systems." />
-        <meta name="twitter:image" content="/assets/images/photo2.jpeg" />
-        
+        <meta name="twitter:image" content="/assets/images/arpit-profile.webp" />
+
         {/* Mobile optimization */}
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="theme-color" content="#0a0a0a" />
-        
+        <meta name="theme-color" content="#0B0D12" />
+
         {/* Additional SEO */}
         <meta name="keywords" content="Arpit Kumar, Software Engineer, Flutter, mobile development, React, Next.js, TypeScript, Python, AI, full-stack, real-time systems, cybersecurity" />
         <meta name="author" content="Arpit Kumar" />
         <meta name="robots" content="index, follow" />
-        
+
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
@@ -97,10 +97,10 @@ export default function Home() {
       <main id="main-content" className="min-h-screen bg-background text-text-primary">
         <Navbar />
         <Hero />
-        
+
         {/* Main Content Layout */}
-        <div className="mx-auto max-w-7xl px-4 py-10 md:px-8 lg:py-14">
-          <div className="space-y-12 lg:space-y-16">
+        <div className="portfolio-content mx-auto max-w-7xl px-4 py-2 md:px-8 lg:py-4">
+          <div className="space-y-0">
             <Projects />
             <WhatIBuild />
             <ProblemSolvingSecurity />
@@ -112,7 +112,7 @@ export default function Home() {
             <Contact />
           </div>
         </div>
-        
+
         <footer className="relative overflow-hidden border-t border-border bg-background-card py-12 md:py-16">
           <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
           <div className="absolute -bottom-40 left-1/3 h-80 w-80 rounded-full bg-amber-400/10 blur-3xl" />

@@ -64,14 +64,14 @@ export const About: React.FC = () => {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[360px_1fr] xl:grid-cols-[420px_1fr]">
           <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
-            <div className="rounded-[1.6rem] border border-primary/30 bg-background-card shadow-2xl shadow-black/25">
+            <div className="group rounded-[1.6rem] border border-primary/30 bg-background-card shadow-2xl shadow-black/25">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[1.6rem]">
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-100 via-slate-200 to-background dark:from-slate-900 dark:via-slate-800 dark:to-background" />
                 <Image
-                  src="/assets/images/photo2.jpeg"
+                  src="/assets/images/arpit-profile.webp"
                   alt="Portrait of Arpit Kumar"
                   fill
-                  className="object-contain object-top grayscale contrast-110"
+                  className="object-cover object-[center_22%] grayscale contrast-110 transition-[filter,transform] duration-700 ease-out group-hover:grayscale-0 group-hover:scale-[1.025] motion-reduce:transition-none"
                   sizes="(min-width: 1024px) 420px, 100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />

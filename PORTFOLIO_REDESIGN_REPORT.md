@@ -14,7 +14,7 @@ Continued the existing Pages Router redesign without changing frameworks, routes
 - `components/crisismesh/CrisisMeshShowcase.tsx` — replaced inert dashboard controls and unsupported live-operation claims with a labeled static concept illustration, scope note, and working navigation/demo links.
 - `components/greenflow/GreenFlowShowcase.tsx` — retained the supplied GreenFlow screenshots and gallery while removing unsupported production, security, latency, and impact assertions; describes screens and integrations as prototype/unverified.
 - `components/hospital-attendance/HospitalAttendanceShowcase.tsx` — replaced unsupported security, biometric, performance, and deployment claims and references to missing screenshots with a transparent concept page; removed the unverified repository CTA.
-- `components/VisitorCounter.tsx` and `pages/api/visitor-count.ts` — removed file-based persistence, added method/body validation, no-cache responses, rate limits, and safe unavailable responses. Redis provides persistent shared counting and rate limiting; `VISITOR_COUNTER_URL` remains supported with a process-local best-effort rate limit.
+- `components/VisitorCounter.tsx` and `pages/api/visitor-count.ts` — use a persistent Redis counter, atomically deduplicate page views per browser-tab session, apply a shared Redis rate limit, validate input and methods, and safely show an unavailable state when Redis is not configured.
 - `pages/crisis-mesh.tsx`, `pages/greenflow.tsx`, and `pages/hospital-attendance.tsx` — revised titles/descriptions to reflect prototype/concept status and kept page landmark structure valid.
 - `PORTFOLIO_REDESIGN_REPORT.md` — this report, including the project-card implementation and this turn's validation results.
 - `components/Hero.tsx` — exact “I build. I break. I secure.” headline, revised cybersecurity-focused description and CTAs, and subdued local portrait background.
@@ -51,7 +51,7 @@ Navigation remains anchor-based. Decorative hero layers use `aria-hidden`, and t
 
 No dependency or deployment configuration was added. The repository has `netlify.toml` with the Netlify Next.js plugin but no confirmed custom domain or verified Netlify site assignment. The current canonical/OG/JSON-LD/robots/sitemap values still contain `arpitkumar.dev`; the live web fetch showed that domain presenting a different portfolio, so it is not safe to infer that it belongs to this deployment. Domain-dependent SEO changes remain pending the owner's verified production domain. The sitemap currently omits public case-study routes. Twitter card metadata has no URL field; its image remains a relative path pending the same domain decision.
 
-The visitor-count API no longer reads or writes `data/visitor-count.json`. Configure either `REDIS_URL` (recommended; persistent shared counter plus shared 20-requests/hour-per-address rate limit) or `VISITOR_COUNTER_URL` (an existing external service that accepts GET/POST and returns a non-negative integer `count`; rate limiting is process-local best effort in this mode). If neither service is configured or the configured service fails, the API returns 503 and the UI keeps its placeholder dash. No new service or credentials were introduced.
+The visitor-count API does not read or write `data/visitor-count.json`. Configure `REDIS_URL` for a persistent shared count, atomic page-view increment and session deduplication, and a shared 20-increments/hour-per-hashed-address rate limit. The UI shows an em dash if Redis is unavailable or has no existing `visitor:count` key. Existing production data is preserved; the route never initializes or resets the counter. See `README.md` for Vercel environment configuration and the page-view policy.
 
 ## Validation Results
 
@@ -66,6 +66,23 @@ The visitor-count API no longer reads or writes `data/visitor-count.json`. Confi
 ## Remaining Issues and Next Steps
 
 - Confirm the verified production domain. Canonical/OG/JSON-LD URL, sitemap route list, and robots sitemap URL are intentionally pending that confirmation; current `arpitkumar.dev` values should not be treated as verified.
-- Set `REDIS_URL` or configure a compatible `VISITOR_COUNTER_URL` in the deployment environment if the visitor count should display. Without either, the route returns 503 and the UI shows a dash.
+- Set `REDIS_URL` in Vercel for each deployment environment that should display the visitor count. Without a working Redis URL and existing `visitor:count` key, the route returns 503 and the UI shows a dash.
 - Complete keyboard-only, screen-reader, numeric contrast, and reduced-motion browser checks.
 - Keep the four original PNG deletions intact unless the repository owner asks to restore them. The live references now use existing GreenFlow assets.
+
+## Follow-up Visual Refinement — Current Palette Preserved
+
+Kept the existing Obsidian Gold colour identity unchanged; the owner confirmed that the current colour direction works. Refined the page rhythm and interaction details rather than introducing another palette:
+
+- Reduced excess vertical spacing between homepage sections so the page reads as one intentional editorial experience.
+- Added a very subtle fixed grain texture, consistent premium easing tokens, and softer project-card shadows.
+- Improved project screenshot hover treatment with restrained zoom and contrast changes; disabled those transitions for reduced-motion users.
+- Changed the additional-project index to show three relevant items initially, with an explicit count to expand the rest. The six primary projects remain excluded from the expandable list, preventing NCC Buddy and Food Ordering System from appearing twice.
+- Improved the active project-filter contrast by using the dark background colour on the gold selected state.
+- Updated the browser theme colour to match the existing `#0B0D12` background.
+
+Validation for this follow-up:
+- `node node_modules/typescript/bin/tsc --noEmit` — passed.
+- Whitespace check on the modified source/report files — passed (no trailing whitespace found).
+- `next build` — blocked before compilation because the archive lacks the platform-specific Next.js SWC binary and the environment could not reach `registry.npmjs.org` to download it. This is an environment/dependency limitation, not a confirmed application build error.
+- Visual browser inspection — not performed in this environment.
