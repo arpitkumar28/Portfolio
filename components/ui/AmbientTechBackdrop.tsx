@@ -1,6 +1,13 @@
 import React from 'react';
 import {
   Bug,
+  Braces,
+  Fingerprint,
+  KeyRound,
+  Laptop,
+  ScanLine,
+  Workflow,
+  Cloud,
   Code2,
   Cpu,
   Database,
@@ -31,6 +38,13 @@ const heroSymbols: Array<{ Icon: LucideIcon | null; className: string }> = [
   { Icon: Cpu, className: 'ambient-symbol-cpu' },
   { Icon: Wrench, className: 'ambient-symbol-tools' },
   { Icon: null, className: 'ambient-symbol-github' },
+  { Icon: Braces, className: 'ambient-symbol-braces' },
+  { Icon: Fingerprint, className: 'ambient-symbol-fingerprint' },
+  { Icon: KeyRound, className: 'ambient-symbol-key' },
+  { Icon: Laptop, className: 'ambient-symbol-laptop' },
+  { Icon: ScanLine, className: 'ambient-symbol-scan' },
+  { Icon: Workflow, className: 'ambient-symbol-workflow' },
+  { Icon: Cloud, className: 'ambient-symbol-cloud' },
 ];
 
 const projectSymbols: Array<{ Icon: LucideIcon; className: string }> = [
