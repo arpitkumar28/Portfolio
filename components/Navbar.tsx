@@ -48,7 +48,7 @@ export const Navbar: React.FC = () => {
         animate={{ y: 0 }}
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-background/90 backdrop-blur-md border-b border-border'
+          ? 'bg-background/90 backdrop-blur-md border-b border-border/80'
             : 'bg-transparent'
         }`}
         role="navigation"
@@ -73,13 +73,15 @@ export const Navbar: React.FC = () => {
                   key={item.name}
                   href={item.href}
                   onClick={closeMenu}
-                  className={`rounded-sm text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                  className={`relative rounded-sm py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                     activeSection === item.href.substring(1)
                       ? 'text-primary'
                       : 'text-text-muted hover:text-text-primary'
                   }`}
+                  aria-current={activeSection === item.href.substring(1) ? 'location' : undefined}
                 >
                   {item.name}
+                  {activeSection === item.href.substring(1) && <motion.span layoutId="active-nav-indicator" className="absolute -bottom-1 left-0 right-0 h-px bg-primary" transition={{ duration: 0.25 }} />}
                 </a>
               ))}
               <Button
@@ -96,7 +98,7 @@ export const Navbar: React.FC = () => {
 
             <div className="flex items-center gap-2 md:hidden">
               <button
-                className="p-2 rounded-lg hover:bg-background-elevated transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                className="rounded-lg p-2 transition-colors hover:bg-background-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isMobileMenuOpen}
@@ -116,7 +118,8 @@ export const Navbar: React.FC = () => {
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden bg-background/95 backdrop-blur-md border-b border-border"
               id="mobile-menu"
-              role="menu"
+              role="region"
+              aria-label="Mobile navigation"
             >
               <div className="px-4 py-6 space-y-2">
                 {navItems.map((item) => (
@@ -129,7 +132,6 @@ export const Navbar: React.FC = () => {
                         ? 'text-primary'
                         : 'text-text-muted hover:text-text-primary'
                     }`}
-                    role="menuitem"
                     aria-current={activeSection === item.href.substring(1) ? 'page' : undefined}
                   >
                     {item.name}

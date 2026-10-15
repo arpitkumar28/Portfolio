@@ -6,12 +6,12 @@ export default function GreenflowPage() {
   return (
     <>
       <Head>
-        <title>GreenFlow AI | Traffic Intelligence & Emergency Green Corridor</title>
-        <meta name="description" content="GreenFlow AI explores traffic monitoring, map-based visualization, real-time communication, and emergency green-corridor workflows." />
+        <title>GreenFlow AI | Traffic Intelligence Prototype</title>
+        <meta name="description" content="GreenFlow AI is a traffic dashboard and emergency green-corridor workflow concept shown through interface screenshots." />
       </Head>
-      <main className="min-h-screen bg-[#061225]">
+      <div className="min-h-screen bg-[#061225]">
         <GreenFlowShowcase />
-      </main>
+      </div>
     </>
   )
 }

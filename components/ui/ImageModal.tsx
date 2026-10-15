@@ -27,7 +27,7 @@ export default function ImageModal({ src, alt, onClose }: Props) {
       <div className="relative max-w-5xl max-h-[90vh] w-full" onClick={(e) => e.stopPropagation()}>
         <button
           onClick={onClose}
-          className="absolute -top-12 right-0 text-white hover:text-cyan-400 transition-colors"
+          className="absolute -top-12 right-0 text-white transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           aria-label="Close image preview"
           type="button"
         >

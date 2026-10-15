@@ -45,14 +45,14 @@ export const Contact: React.FC = () => {
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             <a
               href="mailto:arpitkumar0211@gmail.com"
-              className="group flex items-center justify-between rounded-xl bg-primary px-6 py-7 text-white transition-transform hover:-translate-y-1"
+              className="group flex items-center justify-between rounded-xl bg-primary px-6 py-7 text-background transition-transform hover:-translate-y-1 motion-reduce:transition-none"
             >
               <span className="flex items-center gap-5">
                 <span className="flex h-14 w-14 items-center justify-center rounded-lg bg-white/10">
                   <Mail className="h-7 w-7" />
                 </span>
                 <span>
-                  <span className="block font-mono text-xs font-black uppercase tracking-[0.18em] text-blue-100">Direct Channel</span>
+                  <span className="block font-mono text-xs font-black uppercase tracking-[0.18em] text-background/75">Direct Channel</span>
                   <span className="mt-2 block text-2xl font-black">Start a Conversation</span>
                 </span>
               </span>
