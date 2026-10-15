@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, ArrowRight, Play, ShieldCheck, Activity, BrainCircuit, Smartphone, Sprout, MapPin, Code2, GraduationCap, HeartPulse, Siren, BookOpen, Building2, Utensils, CarFront, Network, type LucideIcon } from 'lucide-react';
 import Image from 'next/image';
 import { Section, SectionTitle } from './ui/Section';
+import { AmbientTechBackdrop } from './ui/AmbientTechBackdrop';
 
 const featuredProjects = [
   {
@@ -333,7 +334,8 @@ export const Projects: React.FC = () => {
   };
 
   return (
-    <Section id="projects" className="bg-background py-16 md:py-20">
+    <Section id="projects" className="ambient-section bg-background py-16 md:py-20">
+      <AmbientTechBackdrop variant="projects" />
       <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="font-mono text-xs font-bold uppercase tracking-wider text-primary">Selected systems</p>
