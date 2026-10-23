@@ -68,6 +68,12 @@ const profiles: Profile[] = [
 
 const repositories = [
   {
+    name: 'SOC Log Analyzer',
+    description: 'A Python CLI for reviewing Linux SSH authentication logs, counting login events, flagging repeated failures, and exporting CSV reports.',
+    href: 'https://github.com/arpitkumar28/soc-log-analyzer',
+    tags: ['Python', 'Linux', 'SSH Authentication', 'CSV'],
+  },
+  {
     name: 'GreenFlow AI',
     description: 'A traffic dashboard prototype exploring congestion views and emergency corridor workflows.',
     href: 'https://github.com/arpitkumar28/Smart-Traffic-Management-System-with-Green-Corridor',
@@ -163,7 +169,7 @@ export const ProblemSolvingSecurity: React.FC = () => {
 
         <div className="mt-16 border-t border-border pt-12">
           <div className="mb-7 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"><div><p className="flex items-center gap-2 font-mono text-xs font-black uppercase tracking-[0.22em] text-primary"><GitHubIcon className="h-4 w-4" aria-hidden="true" /> Engineering proof</p><h3 className="mt-3 text-3xl font-black text-text-primary">Built in public.</h3><p className="mt-3 text-base font-medium leading-relaxed text-text-muted">Real projects, experiments, and source code behind the work.</p></div><a href="https://github.com/arpitkumar28" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-black text-primary hover:text-text-primary">View GitHub profile <ExternalLink className="h-4 w-4" aria-hidden="true" /></a></div>
-          <div className="grid gap-4 md:grid-cols-2">{repositories.map((repository) => <a key={repository.name} href={repository.href} target="_blank" rel="noopener noreferrer" aria-label={`View ${repository.name} repository on GitHub`} className="group rounded-2xl border border-border bg-background-card p-6 transition-all hover:-translate-y-1 hover:border-primary/60 hover:shadow-lg hover:shadow-primary/10 focus-visible:-translate-y-1"><div className="flex items-start justify-between gap-4"><h4 className="text-xl font-black text-text-primary group-hover:text-primary">{repository.name}</h4><ExternalLink className="h-5 w-5 text-text-muted group-hover:text-primary" aria-hidden="true" /></div><p className="mt-3 text-sm font-medium leading-relaxed text-text-muted">{repository.description}</p><div className="mt-5 flex flex-wrap gap-2">{repository.tags.map((tag) => <span key={tag} className="rounded-md bg-background-elevated px-2.5 py-1.5 font-mono text-[11px] font-black text-text-muted">{tag}</span>)}</div></a>)}</div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{repositories.map((repository) => <a key={repository.name} href={repository.href} target="_blank" rel="noopener noreferrer" aria-label={`View ${repository.name} repository on GitHub`} className="group rounded-2xl border border-border bg-background-card p-6 transition-all hover:-translate-y-1 hover:border-primary/60 hover:shadow-lg hover:shadow-primary/10 focus-visible:-translate-y-1"><div className="flex items-start justify-between gap-4"><h4 className="text-xl font-black text-text-primary group-hover:text-primary">{repository.name}</h4><ExternalLink className="h-5 w-5 text-text-muted group-hover:text-primary" aria-hidden="true" /></div><p className="mt-3 text-sm font-medium leading-relaxed text-text-muted">{repository.description}</p><div className="mt-5 flex flex-wrap gap-2">{repository.tags.map((tag) => <span key={tag} className="rounded-md bg-background-elevated px-2.5 py-1.5 font-mono text-[11px] font-black text-text-muted">{tag}</span>)}</div></a>)}</div>
         </div>
 
         <div className="mt-10 grid gap-4 md:grid-cols-2">
