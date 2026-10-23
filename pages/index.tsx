@@ -104,8 +104,8 @@ export default function Home() {
         <div className="portfolio-content mx-auto max-w-7xl px-4 py-2 md:px-8 lg:py-4">
           <div className="space-y-0">
             <Projects />
-            <WhatIBuild />
             <ProblemSolvingSecurity />
+            <WhatIBuild />
             <Journey />
             <Education />
             <About />

@@ -128,43 +128,18 @@ const featuredProjects = [
     role: 'Full Stack Developer',
     timeline: '3 months',
   },
-  {
-    id: 14,
-    title: 'CarePulse',
-    subtitle: 'Hospital attendance and staff workflow concept',
-    category: 'Healthcare Technology',
-    problem: 'Hospital staff workflows may benefit from a clear mobile attendance experience.',
-    solution: 'A mobile-first project concept. This repository does not contain app source or evidence of connected identity, location, attendance, or backend services.',
-    result: 'No deployment or measured operational outcome is claimed.',
-    features: ['Attendance workflow concept', 'Mobile-first interaction design', 'Possible backend integration'],
-    techStack: ['Flutter', 'Dart', 'Riverpod', 'Firebase', 'FastAPI', 'PostgreSQL', 'Prisma', 'REST APIs'],
-    links: [
-      { label: 'View Case Study', url: '/hospital-attendance', icon: ArrowRight },
-    ],
-    featured: true,
-    status: 'Project',
-    role: 'Flutter Developer',
-    timeline: 'Project-based',
-  },
-  {
-    id: 15,
-    title: 'SafeGuard',
-    subtitle: 'AI-Powered Safety Navigation & Deterrent System',
-    category: 'Safety Technology',
-    problem: 'People need clearer safety context when making route and navigation decisions.',
-    solution: 'Worked on a Flutter mobile experience with location-aware functionality, navigation, and AI-assisted safety recommendations.',
-    result: 'A safety-navigation concept focused on intelligent route decisions and emergency workflows.',
-    features: ['Safety-oriented route planning', 'Location-aware navigation', 'AI-assisted recommendations', 'Emergency workflows'],
-    techStack: ['Flutter', 'Dart', 'AI', 'Location Services', 'Navigation', 'Geolocation'],
-    links: [],
-    featured: true,
-    status: 'Concept',
-    role: 'Flutter Developer',
-    timeline: 'Project-based',
-  },
 ];
 
 const allProjects = [
+  {
+    id: 19,
+    title: 'SOC Log Analyzer',
+    category: 'Cybersecurity / SOC Operations',
+    description: 'Python CLI for parsing Linux SSH authentication logs, counting failed and successful logins, flagging source IPs above a configurable failure threshold, surfacing frequently targeted usernames, and exporting CSV reports.',
+    tags: ['Python 3', 'Linux', 'SSH Logs', 'CSV', 'Detection Logic'],
+    links: [{ label: 'GitHub', url: 'https://github.com/arpitkumar28/soc-log-analyzer' }],
+    filter: 'security python',
+  },
   {
     id: 5,
     title: 'SamparkSetu',
@@ -249,6 +224,24 @@ const allProjects = [
     links: [],
     filter: 'ai python',
   },
+  {
+    id: 14,
+    title: 'CarePulse',
+    category: 'Healthcare / Mobile Concept',
+    description: 'A mobile-first hospital attendance and staff workflow concept. Connected identity, location, attendance, and backend services are not verified in this repository.',
+    tags: ['Flutter', 'Dart', 'Riverpod'],
+    links: [{ label: 'Case Study', url: '/hospital-attendance' }],
+    filter: 'flutter',
+  },
+  {
+    id: 15,
+    title: 'SafeGuard',
+    category: 'Safety / Mobile Concept',
+    description: 'A Flutter concept exploring safety-oriented route planning, location-aware navigation, and emergency workflows.',
+    tags: ['Flutter', 'Dart', 'Navigation'],
+    links: [],
+    filter: 'flutter',
+  },
 ];
 
 const filters = [
@@ -256,6 +249,7 @@ const filters = [
   { label: 'Full-Stack', value: 'fullstack' },
   { label: 'Mobile', value: 'flutter' },
   { label: 'AI / GenAI', value: 'ai' },
+  { label: 'Security', value: 'security' },
   { label: 'Backend', value: 'backend' },
   { label: 'Web', value: 'web' },
   { label: 'Java', value: 'java' },
@@ -279,6 +273,7 @@ const projectArtworks: Record<string, string> = {
   'IoT Vehicle Tracking System': '/assets/images/project-cards/iot-tracking.jpg',
   'New Safe Route': '/assets/images/project-cards/safe-route.jpg',
   'Python Automation Projects': '/assets/images/project-cards/python-automation.jpg',
+  'SOC Log Analyzer': '/assets/images/cybersecurity-background.webp',
 };
 
 const projectIcons: Record<string, LucideIcon> = {
@@ -289,6 +284,7 @@ const projectIcons: Record<string, LucideIcon> = {
   'Sports Media Protection': ShieldCheck, 'Krishi Backend': Sprout,
   'IoT Vehicle Tracking System': CarFront, 'New Safe Route': MapPin,
   'Python Automation Projects': Code2,
+  'SOC Log Analyzer': ShieldCheck,
 };
 
 function projectImageFor(title: string) {
@@ -307,7 +303,6 @@ const compactDescriptions: Record<string, string> = {
 
 const compactFeaturedProjects = featuredProjects.filter((project) => ['CrisisMesh', 'GreenFlow AI'].includes(project.title));
 const regularFeaturedProjects = featuredProjects.filter((project) => !['CrisisMesh', 'GreenFlow AI'].includes(project.title));
-const prioritySecondaryProjects = allProjects.filter((project) => ['NCC Buddy', 'Food Ordering System'].includes(project.title));
 const itemVariants = {
   hidden: { opacity: 0, y: 18 },
   visible: (index: number) => ({ opacity: 1, y: 0, transition: { duration: 0.42, delay: Math.min(index * 0.07, 0.28) } }),
@@ -317,7 +312,7 @@ export const Projects: React.FC = () => {
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState('all');
 
-  const primaryTitles = ['CrisisMesh', 'GreenFlow AI', 'EduAI Nexus X', 'CarePulse', 'NCC Buddy', 'Food Ordering System'];
+  const primaryTitles = ['CrisisMesh', 'GreenFlow AI', 'EduAI Nexus X'];
   const secondaryProjects = allProjects.filter((project) => !primaryTitles.includes(project.title));
   const filteredSecondaryProjects = secondaryProjects
     .filter((project) => selectedFilter === 'all' || project.filter.includes(selectedFilter));
@@ -341,7 +336,7 @@ export const Projects: React.FC = () => {
           <p className="font-mono text-xs font-bold uppercase tracking-wider text-primary">Selected systems</p>
           <SectionTitle className="mb-0 text-left">Projects</SectionTitle>
           <p className="text-text-muted text-base md:text-lg max-w-2xl mt-4 leading-relaxed">
-            I build end-to-end product experiences across web, mobile, AI, security, and backend systems — with a focus on functionality, clarity, and real-world impact.
+            Selected product work and hands-on security practice. Project stages are labeled clearly, with code, demos, or case studies linked where available.
           </p>
         </div>
         <div className="rounded-lg border border-border bg-background-card px-4 py-3 text-sm font-bold text-text-muted">
@@ -360,26 +355,13 @@ export const Projects: React.FC = () => {
             <ProjectThumbnail src={screenshot} alt={`${project.title} project thumbnail`} title={project.title} category={project.category} />
             <div className="flex flex-1 flex-col p-4">
               <ProjectHeading title={project.title} category={project.category} />
+              <ProjectStatus status={project.status} />
               <p className="mt-2 line-clamp-3 text-sm leading-5 text-text-muted">{compactDescriptions[project.title] || project.subtitle}</p>
               <ProjectTags tags={project.techStack} />
               <ProjectLinks links={project.links.filter((link) => link.url.startsWith('/') || /^https:\/\//.test(link.url))} />
             </div>
           </article>;
         })}
-      </div>
-
-      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {prioritySecondaryProjects.map((project) => (
-          <article key={project.id} className="project-card relative flex min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background-card transition-[transform,border-color] duration-200 hover:-translate-y-1 hover:border-primary/50 motion-reduce:transform-none motion-reduce:transition-none">
-            <ProjectThumbnail src={projectImageFor(project.title)} alt={`${project.title} project illustration`} title={project.title} category={project.category} />
-            <div className="flex flex-1 flex-col p-4">
-              <ProjectHeading title={project.title} category={project.category} />
-              <p className="mt-2 line-clamp-3 text-sm leading-5 text-text-muted">{project.description}</p>
-              <ProjectTags tags={project.tags} />
-              <ProjectLinks links={project.links.filter((link) => link.url.startsWith('/') || /^https:\/\//.test(link.url))} />
-            </div>
-          </article>
-        ))}
       </div>
 
       <div className="mt-10 rounded-xl border border-border bg-background-card p-4 md:p-5">
@@ -462,6 +444,7 @@ function CompactFeaturedCard({ project, index }: { project: (typeof featuredProj
     <ProjectThumbnail src={screenshot} alt={`${project.title} project thumbnail`} title={project.title} category={project.category} featured />
     <div className="flex flex-1 flex-col p-4 md:p-5">
       <ProjectHeading title={project.title} category={project.category} />
+      <ProjectStatus status={project.status} />
       <p className="mt-2 line-clamp-3 text-sm leading-5 text-text-muted">{compactDescriptions[project.title]}</p>
       <ProjectTags tags={project.techStack} />
       <ProjectLinks links={project.links.filter((link) => link.url.startsWith('/') || /^https:\/\//.test(link.url))} />
@@ -484,6 +467,10 @@ function ProjectThumbnail({ src, alt, title, category, featured = false }: { src
 
 function ProjectHeading({ title, category }: { title: string; category: string }) {
   return <div className="flex min-w-0 items-baseline justify-between gap-3"><h3 className="truncate font-display text-lg font-black tracking-tight text-text-primary">{title}</h3><span className="shrink-0 truncate text-[10px] font-bold uppercase tracking-wide text-primary">{category}</span></div>;
+}
+
+function ProjectStatus({ status }: { status: string }) {
+  return <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.12em] text-text-subtle">Status: {status}</p>;
 }
 
 function ProjectTags({ tags }: { tags: string[] }) {
