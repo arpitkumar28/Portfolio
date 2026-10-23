@@ -659,6 +659,7 @@ html.light .ambient-symbol { filter: drop-shadow(0 0 7px rgba(139, 93, 20, .08))
 
 .hero-profile-link {
   display: inline-flex;
+  flex: 0 0 auto;
   width: 34px;
   height: 34px;
   gap: 0;
@@ -682,6 +683,14 @@ html.light .ambient-symbol { filter: drop-shadow(0 0 7px rgba(139, 93, 20, .08))
 }
 .hero-profile-link:focus-visible { outline: 2px solid #E8B85B; outline-offset: 3px; }
 .theme-toggle { min-width: 92px; }
+.hero-profile-links {
+  box-sizing: border-box;
+  width: max-content;
+  max-width: min(100%, 460px);
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 1rem;
+}
 
 @media (max-width: 480px) {
   .hero-profile-links { gap: 0; padding: 5px; }
