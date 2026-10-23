@@ -249,6 +249,15 @@ const allProjects = [
     links: [],
     filter: 'ai python',
   },
+  {
+    id: 19,
+    title: 'SOC Log Analyzer',
+    category: 'Cybersecurity / SOC Operations',
+    description: 'Python CLI for parsing Linux SSH authentication logs, counting failed and successful logins, flagging source IPs above a configurable failure threshold, surfacing frequently targeted usernames, and exporting CSV reports.',
+    tags: ['Python 3', 'Linux', 'SSH Logs', 'CSV', 'Detection Logic'],
+    links: [{ label: 'GitHub', url: 'https://github.com/arpitkumar28/soc-log-analyzer' }],
+    filter: 'security python',
+  },
 ];
 
 const filters = [
@@ -256,6 +265,7 @@ const filters = [
   { label: 'Full-Stack', value: 'fullstack' },
   { label: 'Mobile', value: 'flutter' },
   { label: 'AI / GenAI', value: 'ai' },
+  { label: 'Security', value: 'security' },
   { label: 'Backend', value: 'backend' },
   { label: 'Web', value: 'web' },
   { label: 'Java', value: 'java' },
