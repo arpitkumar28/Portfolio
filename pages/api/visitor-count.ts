@@ -4,8 +4,8 @@ import Redis from 'ioredis';
 
 const RATE_LIMIT = 20;
 const RATE_WINDOW_SECONDS = 60 * 60;
-const SESSION_TTL_SECONDS = 60 * 60 * 24;
-const SESSION_ID_PATTERN = /^[a-f0-9-]{36}$/i;
+const VISITOR_TTL_SECONDS = 30 * 24 * 60 * 60;
+const VISITOR_ID_PATTERN = /^[a-f0-9-]{36}$/i;
 let redisClient: Redis | undefined;
 
 function getRedisClient(redisUrl: string): Redis {
@@ -18,6 +18,28 @@ function getRedisClient(redisUrl: string): Redis {
     });
   }
   return redisClient;
+}
+
+function hasRedisRestCredentials(): boolean {
+  return Boolean(process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN);
+}
+
+async function redisRestCommand<T>(command: Array<string | number>): Promise<T> {
+  const url = process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) throw new Error('Redis REST credentials are not configured.');
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(command),
+  });
+  const data = await response.json() as { result?: T; error?: string };
+  if (!response.ok || data.error) throw new Error('Redis REST request failed.');
+  return data.result as T;
 }
 
 function getClientAddress(req: NextApiRequest): string {
@@ -34,27 +56,38 @@ function getClientAddress(req: NextApiRequest): string {
   return createHash('sha256').update(value).digest('hex');
 }
 
-async function checkRedisRateLimit(client: Redis, req: NextApiRequest, res: NextApiResponse): Promise<boolean> {
-  const key = `visitor:rate:${getClientAddress(req)}`;
-  const result = await client.eval(
-    "local count = redis.call('INCR', KEYS[1]); if count == 1 then redis.call('EXPIRE', KEYS[1], ARGV[1]); end; local ttl = redis.call('TTL', KEYS[1]); return {count, ttl}",
-    1,
-    key,
-    RATE_WINDOW_SECONDS,
-  ) as [number | string, number | string];
-  const count = Number(result[0]);
-  if (count > RATE_LIMIT) {
-    res.setHeader('Retry-After', Math.max(1, Number(result[1])));
-    res.status(429).json({ error: 'Rate limit exceeded. Try again later.' });
-    return false;
-  }
-  return true;
-}
-
 function parseCount(value: unknown): number {
   const count = typeof value === 'number' ? value : Number(value);
   if (!Number.isSafeInteger(count) || count < 0) throw new Error('Invalid visitor count.');
   return count;
+}
+
+const recordVisitorScript = "local count = redis.call('GET', KEYS[2]); if redis.call('EXISTS', KEYS[1]) == 1 then if not count then return {-1, 0, 0}; end; return {count, 0, 0}; end; local rateCount = redis.call('INCR', KEYS[3]); if rateCount == 1 then redis.call('EXPIRE', KEYS[3], ARGV[1]); end; local ttl = redis.call('TTL', KEYS[3]); if rateCount > tonumber(ARGV[2]) then return {-2, 0, ttl}; end; redis.call('SET', KEYS[2], '0', 'NX'); redis.call('SET', KEYS[1], '1', 'EX', ARGV[3]); return {redis.call('INCR', KEYS[2]), 1, 0}";
+
+async function getStoredCount(): Promise<string | null> {
+  if (hasRedisRestCredentials()) return redisRestCommand<string | null>(['GET', 'portfolio:visitor:count']);
+  const redisUrl = process.env.REDIS_URL;
+  if (redisUrl) return getRedisClient(redisUrl).get('portfolio:visitor:count');
+  throw new Error('Redis credentials are not configured.');
+}
+
+async function recordVisitor(visitorId: string, clientAddressHash: string): Promise<Array<number | string>> {
+  const keys = [
+    `portfolio:visitor:id:${visitorId}`,
+    'portfolio:visitor:count',
+    `portfolio:visitor:rate:${clientAddressHash}`,
+  ];
+  const args = [RATE_WINDOW_SECONDS, RATE_LIMIT, VISITOR_TTL_SECONDS];
+
+  if (hasRedisRestCredentials()) {
+    return redisRestCommand<Array<number | string>>(['EVAL', recordVisitorScript, '3', ...keys, ...args]);
+  }
+
+  const redisUrl = process.env.REDIS_URL;
+  if (redisUrl) {
+    return getRedisClient(redisUrl).eval(recordVisitorScript, 3, ...keys, ...args) as Promise<Array<number | string>>;
+  }
+  throw new Error('Redis credentials are not configured.');
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -67,13 +100,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   if (req.method === 'GET') {
     try {
-      const redisUrl = process.env.REDIS_URL;
-      if (redisUrl) {
-        const value = await getRedisClient(redisUrl).get('visitor:count');
-        if (value === null) return res.status(503).json({ error: 'Visitor count is not initialized.' });
-        return res.status(200).json({ count: parseCount(value) });
-      }
-      return res.status(503).json({ error: 'Visitor count service is unavailable.' });
+      const value = await getStoredCount();
+      return res.status(200).json({ count: value === null ? 0 : parseCount(value) });
     } catch {
       return res.status(503).json({ error: 'Visitor count service is unavailable.' });
     }
@@ -82,34 +110,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const body = req.body;
   const contentLength = Number(req.headers['content-length'] || 0);
   if (!body || typeof body !== 'object' || Array.isArray(body)
-    || Object.keys(body).length !== 1 || typeof body.sessionId !== 'string'
-    || !SESSION_ID_PATTERN.test(body.sessionId) || contentLength > 256) {
-    return res.status(400).json({ error: 'A valid sessionId is required.' });
+    || Object.keys(body).length !== 1 || typeof body.visitorId !== 'string'
+    || !VISITOR_ID_PATTERN.test(body.visitorId) || contentLength > 256) {
+    return res.status(400).json({ error: 'A valid visitorId is required.' });
   }
 
   try {
-    const redisUrl = process.env.REDIS_URL;
-    if (redisUrl) {
-      const client = getRedisClient(redisUrl);
-      if (!(await checkRedisRateLimit(client, req, res))) return;
-
-      // The session claim and total increment run atomically. Repeated requests from the
-      // same browser tab session return the existing total without counting twice.
-      const result = await client.eval(
-        "local count = redis.call('GET', KEYS[2]); if not count then return {-1, 0}; end; local claimed = redis.call('SET', KEYS[1], '1', 'NX', 'EX', ARGV[1]); if claimed then return {redis.call('INCR', KEYS[2]), 1}; end; return {count, 0}",
-        2,
-        `visitor:session:${body.sessionId}`,
-        'visitor:count',
-        SESSION_TTL_SECONDS,
-      );
-      const [rawCount, incremented] = result as [number | string, number | string];
-      const count = Number(rawCount);
-      if (count < 0) return res.status(503).json({ error: 'Visitor count is not initialized.' });
-      return res.status(200).json({ count, deduplicated: Number(incremented) === 0 });
+    // Count each anonymous browser once per 30 days. Initialize the counter on the
+    // first request, and apply rate limits only to newly seen visitors.
+    const result = await recordVisitor(body.visitorId, getClientAddress(req));
+    const [rawCount, incremented, retryAfter] = result;
+    const count = Number(rawCount);
+    if (count === -2) {
+      res.setHeader('Retry-After', Math.max(1, Number(retryAfter)));
+      return res.status(429).json({ error: 'Rate limit exceeded. Try again later.' });
     }
-
-    return res.status(503).json({ error: 'Visitor count service is unavailable.' });
+    if (count < 0) return res.status(503).json({ error: 'Visitor counter is unavailable.' });
+    return res.status(200).json({ count, deduplicated: Number(incremented) === 0 });
   } catch {
-    return res.status(503).json({ error: 'Visitor count service is unavailable.' });
+    return res.status(503).json({ error: 'Visitor counter is unavailable.' });
   }
 }
