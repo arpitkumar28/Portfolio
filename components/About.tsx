@@ -241,7 +241,7 @@ export const About: React.FC = () => {
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
-                  href="/resume.pdf"
+                  href="/cv.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 rounded-lg bg-primary px-6 py-4 font-black text-white transition-transform hover:-translate-y-1"
