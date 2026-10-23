@@ -78,24 +78,13 @@ npm start
 
 ## Visitor counter
 
-The footer shows an **estimated unique visitor count**, deduplicated by an anonymous
-browser ID stored in `localStorage`. Redis counts that browser once every 30 days. This
-is not a count of verified people: clearing browser storage, using another browser or
-device, or sharing a device can change the estimate. No raw IP address is stored; a
-one-way address hash is used for rate limiting. Bot detection is not guaranteed.
-Redis performs the visitor claim, counter initialization, rate limit, and increment in
-one Lua operation, so concurrent requests cannot lose increments. The first visit
-initializes the counter automatically.
-
-Configure either the Upstash REST URL and token as `UPSTASH_REDIS_REST_URL` and
-`UPSTASH_REDIS_REST_TOKEN`, or its TCP connection string as `REDIS_URL`, in local
-`.env.local` and deployment environment variables. Keep credentials private. If REST
-credentials and `REDIS_URL` are both present, the REST credentials take precedence. If
-credentials are missing or invalid, the counter shows **Unavailable**. The counter
-uses the `portfolio:visitor:*` key prefix so it can share a Redis database with another
-project without colliding with that project's keys. Preview and Production share a
-count when configured with the same credentials. The sample values in `.env.example`
-are placeholders and must be replaced with valid credentials.
+The footer shows an **estimated unique visitor count for the last 30 days**, deduplicated
+by an anonymous browser ID stored in `localStorage`. The API route sends counts to
+CounterAPI.com, so no Redis database, account, or environment variables are needed.
+This depends on that third-party service and its availability. Clearing browser storage,
+using another browser or device, or sharing a device can change the estimate; it is not a
+count of verified people. Bot detection is not guaranteed. See
+[CounterAPI's privacy and service details](https://counterapi.com/).
 
 ## Notes
 
