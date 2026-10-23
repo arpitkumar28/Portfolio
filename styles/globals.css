@@ -106,8 +106,6 @@
 .hero-portrait { opacity: 0; animation: hero-enter 900ms 180ms cubic-bezier(.22, 1, .36, 1) forwards; }
 .hero-portrait-light { animation: portrait-light 14s ease-in-out infinite alternate; }
 .hero-portrait-image img { animation: portrait-depth 9s ease-in-out infinite alternate; }
-.project-thumbnail img { transition: transform 400ms cubic-bezier(.22, 1, .36, 1); }
-.project-card:hover .project-thumbnail img { transform: scale(1.025); }
 .project-card a svg { transition: transform 180ms ease; }
 .project-card a:hover svg { transform: translateX(2px); }
 @keyframes hero-enter { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
@@ -121,7 +119,7 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-glow, .hero-portrait-light, .hero-portrait-image img { animation: none !important; }
   .hero-line, .hero-intro, .hero-actions, .hero-social, .hero-status, .hero-portrait { opacity: 1; animation: none !important; }
-  .project-thumbnail img, .project-card a svg { transition: none !important; }
+  .project-card a svg { transition: none !important; }
 }
 
 @layer utilities {
@@ -235,17 +233,6 @@ section[id] { scroll-margin-top: 5.75rem; }
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24), 0 0 0 1px rgba(232, 184, 91, 0.035);
 }
 
-.project-thumbnail img {
-  will-change: transform;
-  transition: transform 560ms var(--ease-premium), filter 560ms ease;
-  filter: saturate(0.88) contrast(1.035);
-}
-
-.project-card:hover .project-thumbnail img {
-  transform: scale(1.035);
-  filter: saturate(1) contrast(1.04);
-}
-
 .project-thumbnail::after {
   content: "";
   position: absolute;
@@ -275,21 +262,11 @@ button:not(:disabled), a[href] { cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   body::before { display: none; }
   .project-card,
-  .project-thumbnail img,
   .project-thumbnail::after { transition: none !important; }
-  .project-card:hover .project-thumbnail img { transform: none !important; }
 }
 
 
 /* Project thumbnail micro-interactions: restrained Obsidian Gold motion. */
-.project-artwork {
-  transition: transform 650ms cubic-bezier(.22, 1, .36, 1), filter 500ms ease;
-  filter: saturate(.82) contrast(1.04);
-}
-.project-thumbnail:hover .project-artwork {
-  transform: scale(1.045);
-  filter: saturate(1) contrast(1.06);
-}
 .project-icon-chip {
   box-shadow: 0 5px 18px rgba(0, 0, 0, .22);
   transition: transform 280ms cubic-bezier(.22, 1, .36, 1), background-color 280ms ease, border-color 280ms ease, box-shadow 280ms ease;
@@ -302,8 +279,7 @@ button:not(:disabled), a[href] { cursor: pointer; }
   box-shadow: 0 0 20px rgba(232, 184, 91, .13);
 }
 @media (prefers-reduced-motion: reduce) {
-  .project-artwork, .project-icon-chip { transition: none !important; }
-  .project-thumbnail:hover .project-artwork { transform: none !important; }
+  .project-icon-chip { transition: none !important; }
   .project-thumbnail:hover .project-icon-chip,
   .project-card:hover .project-icon-chip { transform: none !important; }
 }
@@ -584,7 +560,6 @@ button:not(:disabled), a[href] { cursor: pointer; }
 }
 .project-card:hover::after { opacity: .65; }
 .project-card .project-thumbnail { overflow: hidden; transform: translateZ(12px); }
-.project-card .project-thumbnail img { backface-visibility: hidden; }
 .project-card a:focus-visible { outline-offset: 4px; }
 .project-card:focus-within { border-color: rgba(232,184,91,.56); box-shadow: 0 0 0 1px rgba(232,184,91,.12), 0 0 26px rgba(232,184,91,.05); }
 .project-card:focus-within::after { opacity: .65; }
