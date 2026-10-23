@@ -42,7 +42,7 @@ export const Contact: React.FC = () => {
             ))}
           </div>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             <a
               href="mailto:arpitkumar0211@gmail.com"
               className="group flex items-center justify-between rounded-xl bg-primary px-6 py-7 text-background transition-transform hover:-translate-y-1 motion-reduce:transition-none"
@@ -72,6 +72,24 @@ export const Contact: React.FC = () => {
                 <span>
                   <span className="block font-mono text-xs font-black uppercase tracking-[0.18em] text-text-muted">Resources</span>
                   <span className="mt-2 block text-2xl font-black">View Resume</span>
+                </span>
+              </span>
+              <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1" />
+            </a>
+
+            <a
+              href="/cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between rounded-xl border border-border bg-background-card px-6 py-7 text-text-primary transition-transform hover:-translate-y-1"
+            >
+              <span className="flex items-center gap-5">
+                <span className="flex h-14 w-14 items-center justify-center rounded-lg bg-background-elevated text-primary">
+                  <Download className="h-7 w-7" />
+                </span>
+                <span>
+                  <span className="block font-mono text-xs font-black uppercase tracking-[0.18em] text-text-muted">Resources</span>
+                  <span className="mt-2 block text-2xl font-black">View CV</span>
                 </span>
               </span>
               <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1" />
