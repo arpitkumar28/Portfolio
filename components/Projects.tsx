@@ -2,35 +2,11 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, ArrowRight, Play, ShieldCheck, Activity, BrainCircuit, Smartphone, Sprout, MapPin, Code2, GraduationCap, HeartPulse, Siren, BookOpen, Building2, Utensils, CarFront, Network, type LucideIcon } from 'lucide-react';
-import Image from 'next/image';
+import { ExternalLink, ArrowRight, Play, ShieldCheck, Activity, BrainCircuit, Smartphone, Sprout, MapPin, Code2, GraduationCap, HeartPulse, BookOpen, Building2, Utensils, CarFront, Network, type LucideIcon } from 'lucide-react';
 import { Section, SectionTitle } from './ui/Section';
 import { AmbientTechBackdrop } from './ui/AmbientTechBackdrop';
 
 const featuredProjects = [
-  {
-    id: 18,
-    title: 'CrisisMesh',
-    subtitle: 'Disaster response interface concept',
-    category: 'Disaster Management / AI / IoT / Full Stack',
-    problem: 'Emergency information becomes fragmented between citizens, responders, authorities, and physical infrastructure. Emergency response coordination lacks real-time visibility, creating critical delays in disaster response and resource allocation.',
-    solution: 'A visual concept for organizing incident reports, response roles, and situational information. Connected services, field workflows, and operational use are not verified in this repository.',
-    result: 'The portfolio shows an interface prototype. No live emergency monitoring, sensor deployment, production AI, or operational outcome is claimed.',
-    features: [
-      'Incident coordination interface concept',
-      'Situational map interface concept',
-      'Proposed API and device integration points'
-    ],
-    techStack: ['Next.js', 'TypeScript', 'React', 'Flutter', 'Dart', 'NestJS', 'PostgreSQL', 'Supabase', 'WebSockets', 'MQTT', 'Python', 'REST API', 'JWT', 'Leaflet', 'OpenStreetMap'],
-    links: [
-      { label: 'View Case Study', url: '/crisis-mesh', icon: ArrowRight },
-      { label: 'Live Demo', url: 'https://crisis-mesh-eosin.vercel.app', icon: Play },
-    ],
-    featured: true,
-    status: 'Live demo',
-    role: 'Full Stack Developer / System Architect',
-    timeline: 'Project-based',
-  },
   {
     id: 16,
     title: 'Elevra',
@@ -256,28 +232,8 @@ const filters = [
   { label: 'IoT', value: 'iot' },
 ];
 
-const projectArtworks: Record<string, string> = {
-  'CrisisMesh': '/assets/images/project-cards/crisismesh.jpg',
-  'GreenFlow AI': '/assets/images/project-cards/greenflow-ai.jpg',
-  'EduAI Nexus X': '/assets/images/project-cards/eduai-nexus.jpg',
-  'CarePulse': '/assets/images/project-cards/carepulse.jpg',
-  'SafeGuard': '/assets/images/project-cards/safeguard.jpg',
-  'Elevra': '/assets/images/project-cards/elevra.jpg',
-  'Axiora': '/assets/images/project-cards/axiora.jpg',
-  'SamparkSetu': '/assets/images/project-cards/samparksetu.jpg',
-  'NCC Buddy': '/assets/images/project-cards/ncc-buddy.jpg',
-  'Hospital Management System': '/assets/images/project-cards/hospital-management.jpg',
-  'Food Ordering System': '/assets/images/project-cards/food-ordering.jpg',
-  'Sports Media Protection': '/assets/images/project-cards/sports-media.jpg',
-  'Krishi Backend': '/assets/images/project-cards/krishi-backend.jpg',
-  'IoT Vehicle Tracking System': '/assets/images/project-cards/iot-tracking.jpg',
-  'New Safe Route': '/assets/images/project-cards/safe-route.jpg',
-  'Python Automation Projects': '/assets/images/project-cards/python-automation.jpg',
-  'SOC Log Analyzer': '/assets/images/cybersecurity-background.webp',
-};
-
 const projectIcons: Record<string, LucideIcon> = {
-  'CrisisMesh': Siren, 'GreenFlow AI': Activity, 'EduAI Nexus X': BrainCircuit,
+  'GreenFlow AI': Activity, 'EduAI Nexus X': BrainCircuit,
   'CarePulse': HeartPulse, 'SafeGuard': ShieldCheck, 'Elevra': GraduationCap,
   'Axiora': Network, 'SamparkSetu': Building2, 'NCC Buddy': Smartphone,
   'Hospital Management System': HeartPulse, 'Food Ordering System': Utensils,
@@ -287,12 +243,7 @@ const projectIcons: Record<string, LucideIcon> = {
   'SOC Log Analyzer': ShieldCheck,
 };
 
-function projectImageFor(title: string) {
-  return projectArtworks[title] || '/assets/images/project-python-automation-projects.svg';
-}
-
 const compactDescriptions: Record<string, string> = {
-  CrisisMesh: 'A disaster-response interface concept for incident reporting, coordination workflows, and situational maps.',
   'GreenFlow AI': 'A traffic dashboard prototype exploring congestion views and emergency corridor workflows.',
   'EduAI Nexus X': 'An AI-assisted learning platform concept with adaptive study paths, doubt support, and progress insights.',
   CarePulse: 'A mobile-first concept for hospital attendance and staff workflow management.',
@@ -301,8 +252,8 @@ const compactDescriptions: Record<string, string> = {
   'SafeGuard': 'A safety navigation concept exploring location-aware routes and emergency workflows.',
 };
 
-const compactFeaturedProjects = featuredProjects.filter((project) => ['CrisisMesh', 'GreenFlow AI'].includes(project.title));
-const regularFeaturedProjects = featuredProjects.filter((project) => !['CrisisMesh', 'GreenFlow AI'].includes(project.title));
+const compactFeaturedProjects = featuredProjects.filter((project) => project.title === 'GreenFlow AI');
+const regularFeaturedProjects = featuredProjects.filter((project) => project.title !== 'GreenFlow AI');
 const itemVariants = {
   hidden: { opacity: 0, y: 18 },
   visible: (index: number) => ({ opacity: 1, y: 0, transition: { duration: 0.42, delay: Math.min(index * 0.07, 0.28) } }),
@@ -312,7 +263,7 @@ export const Projects: React.FC = () => {
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState('all');
 
-  const primaryTitles = ['CrisisMesh', 'GreenFlow AI', 'EduAI Nexus X'];
+  const primaryTitles = ['GreenFlow AI', 'EduAI Nexus X'];
   const secondaryProjects = allProjects.filter((project) => !primaryTitles.includes(project.title));
   const filteredSecondaryProjects = secondaryProjects
     .filter((project) => selectedFilter === 'all' || project.filter.includes(selectedFilter));
@@ -350,9 +301,8 @@ export const Projects: React.FC = () => {
 
       <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {regularFeaturedProjects.map((project) => {
-          const screenshot = projectImageFor(project.title);
           return <article key={project.id} className="project-card relative flex min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-background-card transition-[transform,border-color] duration-200 hover:-translate-y-1 hover:border-primary/50 motion-reduce:transform-none motion-reduce:transition-none">
-            <ProjectThumbnail src={screenshot} alt={`${project.title} project thumbnail`} title={project.title} category={project.category} />
+            <ProjectThumbnail title={project.title} category={project.category} />
             <div className="flex flex-1 flex-col p-4">
               <ProjectHeading title={project.title} category={project.category} />
               <ProjectStatus status={project.status} />
@@ -400,7 +350,7 @@ export const Projects: React.FC = () => {
                 exit={{ opacity: 0, y: -12 }}
                 className="group flex min-w-0 flex-col justify-between rounded-lg border border-border bg-background p-4 transition-colors hover:border-primary/70 hover:bg-background-elevated motion-reduce:transition-none"
               >
-                <ProjectThumbnail src={projectImageFor(project.title)} alt={`${project.title} project illustration`} title={project.title} category={project.category} />
+                <ProjectThumbnail title={project.title} category={project.category} />
                 <div className="flex flex-1 flex-col p-4">
                   <div className="mb-3 flex items-start justify-between gap-3">
                     <div>
@@ -439,9 +389,8 @@ export const Projects: React.FC = () => {
 };
 
 function CompactFeaturedCard({ project, index }: { project: (typeof featuredProjects)[number]; index: number }) {
-  const screenshot = projectImageFor(project.title);
   return <motion.article custom={index} variants={itemVariants} whileHover={{ y: -3 }} className="project-card relative flex min-w-0 flex-col overflow-hidden rounded-xl border border-primary/25 bg-background-card transition-colors duration-200 hover:border-primary/55 motion-reduce:transition-none">
-    <ProjectThumbnail src={screenshot} alt={`${project.title} project thumbnail`} title={project.title} category={project.category} featured />
+    <ProjectThumbnail title={project.title} category={project.category} featured />
     <div className="flex flex-1 flex-col p-4 md:p-5">
       <ProjectHeading title={project.title} category={project.category} />
       <ProjectStatus status={project.status} />
@@ -452,16 +401,15 @@ function CompactFeaturedCard({ project, index }: { project: (typeof featuredProj
   </motion.article>;
 }
 
-function ProjectThumbnail({ src, alt, title, category, featured = false }: { src: string | null; alt: string; title: string; category: string; featured?: boolean }) {
+function ProjectThumbnail({ title, category, featured = false }: { title: string; category: string; featured?: boolean }) {
   const ProjectIcon = projectIcons[title] || Code2;
-  return <div className={`project-thumbnail group/thumb relative aspect-video overflow-hidden bg-background-elevated ${featured ? 'border-b border-primary/20' : 'border-b border-border'}`}>
-    {src ? <Image src={src} alt={alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="project-artwork object-cover" /> : <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(232,184,91,0.11),_transparent_55%),linear-gradient(135deg,_#191C24,_#10131A)]" role="img" aria-label={`${title} branded project thumbnail`} />}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" aria-hidden="true" />
-    <span className="project-icon-chip absolute right-3 top-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-primary/40 bg-background/80 text-primary backdrop-blur-sm" aria-hidden="true"><ProjectIcon className="h-5 w-5" strokeWidth={1.8} /></span>
-    <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-3">
-      <div className="min-w-0"><span className="block truncate text-[10px] font-bold uppercase tracking-[0.14em] text-primary/90">{category}</span><span className="mt-1 block truncate text-lg font-black tracking-tight text-text-primary">{title}</span></div>
-      {featured && <span className="shrink-0 rounded-full border border-primary/25 bg-background/70 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-primary">Featured</span>}
+  return <div className={`project-thumbnail relative flex aspect-[16/7] items-center gap-4 overflow-hidden border-b bg-[linear-gradient(135deg,#191c24,#10131a)] px-5 py-4 ${featured ? 'border-primary/20' : 'border-border'}`}>
+    <span className="project-icon-chip inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 text-primary" aria-hidden="true"><ProjectIcon className="h-6 w-6" strokeWidth={1.8} /></span>
+    <div className="min-w-0 flex-1">
+      <span className="block truncate text-[10px] font-bold uppercase tracking-[0.14em] text-primary/90">{category}</span>
+      <span className="mt-1 block truncate text-lg font-black tracking-tight text-text-primary">{title}</span>
     </div>
+    {featured && <span className="shrink-0 rounded-full border border-primary/25 bg-background/70 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-primary">Featured</span>}
   </div>;
 }
 
