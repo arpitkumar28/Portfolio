@@ -674,7 +674,7 @@ html.light body {
 html.light #home,
 html.light .portfolio-content > div > section[id] {
   background-image:
-    linear-gradient(rgb(var(--color-background) / .78), rgb(var(--color-background) / .86)),
+    linear-gradient(rgb(var(--color-background) / .92), rgb(var(--color-background) / .95)),
     var(--portfolio-backdrop-image);
 }
 
@@ -684,6 +684,7 @@ html.light .hero-portrait-image img { filter: grayscale(1) contrast(1.03); }
 html.light .hero-line-three { color: rgb(var(--color-primary)); }
 html.light .hero-3d-scene:hover .hero-portrait-image img { filter: grayscale(0) contrast(1.03); }
 html.light .hero-profile-links { background: rgba(255, 253, 248, .91); }
+html.light .project-thumbnail { background-image: linear-gradient(135deg, #fffdf8, #efebe2); }
 html.light .hero-float-label { color: #25272B; background: rgba(255, 253, 248, .82); border-color: rgba(139, 93, 20, .25); }
 html.light .hero-scanline { opacity: .4; }
 html.light .project-card:hover { box-shadow: 0 22px 48px rgba(35, 29, 18, .10), 0 0 0 1px rgba(139, 93, 20, .10); }
