@@ -42,8 +42,12 @@ export const ThemeToggle: React.FC = () => {
       title={ready ? `Switch to ${theme === 'dark' ? 'light' : 'dark'} theme` : 'Toggle colour theme'}
       aria-pressed={theme === 'light'}
     >
-      {theme === 'dark' ? <Sun className="h-4 w-4" aria-hidden="true" /> : <Moon className="h-4 w-4" aria-hidden="true" />}
-      <span className="text-xs font-semibold">{theme === 'dark' ? 'Light' : 'Dark'}</span>
+      <span className="theme-toggle-icon" aria-hidden="true">
+        <Sun className={`theme-toggle-sun h-[18px] w-[18px] ${theme === 'dark' ? 'is-active' : ''}`} />
+        <Moon className={`theme-toggle-moon h-[18px] w-[18px] ${theme === 'light' ? 'is-active' : ''}`} />
+      </span>
+      <span className="theme-toggle-label text-xs font-semibold">{theme === 'dark' ? 'Light' : 'Dark'}</span>
+      <span className="theme-toggle-track" aria-hidden="true"><span className="theme-toggle-thumb" /></span>
     </button>
   );
 };
