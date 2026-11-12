@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import Image from 'next/image';
-import { ArrowRight, ArrowUpRight, Mail, Code2, ShieldCheck } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Mail, Code2, ShieldCheck, Terminal, LockKeyhole, Database, Cloud, Network, Bug } from 'lucide-react';
 import { Button } from './ui/Button';
 import { GitHubIcon, LinkedInIcon } from './ui/SocialIcons';
 import { AmbientTechBackdrop } from './ui/AmbientTechBackdrop';
@@ -92,14 +92,32 @@ export const Hero: React.FC = () => {
           <div ref={sceneRef} onMouseMove={handleSceneMove} onMouseLeave={resetScene} className="hero-portrait hero-3d-scene group relative mx-auto h-[360px] w-full max-w-[520px] sm:h-[460px] lg:h-[600px]" aria-label="Portrait of Arpit Kumar">
             <div aria-hidden="true" className="hero-orbit hero-orbit-one" />
             <div aria-hidden="true" className="hero-orbit hero-orbit-two" />
+            <div aria-hidden="true" className="hero-gold-orbit" />
+            <svg aria-hidden="true" className="hero-network-globe absolute inset-[6%] z-0 h-[88%] w-[88%] text-primary/30" viewBox="0 0 520 520" fill="none">
+              <circle cx="260" cy="260" r="192" stroke="currentColor" strokeDasharray="2 9" />
+              <ellipse cx="260" cy="260" rx="112" ry="192" stroke="currentColor" />
+              <ellipse cx="260" cy="260" rx="192" ry="86" stroke="currentColor" />
+              <path d="M91 168 182 143l76 62 89-96 79 76M98 333l94-42 71 91 86-48 78 44M182 143l10 148m76-86v177m79-273 2 225m79-149-2 193" stroke="currentColor" strokeWidth="1.2" />
+              <g fill="currentColor"><circle cx="91" cy="168" r="4"/><circle cx="182" cy="143" r="5"/><circle cx="258" cy="205" r="4"/><circle cx="347" cy="109" r="5"/><circle cx="426" cy="185" r="4"/><circle cx="98" cy="333" r="4"/><circle cx="192" cy="291" r="5"/><circle cx="263" cy="382" r="4"/><circle cx="349" cy="334" r="5"/><circle cx="427" cy="378" r="4"/></g>
+            </svg>
             <div aria-hidden="true" className="hero-pointer-glow" />
             <div aria-hidden="true" className="hero-float-label hero-float-label-bottom">BUILD <span>↗</span> BREAK <span>↗</span> SECURE</div>
+            <div aria-hidden="true" className="hero-security-icon hero-security-icon-code"><Code2 /></div>
+            <div aria-hidden="true" className="hero-security-icon hero-security-icon-terminal"><Terminal /></div>
+            <div aria-hidden="true" className="hero-security-icon hero-security-icon-shield"><ShieldCheck /></div>
+            <div aria-hidden="true" className="hero-security-icon hero-security-icon-lock"><LockKeyhole /></div>
+            <div aria-hidden="true" className="hero-security-icon hero-security-icon-database"><Database /></div>
+            <div aria-hidden="true" className="hero-security-icon hero-security-icon-cloud"><Cloud /></div>
+            <div aria-hidden="true" className="hero-security-icon hero-security-icon-network"><Network /></div>
+            <div aria-hidden="true" className="hero-security-icon hero-security-icon-bug"><Bug /></div>
             <div aria-hidden="true" className="hero-portrait-light absolute inset-x-8 top-12 bottom-3 rounded-[48%] bg-primary/10 blur-[70px]" />
             <div aria-hidden="true" className="hero-portrait-grid absolute inset-y-8 right-0 w-[82%] rounded-t-[48%] border border-primary/15" />
             <div className="hero-portrait-image absolute inset-y-0 right-0 w-[92%] overflow-hidden rounded-t-[48%] border-x border-t border-primary/20">
-              <Image src="/assets/images/arpit-profile.webp" alt="Portrait of Arpit Kumar" fill priority sizes="(max-width: 1024px) 90vw, 48vw" className="object-cover object-[center_30%] grayscale contrast-110 transition-[filter,transform] duration-700 ease-out group-hover:grayscale-0 group-hover:scale-[1.025] motion-reduce:transition-none" />
+              <Image src="/assets/images/arpit-profile.webp" alt="Portrait of Arpit Kumar" fill priority sizes="(max-width: 1024px) 90vw, 48vw" className="object-cover object-[center_30%] grayscale contrast-110 brightness-[.82] transition-[filter,transform] duration-700 ease-out group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100 group-hover:scale-[1.025] motion-reduce:transition-none" />
               <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-background via-background/15 to-transparent" />
               <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-primary/5" />
+              <div aria-hidden="true" className="hero-photo-vignette absolute inset-0" />
+              <div aria-hidden="true" className="hero-rim-light absolute inset-0" />
             </div>
             <div className="hero-caption absolute bottom-8 left-0 z-10 max-w-[220px] border-l border-primary/50 pl-4">
               <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">Security-minded</span>
