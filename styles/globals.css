@@ -674,9 +674,11 @@ html.light body {
 html.light #home,
 html.light .portfolio-content > div > section[id] {
   background-image:
-    linear-gradient(rgb(var(--color-background) / .9), rgb(var(--color-background) / .94)),
+    linear-gradient(rgb(var(--color-background) / .78), rgb(var(--color-background) / .86)),
     var(--portfolio-backdrop-image);
 }
+
+html.light .portfolio-content > div > section + section { border-top-color: rgb(var(--color-primary) / .14); }
 
 html.light .hero-portrait-image img { filter: grayscale(1) contrast(1.03); }
 html.light .hero-line-three { color: rgb(var(--color-primary)); }
