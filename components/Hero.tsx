@@ -123,11 +123,12 @@ export const Hero: React.FC = () => {
               <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">Security-minded</span>
               <span className="mt-1 block text-sm text-text-primary">Software engineering</span>
             </div>
-            <nav aria-label="Profile links" className="hero-profile-links absolute bottom-5 right-3 z-20 flex items-center gap-1.5 rounded-full border border-primary/30 bg-background/90 p-2 shadow-xl shadow-black/20 backdrop-blur-xl sm:bottom-7 sm:right-4 sm:gap-2 sm:p-2.5">
+            <nav aria-label="Profile links" className="hero-profile-links absolute bottom-5 right-[6.5rem] z-20 flex flex-nowrap items-center gap-1.5 rounded-full border border-primary/30 bg-background/90 p-1.5 shadow-xl shadow-black/20 backdrop-blur-xl sm:bottom-7">
               <a href="https://github.com/arpitkumar28" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" className="hero-profile-link"><GitHubIcon className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" /><span>GitHub</span></a>
               <a href="https://www.linkedin.com/in/arpitkumar0211" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" className="hero-profile-link"><LinkedInIcon className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" /><span>LinkedIn</span></a>
               <a href="https://leetcode.com/u/arpit_patel28/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode profile" className="hero-profile-link"><Code2 className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" /><span>LeetCode</span></a>
               <a href="https://tryhackme.com/p/ArpitKumar28" target="_blank" rel="noopener noreferrer" aria-label="TryHackMe profile" className="hero-profile-link"><ShieldCheck className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" /><span>TryHackMe</span></a>
+              <a href="https://profile.hackthebox.com/" target="_blank" rel="noopener noreferrer" aria-label="Hack The Box profile" className="hero-profile-link"><Image src="/assets/images/HTB.png" alt="" width={60} height={60} className="hero-profile-htb-icon" /><span>Hack The Box</span></a>
               <a href="mailto:arpitkumar0211@gmail.com" aria-label="Email Arpit" className="hero-profile-link"><Mail className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" /><span>Email</span></a>
             </nav>
             <div aria-hidden="true" className="hero-scanline" />
