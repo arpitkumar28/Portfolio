@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Section } from './ui/Section';
 
@@ -13,6 +15,7 @@ const highlights = [
 const groups = [
   ['Leadership & Activities', 'Esports Leader — Arya E-Sports Club', 'Arya College of Engineering & I.T. · Event planning, tournament management, team coordination, participant management, technical/logistics coordination, and event execution.'],
   ['Clash Cup 2026', 'Gaming Tournament · Operations', 'Event planning, operations, and team coordination.'],
+  ['HTB Season 12 — Aero', 'Holo Tier · Rank #525', 'Completed all nine seasonal machines across Linux and Windows. The supplied dashboard snapshot records 660 points, 9 user solves, and 8 system solves.'],
   ['Learning / Training', 'Cloud & Generative AI', 'Exploring Google Cloud, Vertex AI, Gemini, Generative AI, and practical AI-powered application development.'],
   ['Security Learning', 'Cybersecurity', 'Building foundations across networking, Linux, web security, TryHackMe, and cybersecurity fundamentals.'],
 ];
@@ -57,6 +60,11 @@ export const Achievements: React.FC = () => {
                 <span className="font-mono text-xs font-black uppercase tracking-[0.18em] text-primary">{label}</span>
               </div>
               <p className="mt-4 text-base font-medium leading-relaxed text-text-muted">{detail}</p>
+              {title === 'HTB Season 12 — Aero' && (
+                <Link href="/htb-season-12" className="mt-5 inline-flex items-center gap-2 font-bold text-primary transition-colors hover:text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
+                  View season details <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              )}
             </div>
           ))}
         </div>
