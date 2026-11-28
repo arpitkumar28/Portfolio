@@ -110,7 +110,7 @@
 .hero-line-three { animation-delay: 220ms; color: #E8B85B; }
 .hero-intro { opacity: 0; animation: hero-enter 680ms 340ms cubic-bezier(.22, 1, .36, 1) forwards; }
 .hero-actions { opacity: 0; animation: hero-enter 680ms 440ms cubic-bezier(.22, 1, .36, 1) forwards; }
-.hero-social, .hero-status { opacity: 0; animation: hero-enter 680ms 530ms cubic-bezier(.22, 1, .36, 1) forwards; }
+.hero-social { opacity: 0; animation: hero-enter 680ms 530ms cubic-bezier(.22, 1, .36, 1) forwards; }
 .hero-portrait { opacity: 0; animation: hero-enter 900ms 180ms cubic-bezier(.22, 1, .36, 1) forwards; }
 .hero-portrait-light { animation: portrait-light 14s ease-in-out infinite alternate; }
 .hero-portrait-image img { animation: portrait-depth 9s ease-in-out infinite alternate; }
@@ -126,7 +126,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hero-glow, .hero-portrait-light, .hero-portrait-image img { animation: none !important; }
-  .hero-line, .hero-intro, .hero-actions, .hero-social, .hero-status, .hero-portrait { opacity: 1; animation: none !important; }
+  .hero-line, .hero-intro, .hero-actions, .hero-social, .hero-portrait { opacity: 1; animation: none !important; }
   .project-card a svg { transition: none !important; }
 }
 
@@ -661,49 +661,88 @@ html.light .hero-float-label { color: #F8F5EF; }
 html.light {
   color-scheme: light;
   --color-background: 246 244 239;
-  --color-surface: 239 235 226;
-  --color-elevated: 255 253 248;
-  --color-card: 255 253 248;
-  --color-border: 210 202 187;
+  --color-surface: 237 233 224;
+  --color-elevated: 248 246 241;
+  --color-card: 255 254 250;
+  --color-border: 213 204 188;
   --color-primary: 139 93 20;
   --color-text-primary: 25 27 31;
   --color-text-secondary: 67 69 73;
-  --color-text-tertiary: 92 95 101;
-  --color-text-muted: 92 95 101;
-  --color-text-subtle: 118 119 122;
-  --color-text-disabled: 155 154 150;
+  --color-text-tertiary: 77 80 86;
+  --color-text-muted: 82 85 91;
+  --color-text-subtle: 103 106 112;
+  --color-text-disabled: 145 145 142;
   --color-deep: #F6F4EF;
   --color-gold-border: rgba(139, 93, 20, 0.25);
 }
 
 html.light body {
   background:
-    radial-gradient(ellipse at 82% 4%, rgb(232 184 91 / 0.13), transparent 36rem),
+    radial-gradient(ellipse at 85% 4%, rgb(232 184 91 / .1), transparent 34rem),
     rgb(var(--color-background));
 }
 
-html.light #home,
+html.light #home {
+  background-color: rgb(var(--color-background));
+  background-image: radial-gradient(ellipse at 76% 24%, rgb(232 184 91 / .12), transparent 42rem);
+  background-attachment: scroll;
+}
+
 html.light .portfolio-content > div > section[id] {
-  background-image:
-    linear-gradient(rgb(var(--color-background) / .92), rgb(var(--color-background) / .95)),
-    var(--portfolio-backdrop-image);
+  background-color: rgb(var(--color-background));
+  background-image: none;
+  background-attachment: scroll;
+}
+
+html.light .portfolio-content > div > section[id]:nth-of-type(even) {
+  background-color: rgb(var(--color-surface));
 }
 
 html.light .portfolio-content > div > section + section { border-top-color: rgb(var(--color-primary) / .14); }
+
+html.light body::before { opacity: .035; }
+html.light .ambient-tech-backdrop { opacity: .12; color: rgba(112, 79, 28, .2); }
+html.light .ambient-tech-backdrop-page { opacity: .12; }
+html.light .ambient-tech-backdrop-page .ambient-symbol { opacity: .1; }
+html.light .hero-atmosphere { opacity: .42; }
+html.light .hero-glow { opacity: .32; }
+html.light .hero-scanline { opacity: .2; }
+html.light .hero-rim-light { opacity: .28; }
+html.light .glass-premium { background: rgba(255, 253, 248, .94); border-color: rgba(115, 91, 54, .16); }
+html.light .htb-season-loop { color: #3f6212; border-color: rgba(77, 124, 15, .28); background: rgba(132, 204, 22, .1); }
+html.light .htb-season-loop-orbit { border-color: rgba(77, 124, 15, .25); border-top-color: #4d7c0f; }
+html.light .htb-season-loop-copy { font-size: 8px; }
 
 html.light .hero-portrait-image img { filter: grayscale(1) contrast(1.03); }
 html.light .hero-line-three { color: rgb(var(--color-primary)); }
 html.light .hero-3d-scene:hover .hero-portrait-image img { filter: grayscale(0) contrast(1.03); }
 html.light .hero-profile-links { background: rgba(255, 253, 248, .91); }
 html.light .project-thumbnail { background-image: linear-gradient(135deg, #fffdf8, #efebe2); }
+html.light .project-card,
+html.light .profile-ecosystem-card,
+html.light .glass-premium { background-color: #fffefa; }
+html.light .project-card { border-color: rgba(85, 72, 49, .16); box-shadow: 0 8px 26px rgba(43, 36, 24, .075); }
 html.light .hero-float-label { color: #25272B; background: rgba(255, 253, 248, .82); border-color: rgba(139, 93, 20, .25); }
-html.light .hero-scanline { opacity: .4; }
 html.light .project-card:hover { box-shadow: 0 22px 48px rgba(35, 29, 18, .10), 0 0 0 1px rgba(139, 93, 20, .10); }
-html.light .ambient-tech-backdrop { color: rgba(139, 93, 20, .32); }
 html.light .ambient-orbit { border-color: rgba(139, 93, 20, .12); box-shadow: 0 0 32px rgba(139, 93, 20, .035), inset 0 0 30px rgba(139, 93, 20, .025); }
 html.light .ambient-network-lines { color: rgba(139, 93, 20, .17); }
 html.light .ambient-particles span { background: #8B5D14; box-shadow: 0 0 8px 2px rgba(139, 93, 20, .23); }
 html.light .ambient-symbol { filter: drop-shadow(0 0 7px rgba(139, 93, 20, .08)); }
+
+/* Keep project-detail accent labels readable on the light theme. */
+html.light .eduai-showcase .text-violet-400 { color: #6d28d9; }
+html.light .eduai-showcase .text-blue-400 { color: #1d4ed8; }
+html.light .eduai-showcase .text-green-400 { color: #15803d; }
+html.light .eduai-showcase .text-orange-400 { color: #9a4d0b; }
+html.light .eduai-showcase .text-purple-400 { color: #7e22ce; }
+html.light .eduai-showcase .text-cyan-400 { color: #0e7490; }
+html.light .eduai-showcase .text-red-400 { color: #b91c1c; }
+html.light .ncc-buddy-showcase .text-orange-400 { color: #9a4d0b; }
+html.light .ncc-buddy-showcase .text-blue-400 { color: #1d4ed8; }
+html.light .ncc-buddy-showcase .text-red-400 { color: #b91c1c; }
+html.light .ncc-buddy-showcase .text-green-400 { color: #15803d; }
+html.light .ncc-buddy-showcase .text-purple-400 { color: #7e22ce; }
+html.light .ncc-buddy-showcase .text-yellow-400 { color: #a16207; }
 
 .hero-profile-link {
   display: inline-flex;

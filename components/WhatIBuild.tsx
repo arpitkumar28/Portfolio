@@ -61,14 +61,14 @@ export const WhatIBuild: React.FC = () => {
       <div className="mb-10 flex flex-col items-center text-center">
         <p className="mb-3 font-mono text-[11px] font-bold uppercase tracking-[0.24em] text-primary">Capabilities</p>
         <SectionTitle className="mb-0">How I Build</SectionTitle>
-        <p className="mt-5 max-w-2xl text-base leading-7 text-text-muted md:text-lg">From product interfaces to secure systems, I connect the pieces that make software useful.</p>
+        <p className="mt-5 max-w-2xl text-balance text-base leading-7 text-text-muted md:text-lg">From product interfaces to secure systems, I connect the pieces that make software useful.</p>
       </div>
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6"
+        className="grid gap-4 sm:grid-cols-2 sm:[&>div:last-child]:col-span-2 lg:grid-cols-6"
       >
         {buildItems.map((item, index) => (
           <motion.div key={index} variants={itemVariants} className={index < 2 ? 'lg:col-span-3' : 'lg:col-span-2'}>

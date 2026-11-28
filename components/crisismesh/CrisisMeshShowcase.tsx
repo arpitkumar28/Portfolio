@@ -49,7 +49,7 @@ export default function CrisisMeshShowcase() {
           <div role="img" aria-label="Illustrative CrisisMesh dashboard concept with sample incident markers; not connected to live data" className="relative overflow-hidden rounded-2xl border border-border bg-background-card p-4 shadow-xl">
             <div className="flex items-center justify-between border-b border-border pb-3">
               <div><p className="text-sm font-black">Situational overview</p><p className="mt-1 text-xs text-text-muted">Illustrative sample · no live data</p></div>
-              <span className="rounded-full border border-amber-400/30 bg-amber-400/10 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wide text-amber-300">Prototype</span>
+              <span className="rounded-full border border-amber-400/30 bg-amber-400/10 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wide text-primary">Prototype</span>
             </div>
             <div className="relative mt-4 aspect-[4/3] overflow-hidden rounded-xl border border-border bg-[linear-gradient(135deg,rgba(57,220,151,0.07),transparent_48%),linear-gradient(rgba(175,210,214,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(175,210,214,0.06)_1px,transparent_1px)] bg-[size:auto,28px_28px,28px_28px]">
               <span className="absolute left-[18%] top-[26%] h-3 w-3 rounded-full border-2 border-amber-300 bg-amber-300/30" />

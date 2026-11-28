@@ -83,10 +83,6 @@ export const Hero: React.FC = () => {
               <a href="https://www.linkedin.com/in/arpitkumar0211" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-primary"><LinkedInIcon className="h-4 w-4" /> LinkedIn <ArrowUpRight className="h-3 w-3" /></a>
             </div>
 
-            <div className="hero-status inline-flex items-center gap-3 border-t border-border pt-5 text-sm">
-              <span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full rounded-full bg-primary/45" /><span className="relative inline-flex h-2 w-2 rounded-full bg-primary" /></span>
-              <span className="text-text-muted">Currently building <strong className="font-medium text-text-primary">GreenFlow AI</strong> <span className="text-text-subtle">· interface prototype</span></span>
-            </div>
           </div>
 
           <div ref={sceneRef} onMouseMove={handleSceneMove} onMouseLeave={resetScene} className="hero-portrait hero-3d-scene group relative mx-auto h-[360px] w-full max-w-[520px] sm:h-[460px] lg:h-[600px]" aria-label="Portrait of Arpit Kumar">

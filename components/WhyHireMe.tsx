@@ -83,8 +83,8 @@ export const WhyHireMe: React.FC = () => {
                   <reason.icon className="w-5 h-5 text-primary" />
                 </motion.div>
                 <div>
-                  <h3 className="text-base font-bold text-white mb-1">{reason.title}</h3>
-                  <p className="text-muted text-sm leading-relaxed">{reason.description}</p>
+                  <h3 className="mb-1 text-base font-bold text-text-primary">{reason.title}</h3>
+                  <p className="text-text-muted text-sm leading-relaxed">{reason.description}</p>
                 </div>
               </div>
             </GlassCard>

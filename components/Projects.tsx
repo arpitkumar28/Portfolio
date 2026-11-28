@@ -275,7 +275,7 @@ export const Projects: React.FC = () => {
       <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="font-mono text-xs font-bold uppercase tracking-wider text-primary">Selected work</p>
-          <SectionTitle className="mb-0 text-left">Projects</SectionTitle>
+          <SectionTitle className="mb-0 text-left after:mx-0">Projects</SectionTitle>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-text-muted md:text-base">
             Selected product work and hands-on security practice. Project stages are labeled clearly, with code, demos, or case studies linked where available.
           </p>
