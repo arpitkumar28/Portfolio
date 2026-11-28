@@ -46,7 +46,7 @@ export default function Home() {
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="theme-color" content="#F6F4EF" />
+        <meta name="theme-color" content="#0B0D12" />
 
         {/* Additional SEO */}
         <meta name="keywords" content="Arpit Kumar, Software Engineer, Flutter, mobile development, React, Next.js, TypeScript, Python, AI, full-stack, real-time systems, cybersecurity" />

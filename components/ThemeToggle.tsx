@@ -10,6 +10,7 @@ function applyTheme(theme: Theme) {
   root.classList.toggle('dark', theme === 'dark');
   root.classList.toggle('light', theme === 'light');
   root.style.colorScheme = theme;
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'light' ? '#F8F6F1' : '#0B0D12');
 }
 
 function readSavedTheme(): Theme | null {
@@ -70,6 +71,7 @@ export const ThemeToggle: React.FC = () => {
           <i className="cyber-building-particle cyber-building-particle-two" />
           <i className="cyber-building-particle cyber-building-particle-three" />
         </span>
+        <span className="cyber-day-label">DAYLIGHT</span>
         {dayMode && <Image src="/images/theme-toggle/shield.png" alt="" width={56} height={56} sizes="42px" className="cyber-shield" />}
         <span className="cyber-horizon" />
         <span className="cyber-stars"><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /></span>
