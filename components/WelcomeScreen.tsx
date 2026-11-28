@@ -16,6 +16,8 @@ export const WelcomeScreen: React.FC = () => {
   const [gifLoaded, setGifLoaded] = useState(false);
   const skipButtonRef = useRef<HTMLButtonElement>(null);
   const exitStartedRef = useRef(false);
+  const initializedRef = useRef(false);
+  const skipIntroRef = useRef(false);
   const fadeTimerRef = useRef<number | null>(null);
 
   const finishIntro = useCallback(() => {
@@ -26,35 +28,44 @@ export const WelcomeScreen: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    try {
-      if (window.sessionStorage.getItem(SESSION_KEY) === '1') {
+    // React Strict Mode replays effects in development. Guard the session
+    // check so that replay cannot mistake this first visit for a return visit.
+    if (!initializedRef.current) {
+      initializedRef.current = true;
+      const forcePreview = new URLSearchParams(window.location.search).get('intro') === '1';
+      try {
+        if (!forcePreview && window.sessionStorage.getItem(SESSION_KEY) === '1') {
+          skipIntroRef.current = true;
+          setPhase('done');
+          setHydrated(true);
+          return;
+        }
+      } catch {
+        // The intro still works when session storage is unavailable.
+      }
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        skipIntroRef.current = true;
+        try {
+          window.sessionStorage.setItem(SESSION_KEY, '1');
+        } catch {
+          // Keep the page usable when session storage is unavailable.
+        }
         setPhase('done');
         setHydrated(true);
         return;
       }
-    } catch {
-      // The intro still works when session storage is unavailable.
-    }
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       try {
+        // Mark it before playback so a refresh or route change never restarts it.
         window.sessionStorage.setItem(SESSION_KEY, '1');
       } catch {
-        // Keep the page usable when session storage is unavailable.
+        // The mounted app still prevents repeats during this navigation session.
       }
-      setPhase('done');
       setHydrated(true);
-      return;
     }
 
-    try {
-      // Mark it before playback so a refresh or route change never restarts it.
-      window.sessionStorage.setItem(SESSION_KEY, '1');
-    } catch {
-      // The mounted app still prevents repeats during this navigation session.
-    }
+    if (skipIntroRef.current) return;
 
-    setHydrated(true);
     skipButtonRef.current?.focus({ preventScroll: true });
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -66,6 +77,13 @@ export const WelcomeScreen: React.FC = () => {
 
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [finishIntro]);
+
+  useEffect(() => {
+    if (!hydrated || phase !== 'playing' || gifLoaded) return;
+    // A stalled image request should never leave the site covered indefinitely.
+    const loadFallback = window.setTimeout(finishIntro, 5_000);
+    return () => window.clearTimeout(loadFallback);
+  }, [finishIntro, gifLoaded, hydrated, phase]);
 
   useEffect(() => {
     if (!hydrated || phase !== 'playing' || !gifLoaded) return;
@@ -96,7 +114,7 @@ export const WelcomeScreen: React.FC = () => {
 
   return (
     <div
-      className={`welcome-screen${!hydrated ? ' welcome-screen--preparing' : ''}${phase === 'fading' ? ' welcome-screen--fading' : ''}`}
+      className={`welcome-screen${!hydrated ? ' welcome-screen--preparing' : ''}${gifLoaded ? ' welcome-screen--playing' : ''}${phase === 'fading' ? ' welcome-screen--fading' : ''}`}
       role="dialog"
       aria-modal="true"
       aria-hidden={!hydrated}
@@ -111,7 +129,6 @@ export const WelcomeScreen: React.FC = () => {
     >
       <div className="welcome-screen__frame" aria-hidden="true" />
       <div className="welcome-screen__content">
-        <p className="welcome-screen__eyebrow">A secure workspace is booting</p>
         <div className="welcome-screen__mascot-wrap">
           <Image
             className="welcome-screen__mascot"
