@@ -123,8 +123,8 @@ const ProfileCard: React.FC<{ profile: Profile; index: number }> = ({ profile, i
         <p className="mt-4 min-h-[72px] text-sm font-medium leading-relaxed text-text-muted">{profile.description}</p>
       </div>
 
-      <div className="relative mt-6 flex flex-wrap gap-2">
-        {profile.tags.map((tag) => <span key={tag} className="rounded-md border border-border bg-background-elevated/80 px-2.5 py-1.5 font-mono text-[10px] font-black text-text-muted">{tag}</span>)}
+      <div className="relative mt-6 flex min-w-0 flex-wrap items-start gap-1.5">
+        {profile.tags.map((tag) => <span key={tag} className="max-w-full break-words rounded-md border border-border bg-background-elevated/80 px-2 py-1.5 font-mono text-[9px] font-black leading-tight text-text-muted sm:text-[10px]">{tag}</span>)}
       </div>
 
       <div className="relative mt-auto border-t border-border/80 pt-5">

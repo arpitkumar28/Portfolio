@@ -4,11 +4,11 @@ module.exports = {
     extend: {
       colors: {
         background: {
-          DEFAULT: '#0B0D12',
-          surface: '#10131A',
-          elevated: '#191C24',
-          card: '#191C24',
-          border: 'rgba(242, 240, 235, 0.12)',
+          DEFAULT: 'rgb(var(--color-background) / <alpha-value>)',
+          surface: 'rgb(var(--color-surface) / <alpha-value>)',
+          elevated: 'rgb(var(--color-elevated) / <alpha-value>)',
+          card: 'rgb(var(--color-card) / <alpha-value>)',
+          border: 'rgb(var(--color-border) / <alpha-value>)',
         },
         primary: {
           50: '#FFF9EA',
