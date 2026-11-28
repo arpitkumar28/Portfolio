@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import Image from 'next/image';
-import { ArrowRight, ArrowUpRight, Mail, Code2, ShieldCheck, Terminal, LockKeyhole, Database, Cloud, Network, Bug, Activity } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Mail, Code2, ShieldCheck, Terminal, LockKeyhole, Database, Cloud, Network, Bug } from 'lucide-react';
 import { Button } from './ui/Button';
 import { GitHubIcon, LinkedInIcon } from './ui/SocialIcons';
 import { AmbientTechBackdrop } from './ui/AmbientTechBackdrop';
@@ -149,18 +149,35 @@ export const Hero: React.FC = () => {
             <div aria-hidden="true" className="absolute right-2 top-20 h-1.5 w-1.5 rounded-full bg-primary/80 shadow-[0_0_16px_rgba(232,184,91,0.5)]" />
           </div>
 
-          <div className="hero-fox-scene" aria-label="Cyber Guardian fox mascot">
+          <div className="hero-fox-scene" aria-label="Portrait of Arpit Kumar">
             <div className="hero-fox-ambient" aria-hidden="true" />
+            <div className="hero-fox-orbit hero-fox-orbit-one" aria-hidden="true" />
+            <div className="hero-fox-orbit hero-fox-orbit-two" aria-hidden="true" />
             <div className="hero-fox-circuit hero-fox-circuit-one" aria-hidden="true" />
             <div className="hero-fox-circuit hero-fox-circuit-two" aria-hidden="true" />
             <div className="hero-fox-frame" aria-hidden="true"><span /><span /><span /></div>
+            <div aria-hidden="true" className="hero-fox-security-icon hero-fox-icon-code"><Code2 /></div>
+            <div aria-hidden="true" className="hero-fox-security-icon hero-fox-icon-terminal"><Terminal /></div>
+            <div aria-hidden="true" className="hero-fox-security-icon hero-fox-icon-shield"><ShieldCheck /></div>
+            <div aria-hidden="true" className="hero-fox-security-icon hero-fox-icon-lock"><LockKeyhole /></div>
+            <div aria-hidden="true" className="hero-fox-security-icon hero-fox-icon-database"><Database /></div>
+            <div aria-hidden="true" className="hero-fox-security-icon hero-fox-icon-cloud"><Cloud /></div>
+            <div aria-hidden="true" className="hero-fox-security-icon hero-fox-icon-network"><Network /></div>
+            <div aria-hidden="true" className="hero-fox-security-icon hero-fox-icon-bug"><Bug /></div>
             <div className="hero-fox-art">
-              <Image src="/images/mascot/cyber-guardian.png" alt="" fill priority sizes="(max-width: 767px) 88vw, (max-width: 1200px) 46vw, 560px" className="hero-fox-image" />
+              <Image src="/assets/images/arpit-profile.webp" alt="Portrait of Arpit Kumar" fill priority sizes="(max-width: 767px) 72vw, (max-width: 1200px) 34vw, 420px" className="hero-fox-image" />
+              <div aria-hidden="true" className="hero-fox-image-vignette" />
             </div>
-            <div className="hero-fox-panel hero-fox-terminal" aria-hidden="true"><span className="hero-fox-panel-label"><Terminal /> TERMINAL</span><code><i>›</i> build()<br /><i>›</i> test()<br /><i>›</i> secure()</code></div>
-            <div className="hero-fox-panel hero-fox-shield" aria-hidden="true"><span className="hero-fox-shield-icon"><ShieldCheck /><LockKeyhole /></span><span><b>SECURE BY DESIGN</b><small>Security-first mindset</small></span></div>
-            <div className="hero-fox-panel hero-fox-monitor" aria-hidden="true"><span className="hero-fox-panel-label"><Activity /> SYSTEM HEALTH</span><span className="hero-fox-monitor-value">98.6<span>%</span></span><span className="hero-fox-monitor-bars"><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /></span></div>
-            <div className="hero-fox-caption"><span>CYBER GUARDIAN</span><i />SECURITY · SOFTWARE · SYSTEMS</div>
+            <div className="hero-fox-caption"><span className="hero-fox-caption-kicker">SECURITY-MINDED</span><span className="hero-fox-caption-title">Software engineering</span></div>
+            <nav aria-label="Profile links" className="hero-fox-profile-links">
+              <a href="https://github.com/arpitkumar28" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" className="hero-profile-link"><GitHubIcon className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" /><span>GitHub</span></a>
+              <a href="https://www.linkedin.com/in/arpitkumar0211" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" className="hero-profile-link"><LinkedInIcon className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" /><span>LinkedIn</span></a>
+              <a href="https://leetcode.com/u/arpit_patel28/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode profile" className="hero-profile-link"><Code2 className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" /><span>LeetCode</span></a>
+              <a href="https://tryhackme.com/p/ArpitKumar28" target="_blank" rel="noopener noreferrer" aria-label="TryHackMe profile" className="hero-profile-link"><ShieldCheck className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" /><span>TryHackMe</span></a>
+              <a href="https://profile.hackthebox.com/" target="_blank" rel="noopener noreferrer" aria-label="Hack The Box profile" className="hero-profile-link"><Image src="/assets/images/HTB.png" alt="" width={60} height={60} className="hero-profile-htb-icon" /><span>Hack The Box</span></a>
+              <a href="mailto:arpitkumar0211@gmail.com" aria-label="Email Arpit" className="hero-profile-link"><Mail className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" /><span>Email</span></a>
+            </nav>
+            <div aria-hidden="true" className="hero-fox-corner-mark">AK<span> / PORTFOLIO</span></div>
           </div>
         </div>
       </div>
