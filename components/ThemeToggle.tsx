@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 type Theme = 'dark' | 'light';
 
@@ -39,7 +40,7 @@ export const ThemeToggle: React.FC = () => {
     try {
       window.localStorage.setItem('portfolio-theme', next);
     } catch {
-      // Theme switching remains usable when browser storage is unavailable.
+      // Keep theme switching usable when browser storage is unavailable.
     }
   };
 
@@ -49,23 +50,27 @@ export const ThemeToggle: React.FC = () => {
     <button
       type="button"
       onClick={toggleTheme}
-      className={`theme-toggle weather-toggle fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6 ${dayMode ? 'is-day' : 'is-night'}`}
-      aria-label={ready ? `Switch to ${dayMode ? 'night' : 'day'} theme` : 'Toggle day and night theme'}
-      title={ready ? `Switch to ${dayMode ? 'night' : 'day'} theme` : 'Toggle day and night theme'}
+      className={`theme-toggle cyber-theme-toggle fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6 ${dayMode ? 'is-day' : 'is-night'}`}
+      aria-label={ready ? `Switch to ${dayMode ? 'night operations' : 'daylight'} theme` : 'Toggle day and night theme'}
+      title={ready ? `Switch to ${dayMode ? 'night operations' : 'daylight'} theme` : 'Toggle day and night theme'}
       aria-pressed={dayMode}
       aria-busy={!ready}
     >
-      <span className="weather-scene" aria-hidden="true">
-        <span className="weather-sun-rays"><span className="weather-sun" /></span>
-        <span className="weather-cloud weather-cloud-one" />
-        <span className="weather-cloud weather-cloud-two" />
-        <span className="weather-cloud weather-cloud-three" />
-        <span className="weather-nebula weather-nebula-one" />
-        <span className="weather-nebula weather-nebula-two" />
-        <span className="weather-moon"><i className="weather-crater crater-one" /><i className="weather-crater crater-two" /><i className="weather-crater crater-three" /><i className="weather-crater crater-four" /></span>
-        <span className="weather-stars"><i /><i /><i /><i /><i /><i /><i /><i /><i /></span>
-        <span className="weather-shooting-star" />
-        <span className="weather-horizon" />
+      <span className="cyber-scene" aria-hidden="true">
+        <span className="cyber-scene-glow" />
+        <span className="cyber-sun-wrap"><Image src="/images/theme-toggle/sun.png" alt="" width={64} height={62} sizes="48px" className="cyber-sun" /></span>
+        <span className="cyber-cloud cyber-cloud-one" />
+        <span className="cyber-cloud cyber-cloud-two" />
+        <span className="cyber-network-line cyber-network-line-one" />
+        <span className="cyber-network-line cyber-network-line-two" />
+        <span className="cyber-server-rack" aria-hidden="true"><i /><i /><i /><i /><i /><i /></span>
+        {dayMode && <Image src="/images/theme-toggle/shield.png" alt="" width={56} height={56} sizes="42px" className="cyber-shield" />}
+        <span className="cyber-horizon" />
+        <span className="cyber-stars"><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /></span>
+        <span className="cyber-circuit cyber-circuit-one" />
+        <span className="cyber-circuit cyber-circuit-two" />
+        <Image src="/images/theme-toggle/hacker.png" alt="" width={160} height={107} sizes="80px" className="cyber-hacker" />
+        <Image src="/images/theme-toggle/moon.png" alt="" width={64} height={62} sizes="52px" className="cyber-moon" />
       </span>
     </button>
   );
