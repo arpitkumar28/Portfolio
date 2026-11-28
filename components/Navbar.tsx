@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Download } from 'lucide-react';
 import { Button } from './ui/Button';
+import Image from 'next/image';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -18,26 +19,93 @@ export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [mascotX, setMascotX] = useState<number | null>(null);
+  const navRowRef = useRef<HTMLDivElement>(null);
+  const navLinkRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
+  const activeSectionRef = useRef(activeSection);
+  const activeFrameRef = useRef<number | null>(null);
+  activeSectionRef.current = activeSection;
+
+  const positionMascot = useCallback((section: string) => {
+    const container = navRowRef.current;
+    const link = navLinkRefs.current[section];
+    if (!container || !link) return;
+    const containerRect = container.getBoundingClientRect();
+    const linkRect = link.getBoundingClientRect();
+    setMascotX(linkRect.left - containerRect.left + linkRect.width / 2);
+  }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-
-      const sections = navItems.map(item => item.href.substring(1));
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      if (currentSection) setActiveSection(currentSection);
+    const sectionIds = navItems.map((item) => item.href.slice(1));
+    const setSection = (section: string) => {
+      if (!sectionIds.includes(section)) return;
+      if (activeSectionRef.current === section) return;
+      activeSectionRef.current = section;
+      setActiveSection(section);
+      requestAnimationFrame(() => positionMascot(section));
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const updateActiveSection = () => {
+      const activationLine = Math.min(window.innerHeight * 0.34, 220);
+      const orderedSections = sections
+        .map((section) => ({ section, top: section.getBoundingClientRect().top }))
+        .sort((a, b) => a.top - b.top);
+      const passedSections = orderedSections.filter(({ top }) => top <= activationLine);
+      const current = passedSections[passedSections.length - 1]?.section;
+      setSection(current?.id ?? 'home');
+    };
+
+    const initialHash = window.location.hash.slice(1);
+    if (sectionIds.includes(initialHash)) setSection(initialHash);
+    else setSection('home');
+
+    const updateScrolled = () => setIsScrolled(window.scrollY > 50);
+    updateScrolled();
+    window.addEventListener('scroll', updateScrolled, { passive: true });
+    const scheduleActiveUpdate = () => {
+      if (activeFrameRef.current !== null) return;
+      activeFrameRef.current = window.requestAnimationFrame(() => {
+        activeFrameRef.current = null;
+        updateActiveSection();
+      });
+    };
+    window.addEventListener('scroll', scheduleActiveUpdate, { passive: true });
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash && sectionIds.includes(hash)) setSection(hash);
+    };
+    window.addEventListener('hashchange', handleHashChange);
+
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => section !== null);
+    const observer = new IntersectionObserver(updateActiveSection, {
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0,
+    });
+    sections.forEach((section) => observer.observe(section));
+
+    const handleResize = () => {
+      updateActiveSection();
+      positionMascot(activeSectionRef.current);
+    };
+    window.addEventListener('resize', handleResize);
+    requestAnimationFrame(() => positionMascot(initialHash && sectionIds.includes(initialHash) ? initialHash : 'home'));
+    scheduleActiveUpdate();
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', updateScrolled);
+      window.removeEventListener('scroll', scheduleActiveUpdate);
+      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('resize', handleResize);
+      if (activeFrameRef.current !== null) window.cancelAnimationFrame(activeFrameRef.current);
+    };
+  }, [positionMascot]);
+
+  useEffect(() => {
+    positionMascot(activeSection);
+  }, [activeSection, positionMascot]);
 
   const closeMenu = () => setIsMobileMenuOpen(false);
 
@@ -55,7 +123,14 @@ export const Navbar: React.FC = () => {
         aria-label="Main navigation"
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="flex h-[4.5rem] items-center justify-between md:h-20">
+          <div ref={navRowRef} className="relative flex h-[4.5rem] items-center justify-between md:h-20">
+            <span
+              className="navbar-mascot-indicator hidden md:grid"
+              aria-hidden="true"
+              style={{ transform: `translate3d(${mascotX ?? 0}px, 0, 0) translateX(-50%)`, opacity: mascotX === null ? 0 : 1 }}
+            >
+              <Image src="/images/mascot/cyber-guardian.png" alt="" width={34} height={34} priority />
+            </span>
             <a
               href="#home"
               onClick={closeMenu}
@@ -72,6 +147,7 @@ export const Navbar: React.FC = () => {
                 <a
                   key={item.name}
                   href={item.href}
+                  ref={(element) => { navLinkRefs.current[item.href.slice(1)] = element; }}
                   onClick={closeMenu}
                   className={`relative rounded-sm py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                     activeSection === item.href.substring(1)

@@ -833,6 +833,44 @@ html.light .hero-profile-htb-icon { filter: grayscale(1) brightness(0) invert(.2
   border-radius: 9999px;
 }
 
+/* One shared mascot travels above the desktop navigation's active label. */
+.navbar-mascot-indicator {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  pointer-events: none;
+  will-change: transform;
+  transition: transform 520ms cubic-bezier(.22, 1, .36, 1), opacity 180ms ease;
+}
+
+@media (min-width: 768px) {
+  .navbar-mascot-indicator { display: grid; }
+}
+
+.navbar-mascot-indicator img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgb(232 184 91 / .72)) drop-shadow(0 0 12px rgb(232 184 91 / .32));
+  animation: navbar-mascot-float 2.8s ease-in-out infinite;
+}
+
+@keyframes navbar-mascot-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-mascot-indicator { transition: none; }
+  .navbar-mascot-indicator img { animation: none; }
+}
+
 .welcome-screen {
   position: fixed;
   z-index: 10000;
@@ -843,11 +881,12 @@ html.light .hero-profile-htb-icon { filter: grayscale(1) brightness(0) invert(.2
   padding: max(28px, env(safe-area-inset-top)) max(22px, env(safe-area-inset-right)) max(28px, env(safe-area-inset-bottom)) max(22px, env(safe-area-inset-left));
   color: #F2F0EB;
   background:
-    radial-gradient(ellipse at 50% 43%, rgb(232 184 91 / .12), transparent min(42vw, 35rem)),
-    radial-gradient(ellipse at 50% 100%, rgb(232 184 91 / .06), transparent 46%),
-    #0B0D12;
+    radial-gradient(ellipse at 50% 42%, rgb(232 184 91 / .16), transparent min(48vw, 39rem)),
+    radial-gradient(ellipse at 12% 88%, rgb(51 96 105 / .16), transparent 34%),
+    radial-gradient(ellipse at 90% 10%, rgb(157 111 46 / .12), transparent 32%),
+    #090b10;
   opacity: 1;
-  transition: opacity 700ms cubic-bezier(.22, 1, .36, 1);
+  transition: opacity 500ms cubic-bezier(.22, 1, .36, 1);
   isolation: isolate;
 }
 
@@ -912,17 +951,17 @@ html.light .hero-profile-htb-icon { filter: grayscale(1) brightness(0) invert(.2
 
 .welcome-screen__content {
   display: grid;
-  width: min(100%, 680px);
+  width: min(100%, 760px);
   justify-items: center;
-  gap: clamp(14px, 2.5vh, 22px);
+  gap: clamp(11px, 2vh, 18px);
   text-align: center;
   animation: welcome-content-enter 850ms cubic-bezier(.22, 1, .36, 1) both;
 }
 
 .welcome-screen__mascot-wrap {
   position: relative;
-  width: min(508px, 84vw, 66vh);
-  max-height: 54vh;
+  width: min(508px, 82vw, 52vh);
+  max-height: 50vh;
   border: 1px solid rgb(232 184 91 / .42);
   border-radius: clamp(12px, 2vw, 20px);
   background: #100d0a;
@@ -956,7 +995,7 @@ html.light .hero-profile-htb-icon { filter: grayscale(1) brightness(0) invert(.2
   display: block;
   width: 100%;
   height: auto;
-  max-height: 54vh;
+  max-height: 50vh;
   object-fit: contain;
 }
 
@@ -964,23 +1003,31 @@ html.light .hero-profile-htb-icon { filter: grayscale(1) brightness(0) invert(.2
   position: relative;
   margin: 3px 0 0;
   color: #F4CC78;
-  font: 800 clamp(16px, 2.6vw, 21px)/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;
-  letter-spacing: clamp(.12em, .7vw, .2em);
+  font: 850 clamp(19px, 3.1vw, 30px)/1.12 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: clamp(.08em, .65vw, .16em);
   text-wrap: balance;
   text-shadow: 0 0 24px rgb(232 184 91 / .18);
 }
 
 .welcome-screen__subtitle {
-  margin: -12px 0 0;
-  color: rgb(242 240 235 / .76);
+  margin: 0;
+  color: rgb(242 240 235 / .82);
   font: 500 clamp(15px, 2.2vw, 18px)/1.4 Inter, ui-sans-serif, system-ui, sans-serif;
   letter-spacing: -.02em;
 }
 
+.welcome-screen__eyebrow {
+  margin: 1px 0 0;
+  color: rgb(232 184 91 / .76);
+  font: 700 9px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: .24em;
+}
+
 .welcome-screen__loading {
-  width: 112px;
-  height: 2px;
-  margin-top: 3px;
+  width: min(220px, 54vw);
+  height: 3px;
+  margin-top: 1px;
+  border-radius: 99px;
   overflow: hidden;
   background: rgb(232 184 91 / .17);
 }
@@ -995,7 +1042,14 @@ html.light .hero-profile-htb-icon { filter: grayscale(1) brightness(0) invert(.2
 }
 
 .welcome-screen--playing .welcome-screen__loading span {
-  animation: welcome-progress 9.3s linear forwards;
+  animation: welcome-progress 4.2s linear forwards;
+}
+
+.welcome-screen__status {
+  margin: -7px 0 0;
+  color: rgb(242 240 235 / .48);
+  font: 500 10px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: .07em;
 }
 
 .welcome-screen__skip {
@@ -1036,15 +1090,24 @@ html.light .hero-profile-htb-icon { filter: grayscale(1) brightness(0) invert(.2
 @media (max-width: 600px) {
   .welcome-screen { padding-inline: max(18px, env(safe-area-inset-left)) max(18px, env(safe-area-inset-right)); }
   .welcome-screen__content { gap: clamp(13px, 2.2vh, 18px); }
-  .welcome-screen__mascot-wrap { width: min(508px, 86vw, 54vh); }
+  .welcome-screen__mascot-wrap { width: min(508px, 86vw, 48vh); max-height: 44vh; }
+  .welcome-screen__mascot { max-height: 44vh; }
   .welcome-screen__skip { top: max(20px, env(safe-area-inset-top)); right: max(20px, env(safe-area-inset-right)); min-height: 38px; padding-inline: 12px; font-size: 9px; }
-  .welcome-screen__subtitle { margin-top: -9px; }
 }
 
 @media (max-height: 560px) and (min-width: 601px) {
   .welcome-screen__content { grid-template-columns: minmax(0, 1.2fr) minmax(220px, .8fr); column-gap: 34px; }
-  .welcome-screen__mascot-wrap { grid-row: span 4; width: min(48vw, 54vh); max-height: 66vh; }
+  .welcome-screen__mascot-wrap { grid-row: span 5; width: min(48vw, 54vh); max-height: 66vh; }
   .welcome-screen__mascot { max-height: 66vh; }
+}
+
+@media (max-height: 430px) {
+  .welcome-screen { padding-block: 18px; }
+  .welcome-screen__content { grid-template-columns: minmax(0, 1fr) minmax(180px, .9fr); column-gap: 22px; }
+  .welcome-screen__mascot-wrap { grid-row: span 5; width: min(42vw, 42vh); max-height: 72vh; }
+  .welcome-screen__mascot { max-height: 72vh; }
+  .welcome-screen__title { font-size: clamp(16px, 3vh, 23px); }
+  .welcome-screen__skip { top: 14px; right: 16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

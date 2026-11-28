@@ -3,11 +3,9 @@ import Image from 'next/image';
 
 type WelcomePhase = 'playing' | 'fading' | 'done';
 
-// The supplied GIF is nine 1-second frames. The extra 300ms lets its final
-// frame settle before the overlay begins fading away.
-const GIF_PLAYBACK_MS = 9_000;
-const FINAL_FRAME_HOLD_MS = 300;
-const FADE_OUT_MS = 700;
+// Keep the intro atmospheric without holding the page hostage.
+const INTRO_PLAYBACK_MS = 4_200;
+const FADE_OUT_MS = 500;
 const SESSION_KEY = 'portfolio-welcome-intro-seen';
 
 export const WelcomeScreen: React.FC = () => {
@@ -19,6 +17,7 @@ export const WelcomeScreen: React.FC = () => {
   const initializedRef = useRef(false);
   const skipIntroRef = useRef(false);
   const fadeTimerRef = useRef<number | null>(null);
+  const focusBeforeIntroRef = useRef<HTMLElement | null>(null);
 
   const finishIntro = useCallback(() => {
     if (exitStartedRef.current) return;
@@ -66,6 +65,9 @@ export const WelcomeScreen: React.FC = () => {
 
     if (skipIntroRef.current) return;
 
+    focusBeforeIntroRef.current = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
     skipButtonRef.current?.focus({ preventScroll: true });
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -79,20 +81,15 @@ export const WelcomeScreen: React.FC = () => {
   }, [finishIntro]);
 
   useEffect(() => {
-    if (!hydrated || phase !== 'playing' || gifLoaded) return;
-    // A stalled image request should never leave the site covered indefinitely.
-    const loadFallback = window.setTimeout(finishIntro, 5_000);
-    return () => window.clearTimeout(loadFallback);
-  }, [finishIntro, gifLoaded, hydrated, phase]);
+    if (!hydrated || phase !== 'playing') return;
+    const playbackTimer = window.setTimeout(finishIntro, INTRO_PLAYBACK_MS);
+    return () => window.clearTimeout(playbackTimer);
+  }, [finishIntro, hydrated, phase]);
 
   useEffect(() => {
-    if (!hydrated || phase !== 'playing' || !gifLoaded) return;
-    const playbackTimer = window.setTimeout(
-      finishIntro,
-      GIF_PLAYBACK_MS + FINAL_FRAME_HOLD_MS,
-    );
-    return () => window.clearTimeout(playbackTimer);
-  }, [finishIntro, gifLoaded, hydrated, phase]);
+    if (phase !== 'done') return;
+    focusBeforeIntroRef.current?.focus({ preventScroll: true });
+  }, [phase]);
 
   useEffect(() => {
     if (!hydrated || phase === 'done') return;
@@ -116,14 +113,14 @@ export const WelcomeScreen: React.FC = () => {
     <div
       className={`welcome-screen${!hydrated ? ' welcome-screen--preparing' : ''}${gifLoaded ? ' welcome-screen--playing' : ''}${phase === 'fading' ? ' welcome-screen--fading' : ''}`}
       role="dialog"
-      aria-modal="true"
+      aria-modal="false"
       aria-hidden={!hydrated}
       aria-labelledby="welcome-screen-title"
       aria-describedby="welcome-screen-subtitle"
       onKeyDown={(event) => {
-        if (event.key === 'Tab') {
+        if (event.key === 'Tab' && event.shiftKey && document.activeElement === skipButtonRef.current) {
           event.preventDefault();
-          skipButtonRef.current?.focus();
+          skipButtonRef.current?.blur();
         }
       }}
     >
@@ -133,7 +130,8 @@ export const WelcomeScreen: React.FC = () => {
           <Image
             className="welcome-screen__mascot"
             src="/images/mascot/fox-owl-vintage-hacker.gif"
-            alt="Animated fox and owl hackers working together at a vintage computer"
+            alt=""
+            aria-hidden="true"
             width={508}
             height={334}
             sizes="(max-width: 600px) 86vw, 508px"
@@ -145,7 +143,9 @@ export const WelcomeScreen: React.FC = () => {
         </div>
         <h1 id="welcome-screen-title" className="welcome-screen__title">BUILD. BREAK. SECURE.</h1>
         <p id="welcome-screen-subtitle" className="welcome-screen__subtitle">Welcome to Arpit&apos;s Portfolio</p>
+        <p className="welcome-screen__eyebrow">A PORTFOLIO BY ARPIT KUMAR</p>
         <div className="welcome-screen__loading" aria-hidden="true"><span /></div>
+        <p className="welcome-screen__status" aria-live="polite">{gifLoaded ? 'Preparing the experience' : 'Loading the experience'}</p>
       </div>
       <button
         ref={skipButtonRef}
