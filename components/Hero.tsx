@@ -36,7 +36,7 @@ export const Hero: React.FC = () => {
       aria-labelledby="hero-heading"
     >
       <AmbientTechBackdrop variant="hero" />
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 site-grid" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 hero-atmosphere" />
       <div aria-hidden="true" className="hero-glow pointer-events-none absolute right-[8%] top-[8%] h-[30rem] w-[30rem] rounded-full bg-primary/10 blur-[115px]" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background/60" />
       <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
@@ -123,7 +123,7 @@ export const Hero: React.FC = () => {
               <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">Security-minded</span>
               <span className="mt-1 block text-sm text-text-primary">Software engineering</span>
             </div>
-            <nav aria-label="Profile links" className="hero-profile-links absolute bottom-5 right-[6.5rem] z-20 flex flex-nowrap items-center gap-1.5 rounded-full border border-primary/30 bg-background/90 p-1.5 shadow-xl shadow-black/20 backdrop-blur-xl sm:bottom-7">
+            <nav aria-label="Profile links" className="hero-profile-links absolute bottom-5 right-2 z-20 flex flex-nowrap items-center gap-1.5 rounded-full border border-primary/30 bg-background/90 p-1.5 shadow-xl shadow-black/20 backdrop-blur-xl sm:bottom-7 sm:right-3">
               <a href="https://github.com/arpitkumar28" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" className="hero-profile-link"><GitHubIcon className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" /><span>GitHub</span></a>
               <a href="https://www.linkedin.com/in/arpitkumar0211" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" className="hero-profile-link"><LinkedInIcon className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" /><span>LinkedIn</span></a>
               <a href="https://leetcode.com/u/arpit_patel28/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode profile" className="hero-profile-link"><Code2 className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" /><span>LeetCode</span></a>

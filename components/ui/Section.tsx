@@ -37,7 +37,7 @@ export const SectionTitle: React.FC<{ children: React.ReactNode; className?: str
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       className={cn(
-        'relative text-3xl font-semibold tracking-tight text-text-primary mb-8 md:mb-12 text-center md:text-4xl lg:text-5xl after:mx-auto after:mt-5 after:block after:h-px after:w-12 after:bg-primary/65 after:content-["_"]',
+        'relative text-3xl font-semibold tracking-[-0.04em] text-text-primary mb-8 md:mb-12 text-center md:text-4xl lg:text-5xl after:mx-auto after:mt-5 after:block after:h-[2px] after:w-10 after:bg-primary/75 after:content-[""]',
         className
       )}
     >

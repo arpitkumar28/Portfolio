@@ -103,6 +103,7 @@ export default function Home() {
         {/* Main Content Layout */}
         <div className="portfolio-content mx-auto max-w-7xl px-4 py-2 md:px-8 lg:py-4">
           <div className="space-y-0">
+            <Achievements />
             <Projects />
             <ProblemSolvingSecurity />
             <WhatIBuild />
@@ -110,7 +111,6 @@ export default function Home() {
             <Education />
             <About />
             <TechStack />
-            <Achievements />
             <Contact />
           </div>
         </div>
