@@ -391,6 +391,11 @@ button:not(:disabled), a[href] { cursor: pointer; }
     radial-gradient(ellipse 48% 57% at 46% 43%, transparent 0 38%, rgb(var(--color-background) / .58) 100%),
     linear-gradient(180deg, rgb(var(--color-background) / .62), transparent 35%, transparent 72%, rgb(var(--color-background) / .64));
 }
+.hero-day-greeting,
+.hero-day-skills,
+.hero-day-actions,
+.hero-day-social,
+.hero-fox-scene { display: none; }
 .hero-orbit::after {
   content: ''; position: absolute; top: 13%; left: 16%; width: 7px; height: 7px;
   border-radius: 50%; background: #E8B85B; box-shadow: 0 0 15px rgba(232,184,91,.8);
@@ -737,6 +742,186 @@ html.light .ambient-orbit { border-color: rgb(217 154 39 / .13); box-shadow: 0 0
 html.light .ambient-network-lines { color: rgb(146 105 45 / .15); }
 html.light .ambient-particles span { background: #a36a12; box-shadow: 0 0 8px 2px rgb(217 154 39 / .2); }
 html.light .ambient-symbol { filter: drop-shadow(0 0 7px rgb(146 105 45 / .07)); }
+
+/* Daylight hero: warm editorial copy, the supplied mascot artwork, and a quiet floating nav. */
+html.light nav[aria-label="Main navigation"] { background: transparent; border-color: transparent; box-shadow: none; }
+html.light .navbar-row {
+  margin-top: .65rem;
+  padding-inline: 1rem;
+  border: 1px solid rgb(var(--color-border) / .9);
+  border-radius: 999px;
+  background: rgb(255 255 255 / .94);
+  box-shadow: 0 10px 30px rgb(23 32 51 / .075), inset 0 1px 0 rgb(255 255 255 / .96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+html.light #home {
+  min-height: 100svh;
+  padding-top: 7.25rem;
+  padding-bottom: 2.5rem;
+}
+html.light #home > .absolute.inset-x-0.top-0 { opacity: .25; }
+html.light #home > .max-w-7xl { max-width: 1320px; }
+html.light #home > .max-w-7xl > .relative.grid { grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr); gap: clamp(1.5rem, 4vw, 4rem); }
+html.light #home .hero-copy { max-width: 10ch; font-size: clamp(3.75rem, 6.8vw, 6.3rem); line-height: .98; letter-spacing: -.065em; }
+html.light #home .hero-line-three { position: relative; width: fit-content; color: #80540b; }
+html.light #home .hero-line-three::after {
+  position: absolute;
+  right: 0;
+  bottom: -.12em;
+  left: 0;
+  height: 3px;
+  content: '';
+  border-radius: 99px;
+  background: linear-gradient(90deg, #d99a27, rgb(217 154 39 / .28));
+  transform: scaleX(.72);
+  transform-origin: left;
+  animation: hero-day-underline 850ms 700ms cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes hero-day-underline { to { transform: scaleX(1); } }
+html.light .hero-day-greeting {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: .6rem;
+  padding: .55rem .82rem;
+  border: 1px solid rgb(217 154 39 / .3);
+  border-radius: 999px;
+  background: rgb(255 255 255 / .84);
+  box-shadow: 0 5px 18px rgb(23 32 51 / .045);
+  color: #344054;
+  font-size: .875rem;
+  font-weight: 650;
+  letter-spacing: -.01em;
+}
+html.light .hero-day-greeting-dot { width: 7px; height: 7px; border-radius: 50%; background: #d99a27; box-shadow: 0 0 0 4px rgb(217 154 39 / .13); }
+html.light .hero-mode-kicker { display: none; }
+html.light .hero-day-skills { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: -1rem; }
+html.light .hero-day-skills span {
+  padding: .48rem .7rem;
+  border: 1px solid rgb(var(--color-border));
+  border-radius: 999px;
+  background: rgb(255 255 255 / .72);
+  color: #475467;
+  font-size: .75rem;
+  font-weight: 650;
+  letter-spacing: .005em;
+}
+html.light .hero-day-actions { display: flex; flex-wrap: wrap; gap: .8rem; opacity: 0; animation: hero-enter 680ms 440ms cubic-bezier(.22,1,.36,1) forwards; }
+html.light .hero-dark-actions,
+html.light .hero-dark-social { display: none; }
+html.light .hero-day-primary-action { min-height: 3rem; border: 1px solid #c8891d; background: #d99a27; color: #172033; box-shadow: 0 8px 18px rgb(217 154 39 / .2); }
+html.light .hero-day-primary-action:hover { background: #e2aa43; box-shadow: 0 11px 24px rgb(217 154 39 / .25); }
+html.light .hero-day-secondary-action { min-height: 3rem; border-color: rgb(23 32 51 / .2); background: rgb(255 255 255 / .58); color: #172033; }
+html.light .hero-day-secondary-action:hover { border-color: #d99a27; background: rgb(217 154 39 / .09); }
+html.light .hero-day-social { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; padding-top: .1rem; opacity: 0; animation: hero-enter 680ms 530ms cubic-bezier(.22,1,.36,1) forwards; }
+html.light .hero-day-social a { display: inline-flex; align-items: center; gap: .45rem; color: #667085; font-size: .82rem; font-weight: 600; transition: color 180ms ease, transform 180ms ease; }
+html.light .hero-day-social a:hover { color: #80540b; transform: translateY(-1px); }
+html.light .hero-day-social svg { width: 1rem; height: 1rem; }
+html.light .hero-x-mark { display: inline-flex; width: 1rem; justify-content: center; color: currentColor; font-size: 1rem; font-weight: 700; }
+html.light .hero-photo-scene { display: none; }
+html.light .hero-fox-scene {
+  position: relative;
+  display: block;
+  width: min(100%, 550px);
+  height: clamp(390px, 40vw, 530px);
+  margin-inline: auto;
+  isolation: isolate;
+}
+html.light .hero-fox-ambient { position: absolute; inset: 13%; border-radius: 50%; background: radial-gradient(circle, rgb(217 154 39 / .17), rgb(217 154 39 / .055) 43%, transparent 72%); filter: blur(20px); }
+html.light .hero-fox-frame {
+  position: absolute;
+  inset: 7%;
+  border: 1px solid rgb(217 154 39 / .36);
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px rgb(217 154 39 / .035), 0 22px 70px rgb(23 32 51 / .09), inset 0 0 42px rgb(217 154 39 / .055);
+  transform: rotate(-8deg);
+  animation: hero-day-frame 20s ease-in-out infinite alternate;
+}
+html.light .hero-fox-frame span { position: absolute; width: 7px; height: 7px; border: 1px solid #d99a27; border-radius: 50%; background: #fffaf0; box-shadow: 0 0 0 4px rgb(217 154 39 / .12); }
+html.light .hero-fox-frame span:nth-child(1) { top: 13%; left: 18%; }
+html.light .hero-fox-frame span:nth-child(2) { top: 50%; right: -4px; }
+html.light .hero-fox-frame span:nth-child(3) { bottom: 12%; left: 27%; }
+@keyframes hero-day-frame { to { transform: rotate(0deg); } }
+html.light .hero-fox-art { position: absolute; z-index: 1; inset: 0; animation: hero-day-float 7s ease-in-out infinite; }
+html.light .hero-fox-image { object-fit: contain; filter: drop-shadow(0 20px 25px rgb(23 32 51 / .14)); }
+@keyframes hero-day-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+html.light .hero-fox-circuit { position: absolute; z-index: -1; width: 70px; height: 32px; border-top: 1px solid rgb(217 154 39 / .32); border-right: 1px solid rgb(217 154 39 / .32); opacity: .6; }
+html.light .hero-fox-circuit::after { position: absolute; top: -3px; right: -3px; width: 5px; height: 5px; content: ''; border-radius: 50%; background: #d99a27; }
+html.light .hero-fox-circuit-one { top: 20%; left: 0; }
+html.light .hero-fox-circuit-two { right: 1%; bottom: 24%; transform: rotate(180deg); }
+html.light .hero-fox-panel {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+  padding: .75rem .85rem;
+  border: 1px solid rgb(217 154 39 / .27);
+  border-radius: 14px;
+  background: rgb(255 255 255 / .91);
+  box-shadow: 0 12px 34px rgb(23 32 51 / .1), inset 0 1px 0 #fff;
+  color: #344054;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: hero-day-panel-float 6s ease-in-out infinite;
+}
+@keyframes hero-day-panel-float { 0%,100% { translate: 0 0; } 50% { translate: 0 -5px; } }
+html.light .hero-fox-panel-label { display: flex; align-items: center; gap: .4rem; color: #667085; font: 700 .58rem/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .1em; }
+html.light .hero-fox-panel-label svg { width: .85rem; height: .85rem; color: #9a650f; }
+html.light .hero-fox-terminal { top: 20%; left: -2%; min-width: 128px; animation-delay: -1.3s; }
+html.light .hero-fox-terminal code { color: #344054; font: 600 .7rem/1.55 ui-monospace, SFMono-Regular, Menlo, monospace; }
+html.light .hero-fox-terminal code i { color: #9a650f; font-style: normal; }
+html.light .hero-fox-shield { top: 43%; right: -3%; flex-direction: row; align-items: center; gap: .65rem; animation-delay: -3.1s; }
+html.light .hero-fox-shield-icon { position: relative; display: grid; width: 2rem; height: 2rem; place-items: center; border-radius: 10px; background: rgb(217 154 39 / .13); color: #9a650f; }
+html.light .hero-fox-shield-icon svg:first-child { width: 1.25rem; height: 1.25rem; }
+html.light .hero-fox-shield-icon svg:last-child { position: absolute; right: -3px; bottom: -2px; width: .7rem; height: .7rem; padding: 1px; border-radius: 50%; background: #fff; }
+html.light .hero-fox-shield b { display: block; color: #344054; font: 750 .58rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .04em; }
+html.light .hero-fox-shield small { display: block; margin-top: .2rem; color: #667085; font-size: .63rem; }
+html.light .hero-fox-monitor { bottom: 16%; left: 3%; min-width: 142px; animation-delay: -4.4s; }
+html.light .hero-fox-monitor-value { color: #172033; font-size: 1.2rem; font-weight: 750; letter-spacing: -.04em; }
+html.light .hero-fox-monitor-value span { margin-left: 2px; color: #9a650f; font-size: .7rem; }
+html.light .hero-fox-monitor-bars { display: flex; height: 13px; align-items: end; gap: 3px; }
+html.light .hero-fox-monitor-bars i { flex: 1; height: 42%; border-radius: 2px 2px 0 0; background: #d99a27; opacity: .55; }
+html.light .hero-fox-monitor-bars i:nth-child(3n) { height: 82%; opacity: .9; }
+html.light .hero-fox-monitor-bars i:nth-child(3n + 1) { height: 62%; opacity: .72; }
+html.light .hero-fox-caption { position: absolute; right: 6%; bottom: 5%; display: flex; align-items: center; gap: .45rem; color: #667085; font: 650 .58rem/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .11em; }
+html.light .hero-fox-caption span { color: #80540b; font-weight: 800; }
+html.light .hero-fox-caption i { width: 4px; height: 4px; border-radius: 50%; background: #d99a27; }
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  html.light #home { padding-top: 7rem; padding-bottom: 2rem; }
+  html.light #home > .max-w-7xl > .relative.grid { grid-template-columns: minmax(0, 1.03fr) minmax(0, .97fr); gap: 1.25rem; }
+  html.light #home .hero-copy { font-size: clamp(3.75rem, 7.3vw, 5.25rem); }
+  html.light .hero-fox-scene { height: 390px; }
+  html.light .hero-fox-terminal { left: -4%; transform: scale(.88); transform-origin: left center; }
+  html.light .hero-fox-shield { right: -7%; transform: scale(.88); transform-origin: right center; }
+  html.light .hero-fox-monitor { left: -2%; transform: scale(.9); transform-origin: left center; }
+}
+@media (max-width: 767px) {
+  html.light #home { min-height: 0; padding-top: 7rem; padding-bottom: 3rem; }
+  html.light #home > .max-w-7xl > .relative.grid { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  html.light #home .hero-copy { font-size: clamp(3.35rem, 14vw, 5rem); }
+  html.light .hero-day-skills { margin-top: -.25rem; gap: .45rem; }
+  html.light .hero-day-skills span { padding: .4rem .58rem; font-size: .68rem; }
+  html.light .hero-day-social { gap: 1rem; }
+  html.light .hero-day-social a { font-size: .76rem; }
+  html.light .hero-fox-scene { width: min(100%, 430px); height: clamp(310px, 88vw, 410px); }
+  html.light .hero-fox-frame { inset: 6%; }
+  html.light .hero-fox-terminal,
+  html.light .hero-fox-monitor,
+  html.light .hero-fox-caption,
+  html.light .hero-fox-circuit { display: none; }
+  html.light .hero-fox-shield { top: 73%; right: 0; transform: scale(.82); transform-origin: right center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.light .hero-day-actions,
+  html.light .hero-day-social { opacity: 1; animation: none; }
+  html.light #home .hero-line-three::after { animation: none; transform: scaleX(1); }
+  html.light .hero-fox-frame,
+  html.light .hero-fox-art,
+  html.light .hero-fox-panel { animation: none; }
+}
 
 /* Keep small gold labels accessible while retaining champagne gold for fills and rules. */
 html.light .text-primary,

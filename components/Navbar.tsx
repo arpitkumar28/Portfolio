@@ -123,7 +123,7 @@ export const Navbar: React.FC = () => {
         aria-label="Main navigation"
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div ref={navRowRef} className="relative flex h-[4.5rem] items-center justify-between md:h-20">
+          <div ref={navRowRef} className="navbar-row relative flex h-[4.5rem] items-center justify-between md:h-20">
             <span
               className="navbar-mascot-indicator hidden md:grid"
               aria-hidden="true"

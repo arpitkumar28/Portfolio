@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import Image from 'next/image';
-import { ArrowRight, ArrowUpRight, Mail, Code2, ShieldCheck, Terminal, LockKeyhole, Database, Cloud, Network, Bug } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Mail, Code2, ShieldCheck, Terminal, LockKeyhole, Database, Cloud, Network, Bug, Activity } from 'lucide-react';
 import { Button } from './ui/Button';
 import { GitHubIcon, LinkedInIcon } from './ui/SocialIcons';
 import { AmbientTechBackdrop } from './ui/AmbientTechBackdrop';
@@ -44,7 +44,8 @@ export const Hero: React.FC = () => {
         <div className="relative grid items-center gap-12 lg:grid-cols-[1.04fr_0.96fr] lg:gap-16">
           <div className="relative z-10 space-y-8">
             <div className="space-y-6">
-              <div className="flex items-center gap-3 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
+              <div className="hero-day-greeting"><span className="hero-day-greeting-dot" /> Hey, I&apos;m Arpit Kumar</div>
+              <div className="hero-mode-kicker flex items-center gap-3 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
                 <span className="h-px w-8 bg-primary" /> Cybersecurity <span className="text-primary">/</span> Software Engineering
               </div>
               <h1
@@ -59,7 +60,11 @@ export const Hero: React.FC = () => {
               </p>
             </div>
 
-            <div className="hero-actions flex flex-wrap gap-3">
+            <div className="hero-day-skills" aria-label="Areas of expertise">
+              <span>Web Development</span><span>Cybersecurity</span><span>AI / ML</span><span>Flutter</span>
+            </div>
+
+            <div className="hero-actions hero-dark-actions flex flex-wrap gap-3">
               <Button
                 href="#projects"
                 className="px-6 py-3 text-sm font-semibold"
@@ -78,14 +83,26 @@ export const Hero: React.FC = () => {
               </Button>
             </div>
 
-            <div className="hero-social flex items-center gap-5 pt-1 text-sm text-text-muted">
+            <div className="hero-day-actions">
+              <Button href="#projects" className="hero-day-primary-action px-6 py-3 text-sm font-semibold"><ArrowRight className="mr-2 h-4 w-4" />Explore Projects</Button>
+              <Button variant="outline" href="#about" className="hero-day-secondary-action px-6 py-3 text-sm font-semibold">About Me<ArrowRight className="ml-2 h-4 w-4" /></Button>
+            </div>
+
+            <div className="hero-social hero-dark-social flex items-center gap-5 pt-1 text-sm text-text-muted">
               <a href="https://github.com/arpitkumar28" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-primary"><GitHubIcon className="h-4 w-4" /> GitHub <ArrowUpRight className="h-3 w-3" /></a>
               <a href="https://www.linkedin.com/in/arpitkumar0211" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-primary"><LinkedInIcon className="h-4 w-4" /> LinkedIn <ArrowUpRight className="h-3 w-3" /></a>
             </div>
 
+            <div className="hero-day-social" aria-label="Social links">
+              <a href="https://github.com/arpitkumar28" target="_blank" rel="noopener noreferrer"><GitHubIcon aria-hidden="true" />GitHub</a>
+              <a href="https://www.linkedin.com/in/arpitkumar0211" target="_blank" rel="noopener noreferrer"><LinkedInIcon aria-hidden="true" />LinkedIn</a>
+              <a href="https://x.com/Arpit_patel28" target="_blank" rel="noopener noreferrer"><span aria-hidden="true" className="hero-x-mark">𝕏</span>X</a>
+              <a href="mailto:arpitkumar0211@gmail.com"><Mail aria-hidden="true" />Email</a>
+            </div>
+
           </div>
 
-          <div ref={sceneRef} onMouseMove={handleSceneMove} onMouseLeave={resetScene} className="hero-portrait hero-3d-scene group relative mx-auto h-[360px] w-full max-w-[520px] sm:h-[460px] lg:h-[600px]" aria-label="Portrait of Arpit Kumar">
+          <div ref={sceneRef} onMouseMove={handleSceneMove} onMouseLeave={resetScene} className="hero-portrait hero-photo-scene hero-3d-scene group relative mx-auto h-[360px] w-full max-w-[520px] sm:h-[460px] lg:h-[600px]" aria-label="Portrait of Arpit Kumar">
             <div aria-hidden="true" className="hero-orbit hero-orbit-one" />
             <div aria-hidden="true" className="hero-orbit hero-orbit-two" />
             <div aria-hidden="true" className="hero-gold-orbit" />
@@ -130,6 +147,20 @@ export const Hero: React.FC = () => {
             <div aria-hidden="true" className="hero-scanline" />
             <div aria-hidden="true" className="hero-corner-mark">AK<span> / PORTFOLIO</span></div>
             <div aria-hidden="true" className="absolute right-2 top-20 h-1.5 w-1.5 rounded-full bg-primary/80 shadow-[0_0_16px_rgba(232,184,91,0.5)]" />
+          </div>
+
+          <div className="hero-fox-scene" aria-label="Cyber Guardian fox mascot">
+            <div className="hero-fox-ambient" aria-hidden="true" />
+            <div className="hero-fox-circuit hero-fox-circuit-one" aria-hidden="true" />
+            <div className="hero-fox-circuit hero-fox-circuit-two" aria-hidden="true" />
+            <div className="hero-fox-frame" aria-hidden="true"><span /><span /><span /></div>
+            <div className="hero-fox-art">
+              <Image src="/images/mascot/cyber-guardian.png" alt="" fill priority sizes="(max-width: 767px) 88vw, (max-width: 1200px) 46vw, 560px" className="hero-fox-image" />
+            </div>
+            <div className="hero-fox-panel hero-fox-terminal" aria-hidden="true"><span className="hero-fox-panel-label"><Terminal /> TERMINAL</span><code><i>›</i> build()<br /><i>›</i> test()<br /><i>›</i> secure()</code></div>
+            <div className="hero-fox-panel hero-fox-shield" aria-hidden="true"><span className="hero-fox-shield-icon"><ShieldCheck /><LockKeyhole /></span><span><b>SECURE BY DESIGN</b><small>Security-first mindset</small></span></div>
+            <div className="hero-fox-panel hero-fox-monitor" aria-hidden="true"><span className="hero-fox-panel-label"><Activity /> SYSTEM HEALTH</span><span className="hero-fox-monitor-value">98.6<span>%</span></span><span className="hero-fox-monitor-bars"><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /></span></div>
+            <div className="hero-fox-caption"><span>CYBER GUARDIAN</span><i />SECURITY · SOFTWARE · SYSTEMS</div>
           </div>
         </div>
       </div>
