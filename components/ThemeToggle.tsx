@@ -64,6 +64,12 @@ export const ThemeToggle: React.FC = () => {
         <span className="cyber-network-line cyber-network-line-one" />
         <span className="cyber-network-line cyber-network-line-two" />
         <span className="cyber-server-rack" aria-hidden="true"><i /><i /><i /><i /><i /><i /></span>
+        <span className="cyber-day-building" aria-hidden="true">
+          <Image src="/images/theme-toggle/day-building.png" alt="" width={512} height={341} sizes="100px" />
+          <i className="cyber-building-particle cyber-building-particle-one" />
+          <i className="cyber-building-particle cyber-building-particle-two" />
+          <i className="cyber-building-particle cyber-building-particle-three" />
+        </span>
         {dayMode && <Image src="/images/theme-toggle/shield.png" alt="" width={56} height={56} sizes="42px" className="cyber-shield" />}
         <span className="cyber-horizon" />
         <span className="cyber-stars"><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /></span>

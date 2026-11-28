@@ -777,6 +777,17 @@ html.light .hero-profile-htb-icon { filter: grayscale(1) brightness(0) invert(.2
 .cyber-server-rack i { position: relative; display: block; height: 3px; border: 1px solid rgb(54 158 255 / .65); border-radius: 2px; background: linear-gradient(90deg,#061333,#0b3d8a); }
 .cyber-server-rack i::after { position: absolute; top: 0; right: 2px; width: 2px; height: 2px; content: ''; border-radius: 50%; background: #65d7ff; box-shadow: 0 0 4px #35c7ff; }
 .is-night .cyber-server-rack { opacity: 0; transform: translateX(24px) scale(.75); }
+.cyber-day-building { position: absolute; z-index: 5; right: -2px; bottom: -4px; display: block; width: 100px; pointer-events: none; transition: opacity 750ms ease, transform 850ms cubic-bezier(.2,.8,.2,1); }
+.cyber-day-building img { display: block; width: 100%; height: auto; filter: drop-shadow(0 0 3px rgb(255 228 153 / .28)); transition: filter 850ms ease; }
+.cyber-day-building::before { position: absolute; z-index: -1; right: 8px; bottom: 5px; left: 12px; height: 18px; content: ''; border-radius: 50%; background: rgb(142 238 74 / .35); filter: blur(8px); transition: background 750ms ease, opacity 750ms ease; }
+.cyber-building-particle { position: absolute; z-index: 1; display: block; width: 2px; height: 2px; border-radius: 50%; background: #ffe38c; box-shadow: 0 0 5px 1px rgb(255 223 128 / .85); opacity: 0; animation: cyber-building-spark 5.5s ease-in-out infinite; }
+.cyber-building-particle-one { top: 24px; left: 22px; animation-delay: .5s; }
+.cyber-building-particle-two { top: 15px; left: 62px; animation-delay: 2.6s; }
+.cyber-building-particle-three { top: 35px; left: 43px; animation-delay: 4.1s; }
+.is-night .cyber-day-building { opacity: .82; transform: translateY(1px); }
+.is-night .cyber-day-building img { filter: brightness(.38) saturate(.58) contrast(1.15) drop-shadow(0 0 5px rgb(119 91 217 / .46)); }
+.is-night .cyber-day-building::before { background: rgb(109 70 218 / .34); }
+.is-night .cyber-building-particle { background: #c9a4ff; box-shadow: 0 0 5px 1px rgb(172 126 255 / .8); }
 .cyber-shield { position: absolute; z-index: 6; top: 15px; left: 50%; width: 23px; height: 23px; object-fit: contain; transform: translateX(-50%); filter: drop-shadow(0 0 6px rgb(255 197 60 / .75)); transition: transform 750ms cubic-bezier(.2,.8,.2,1), opacity 500ms ease; }
 
 .cyber-network-line { position: absolute; z-index: 2; height: 1px; transform-origin: left; background: linear-gradient(90deg,transparent,rgb(255 216 104 / .9),rgb(112 213 255 / .8),transparent); opacity: .75; }
@@ -798,8 +809,8 @@ html.light .hero-profile-htb-icon { filter: grayscale(1) brightness(0) invert(.2
 .cyber-circuit::after { position: absolute; right: -2px; top: -3px; width: 4px; height: 4px; content: ''; border-radius: 50%; background: #e8b85b; box-shadow: 0 0 5px #e8b85b; }
 .cyber-circuit-one { top: 22px; left: 5%; }.cyber-circuit-two { bottom: 14px; left: 28%; transform: rotate(180deg); }
 .is-night .cyber-circuit { opacity: .9; }
-@media (max-width: 480px) { .cyber-theme-toggle { width: 132px; height: 46px; }.cyber-sun-wrap { top: -8px; left: -34px; width: 72px; height: 64px; }.cyber-sun { width: 68px; height: 66px; }.cyber-server-rack { top: 8px; right: 9%; height: 29px; }.cyber-shield { top: 13px; left: 50%; width: 20px; height: 20px; }.cyber-moon { top: -6px; right: -32px; width: 66px; height: 64px; }.cyber-hacker { top: 0; width: 72px; height: 48px; } }
-@media (max-width: 360px) { .cyber-theme-toggle { width: 126px; height: 44px; }.cyber-sun-wrap { left: -30px; width: 66px; height: 58px; }.cyber-sun { width: 62px; height: 60px; }.cyber-cloud-two { display:none; }.cyber-server-rack { right: 7%; transform: scale(.88); transform-origin: right center; }.cyber-shield { left: 50%; }.cyber-hacker { width: 68px; height: 45px; }.cyber-moon { right: -29px; width: 60px; height: 58px; } }
+@media (max-width: 480px) { .cyber-theme-toggle { width: 132px; height: 46px; }.cyber-sun-wrap { top: -8px; left: -34px; width: 72px; height: 64px; }.cyber-sun { width: 68px; height: 66px; }.cyber-server-rack { top: 8px; right: 9%; height: 29px; }.cyber-day-building { width: 92px; right: -2px; bottom: -5px; }.cyber-building-particle-one { top: 21px; left: 20px; }.cyber-building-particle-two { top: 13px; left: 56px; }.cyber-building-particle-three { top: 32px; left: 40px; }.cyber-shield { top: 13px; left: 50%; width: 20px; height: 20px; }.cyber-moon { top: -6px; right: -32px; width: 66px; height: 64px; }.cyber-hacker { top: 0; width: 72px; height: 48px; } }
+@media (max-width: 360px) { .cyber-theme-toggle { width: 126px; height: 44px; }.cyber-sun-wrap { left: -30px; width: 66px; height: 58px; }.cyber-sun { width: 62px; height: 60px; }.cyber-cloud-two { display:none; }.cyber-server-rack { right: 7%; transform: scale(.88); transform-origin: right center; }.cyber-day-building { width: 88px; right: -2px; bottom: -5px; }.cyber-shield { left: 50%; }.cyber-hacker { width: 68px; height: 45px; }.cyber-moon { right: -29px; width: 60px; height: 58px; } }
 @media (prefers-reduced-motion: reduce) { .cyber-theme-toggle,.cyber-theme-toggle *, .cyber-theme-toggle::before { animation: none !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
 .htb-season-loop { position: relative; display: flex; min-height: 32px; flex: 0 0 auto; align-items: center; gap: 6px; overflow: hidden; border: 1px solid rgb(159 239 0 / .26); border-radius: 999px; background: rgb(159 239 0 / .06); padding: 4px 8px 4px 6px; color: #9fef00; }
 .htb-season-loop-orbit { position: absolute; top: 3px; left: 5px; width: 24px; height: 24px; border: 1px solid rgb(159 239 0 / .22); border-top-color: #9fef00; border-radius: 50%; animation: htb-orbit-spin 3s linear infinite; }
@@ -808,6 +819,7 @@ html.light .hero-profile-htb-icon { filter: grayscale(1) brightness(0) invert(.2
 @keyframes htb-orbit-spin { to { transform: rotate(360deg); } }
 @keyframes htb-cube-float { 0%,100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-2px) rotate(5deg); } }
 @keyframes cyber-cloud-drift { from { margin-left: -2px; } to { margin-left: 3px; } }
+@keyframes cyber-building-spark { 0%, 64%, 100% { opacity: 0; transform: translateY(3px) scale(.5); } 70% { opacity: .85; } 82% { opacity: .55; transform: translateY(-4px) scale(1); } }
 @keyframes cyber-moon-float { from { translate: 0 0; } to { translate: 0 -2px; } }
 @keyframes cyber-twinkle { from { opacity: .35; transform: scale(.75); } to { opacity: 1; transform: scale(1.45); } }
 @keyframes cyber-sun-glow { from { filter: drop-shadow(0 0 6px rgb(255 194 42 / .65)); } to { filter: drop-shadow(0 0 11px rgb(255 220 86 / .95)); } }
