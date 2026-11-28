@@ -17,7 +17,7 @@ export default function EduAIShowcase() {
   const closeModal = () => setModalImage(null)
 
   return (
-    <section className="min-h-screen bg-background text-white">
+    <section className="eduai-showcase min-h-screen bg-background text-text-primary">
       {/* Hero */}
       <div className="relative overflow-hidden bg-gradient-to-b from-violet-900/20 to-background py-20 px-6">
         <div className="max-w-7xl mx-auto">

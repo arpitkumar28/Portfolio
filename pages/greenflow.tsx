@@ -9,7 +9,7 @@ export default function GreenflowPage() {
         <title>GreenFlow AI | Traffic Intelligence Prototype</title>
         <meta name="description" content="GreenFlow AI is a traffic dashboard and emergency green-corridor workflow concept shown through interface screenshots." />
       </Head>
-      <div className="min-h-screen bg-[#061225]">
+      <div className="min-h-screen bg-background">
         <GreenFlowShowcase />
       </div>
     </>

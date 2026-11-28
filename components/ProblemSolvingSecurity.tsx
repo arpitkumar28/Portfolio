@@ -145,13 +145,13 @@ export const ProblemSolvingSecurity: React.FC = () => {
         <div className="mb-10 max-w-3xl">
           <p className="flex items-center gap-2 font-mono text-sm font-black uppercase tracking-[0.28em] text-primary">
             <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-                        Proof of work
+            Proof of work
           </p>
-          <h2 className="mt-5 text-4xl font-black tracking-tight text-text-primary md:text-6xl">
-                        Practice. Build. Break. Learn.
+          <h2 className="mt-5 text-balance text-4xl font-black tracking-tight text-text-primary md:text-6xl">
+            Practice. Build. Break. Learn.
           </h2>
-          <p className="mt-5 text-lg font-medium leading-relaxed text-text-muted md:text-xl">
-                        The places where I build, solve, investigate, and keep learning.
+          <p className="mt-5 max-w-2xl text-pretty text-lg font-medium leading-relaxed text-text-muted md:text-xl">
+            The places where I build, solve, investigate, and keep learning.
           </p>
         </div>
 

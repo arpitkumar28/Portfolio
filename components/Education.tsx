@@ -60,16 +60,16 @@ export const Education: React.FC = () => {
         {educationItems.map((item, index) => (
           <motion.div key={index} variants={itemVariants}>
             <GlassCard className="group">
-              <div className="flex items-start gap-4">
+              <div className="flex min-w-0 items-start gap-4">
                 <motion.div
-                  className="p-3 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 group-hover:from-primary/40 group-hover:to-accent/40 transition-all duration-300"
+                  className="shrink-0 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 p-3 transition-all duration-300 group-hover:from-primary/40 group-hover:to-accent/40"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                 >
                   <GraduationCap className="w-6 h-6 text-primary" />
                 </motion.div>
-                <div className="flex-1 space-y-2">
-                  <h3 className="text-xl font-bold text-text-primary">{item.degree}</h3>
-                  <p className="text-text-muted">{item.institution}</p>
+                <div className="min-w-0 flex-1 space-y-2">
+                  <h3 className="break-words text-xl font-bold leading-tight text-text-primary">{item.degree}</h3>
+                  <p className="break-words leading-relaxed text-text-muted">{item.institution}</p>
                   <div className="flex items-center gap-2 text-sm text-primary">
                     <Calendar className="w-4 h-4" />
                     <span>{item.period}</span>

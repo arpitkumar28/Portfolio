@@ -77,10 +77,10 @@ export const OpenTo: React.FC = () => {
                   <opportunity.icon className="w-8 h-8 text-primary" />
                 </motion.div>
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="mb-2 text-xl font-bold text-text-primary transition-colors group-hover:text-primary">
                     {opportunity.title}
                   </h3>
-                  <p className="text-muted text-sm">{opportunity.description}</p>
+                  <p className="text-text-muted text-sm">{opportunity.description}</p>
                 </div>
               </div>
             </GlassCard>

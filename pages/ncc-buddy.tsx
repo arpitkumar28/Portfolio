@@ -3,7 +3,7 @@ import NCCBuddyShowcase from '../components/ncc-buddy/NCCBuddyShowcase'
 
 export default function NCCBuddyPage() {
   return (
-    <main className="min-h-screen bg-background text-white">
+    <main className="min-h-screen bg-background text-text-primary">
       <NCCBuddyShowcase />
     </main>
   )

@@ -167,7 +167,7 @@ export const About: React.FC = () => {
 
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
               {stats.map(([value, label]) => (
-                <div key={label} className="rounded-xl border border-border bg-black/25 p-6 text-center">
+                <div key={label} className="rounded-xl border border-border bg-background-card p-6 text-center shadow-sm shadow-black/5">
                   <p className="text-3xl font-black text-primary">{value}</p>
                   <p className="mt-3 font-mono text-xs font-black uppercase tracking-[0.14em] text-text-muted">
                     {label}

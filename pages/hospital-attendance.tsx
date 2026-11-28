@@ -9,7 +9,7 @@ export default function HospitalAttendancePage() {
         <title>CarePulse | Hospital Workflow Concept</title>
         <meta name="description" content="CarePulse is a mobile-first concept for hospital attendance and staff workflow management." />
       </Head>
-      <div className="min-h-screen bg-background text-white">
+      <div className="min-h-screen bg-background text-text-primary">
         <HospitalAttendanceShowcase />
       </div>
     </>

@@ -154,7 +154,7 @@ export const Achievements: React.FC = () => {
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 text-primary"><ActiveIcon className="h-5 w-5" aria-hidden="true" /></span>
                     <p className="truncate font-mono text-[9px] font-black uppercase tracking-[0.14em] text-primary sm:text-[10px]">{active.label}</p>
                   </div>
-                  {activeIndex === 0 && <div className="htb-season-loop" aria-label="Season 12: all nine machines completed"><span className="htb-season-loop-orbit" /><Box className="htb-season-loop-cube" aria-hidden="true" /><span className="htb-season-loop-copy">9/9 MACHINES</span></div>}
+                  {activeIndex === 0 && <div className="htb-season-loop" aria-label="Nine of nine Season 12 machines completed"><span className="htb-season-loop-orbit" /><Box className="htb-season-loop-cube" aria-hidden="true" /><span className="htb-season-loop-copy">9/9 MACHINES</span></div>}
                 </div>
                 <h3 className="mt-4 font-display text-2xl font-black leading-tight tracking-tight text-text-primary sm:text-3xl md:text-4xl">{active.title}</h3>
                 <p className="mt-2 max-w-xl text-sm font-bold leading-relaxed text-text-secondary sm:text-base">{active.summary}</p>
